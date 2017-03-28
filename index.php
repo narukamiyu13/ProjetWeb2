@@ -48,7 +48,7 @@
                 <ul>
                     <img id="menu" src="app/assets/images/menu.png" alt="menu"/>
                     <li><a href="">Découverte </a></li>
-                     <li><a href="">Connexion </a></li>
+                     <li><a href="connexion.php">Connexion </a></li>
               </ul>
             </div>
         </nav>
@@ -56,7 +56,7 @@
             <div class="row">
                 <div id="texte">
                     <h1>Foodie: Une personne ayant un intérêt particulier pour la cuisine, Un gourmet.</h1>
-                    <button id="inscription"><a href="#">Inscription</a></button>
+                    <button id="inscription"><a href="inscription.php">Inscription</a></button>
                 </div>    
             </div>    
         </section>
