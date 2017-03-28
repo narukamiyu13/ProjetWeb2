@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<?php include_once("app/controller/controller.php");  ?>
+<?php// include_once("app/controller/controller.php");  ?>
 
     
 <body id="page-top">
