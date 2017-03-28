@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Home</title>
-    <link href="app/assets/style.css" rel="stylesheet">
+    <link href="app/assets/style1.css" rel="stylesheet">
     <link href="app/assets/bootstrap.min.css" rel="stylesheet">
      <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
