@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title>connexion</title>
     <link href="app/assets/style.css" rel="stylesheet">
     <link href="app/assets/bootstrap.min.css" rel="stylesheet">
      <!-- Custom Fonts -->
@@ -49,47 +49,44 @@
     </nav>
 
    <header id="heroSign">
-        <div class="backgroundInscription flexHead center">
-        <h1 id="signin">Inscription</h1>
+        <div class="flexHead center">
+        <h1 id="signin">Connexion</h1>
         <div>
-        <div class="wrapperIn">
-			<label>
-                <input type="text" required="required"/>
-                <span>Courriel</span>
-                <i class="fa fa-envelope"></i>
-            </label>
-            <label>
-                <input type="text" required="required"/>
-                <span>Nom utilisateur</span>
-                <i class="fa fa-user"></i>
-            </label>
-            <label>
-                <input type="password" required="required"/>
-                <span>Mot de passe</span>
-                <i class="fa fa-lock"></i>
-            </label>
-            </div>
-        </div>
+			<form method = "post" action = "">
+				<div class="wrapperIn">
+					<label>
+						<input name='nomUtilisateur' type="text" required="required"/>
+						<span>Nom utilisateur</span>
+						<i class="fa fa-user"></i>
+					</label>
+					<label>
+						<input name='motDePasse' type="password" required="required"/>
+						<span>Mot de passe</span>
+						<i class="fa fa-lock"></i>
+					</label>
+				</div>
+			</form>
+		</div>
         <div class="wrapperInb">
-			<input type="submit" id="ipJoin" value="Inscription">
+            <input type="submit" id="ipSignIn" value="Connexion">
             <p>ou</p>
-            <input onClick="window.location.href='sign-in.php'" type="submit" id="ipSignIn" value="Connexion">
+            <input onClick="window.location.href='inscription.php'" type="button" id="ipJoin" value="Inscription">
         </div>
         </div>
     </header>
 
  
     <!-- jQuery -->
-    <script src="assets/lib/jquery.min.js"></script>
+    <script src="app/assets/lib/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="assets/lib/bootstrap.min.js"></script>
+    <script src="app/assets/lib/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="assets/lib/script.js"></script>
+    <script src="app/assets/lib/script.js"></script>
 
 </body>
 
