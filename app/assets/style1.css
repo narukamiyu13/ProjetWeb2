@@ -154,6 +154,22 @@ header {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 }
+
+.backgroundInscription {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  overflow-y: hidden;
+  background: url("../img/bg-pattern.png"), #2b1955;
+  /* fallback for old browsers */
+  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #2b1955, #6c45ea);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: url("../img/bg-pattern.png"), linear-gradient(to left, #2b1955, #6c45ea);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+
 header .header-content {
   text-align: center;
   padding: 150px 0 50px;
@@ -476,17 +492,17 @@ body {
 }
 
 #ipSignIn{
- width: 100px;
- padding: 10px 25px 10px 25px;
- background-color: transparent;
- border-radius: 6px;
- border: 1px solid white;
- opacity: 0.8;
+width: 100px;
+padding: 10px 26px 10px 18px;
+background-color: transparent;
+border-radius: 6px;
+border: 1px solid white;
+opacity: 0.8;
 }
 
 #ipJoin{
  width: 100px;
- padding: 10px 25px 10px 25px;
+ padding: 10px 25px 10px 18px;
  background-color: white;
  color: #7b4397;
  border-radius: 6px;
