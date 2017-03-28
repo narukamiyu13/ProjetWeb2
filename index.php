@@ -46,7 +46,7 @@
         <nav id ="navbar">
             <div class="row">
                 <ul>
-                    <img id="menu" src="images/menu.png" alt="menu"/>
+                    <img id="menu" src="app/assets/images/menu.png" alt="menu"/>
                     <li><a href="">Découverte </a></li>
                      <li><a href="">Connexion </a></li>
               </ul>
