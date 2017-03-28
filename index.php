@@ -14,14 +14,14 @@
     -->
     <meta charset="utf-8">
     <title>Home</title>
-    <link href="assets/style.css" rel="stylesheet">
-    <link href="assets/reset.css" rel="stylesheet">
+    <link href="app/assets/style.css" rel="stylesheet">
+    <link href="app/assets/reset.css" rel="stylesheet">
      <!-- police de google -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
       <!-- menu JavaScript -->
-    <script src="js/menu.js"></script>
+    <script src="app/assets/js/menu.js"></script>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -79,9 +79,9 @@
         </section>
     <section class="viveFoodie">
         <div class="cercle">
-            <img id="oeuf" src="images/oeuf1.png" alt="oeuf"/>
-            <img id="oeuf" src="images/oeuf1.png" alt="oeuf"/>
-            <img id="oeuf" src="images/oeuf1.png" alt="oeuf"/>
+            <img id="oeuf" src="app/assets/images/oeuf1.png" alt="oeuf"/>
+            <img id="oeuf" src="app/assets/images/oeuf1.png" alt="oeuf"/>
+            <img id="oeuf" src="app/assets/images/oeuf1.png" alt="oeuf"/>
         </div>
         <h2>Vive les Foodies</h2>
     </section>
