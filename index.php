@@ -67,13 +67,13 @@
             </div>
         </section>
          <section class="banniereBlanche">
-             <img id="burger" src="images/burger.png" alt="burger"/>
+             <img id="burger" src="app/assets/images/burger.png" alt="burger"/>
                 <h2>Inspirez-vous de nos recettes!</h2>
                 <p>Des idées pleins la tête</p>
         </section>
         <section class="connectezVous">
             <div class="row3">
-                <h2>Arrêtez<br> d'attendre.<br>Commencez <br>à partager</h2></h1>
+                <h2>Arrêtez<br> d'attendre.<br>Commencez <br>à partager</h2>
                 <a href="" >Creez votre compte Foodie dès aujourd'hui</a>
             </div>
         </section>
