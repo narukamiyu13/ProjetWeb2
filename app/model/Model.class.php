@@ -21,7 +21,7 @@ class Modele {
     |------------------------------------- */ 
     public function connectionBD() {
         try{
-            $PDO = new PDO("mysql:host=localhost;dbname=foodiegoodprep","root","sellyoursoul001");
+            $PDO = new PDO("mysql:host=localhost;dbname=foodiegoodprep","root","");
             return $PDO;
         } catch(PDOException $erreur) {
             echo "Erreur: ".$erreur->getMessage()."<br/>";
