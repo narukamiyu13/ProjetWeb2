@@ -21,7 +21,7 @@ class Modele {
     |------------------------------------- */ 
     public function connectionBD() {
         try{
-            $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","");
+            $PDO = new PDO("mysql:host=localhost;dbname=foodiegoodprep","root","sellyoursoul001");
             return $PDO;
         } catch(PDOException $erreur) {
             echo "Erreur: ".$erreur->getMessage()."<br/>";
@@ -51,22 +51,22 @@ class Modele {
         
         try{
             $PDO = $this->connectionBD();
-            $requete = "SELECT COUNT(".$colone.") FROM ".$table." ";
-
-            if($personneUnique) {
-                $requete.="WHERE idUtilisateur=".$idPersonne;
+            $requete = "SELECT COUNT(".$colone.") FROM ".$table."";
+            
+            if($personneUnique){
+                $requete.=" WHERE idUtilisateur=".$idPersonne;
             }
             
-            if($photo) {
-                $requete.="WHERE idPhoto=".$photoID;
+            if($photo){
+                $requete.=" WHERE idPhoto=".$photoID;
             }
             
             $PDOStatement = $PDO->prepare($requete);
             $execution = $PDOStatement->execute();
-            $resultat =  $execution->fetch(PDO::FETCH_NUM);
+            $resultat =  $PDOStatement->fetch(PDO::FETCH_NUM);
             return $resultat[0];
             
-        } catch(PDOException $erreur) {
+        } catch(PDOException $erreur){
             echo "Erreur: ".$erreur->getMessage()." <br/>";
             die();
         }
