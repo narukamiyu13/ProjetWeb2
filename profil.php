@@ -1,10 +1,9 @@
 <?php
 //Mettre ?userID=2 ou 3 pour voir un demo controlleur pas encore fini d'in
 session_start();
-error_reporting(0);
 
 
-require_once('app/controller/controleurProfil.php');
+require_once('app/controller/ControleurProfil.class.php');
 
 if(isset($_GET['follow'])){
     $tonUsager->abonner($_SESSION['userID']);

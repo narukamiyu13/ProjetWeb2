@@ -2,8 +2,8 @@
 
 
 //Importation des modeles
-require_once('app/model/modeleUser.php');
-require_once('app/model/modeleProfil.php');
+require_once('app/model/User.class.php');
+require_once('app/model/Profil.class.php');
 
 $tonUsager = new ModeleProfil();
 $tonUsager = $tonUsager->profilUtilisateur($_GET['userID']);
