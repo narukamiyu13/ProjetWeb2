@@ -3,7 +3,7 @@
 session_start();
 
 
-require_once('app/controller/ControleurProfil.class.php');
+require_once('app/controller/ControleurProfil.class.php');// dans le controller
 
 if(isset($_GET['follow'])){
     $tonUsager->abonner($_SESSION['userID']);

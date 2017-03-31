@@ -5,9 +5,10 @@
 require_once('app/model/User.class.php');
 require_once('app/model/Profil.class.php');
 
+//set $tonUsager 2- on appel la fonction qui retourne l'objet user
 $tonUsager = new ModeleProfil();
 $tonUsager = $tonUsager->profilUtilisateur($_GET['userID']);
-
+//$tonusager(ojbet) contient tout les informations sur ton utilisateur
 
 
 $_SESSION['userID'] = 2;
@@ -28,5 +29,7 @@ if($_SESSION['userID'] == $tonUsager->idUtilisateur){
     $title = "S'Abonner";
     $checkAbonnement = $tonUsager->checkAbonnement($_SESSION['userID']);
 }
+
+//appel de la vue
 
 ?>
