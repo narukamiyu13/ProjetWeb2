@@ -1,9 +1,6 @@
 <?php
 //Mettre ?userID=2 ou 3 pour voir un demo controlleur pas encore fini d'in
 session_start();
-<<<<<<< HEAD
-
-=======
 error_reporting(0);
 //
 //
@@ -14,7 +11,6 @@ if(isset($_GET['follow'])){
     $curPage= $_GET['userID'];
     header("location:profil.php?userID=".$curPage);
 }
->>>>>>> origin/v1
 
 if(isset($_GET['unfollow'])){
     $tonUsager->desabonner($_SESSION['userID']);
@@ -22,26 +18,9 @@ if(isset($_GET['unfollow'])){
     header("location:profil.php?userID=".$curPage);
 }
 
-if(isset($_GET['follow'])){
-    $tonUsager->abonner($_SESSION['userID']);
-    $curPage= $_GET['userID'];
-    header("location:profil-laurie.php?userID=".$curPage);
-}
 
-<<<<<<< HEAD
-if(isset($_GET['unfollow'])){
-    $tonUsager->desabonner($_SESSION['userID']);
-    $curPage= $_GET['userID'];
-    header("location:profil-laurie.php?userID=".$curPage);
-}
-
-
-if($checkAbonnement){
-    $title ="Désabonner";
-=======
 if($checkAbonnement){
     $title ="Se désabonner";
->>>>>>> origin/v1
 }
 
 ?>
@@ -73,22 +52,12 @@ if($checkAbonnement){
                 
                 $(".plus").mouseover(function(){
                     $(this).html("<p><?= $title ?></p>");
-<<<<<<< HEAD
-                    this.style.fontSize = ".75em";
-                })
-                
-                $(".plus").mouseout(function(){
-                    $(this).html("<p><?php
-                    echo ($checkAbonnement == true) ?  "-" :  "+";?></p>");
-                    this.style.fontSize ="5em";
-=======
                     this.style.fontSize = "11px";
                 })
                 
                 $(".plus").mouseout(function(){
                     $(this).html("<span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
                     this.style.fontSize ="70px";
->>>>>>> origin/v1
                 })
                 
                 console.log("Abonné? <?= $checkAbonnement ?>");
@@ -111,13 +80,8 @@ if($checkAbonnement){
                      } else {
                     $currentPage=$_GET['userID'];
                     
-<<<<<<< HEAD
-                  echo ($checkAbonnement == false) ? ' window.location="profil-laurie.php?follow&userID='.$currentPage.'";' : 'window.location="profil-laurie.php?unfollow&userID='.$currentPage.'"';
-                    
-=======
                       echo ($checkAbonnement == false) ? ' window.location="profil.php?follow&userID='.$currentPage.'";' : 'window.location="profil.php?unfollow&userID='.$currentPage.'"';
 
->>>>>>> origin/v1
                              
                     
                         }
@@ -139,35 +103,20 @@ if($checkAbonnement){
             <nav><!--nav ici--></nav>
         </header>
         <main>
-<<<<<<< HEAD
-            
-            <!-- Section nom-->
-            <section class="top">
-                <h2><?= "$tonUsager->prenom"?> <?= $tonUsager->nom ?></h2>
-=======
             <!-- Section nom-->
             <section class="top">
                 <h2><?= "$tonUsager->prenom"?> <?= $tonUsager->nom ?></h2>
                 
->>>>>>> origin/v1
             </section>
             
             <!-- Section photo-->
             <section class="top op">
                 <figure class="<?php if($tonUsager->urlPhoto!=NULL){echo "unePhoto";}else{echo "photoProfilHov";}?>" >
-<<<<<<< HEAD
-                    <img class="rond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="100px" height="100px" alt="photoProfil" >
-                </figure>
-                <span class="plusprofil">Ajouter une<br>photo de profil</span>
-                <div title="<?= $title; ?>" alt="plus" class="plus" width="50px" height="50px">
-                    <p><?php echo ($checkAbonnement == true) ?  "-" :  "+";?></p>
-=======
                     <img class="rond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil">
                 </figure>
                 <span class="plusprofil">Ajouter une<br>photo de profil</span>
                 <div title="<?= $title; ?>" alt="plus" class="plus">
                     <span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>
->>>>>>> origin/v1
                 </div>
             </section>
            
