@@ -9,13 +9,13 @@ error_reporting(0);
 if(isset($_GET['follow'])){
     $tonUsager->abonner($_SESSION['userID']);
     $curPage= $_GET['userID'];
-    header("location:profil-laurie.php?userID=".$curPage);
+    header("location:profil.php?userID=".$curPage);
 }
 
 if(isset($_GET['unfollow'])){
     $tonUsager->desabonner($_SESSION['userID']);
     $curPage= $_GET['userID'];
-    header("location:profil-laurie.php?userID=".$curPage);
+    header("location:profil.php?userID=".$curPage);
 }
 
 
@@ -80,8 +80,8 @@ if($checkAbonnement){
                      } else {
                     $currentPage=$_GET['userID'];
                     
-                  echo ($checkAbonnement == false) ? ' window.location="profil-laurie.php?follow&userID='.$currentPage.'";' : 'window.location="profil-laurie.php?unfollow&userID='.$currentPage.'"';
-                    
+                      echo ($checkAbonnement == false) ? ' window.location="profil.php?follow&userID='.$currentPage.'";' : 'window.location="profil.php?unfollow&userID='.$currentPage.'"';
+
                              
                     
                         }
