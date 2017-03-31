@@ -93,6 +93,7 @@ main .top:nth-child(1) button{
 main .top:nth-child(2) img{
     padding: 10px;
     cursor: pointer;
+    position:relative;
 }
 .op .photoProfilHov .noPhoto{
     opacity: 1;
@@ -104,8 +105,8 @@ main .top:nth-child(2) img{
 }
 .plusprofil{
     position:absolute;
-    top:22%;
-    left:40%;
+    top:25%;
+    padding-right: 10%;
 /*    z-index: 2;*/
     box-sizing:border-box;
     order:1;
