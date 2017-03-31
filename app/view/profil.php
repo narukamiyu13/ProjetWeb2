@@ -41,59 +41,59 @@ if($checkAbonnement){
             
             
             
-//            $(document).ready(function(){
-//                console.log("ready");
-//                $(".recette").mouseover(function(){
-//                    $("div:first-of-type", this).removeClass("rond");
-//                })
-//                $(".recette").mouseout(function(){
-//                     $("div:first-of-type", this).addClass("rond");
-//                })
-//                
-//                $(".plus").mouseover(function(){
-//                    $(this).html("<p><?= $title ?></p>");
-//                    this.style.fontSize = "11px";
-//                })
-//                
-//                $(".plus").mouseout(function(){
-//                    $(this).html("<span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
-//                    this.style.fontSize ="70px";
-//                })
-//                
-//                console.log("Abonné? <?= $checkAbonnement ?>");
-//                
-//        
-//                
-//                
-//                var ajouter=document.querySelector(".plus");
-//                var popup=document.querySelector('.popup');
-//              
-//                
-//                ajouter.addEventListener('click',function(){
-//                    <?php
-//                        if($profilUserActuel == true) {
-//                    ?>
-//                        popup.classList.remove('hidden');
-//                  
-//                
-//                    <?php
-//                     } else {
-//                    $currentPage=$_GET['userID'];
-//                    
-//                  echo ($checkAbonnement == false) ? ' window.location="profil-laurie.php?follow&userID='.$currentPage.'";' : 'window.location="profil-laurie.php?unfollow&userID='.$currentPage.'"';
-//                    
-//                             
-//                    
-//                        }
-//                    ?>
-//                  })
-//                    var fermeture=document.querySelector('.fermeture');
-//                    fermeture.addEventListener('click',function(evt){
-//                        console.log(fermeture);
-//                        popup.classList.add('hidden');
-//                    });
-//                
-//            })
+            $(document).ready(function(){
+                console.log("ready");
+                $(".recette").mouseover(function(){
+                    $("div:first-of-type", this).removeClass("rond");
+                })
+                $(".recette").mouseout(function(){
+                     $("div:first-of-type", this).addClass("rond");
+                })
+                
+                $(".plus").mouseover(function(){
+                    $(this).html("<p><?= $title ?></p>");
+                    this.style.fontSize = "11px";
+                })
+                
+                $(".plus").mouseout(function(){
+                    $(this).html("<span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
+                    this.style.fontSize ="70px";
+                })
+                
+                console.log("Abonné? <?= $checkAbonnement ?>");
+                
+        
+                
+                
+                var ajouter=document.querySelector(".plus");
+                var popup=document.querySelector('.popup');
+              
+                
+                ajouter.addEventListener('click',function(){
+                    <?php
+                        if($profilUserActuel == true) {
+                    ?>
+                        popup.classList.remove('hidden');
+                  
+                
+                    <?php
+                     } else {
+                    $currentPage=$_GET['userID'];
+                    
+                  echo ($checkAbonnement == false) ? ' window.location="profil-laurie.php?follow&userID='.$currentPage.'";' : 'window.location="profil-laurie.php?unfollow&userID='.$currentPage.'"';
+                    
+                             
+                    
+                        }
+                    ?>
+                  })
+                    var fermeture=document.querySelector('.fermeture');
+                    fermeture.addEventListener('click',function(evt){
+                        console.log(fermeture);
+                        popup.classList.add('hidden');
+                    });
+                
+            })
             
         </script>
         <link href="app/assets/style-laurie.css" rel="stylesheet">
