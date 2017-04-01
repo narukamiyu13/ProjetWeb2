@@ -47,14 +47,14 @@ class ControleurProfil extends Controleur {
         }
         //Gérer l'affichage  
         if(!isset($_GET['modifier'])){
-
-        include_once("app/view/profil.php");
+            include_once("app/view/profil.php");
         } else {
             if($_SESSION['userID'] == $tonUsager->idUtilisateur){
-            $profilUserActuel = true;
-            $title="Modifier mon profil";
-            $_GET['modifier']="modifier";
-            include_once("app/view/modifierProfil.php");
+                $profilUserActuel = true;
+                $title="Modifier mon profil";
+                include_once("app/view/modifierProfil.php");
+            }else{
+                 include_once("app/view/voirProfil.php");
             }
         }
         

@@ -114,7 +114,7 @@ if($checkAbonnement){
                 <figure class="<?php if($tonUsager->urlPhoto!=NULL){echo "unePhoto";}else{echo "photoProfilHov";}?>" >
                     <a href="profil.php?<?php echo "userID=".$_GET['userID']."&amp;modifier=".$_GET['modifier']."";?>"><img class="rond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil"></a>
                 </figure>
-                <?php if(($_GET['userID']=2)){ ?><span class="plusprofil">Modifier mon profil</span> <?php } ?>
+                <?php if($_GET['userID']==2){ echo "<span class=\"plusprofil\">Modifier mon profil</span>";} ?>
                 <div title="<?= $title; ?>" alt="plus" class="plus">
                     <span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>
                 </div>
