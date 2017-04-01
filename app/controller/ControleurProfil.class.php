@@ -45,14 +45,17 @@ class ControleurProfil extends Controleur {
             $title = "S'Abonner";
             $checkAbonnement = $tonUsager->checkAbonnement($_SESSION['userID']);
         }
-
-
         //Gérer l'affichage  
         if(!isset($_GET['modifier'])){
 
         include_once("app/view/profil.php");
         } else {
+            if($_SESSION['userID'] == $tonUsager->idUtilisateur){
+            $profilUserActuel = true;
+            $title="Modifier mon profil";
+            $_GET['modifier']="modifier";
             include_once("app/view/modifierProfil.php");
+            }
         }
         
     }
