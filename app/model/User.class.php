@@ -4,11 +4,13 @@
 
     class Utilisateur extends Modele{
         
-        public function __construct($idUtilisateur, $nom, $prenom, $nomUtilisateur, $description, $urlPhoto, $dateJoint, $nbAbonnes, $nbAbonnements, $nbPhotos, $photos){
+        public function __construct($idUtilisateur, $nom, $prenom, $nomUtilisateur, $sexe, $courriel, $description, $urlPhoto, $dateJoint, $nbAbonnes, $nbAbonnements, $nbPhotos, $photos){
             $this->idUtilisateur = $idUtilisateur;
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->nomUtilisateur = $nomUtilisateur;
+            $this->sexe = $sexe;
+            $this->courriel = $courriel;
             $this->description = $description;
             $this->urlPhoto = $urlPhoto;
             $this->dateJoint = $dateJoint;
