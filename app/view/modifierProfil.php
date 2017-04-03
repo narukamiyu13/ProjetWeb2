@@ -1,8 +1,3 @@
-<?php
-//echo $tonUsager->sexe;
-?>
-
-
 
 
 <!DOCTYPE html>
@@ -43,7 +38,7 @@
                     </li>
                     <li>
                          <img class="rond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil">
-                        <h4>Ajouter une photo</h4>
+                        <h3><?php echo $tonUsager->nomUtilisateur;?></h3>
                     </li>
                       <li>
                         <label for="username">Nom d'utilisateur</label>

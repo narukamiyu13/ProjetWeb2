@@ -1,10 +1,13 @@
 h1{
    text-align: center;
     margin: 0 auto;
-    font-size:30px;
+    font-size:24px;
+    text-transform: uppercase;
 }
-h4{ padding-left: 70px; 
+h3{ padding-left: 70px; 
+    font-size: 18px;
      font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
+    text-transform: uppercase;
 }
 .modifier {
    font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
