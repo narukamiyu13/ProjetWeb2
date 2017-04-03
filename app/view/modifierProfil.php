@@ -33,33 +33,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
-<body>
-    <div id="container">
-        <div id="modfierProfil">
-            <section class="formulaireProfil">
-                <form action= "<?= $_SERVER['PHP_SELF'];?>" method="post">
-                    <div class="blockprofil">
-                        <h1>Modifer votre profil</h1>
-                        
- <figure class="<?php if($tonUsager->urlPhoto!=NULL){echo "unePhoto";}else{echo "photoProfilHov";}?>" >
-<!--<a href="//<?php echo "userID=".$_GET['userID']."";?>">-->
-<img class="rond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil"></a>
-                            <p>Prénom:</p><input id="prenom" type="text" value="<?php echo $tonUsager->nom;?>"  ><br>
-                             <p>Nom:</p><input id="nom" type="text" value="<?php echo $tonUsager->prenom;?>" ><br>
-                             <p>Description:</p><input id="description" type="text" value="<?php echo $tonUsager->description;?>" ><br>
-                             <p>Courriel:</p><input id="courriel" type="text"value="<?php echo $tonUsager->courriel;?>"><br>
-                             <p>Sexe:</p><input id="sexe" type="text"value="<?php echo $tonUsager->sexe;?>"><br>
-<!--
-                                <select id="sexe">
-                                    <option value="Femme">Femme</option>
-                                    <option value="homme">Homme</option>
-                                </select><br>
--->
-                            <input id="submitProfil" type="submit" value="Modifier">
+    <body>
+        <div id="container">
+            <div id="modfierProfil">
+                <section class="formulaireProfil">
+                    <form action= "<?= $_SERVER['PHP_SELF'];?>" method="post">
+                        <div class="blockprofil">
+                            <h1>Modifer votre profil</h1>
+                            <figure class="<?php if($tonUsager->urlPhoto!=NULL){echo "unePhoto";}else{echo "photoProfil";}?>" >
+                                <!--<a href="//<?php echo "userID=".$_GET['userID']."";?>">-->
+                                <img class="rond" src="<?php if($tonUsager->urlPhoto!=NULL){echo "$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil">
+                                <p>Prénom:</p><input id="prenom" type="text" value="<?php echo $tonUsager->prenom;?>"><br>
+                                <p>Nom:</p><input id="nom" type="text" value="<?php echo $tonUsager->nom;?>"><br>
+                                <p>Description:</p><input id="description" type="text" value="<?php echo $tonUsager->description;?>" ><br>
+                                <p>Courriel:</p><input id="courriel" type="text" value="<?php echo $tonUsager->courriel;?>"><br>
+                                <p>Sexe:</p><input id="sexe" type="text" value="<?php echo $tonUsager->sexe;?>">
+        <!--<select id="sexe">
+            <option value="Femme">Femme</option>
+            <option value="homme">Homme</option> </select><br>
+        -->                     <input id="submitProfil" type="submit" value="Modifier">
+                            </figure>
                         </div>
                     </form>
-            </section> 
+                </section> 
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
