@@ -53,8 +53,6 @@ class ControleurProfil extends Controleur {
                 $profilUserActuel = true;
                 $title="Modifier mon profil";
                 include_once("app/view/modifierProfil.php");
-            }else{
-                 include_once("app/view/voirProfil.php");
             }
         }
         
