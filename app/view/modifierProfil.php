@@ -35,7 +35,7 @@
     </head>
     <body class="modifier">
         <div class="container">
-                <form action="http://localhost/~laurieannegagnonouellet/ProjetWeb2laurie/profil.php?userID=<?php echo $profilUserActuel ?>" method="post">
+                <form action="profil.php&#63;userID=2" method="post">
                 <ul class="flex-outer">
                      <li>
                          <h1>Modifier le profil</h1>
