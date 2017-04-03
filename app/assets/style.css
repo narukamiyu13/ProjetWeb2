@@ -34,6 +34,7 @@ font-family: Muli;
 /*    border:1px solid black;*/
     height:780px;
 }
+
 .row2
 {
     padding-top:10px;
@@ -343,4 +344,63 @@ footer
     #navbar ul li {display:none;}
     .cercle{padding-top:20px}
     .listeFooter{width:50%}
+}
+
+
+
+/****************PAGE MODIFIER PROFIL****************/
+#modfierProfil
+{
+    width:100%;
+    margin:0 auto;
+}
+.formulaireProfil
+{
+    width: 50%;
+    margin: 0 auto;
+    border:1px solid pink;
+}
+
+
+.formulaireProfil input
+{
+    border: 0;
+    outline: 0 ;
+    background:transparent;
+    border-bottom: 1px solid #b8b8b8;
+    width:440px;
+    padding-top:30px;
+    display:block;
+    margin:0 auto;
+    padding-top:30px;
+}
+
+.formulaireProfil p
+{
+    padding-left:120px;
+    letter-spacing: 2px;
+  
+}
+
+.formulaireProfil [type="submit"]
+{
+    border: 1px solid #b8b8b8;
+    width:100px;
+    border-radius: 5px;
+    text-align: center;
+    padding:20px 15px;
+    cursor:pointer;
+    margin-top: 20px;
+}
+#sexe
+{
+  margin-left: 120px;
+    margin-top:15px;
+    letter-spacing: 2px;
+    width:440px;
+    padding:5px;
+}
+.formulaireProfil h1
+{
+    text-align:center;
 }
