@@ -30,28 +30,7 @@
 
     
 <body>
-<!--    menu slider-->
-    <div id="menuSlider" class="sideMenu">
-          <a href="javascript:void(0)" class="fermer" >&times;</a>
-          <a href="#">Profil</a>
-          <a href="#">Découverte</a>
-            <a href="#">Ajouter une photo</a>
-          <a href="#">Recherche</a>
-          <a href="#">Modifier le profil</a>
-            <a href="#">Connexion</a>
-            <a href="#">Déconnexion</a>
-    </div>
-    <div id="container">
-        <!--    entete-->
-        <nav id ="navbar">
-            <div class="row">
-                <ul>
-                    <img id="menu" src="app/assets/images/menu.png" alt="menu"/>
-                    <li><a href="">Découverte </a></li>
-                     <li><a href="connexion.php">Connexion </a></li>
-              </ul>
-            </div>
-        </nav>
+<?php include_once'header.php'; ?>
         <section class="top">
             <div class="row">
                 <div id="texte">
@@ -85,20 +64,7 @@
         </div>
         <h2>Vive les Foodies</h2>
     </section>
-    <footer>
-         <ul class="listeFooter">
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-                <li>
-                    <a href="#">Termes</a>
-                </li>
-                <li>
-                    <a href="#">FAQ</a>
-                </li>
-            </ul>
+		<?php include_once'footer.php'; ?>
     
-    </footer>
-    </div>
 </body>
 </html>    

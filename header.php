@@ -12,45 +12,45 @@
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<script src="app/assets/js/menu.js"></script>
+	
 </head>
 
 <body>
 <?php// include_once("app/controller/controller.php");  ?>
 
     
-<body id="page-top">
-	<?php include_once'header.php'; ?>
+<body>
+	<!--    menu slider-->
+	<div id="menuSlider" class="sideMenu">
+          <a href="javascript:void(0)" class="fermer" >&times;</a>
+          <a href="#">Profil</a>
+          <a href="#">Découverte</a>
+            <a href="#">Ajouter une photo</a>
+          <a href="#">Recherche</a>
+          <a href="#">Modifier le profil</a>
+            <a href="#">Connexion</a>
+            <a href="#">Déconnexion</a>
+    </div>
     
+        <!--    entete-->
+        <nav id ="navbar">
+            <div class="row">
+                <ul>
+                    <img id="menu" src="app/assets/images/menu.png" alt="menu"/>
+					
+                   
+                    <li><a href="connexion.php">Connexion </a></li>
+					<li><a href="inscription.php">Inscription </a></li>
+					 <li><a href="">Découverte </a></li>
+					<li><a href="index.php">Accueil </a></li>
+					 
+              </ul>
+            </div>
+        </nav>
+    </div>
 
-   <header class='backgroundConnexion' id="heroSign">
-        <div class="flexHead center">
-        <h1 id="signin">Connexion</h1>
-        <div>
-			<form method = "post" action = "">
-				<div class="wrapperIn">
-					<label>
-						<input name='nomUtilisateur' type="text" required="required"/>
-						<span>Nom utilisateur</span>
-						<i class="fa fa-user"></i>
-					</label>
-					<label>
-						<input name='motDePasse' type="password" required="required"/>
-						<span>Mot de passe</span>
-						<i class="fa fa-lock"></i>
-					</label>
-				</div>
-			</form>
-		</div>
-        <div class="wrapperInb">
-            <input type="submit" id="ipSignIn" value="Connexion">
-            <p>ou</p>
-            <input onClick="window.location.href='inscription.php'" type="button" id="ipJoin" value="Inscription">
-        </div>
-        </div>
+  
     </header>
-	
-	<?php include_once'footer.php'; ?>
 
  
     <!-- jQuery -->
