@@ -34,7 +34,7 @@
             <form>
                 <ul class="flex-outer">
                      <li>
-                         <h2>bloup</h2>
+                         
                          <h1>Modifier le profil</h1>
                     </li>
                     <li>
