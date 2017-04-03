@@ -41,34 +41,34 @@
                         <h3><?php echo $tonUsager->nomUtilisateur;?></h3>
                     </li>
                       <li>
-                        <label for="username">Nom d'utilisateur</label>
-                        <input type="text" id="username" value="<?php echo $tonUsager->nomUtilisateur;?>">
+                        <label for="nomUtilisateur">Nom d'utilisateur</label>
+                        <input type="text" name="nomUtilisateur" id="username" value="<?php echo $tonUsager->nomUtilisateur;?>">
                     </li>
                     <li>
                         <label for="prenom">Prenom</label>
-                        <input type="text" id="prenom" value="<?php echo $tonUsager->prenom;?>">
+                        <input type="text" id="prenom" name="prenom" value="<?php echo $tonUsager->prenom;?>">
                     </li>
                     <li>
                         <label for="nom">Nom</label>
-                        <input type="text" id="nom" value="<?php echo $tonUsager->nom;?>">
+                        <input type="text" id="nom" name="nom" value="<?php echo $tonUsager->nom;?>">
                     </li>
                     <li>
                         <label for="courriel">Courriel</label>
-                        <input type="email" id="courriel" value="<?php echo $tonUsager->courriel;?>">
+                        <input type="email" name="courriel" id="courriel" value="<?php echo $tonUsager->courriel;?>">
                     </li>
                     <li>
                         <label for="description">Description</label>
-                        <textarea rows="6" id="description"><?php echo $tonUsager->description;?></textarea>
+                        <textarea rows="6" name="description" id="description"><?php echo $tonUsager->description;?></textarea>
                     </li>
                     <li>
                         <p>Sexe</p>
                         <ul class="flex-inner">
                             <li>
-                                <input type="checkbox" id="F">
+                                <input name="sexe" type="checkbox" id="F" <?php if($tonUsager->sexe=="F"){ echo "checked"} ?>  >
                                 <label for="F">F</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="H">
+                                <input name="sexe" type="checkbox" id="H" <?php if($tonUsager->sexe=="H"){ echo "checked"} ?>>
                                 <label for="H">H</label>
                             </li>
                         </ul>
