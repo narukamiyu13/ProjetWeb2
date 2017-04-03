@@ -34,7 +34,7 @@ if($checkAbonnement){
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"> 
-<!--        <script src="app/assets/lib/script2.js"></script>-->
+        <script src="app/assets/lib/script2.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="app/assets/lib/jquery.min.js" ></script>
         <script>
@@ -80,7 +80,7 @@ if($checkAbonnement){
                      } else {
                     $currentPage=$_GET['userID'];
                     
-                      echo ($checkAbonnement == false) ? 'window.location="profil.php?follow&userID='.$currentPage.'";' : 'window.location="profil.php?unfollow&userID='.$currentPage.'"';
+                      echo ($checkAbonnement == false) ? ' window.location="profil.php?follow&userID='.$currentPage.'";' : 'window.location="profil.php?unfollow&userID='.$currentPage.'"';
 
                              
                     
