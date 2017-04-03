@@ -1,4 +1,8 @@
-
+<?php
+ if(isset($_POST['modifier'])){
+    $tonUsager->modifierProfilUser($_SESSION['userID']);
+}
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,7 +22,7 @@
         <title>Home</title>
         <link href="app/assets/style.css" rel="stylesheet">
         <link href="app/assets/reset.css" rel="stylesheet">
-         <link href="app/assets/style-laurie.css" rel="stylesheet">
+        <link href="app/assets/style-laurie.css" rel="stylesheet">
          <!-- police de google -->
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -31,10 +35,9 @@
     </head>
     <body class="modifier">
         <div class="container">
-            <form>
+                <form action="http://localhost/~laurieannegagnonouellet/ProjetWeb2laurie/profil.php?userID=<?php echo $profilUserActuel ?>" method="post">
                 <ul class="flex-outer">
                      <li>
-                         
                          <h1>Modifier le profil</h1>
                     </li>
                     <li>
@@ -43,7 +46,7 @@
                     </li>
                       <li>
                         <label for="nomUtilisateur">Nom d'utilisateur</label>
-                        <input type="text" name="nomUtilisateur" id="username" value="<?php echo $tonUsager->nomUtilisateur;?>">
+                        <input type="text" id="nomUtilisateur" name="nomUtilisateur" value="<?php echo $tonUsager->nomUtilisateur;?>">
                     </li>
                     <li>
                         <label for="prenom">Prenom</label>
@@ -55,27 +58,27 @@
                     </li>
                     <li>
                         <label for="courriel">Courriel</label>
-                        <input type="email" name="courriel" id="courriel" value="<?php echo $tonUsager->courriel;?>">
+                        <input type="email" id="courriel" name="courriel" value="<?php echo $tonUsager->courriel;?>">
                     </li>
                     <li>
                         <label for="description">Description</label>
-                        <textarea rows="6" name="description" id="description"><?php echo $tonUsager->description;?></textarea>
+                        <textarea rows="6" id="description" name="description"><?php echo $tonUsager->description;?></textarea>
                     </li>
                     <li>
                         <p>Sexe</p>
                         <ul class="flex-inner">
                             <li>
-                                <input name="sexe" type="checkbox" id="F" <?php if($tonUsager->sexe=="F"){ echo "checked"} ?>  >
+                                <input type="checkbox" id="F" name="sexe" <?php if($tonUsager->sexe=="F") {echo "checked";}?>>
                                 <label for="F">F</label>
                             </li>
                             <li>
-                                <input name="sexe" type="checkbox" id="H" <?php if($tonUsager->sexe=="H"){ echo "checked"} ?>>
+                                <input type="checkbox" id="H" name="sexe" <?php if($tonUsager->sexe=="H") {echo "checked";}?>>
                                 <label for="H">H</label>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <button type="submit">Submit</button>
+                        <button type="submit" name="modifier">Modifier</button>
                     </li>
                 </ul>
             </form>
