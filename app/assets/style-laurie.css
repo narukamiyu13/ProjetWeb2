@@ -175,17 +175,8 @@ main
 {
     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
-main .top:nth-child(1) button{
-    font-family: font-family: 'Catamaran', sans-serif;
-    font-weight: 200;
-    background-color:transparent;
-    border:2px solid white;
-    color:white;
-    font-size:12px;
-    margin:10px;
-    border-radius:5px;
-    padding:5px;
-    align-self:center;
+main .top:nth-child(1){
+    padding-top:2%;
 }
 main .top:nth-child(2) img{
     padding: 10px;
@@ -202,12 +193,11 @@ main .top:nth-child(2) img{
 }
 .plusprofil{
     position:absolute;
-    top:25%;
-    padding-right: 10%;
-/*    z-index: 2;*/
+    top:18%;
+    padding-right: 6.5%;
     box-sizing:border-box;
     order:1;
-    flex-basis: 0.5;
+    flex-basis: 0;
     visibility: hidden;
 }
 .op .photoProfilHov:hover+.plusprofil{
@@ -219,10 +209,10 @@ main section:nth-child(2) div {
     align-self: center;
     cursor:pointer;
     flex-basis: 0;
-    padding-left: 3.5%;
-    padding-right:3.5%;
-    padding-bottom: 0.6%;
-/*    padding-top: 0.5%;*/
+    padding-left: 1.5%;
+    padding-right:1.5%;
+    padding-bottom: 1.5%;
+    padding-top: 1.5%;
     box-sizing:border-box;
     border-radius: 50% 50% 50% 50%;
     transition:border .2s ease;

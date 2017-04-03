@@ -51,7 +51,7 @@ if($checkAbonnement){
                 
                 $(".plus").mouseover(function(){
                     $(this).html("<p><?= $title ?></p>");
-                    this.style.fontSize = "11px";
+                    this.style.fontSize = "13px";
                 })
                 
                 $(".plus").mouseout(function(){
@@ -95,6 +95,7 @@ if($checkAbonnement){
             })
             
         </script>
+        <link href="app/assets/reset.css" rel="stylesheet">
         <link href="app/assets/style-laurie.css" rel="stylesheet">
     </head>
     <body>
