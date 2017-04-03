@@ -34,7 +34,6 @@ if($checkAbonnement){
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"> 
-        <script src="app/assets/lib/script2.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="app/assets/lib/jquery.min.js" ></script>
         <script>
@@ -106,17 +105,25 @@ if($checkAbonnement){
             <!-- Section nom-->
             <section class="top">
                 <h2><?= "$tonUsager->prenom"?> <?= $tonUsager->nom ?></h2>
-                
             </section>
             
             <!-- Section photo-->
             <section class="top op">
                 <figure class="photoProfilHov">
-                 <?php if($_GET['userID']==2){echo "<a href=\"profil.php?userID=".$_GET['userID']."&amp;modifier=".$_GET['modifier']."\">";}else{ echo "<a href=\"#\">";}?> 
-                    <img class="rond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil">
+                    <?php if($profilUserActuel == true){
+                            echo "<a href=\"profil.php?userID=".$_GET['userID']."&amp;modifier=".$_GET['modifier']."\">";
+                        }else{
+                            echo "<a href=\"#\">";}
+                    ?> 
+                    <img class="rond" src="
+                        <?php if($tonUsager->urlPhoto!=NULL){
+                                echo"$tonUsager->urlPhoto";
+                            }else{
+                                echo"app/assets/images/images.png";
+                            }?>" width="150px" height="150px" alt="photoProfil">
                     <?php echo "</a>";?>
                 </figure>
-                <?php if($_GET['userID']==2){ echo "<span class=\"plusprofil\">Modifier mon profil</span>";} ?>
+                    <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\">Modifier mon profil</span>";} ?>
                 <div title="<?= $title; ?>" alt="plus" class="plus">
                     <span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>
                 </div>
@@ -157,8 +164,8 @@ if($checkAbonnement){
                
             </section>
             <div class="popup hidden">
-                 <div class="contenu">
-                     <div class="fermeture">X</div>
+                <div class="contenu">
+                    <div class="fermeture">X</div>
                  </div>
             </div>
         </main>
