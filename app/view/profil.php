@@ -112,7 +112,7 @@ if($checkAbonnement){
             <!-- Section photo-->
             <section class="top op">
                 <figure class="photoProfilHov">
-                 <?php if($_GET['userID']==2){echo "<a href=\"profil.php&#63; userID=".$_GET['userID']."&modifier=".$_GET['modifier']."\">";}else{ echo "<a href=\"#\">";}?> 
+                 <?php if($_GET['userID']==2){echo "<a href=\"profil.php?userID=".$_GET['userID']."&amp;modifier=".$_GET['modifier']."\">";}else{ echo "<a href=\"#\">";}?> 
                     <img class="rond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil">
                     <?php echo "</a>";?>
                 </figure>
