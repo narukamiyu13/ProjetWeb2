@@ -344,3 +344,190 @@ footer
     .cercle{padding-top:20px}
     .listeFooter{width:50%}
 }
+
+/* page connexion/inscription */
+
+
+
+input {
+    line-height: normal;
+	 margin: 0;
+    font: inherit;
+    color: inherit
+}
+input[type=checkbox],
+input[type=radio] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0
+}
+
+
+
+
+.backgroundConnexion {
+	position: relative;
+  width: 100%;
+  min-height: auto;
+  overflow-y: hidden;
+  background: url("../img/bg-pattern.png"), #7b4397;
+  /* fallback for old browsers */
+  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #7b4397, #dc2430);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: url("../img/bg-pattern.png"), linear-gradient(to left, #7b4397, #dc2430);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+
+
+
+
+
+
+
+.backgroundInscription {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  overflow-y: hidden;
+  background: url("../img/bg-pattern.png"), #2b1955;
+  /* fallback for old browsers */
+  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #2b1955, #6c45ea);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: url("../img/bg-pattern.png"), linear-gradient(to left, #2b1955, #6c45ea);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+
+
+
+#heroSign{
+   
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+.flexHead{
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 50px);
+  margin-top: 50px;
+}
+.center{
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#signin{
+    margin-bottom: 50px;
+    opacity: 0.8;
+    color: white;
+    text-align: center;
+    font-size: 36pt;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+#ipSignIn{
+width: 100px;
+padding: 10px 26px 10px 11px;
+background-color: transparent;
+border-radius: 6px;
+border: 1px solid white;
+opacity: 0.8;
+}
+
+#ipJoin{
+ width: 100px;
+ padding: 10px 25px 10px 11px;
+ background-color: white;
+ color: #7b4397;
+ border-radius: 6px;
+ border: 1px solid white;
+ opacity: 0.8;
+}
+
+#ipJoin:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+#ipSignIn:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.wrapperIn {
+  width: 500px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+}
+.wrapperInb {
+  width: 500px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.wrapperInb p{
+  margin: 0px 30px;
+  font-size: 11px;
+}
+label {
+  position: relative;
+}
+label > input {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  border-radius: 0;
+  outline: none;
+  height: 45px;
+  width: 100%;
+  font-size: 16px;
+  margin: 0 0 30px 0;
+  padding: 0;
+  padding-left: 45px;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: all .4s;
+}
+label > input:valid + span {
+  transform: translateY(-25px) scale(0.8);
+  transform-origin: 0;
+}
+label > input:valid {
+  border-bottom: 1px solid #fdcc52;
+  box-shadow: 0 1px 0 0 #fdcc52;
+}
+label > span {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 45px;
+  font-size: 16px;
+  cursor: text;
+  transition: .2s ease-out;
+}
+label > i {
+  color: white;
+  position: absolute;
+  top: 3px;
+  left: 10px;
+  font-size: 15px !important;
+  cursor: text;
+  transition: .2s ease-out;
+}
+label > input:focus + span {
+  transform: translateY(-25px) scale(0.8);
+  transform-origin: 0;
+  color: #fdcc52;
+}
+label > input:focus {
+  border-bottom: 1px solid #fdcc52;
+  box-shadow: 0 1px 0 0 #fdcc52;
+}

@@ -3,13 +3,16 @@
 <head>
     <meta charset="utf-8">
     <title>connexion</title>
-    <link href="app/assets/style1.css" rel="stylesheet">
-    <link href="app/assets/bootstrap.min.css" rel="stylesheet">
+    <link href="app/assets/style.css" rel="stylesheet">
+    <!--<link href="app/assets/bootstrap.min.css" rel="stylesheet"> -->
+	<link href="app/assets/reset.css" rel="stylesheet">
      <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<script src="app/assets/js/menu.js"></script>
 </head>
 
 <body>
@@ -17,38 +20,30 @@
 
     
 <body id="page-top">
-
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">FOODIE</a>
+	<div id="menuSlider" class="sideMenu">
+          <a href="javascript:void(0)" class="fermer" >&times;</a>
+          <a href="#">Profil</a>
+          <a href="#">Découverte</a>
+            <a href="#">Ajouter une photo</a>
+          <a href="#">Recherche</a>
+          <a href="#">Modifier le profil</a>
+            <a href="#">Connexion</a>
+            <a href="#">Déconnexion</a>
+    </div>
+    <div id="container">
+        <!--    entete-->
+        <nav id ="navbar">
+            <div class="row">
+                <ul>
+                    <img id="menu" src="app/assets/images/menu.png" alt="menu"/>
+                    <li><a href="">Découverte </a></li>
+                     <li><a href="connexion.php">Connexion </a></li>
+              </ul>
             </div>
+        </nav>
+    
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#download">Découvrez</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#features">Features</a>
-                    </li>
-            
-                    <li>
-                        <a class="page-scroll">Join/Sign-in</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-   <header id="heroSign">
+   <header class='backgroundConnexion' id="heroSign">
         <div class="flexHead center">
         <h1 id="signin">Connexion</h1>
         <div>
