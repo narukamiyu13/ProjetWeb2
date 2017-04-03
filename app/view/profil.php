@@ -4,7 +4,6 @@ session_start();
 error_reporting(0);
 //
 //
-//require_once('app/controller/controleurProfil.php');
 
 if(isset($_GET['follow'])){
     $tonUsager->abonner($_SESSION['userID']);
@@ -34,6 +33,7 @@ if($checkAbonnement){
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"> 
+        <link href="app/assets/reset.css" type="text/css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="app/assets/lib/jquery.min.js" ></script>
         <script>
@@ -57,6 +57,32 @@ if($checkAbonnement){
                 $(".plus").mouseout(function(){
                     $(this).html("<span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
                     this.style.fontSize ="70px";
+                })
+                
+                $(".popup").click(function(event){
+                    if(event.target == $(this)[0]) {
+                        $(this)[0].classList.add("hidden");
+                    }
+                })
+                
+                $(".recette").click(function(){
+                    var recetteID = this.dataset.recetteid;
+                    
+                    $.ajax({
+                        url     : "traitementAjax.php",
+                        method  : "GET",
+                        data    : "selectPhoto=select&recetteID="+recetteID,
+                        success : function(data){
+                            $(".contenuRecette").html(data);
+                            $("#affichageRecette").removeClass("hidden")
+                        },
+                        fail : function(){
+                            $(".contenuRecette").html("Oups! Cette recette n'existe pas!");
+                            $("#affichageRecette").removeClass("hidden")
+                        }
+                    
+                    });
+                    
                 })
                 
                 console.log("Abonné? <?= $checkAbonnement ?>");
@@ -147,7 +173,7 @@ if($checkAbonnement){
                 <?php
                 
                 foreach($tonUsager->photos as $photo){
-                    $str =  "<div class='recette'>
+                    $str =  "<div class='recette' data-recetteID=".$photo['idPhoto'].">
                         <div class='rond' style='background-image:url(".$photo['url'].");width:200px;height:200px;background-size:cover;'></div>";
                         if($photo['idRecette'] != NULL) {
                             $str .="<div class='corner'></div>
@@ -161,13 +187,24 @@ if($checkAbonnement){
                 }
                 
                 ?>
+                
                
             </section>
-            <div class="popup hidden">
+            <div id="ajoutPhoto" class="popup hidden">
                 <div class="contenu">
                     <div class="fermeture">X</div>
                  </div>
             </div>
+            
+
+            <div id="affichageRecette" class="popup hidden">
+                <div class="contenuRecette" style="overflow:hidden;">
+                
+                
+                </div>
+            
+            </div>
+        
         </main>
     </body>
 </html>

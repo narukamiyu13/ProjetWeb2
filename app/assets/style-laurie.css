@@ -159,15 +159,31 @@ div{
     left: 0px;
     width:100%;
     background-color: rgba(0, 0, 0, 0.6);
-    height:1000px;
+    height:100%;
+    overflow:hidden;
 }
 .contenu{
     width:80%;
     background-color: white;
     margin:0 auto;
-    height:800px;
+    height:80%;
     margin-top:5%;
 }
+
+.contenuRecette{
+    width:1200px;
+    height:600px;
+    margin:0 auto;
+    margin-top:150px;
+    background-color:white;
+
+}
+
+.contenuRecette div{
+    height:600px;
+    overflow-y:scroll;
+}
+
 .hidden{
     display:none;
 }
