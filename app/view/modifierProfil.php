@@ -39,53 +39,23 @@ $profilUserActuel=$_SESSION['userID'];
     </head>
     <body class="modifier">
         <div class="container">
-                <form action="profil.php&#63;userID=<?php echo $profilUserActuel?>&modifier=" method="post">
-                <ul class="flex-outer">
-                     <li>
-                         <h1>Modifier le profil</h1>
-                    </li>
-                    <li>
-                         <img class="rond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil">
-                        <h3><?php echo $tonUsager->nomUtilisateur;?></h3>
-                    </li>
-                      <li>
-                        <label for="nomUtilisateur">Nom d'utilisateur</label>
-                        <input type="text" id="nomUtilisateur" name="nomUtilisateur" value="<?php echo $tonUsager->nomUtilisateur;?>">
-                         
-                    </li>
-                    <li>
-                        <label for="prenom">Prenom</label>
-                        <input type="text" id="prenom" name="prenom" value="<?php echo $tonUsager->prenom;?>">
-                    </li>
-                    <li>
-                        <label for="nom">Nom</label>
-                        <input type="text" id="nom" name="nom" value="<?php echo $tonUsager->nom;?>">
-                    </li>
-                    <li>
-                        <label for="courriel">Courriel</label>
-                        <input type="email" id="courriel" name="courriel" value="<?php echo $tonUsager->courriel;?>">
-                    </li>
-                    <li>
-                        <label for="description">Description</label>
-                        <textarea rows="6" id="description" name="description"><?php echo $tonUsager->description;?></textarea>
-                    </li>
-                    <li>
-                        <p>Sexe</p>
-                        <ul class="flex-inner">
-                            <li>
-                                <input type="radio" id="F" name="sexe" value="F"<?php if($tonUsager->sexe=="F") {echo "checked";}?>>
-                                <label for="F">F</label>
-                            </li>
-                            <li>
-                                <input type="radio" id="H" name="sexe" value="H"<?php if($tonUsager->sexe=="H") {echo "checked";}?>>
-                                <label for="H">H</label>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <button type="submit" name="modifier">Modifier</button>
-                    </li>
-                </ul>
+            <form action="profil.php&#63;userID=<?php echo $profilUserActuel?>&modifier=" method="post">
+                <img class="rond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil">
+                <h3><?php echo $tonUsager->nomUtilisateur;?></h3>
+                <label for="nomUtilisateur">Nom d'utilisateur</label>
+                <input type="text" id="nomUtilisateur" name="nomUtilisateur" value="<?php echo $tonUsager->nomUtilisateur;?>">
+                <label for="prenom">Prenom</label>
+                <input type="text" id="prenom" name="prenom" value="<?php echo $tonUsager->prenom;?>">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" value="<?php echo $tonUsager->nom;?>">
+                <label for="courriel">Courriel</label>
+                <input type="email" id="courriel" name="courriel" value="<?php echo $tonUsager->courriel;?>">
+                <label for="description">Description</label>
+                <textarea rows="6" id="description" name="description"><?php echo $tonUsager->description;?></textarea><p>Sexe</p>
+                <label for="F">F</label>
+                <input type="radio" id="F" name="sexe" value="F"<?php if($tonUsager->sexe=="F") {echo "checked";}?>>
+                <label for="H">H</label>
+                <input type="radio" id="H" name="sexe" value="H"<?php if($tonUsager->sexe=="H") {echo "checked";}?>><button type="submit" name="modifier">Modifier</button>
             </form>
         </div>
     </body>

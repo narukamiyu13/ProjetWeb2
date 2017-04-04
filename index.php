@@ -30,17 +30,43 @@
 
     
 <body>
-<!--    menu slider-->
-    <div id="menuSlider" class="sideMenu">
+    <?php
+    //session_start();
+   // $_SESSION['userID'] = 2;
+  
+    
+    if(!isset($_SESSION['userID']))
+       {
+           
+       ?>
+
+          <div id="menuSlider" class="sideMenu">
           <a href="javascript:void(0)" class="fermer" >&times;</a>
-          <a href="#">Profil</a>
-          <a href="#">Découverte</a>
+            <a href="inscription.php">Profil</a>
+            <a href="inscription.php">Découverte</a>
+            <a href="inscription.php">Ajouter une photo</a>
+          <a href="inscription.php">Recherche</a>
+          <a href="inscription.php">Modifier le profil</a>
+            <a href="inscription.php">Connexion</a>
+            <a href="inscription.php">Déconnexion</a>
+    </div>
+
+    <?php    
+              }else {
+       ?>    
+        <div id="menuSlider" class="sideMenu">
+          <a href="javascript:void(0)" class="fermer" >&times;</a>
+            <a href="#">Profil</a>
+            <a href="#">Découverte</a>
             <a href="#">Ajouter une photo</a>
           <a href="#">Recherche</a>
           <a href="#">Modifier le profil</a>
-            <a href="#">Connexion</a>
+            <a href="connexion.php">Connexion</a>
             <a href="#">Déconnexion</a>
-    </div>
+    </div>   
+      <?php     
+       }
+    ?>
     <div id="container">
         <!--    entete-->
         <nav id ="navbar">

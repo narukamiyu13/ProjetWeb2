@@ -107,6 +107,16 @@
         }
         function modifierProfilUser($idUtilisateur){
             try{
+                
+            
+                    
+                       
+//
+//                    $folder = "app/assets/images";
+//                    move_uploaded_file($_FILES["image"]["tmp_name"] , "$folder".$_FILES["image"]["name"]);
+                       
+                       
+                
                 $PDO = $this->connectionBD();
                 if(isset($_POST['modifier']) && !empty($_POST['nomUtilisateur']) || !empty($_POST['courriel']) || !empty($_POST['prenom']) || !empty($_POST['nom']) || !empty($_POST['description']) || !empty($_POST['sexe'])){
                     $nomUtilisateur = $_POST['nomUtilisateur'];
