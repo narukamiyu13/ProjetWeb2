@@ -4,9 +4,10 @@ h1{
     font-size:24px;
     text-transform: uppercase;
 }
-h3{ padding-left: 70px; 
+h3{ 
+    padding-left: 70px; 
     font-size: 18px;
-     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
+    font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
     text-transform: uppercase;
 }
 .modifier {
@@ -193,7 +194,7 @@ main .top:nth-child(2) img{
 }
 .plusprofil{
     position:absolute;
-    top:18%;
+    top:20%;
     padding-right: 6.5%;
     box-sizing:border-box;
     order:1;

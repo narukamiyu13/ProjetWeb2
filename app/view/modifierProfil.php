@@ -1,7 +1,11 @@
 <?php
+
+$profilUserActuel=$_SESSION['userID'];
  if(isset($_POST['modifier'])){
-    $tonUsager->modifierProfilUser($_SESSION['userID']);
+    $tonUsager->modifierProfilUser($profilUserActuel);
+    $tonUsager = $this->modele->profilUtilisateur($_GET['userID']);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +24,8 @@
         -->
         <meta charset="utf-8">
         <title>Home</title>
-        <link href="app/assets/style.css" rel="stylesheet">
         <link href="app/assets/reset.css" rel="stylesheet">
+        <link href="app/assets/style.css" rel="stylesheet">
         <link href="app/assets/style-laurie.css" rel="stylesheet">
          <!-- police de google -->
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -35,7 +39,7 @@
     </head>
     <body class="modifier">
         <div class="container">
-                <form action="profil.php&#63;userID=2" method="post">
+                <form action="profil.php&#63;userID=<?php echo "$profilUserActuel"?>" method="post">
                 <ul class="flex-outer">
                      <li>
                          <h1>Modifier le profil</h1>
@@ -47,6 +51,7 @@
                       <li>
                         <label for="nomUtilisateur">Nom d'utilisateur</label>
                         <input type="text" id="nomUtilisateur" name="nomUtilisateur" value="<?php echo $tonUsager->nomUtilisateur;?>">
+                         
                     </li>
                     <li>
                         <label for="prenom">Prenom</label>
@@ -68,11 +73,11 @@
                         <p>Sexe</p>
                         <ul class="flex-inner">
                             <li>
-                                <input type="checkbox" id="F" name="sexe" <?php if($tonUsager->sexe=="F") {echo "checked";}?>>
+                                <input type="checkbox" id="F" name="sexe" value="F"<?php if($tonUsager->sexe=="F") {echo "checked";}?>>
                                 <label for="F">F</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="H" name="sexe" <?php if($tonUsager->sexe=="H") {echo "checked";}?>>
+                                <input type="checkbox" id="H" name="sexe" value="H"<?php if($tonUsager->sexe=="H") {echo "checked";}?>>
                                 <label for="H">H</label>
                             </li>
                         </ul>

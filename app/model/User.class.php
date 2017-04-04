@@ -108,16 +108,17 @@
         function modifierProfilUser($idUtilisateur){
             try{
                 $PDO = $this->connectionBD();
-                if(!empty($_POST['nomUtilisateur']) && !empty($_POST['courriel']) || !empty($_POST['prenom']) || !empty($_POST['nom']) || !empty($_POST['description']) || !empty($_POST['sexe'])){
-                    $_POST['nomUtilisateur']=$nomUtilisateur;
-                    $_POST['courriel']=$courriel;
-                    $_POST['prenom']= $prenom;
-                    $_POST['nom']=$nom;
-                    $_POST['description']=$description;
-                    $_POST['sexe']=$sexe;
+                if(isset($_POST['modifier']) && !empty($_POST['nomUtilisateur']) || !empty($_POST['courriel']) || !empty($_POST['prenom']) || !empty($_POST['nom']) || !empty($_POST['description']) || !empty($_POST['sexe'])){
+                    $nomUtilisateur = $_POST['nomUtilisateur'];
+                    $courriel = $_POST['courriel'];
+                    $prenom = $_POST['prenom'];
+                    $nom= $_POST['nom'];
+                    $description = $_POST['description'];
+                    $sexe = $_POST['sexe'];
                     $requete="UPDATE utilisateur SET nomUtilisateur='$nomUtilisateur',courriel='$courriel',prenom='$prenom',nom='$nom',description='$description',sexe='$sexe' WHERE idUtilisateur='$idUtilisateur'";
                     $PDOStatement = $PDO->prepare($requete);
                     $PDOStatement->execute();
+                    
                 }
             }catch(PDOException $e) {
                 echo "Erreur: ".$e->getMessage();
