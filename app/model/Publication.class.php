@@ -4,6 +4,20 @@ require_once("Model.class.php");
 
     class Publication extends Modele{
         
+        
+        /* -------------------------------------
+        | fonction selectionnerPhotoRecette
+        | -------------------------
+        | PARAM
+        |   $photoID : (int) Le ID de la photo de laquelle on veut les informations
+        | -------------------------
+        | RETURN
+        |   Array   : (ARRAY) Les informations de la photo    
+        | -------------------------
+        | DESCRIPTION
+        |   Sélectionne et renvoie toutes les informations relatives à une photo, 
+        |   sa recette, les ingrédients nécessaires et les étapes de préparation.
+        |------------------------------------- */ 
         public function selectionnerPhotoRecette($photoID){
             try{
                 $PDO = $this->connectionBD();
@@ -16,7 +30,12 @@ require_once("Model.class.php");
                     $query = "SELECT * FROM recettes WHERE idRecette=".$photoRecette['idRecette'];
                     $PDOStatement = $PDO->prepare($query);
                     $PDOStatement->execute();
-                    $recette = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+                    $recette = $PDOStatement->fetch(PDO::FETCH_ASSOC);
+                    
+                    $query = "SELECT * FROM etapepreparation WHERE idRecette =".$photoRecette['idRecette']."  ORDER BY numeroEtape ASC";
+                    $PDOStatement = $PDO->prepare($query);
+                    $PDOStatement->execute();
+                    $etapes = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
 
 
                     $query = "SELECT * FROM recettes_has_ingredients INNER JOIN ingredients ON recettes_has_ingredients.idingredient = ingredients.idingredient WHERE recettes_has_ingredients.idRecette=".$photoRecette['idRecette'];
@@ -24,7 +43,7 @@ require_once("Model.class.php");
                     $PDOStatement->execute();
                     $ingredientsRecette = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
                     
-                     return Array("photo"=>$photoRecette,"recette"=>$recette, "ingredients"=>$ingredientsRecette);
+                     return Array("photo"=>$photoRecette,"recette"=>$recette, "ingredients"=>$ingredientsRecette, "etapes"=>$etapes);
                 } else {
                     return Array("photo"=>$photoRecette);
                 }
@@ -35,7 +54,49 @@ require_once("Model.class.php");
             }
             
         }
-
+        
+        
+        /* -------------------------------------
+        | fonction getMiam
+        | -------------------------
+        | PARAM
+        |   $photoID : (int) Le ID de la photo de laquelle on veut les informations
+        | -------------------------
+        | RETURN
+        |   $nbMiam   : (int) Le nombre de mentions miam de la photo
+        | -------------------------
+        | DESCRIPTION
+        |   Sélectionne et retourne le nombre de mentions Miam d'une photo
+        |------------------------------------- */ 
+        public function getMiam($photoID){
+            $nbMiam = $this->selectionnerNombre('idUtilisateur', 'likes', false, NULL,true,$photoID);
+            return $nbMiam;
+        }
+        
+        /* -------------------------------------
+        | fonction getCommentaires
+        | -------------------------
+        | PARAM
+        |   $photoID : (int) Le ID de la photo de laquelle on veut les informations
+        | -------------------------
+        | RETURN
+        |   $commentaires   : (ARRAY) Les commentaires de la photo et leurs informations
+        | -------------------------
+        | DESCRIPTION
+        |   Sélectionne et retourne les commentaires sur une photo et leurs informations
+        |------------------------------------- */ 
+        public function getCommentaires($photoID){
+            $PDO = $this->connectionBD();
+            $query = "SELECT prenom, nom, comment.description FROM comment INNER JOIN utilisateur ON comment.idUtilisateur = utilisateur.idUtilisateur WHERE comment.idPhoto=".$photoID;
+            $PDOStatement = $PDO->prepare($query);
+            $PDOStatement->execute();
+            $commentaires = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $commentaires;
+            
+            //return $nbMiam;
+        }
+        
     }
 
 ?>
