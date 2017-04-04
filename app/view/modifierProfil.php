@@ -39,7 +39,7 @@ $profilUserActuel=$_SESSION['userID'];
     </head>
     <body class="modifier">
         <div class="container">
-                <form action="profil.php&#63;userID=<?php echo "$profilUserActuel"?>" method="post">
+                <form action="profil.php&#63;userID=<?php echo $profilUserActuel?>&modifier=" method="post">
                 <ul class="flex-outer">
                      <li>
                          <h1>Modifier le profil</h1>
@@ -73,11 +73,11 @@ $profilUserActuel=$_SESSION['userID'];
                         <p>Sexe</p>
                         <ul class="flex-inner">
                             <li>
-                                <input type="checkbox" id="F" name="sexe" value="F"<?php if($tonUsager->sexe=="F") {echo "checked";}?>>
+                                <input type="radio" id="F" name="sexe" value="F"<?php if($tonUsager->sexe=="F") {echo "checked";}?>>
                                 <label for="F">F</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="H" name="sexe" value="H"<?php if($tonUsager->sexe=="H") {echo "checked";}?>>
+                                <input type="radio" id="H" name="sexe" value="H"<?php if($tonUsager->sexe=="H") {echo "checked";}?>>
                                 <label for="H">H</label>
                             </li>
                         </ul>
