@@ -25,7 +25,7 @@
 
    <header class='backgroundConnexion' id="heroSign">
         <div class="flexHead center">
-        <h1 id="signin">Connexion</h1>
+        <h1 id="titreCI">Connexion</h1>
         <div>
 			<form method = "post" action = "">
 				<div class="wrapperIn">

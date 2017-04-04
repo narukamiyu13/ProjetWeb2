@@ -421,7 +421,7 @@ input[type=radio] {
   align-items: center;
   flex-direction: column;
 }
-#signin{
+#titreCI{
     margin-bottom: 50px;
     opacity: 0.8;
     color: white;
@@ -429,6 +429,7 @@ input[type=radio] {
     font-size: 36pt;
     font-weight: 400;
     line-height: 150%;
+	font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 #ipSignIn{
@@ -438,6 +439,7 @@ background-color: transparent;
 border-radius: 6px;
 border: 1px solid white;
 opacity: 0.8;
+font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 #ipJoin{
@@ -448,6 +450,7 @@ opacity: 0.8;
  border-radius: 6px;
  border: 1px solid white;
  opacity: 0.8;
+ font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 #ipJoin:hover{
@@ -495,6 +498,8 @@ label > input {
   box-shadow: none;
   box-sizing: content-box;
   transition: all .4s;
+  font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
+   
 }
 label > input:valid + span {
   transform: translateY(-25px) scale(0.8);
@@ -512,6 +517,7 @@ label > span {
   font-size: 16px;
   cursor: text;
   transition: .2s ease-out;
+  font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
 label > i {
   color: white;

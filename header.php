@@ -10,13 +10,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 	
 	
 </head>
 
 <body>
-<?php// include_once("app/controller/controller.php");  ?>
+
 
     
 <body>
@@ -40,9 +40,8 @@
 					
                    
                     <li><a href="connexion.php">Connexion </a></li>
-					<li><a href="inscription.php">Inscription </a></li>
-					 <li><a href="">Découverte </a></li>
-					<li><a href="index.php">Accueil </a></li>
+					<li><a href="">Découverte </a></li>
+					
 					 
               </ul>
             </div>

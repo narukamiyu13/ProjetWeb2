@@ -25,7 +25,7 @@
 
    <header class='backgroundInscription' id="heroSign">
         <div class="flexHead center">
-        <h1 id="signin">Inscription</h1>
+        <h1 id="titreCI">Inscription</h1>
         <div>
 			<form method = "post" action = "">
 				<div class="wrapperIn">
