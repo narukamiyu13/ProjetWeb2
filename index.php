@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+//echo $_SESSION['id'];
+
+
+?>
 <html lang="fr">
 <head>
     <!--

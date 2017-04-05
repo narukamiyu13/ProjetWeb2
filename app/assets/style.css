@@ -26,29 +26,61 @@ font-family: Muli;
     background-color: #f8f8f8;
 }
 
+
 .row
 {
     padding-top:10px;
     width:90%;
     margin: 0 auto;
-/*    border:1px solid black;*/
     height:780px;
+}
+
+/*
+#navbar > div > ul > li:nth-child(4) > a
+{
+border:1px solid blue;
+color:#fdcc52;
+font-size:20pt;
+    display:block;
+    text-align:center;
+  position:relative;
+    top:-40px; 
+    height:55px;
+    width:100%
+   
+}
+*/
+
+#menucentre
+{
+    width:100%;
+    text-align:center;
+    position:relative;
+    color:#fdcc52;
+    font-size:20pt;
+    top:15px;
+}
+#menucentre h2 a
+{
+ color:#fdcc52;   
 }
 .row2
 {
     padding-top:10px;
     width:50%;
     margin: 0 auto;
-/*    border:1px solid black;*/
+    
    
 }
 
-#navbar ul li 
+#navbar > div > ul > li:nth-child(3) > a, #navbar > div > ul > li:nth-child(2) > a
 {
     float: right;  
 	list-style: none;
     padding:20px;
     color:#5e5e5e;
+    position:relative;
+    top:-80px;
     
 }
 #navbar ul li :hover
@@ -72,6 +104,8 @@ a
     width:55px;
     height: 55px;
     cursor:pointer;
+        position:relative;
+    top:-25px;
 }
 /*side menu*/
 .sideMenu
@@ -324,6 +358,7 @@ footer
 }
 @media all and (max-width: 768px )
 {
+    #menucentre{width:80%;}
     .banniereJaune h2, #burger,#texte {margin-top: 100px;}
     .banniereBlanche h2,.banniereJaune h2{font-size:30pt;}
     #oeuf{ width:150px;height: 150px;}
@@ -331,8 +366,10 @@ footer
    .listeFooter{width:25%}
    
 }
+
 @media all and (max-width:  480px )
 {
+     #menucentre{width:100%;}
     .banniereJaune h2, #burger {margin-top: 60px;}
     .banniereBlanche h2,.banniereJaune h2,#texte h1,.viveFoodie h2 {font-size:24pt;}
     .connectezVous h2{font-size:43pt;}
@@ -344,7 +381,6 @@ footer
     .cercle{padding-top:20px}
     .listeFooter{width:50%}
 }
-
 /* page connexion/inscription */
 
 
@@ -429,7 +465,7 @@ input[type=radio] {
     font-size: 36pt;
     font-weight: 400;
     line-height: 150%;
-	font-family: Muli;
+	font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 #ipSignIn{
@@ -439,7 +475,7 @@ background-color: transparent;
 border-radius: 6px;
 border: 1px solid white;
 opacity: 0.8;
-font-family: Muli;
+font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 #ipJoin{
@@ -450,7 +486,7 @@ font-family: Muli;
  border-radius: 6px;
  border: 1px solid white;
  opacity: 0.8;
-font-family: Muli;
+ font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 #ipJoin:hover{
@@ -498,7 +534,7 @@ label > input {
   box-shadow: none;
   box-sizing: content-box;
   transition: all .4s;
-  font-family: Muli;
+  font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
    
 }
 label > input:valid + span {
@@ -517,7 +553,7 @@ label > span {
   font-size: 16px;
   cursor: text;
   transition: .2s ease-out;
-  font-family: Muli;
+  font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
 label > i {
   color: white;

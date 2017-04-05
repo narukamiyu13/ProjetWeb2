@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -27,7 +30,7 @@
         <div class="flexHead center">
         <h1 id="titreCI">Inscription</h1>
         <div>
-			<form method = "post" action = "">
+			<form method = "POST" action = "php/signIn.php">
 				<div class="wrapperIn">
 					<label>
 						<input name='courriel' type="text" required="required"/>
@@ -45,10 +48,11 @@
 						<i class="fa fa-lock"></i>
 					</label>
 				</div>
-			</form>
+			
         </div>
         <div class="wrapperInb">
 			<input type="submit" id="ipJoin" value="Inscription">
+			</form>
             <p>ou</p>
             <input onClick="window.location.href='connexion.php'" type="submit" id="ipSignIn" value="Connexion">
         </div>

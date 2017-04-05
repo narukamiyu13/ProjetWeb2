@@ -10,13 +10,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	
+	<script src="app/assets/js/menu.js"></script>
 </head>
 
 <body>
-
+<?php// include_once("app/controller/controller.php");  ?>
 
     
 <body>
@@ -34,17 +34,22 @@
     
         <!--    entete-->
         <nav id ="navbar">
-            <div class="row">
+             <div class="row"> 
+                
+                <div id="menucentre">
+                 <h2><a href="index.php">Foodie</a></h2>
+                </div>    
                 <ul>
+                    
                     <img id="menu" src="app/assets/images/menu.png" alt="menu"/>
-					
+
                    
-                    <li><a href="connexion.php">Connexion </a></li>
-					<li><a href="">Découverte </a></li>
+					 <li><a href="">Découverte </a></li>
+                    <li><a href="connexion.php">Connexion</a></li>
 					
 					 
               </ul>
-            </div>
+            </div> 
         </nav>
     </div>
 

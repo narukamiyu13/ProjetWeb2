@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+
+
+
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -27,7 +34,7 @@
         <div class="flexHead center">
         <h1 id="titreCI">Connexion</h1>
         <div>
-			<form method = "post" action = "">
+			<form method = "POST" action = "php/login.php">
 				<div class="wrapperIn">
 					<label>
 						<input name='nomUtilisateur' type="text" required="required"/>
@@ -40,10 +47,11 @@
 						<i class="fa fa-lock"></i>
 					</label>
 				</div>
-			</form>
+			
 		</div>
         <div class="wrapperInb">
             <input type="submit" id="ipSignIn" value="Connexion">
+			</form>
             <p>ou</p>
             <input onClick="window.location.href='inscription.php'" type="button" id="ipJoin" value="Inscription">
         </div>
