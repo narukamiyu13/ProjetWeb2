@@ -17,7 +17,7 @@ $_SESSION['motDePasse'] = $mp;
 
 
 
-// si la case est vide le user ne s'inscrit pas
+
 
 		
 			
@@ -34,16 +34,16 @@ $_SESSION['motDePasse'] = $mp;
                         
                       $_SESSION['nomUtilisateur'] = $nomUtilisateur;
 					  $_SESSION['courriel'] = $courriel; 
-					  $_SESSION['motDePasse'] = $mpd; 
+					  $_SESSION['motDePasse'] = $mp; 
 
                                            
 
-                                 $sql = "SELECT * FROM utilisateur WHERE nomUtilisateur='$nomUtilisateur' and motDePasse ='$mpd'";
+                                 $sql = "SELECT * FROM utilisateur WHERE nomUtilisateur='$nomUtilisateur' and motDePasse ='$mp'";
                                 $result = mysqli_query($conn, $sql);
 
                                              // metre le id du user dans une variable session
                                 if(!$row = mysqli_fetch_assoc($result)) {
-                                     echo "Votre email ou mot de passes est incorect";
+                                     echo "Votre nomUtilisateurt incorect";
 								}else{
                                      $_SESSION['id'] = $row['idUtilisateur'] ;
 
