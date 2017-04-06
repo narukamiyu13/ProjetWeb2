@@ -5,7 +5,6 @@ session_start();
 error_reporting(0);
 
 //Si il y a une variable suivre dans l'url l'utilisateur connecté s'abonne d'un autre utilisateur
->>>>>>> refs/remotes/origin/v1-lauriie
 if(isset($_GET['follow'])){
     $tonUsager->abonner($_SESSION['userID']);
     $curPage= $_GET['userID'];
@@ -107,11 +106,11 @@ if(isset($_POST["publier"])){
                         contentType : "text/html;charset=utf-8;",   
                         success     : function(data){
                                         $(".contenuRecette").html(data);
-                                        $("#affichageRecette").removeClass("hidden")
+                                        $("#affichageRecette").removeClass("hidden");
                                         },
                         fail    : function(){
                                         $(".contenuRecette").html("Oups! Cette recette n'existe pas!");
-                                        $("#affichageRecette").removeClass("hidden")
+                                        $("#affichageRecette").removeClass("hidden");
                                         }
                     
                     });

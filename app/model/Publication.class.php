@@ -97,68 +97,7 @@ require_once("Model.class.php");
             //return $nbMiam;
         }
         
-    }
-
-
-
-                    $query = "SELECT * FROM recettes_has_ingredients INNER JOIN ingredients ON recettes_has_ingredients.idingredient = ingredients.idingredient WHERE recettes_has_ingredients.idRecette=".$photoRecette['idRecette'];
-                    $PDOStatement = $PDO->prepare($query);
-                    $PDOStatement->execute();
-                    $ingredientsRecette = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
-                    
-                     return Array("photo"=>$photoRecette,"recette"=>$recette, "ingredients"=>$ingredientsRecette, "etapes"=>$etapes);
-                } else {
-                    return Array("photo"=>$photoRecette);
-                }
-
-               
-            }catch(PDOException $e) {
-                return "Erreur: ".$e->getMessage();
-            }
-            
-        }
-        
-        
-        /* -------------------------------------
-        | fonction getMiam
-        | -------------------------
-        | PARAM
-        |   $photoID : (int) Le ID de la photo de laquelle on veut les informations
-        | -------------------------
-        | RETURN
-        |   $nbMiam   : (int) Le nombre de mentions miam de la photo
-        | -------------------------
-        | DESCRIPTION
-        |   Sélectionne et retourne le nombre de mentions Miam d'une photo
-        |------------------------------------- */ 
-        public function getMiam($photoID){
-            $nbMiam = $this->selectionnerNombre('idUtilisateur', 'likes', false, NULL,true,$photoID);
-            return $nbMiam;
-        }
-        
-        /* -------------------------------------
-        | fonction getCommentaires
-        | -------------------------
-        | PARAM
-        |   $photoID : (int) Le ID de la photo de laquelle on veut les informations
-        | -------------------------
-        | RETURN
-        |   $commentaires   : (ARRAY) Les commentaires de la photo et leurs informations
-        | -------------------------
-        | DESCRIPTION
-        |   Sélectionne et retourne les commentaires sur une photo et leurs informations
-        |------------------------------------- */ 
-        public function getCommentaires($photoID){
-            $PDO = $this->connectionBD();
-            $query = "SELECT prenom, nom, comment.description FROM comment INNER JOIN utilisateur ON comment.idUtilisateur = utilisateur.idUtilisateur WHERE comment.idPhoto=".$photoID;
-            $PDOStatement = $PDO->prepare($query);
-            $PDOStatement->execute();
-            $commentaires = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
-            
-            return $commentaires;
-            
-            //return $nbMiam;
-        }
+   
          public function ajouterCreations(){
           try{
      
