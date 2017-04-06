@@ -298,7 +298,7 @@ main section:nth-child(3) div span
 {
      font-weight: bold;
 }
-main section:nth-child(4) p{
+main section:nth-child(4) p,main section:nth-child(5) p{
     width: 75vh;
     padding:20px;
     align-self: flex-start;

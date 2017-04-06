@@ -168,6 +168,9 @@ if(isset($_POST["publier"])){
             
             <!-- section membre depuis-->
             <section class="top">
+                 <p style="font-style:italic;"><?= $tonUsager->description ?></p>
+            </section>
+            <section class="top">
                 <p> Membre depuis <?= date("Y",strtotime($tonUsager->dateJoint)); ?></p>
             </section>
             
