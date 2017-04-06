@@ -47,7 +47,7 @@ class ModeleProfil extends Modele {
     function selectionnerPhotosUtilisateur($idUtilisateur){
          try{
             $PDO = $this->connectionBD();
-            $requete = "SELECT * FROM  photo WHERE idUtilisateur=".$idUtilisateur;
+            $requete = "SELECT * FROM  photo WHERE idUtilisateur=$idUtilisateur ORDER BY idPhoto DESC";
             $PDOStatement = $PDO->prepare($requete);
             $PDOStatement->execute();
             $photos = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);

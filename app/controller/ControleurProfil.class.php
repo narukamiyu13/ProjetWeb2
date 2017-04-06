@@ -48,11 +48,8 @@ class ControleurProfil extends Controleur {
         //Gérer l'affichage  
         if(!isset($_GET['modifier'])){
             include_once("app/view/profil.php");
-            $profilUserActuel = false;
         } else {
-                $profilUserActuel = true;
-                include_once("app/view/modifierProfil.php");
-            
+            include_once("app/view/modifierProfil.php");
         }
         
     }

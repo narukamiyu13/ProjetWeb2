@@ -105,9 +105,82 @@
                 echo "Erreur: ".$e->getMessage();
             }
         }
+        function modifierProfilUser($idUtilisateur){
+            try{
+     
+                $PDO = $this->connectionBD();
+                if(isset($_POST['modifier']) && !empty($_POST['nomUtilisateur']) || !empty($_POST['courriel']) || !empty($_POST['prenom']) || !empty($_POST['nom']) || !empty($_POST['description']) || !empty($_POST['sexe'])){
+                    $nomUtilisateur = $_POST['nomUtilisateur'];
+                    $courriel = $_POST['courriel'];
+                    $prenom = $_POST['prenom'];
+                    $nom= $_POST['nom'];
+                    $description = $_POST['description'];
+                    $sexe = $_POST['sexe'];
+                    $requete="UPDATE utilisateur SET nomUtilisateur='$nomUtilisateur',courriel='$courriel',prenom='$prenom',nom='$nom',description='$description',sexe='$sexe' WHERE idUtilisateur='$idUtilisateur'";
+                    $PDOStatement = $PDO->prepare($requete);
+                    $PDOStatement->execute();
+                    
+                }
+            }catch(PDOException $e) {
+                echo "Erreur: ".$e->getMessage();
+            }
+        }
+        
+//        if(isset($_FILES['uploaded_file'])) {
+//    // Make sure the file was sent without errors
+//    if($_FILES['uploaded_file']['error'] == 0) {
+//        // Connect to the database
+//        $dbLink = new mysqli('127.0.0.1', 'user', 'pwd', 'myTable');
+//        if(mysqli_connect_errno()) {
+//            die("MySQL connection failed: ". mysqli_connect_error());
+//        }
+// 
+//        // Gather all required data
+//        $name = $dbLink->real_escape_string($_FILES['uploaded_file']['name']);
+//        $mime = $dbLink->real_escape_string($_FILES['uploaded_file']['type']);
+//        $data = $dbLink->real_escape_string(file_get_contents($_FILES  ['uploaded_file']['tmp_name']));
+//        $size = intval($_FILES['uploaded_file']['size']);
         
         
+         /* -------------------------------------
+        | fonction modifier le profil
+        | -------------------------
+        | PARAM
+        |   $idUtilisateur : (int) Le ID de l'utilisateur connecté 
+        | -------------------------
+        | RETURN
+        |   aucun    
+        | -------------------------
+        | DESCRIPTION
+        |   modifie la photo de profil de l'utilisateur
+        |------------------------------------- */
         
+       function modifierPhotoProfil($idUtilisateur){
+           
+          try{
+     
+                $PDO = $this->connectionBD();
+              
+
+                  if(isset($_FILES['photo']))
+                  {
+                        $folder="app/photoProfil/";
+                        $photo = ( "$folder".$_FILES['photo']['name']);
+
+                        $requete="UPDATE utilisateur SET urlPhoto='$photo' WHERE idUtilisateur='$idUtilisateur'";
+
+                        $PDOStatement = $PDO->prepare($requete);
+                        $PDOStatement->execute();
+                  }
+
+                    
+                    
+            
+            }catch(PDOException $e) {
+                echo "Erreur: ".$e->getMessage();
+            }
+    
+       }
     }
 
 ?>

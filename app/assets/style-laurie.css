@@ -226,17 +226,8 @@ main
 {
     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
-main .top:nth-child(1) button{
-    font-family: font-family: 'Catamaran', sans-serif;
-    font-weight: 200;
-    background-color:transparent;
-    border:2px solid white;
-    color:white;
-    font-size:12px;
-    margin:10px;
-    border-radius:5px;
-    padding:5px;
-    align-self:center;
+main .top:nth-child(1){
+    padding-top:2%;
 }
 main .top:nth-child(2) img{
     padding: 10px;
@@ -252,13 +243,17 @@ main .top:nth-child(2) img{
     opacity: .5;
 }
 .plusprofil{
+
     position:absolute;
-    top:25%;
-    padding-right: 10%;
-/*    z-index: 2;*/
+    line-height: 1.5em;
+    height: 2em;   
+    white-space: nowrap;
+    overflow: hidden; 
+    padding-right:6.5%;
+    align-self: center;
     box-sizing:border-box;
     order:1;
-    flex-basis: 0.5;
+    flex-basis: 0;
     visibility: hidden;
 }
 .op .photoProfilHov:hover+.plusprofil{
@@ -270,14 +265,10 @@ main section:nth-child(2) div {
     align-self: center;
     cursor:pointer;
     flex-basis: 0;
-    padding-left: 3.5%;
-    padding-right:3.5%;
-    padding-bottom: 0.6%;
-/*    padding-top: 0.5%;*/
+    padding: 20px;
     box-sizing:border-box;
     border-radius: 50% 50% 50% 50%;
     transition:border .2s ease;
-/*    max-width: 10;*/
 
 }
 main section:nth-child(2) div span{
@@ -308,7 +299,7 @@ main section:nth-child(3) div span
 {
      font-weight: bold;
 }
-main section:nth-child(4) p{
+main section:nth-child(4) p,main section:nth-child(5) p{
     width: 75vh;
     padding:20px;
     align-self: flex-start;
@@ -327,6 +318,9 @@ h2{
     main section:nth-child(3)
     {
         flex-flow: column;
+    }
+     .plusprofil{
+        padding-right:16%;
     }
     main section:nth-child(4) p
     {
