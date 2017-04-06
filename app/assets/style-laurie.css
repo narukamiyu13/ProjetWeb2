@@ -243,13 +243,17 @@ main .top:nth-child(2) img{
     opacity: .5;
 }
 .plusprofil{
+
     position:absolute;
-    top:20%;
-    padding-right: 6%;
-/*    z-index: 2;*/
+    line-height: 1.5em;
+    height: 2em;   
+    white-space: nowrap;
+    overflow: hidden; 
+    padding-right:6%;
+    align-self: center;
     box-sizing:border-box;
     order:1;
-    flex-basis: 0.5;
+    flex-basis: 0;
     visibility: hidden;
 }
 .op .photoProfilHov:hover+.plusprofil{
@@ -261,10 +265,7 @@ main section:nth-child(2) div {
     align-self: center;
     cursor:pointer;
     flex-basis: 0;
-    padding-left: 1.5%;
-    padding-right:1.5%;
-    padding-bottom: 1.5%;
-    padding-top: 1.5%;
+    padding: 20px;
     box-sizing:border-box;
     border-radius: 50% 50% 50% 50%;
     transition:border .2s ease;
@@ -317,6 +318,9 @@ h2{
     main section:nth-child(3)
     {
         flex-flow: column;
+    }
+     .plusprofil{
+        padding-right:20%;
     }
     main section:nth-child(4) p
     {
