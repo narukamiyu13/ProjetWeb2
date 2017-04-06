@@ -13,9 +13,7 @@
 </head>
 
 <body>
-<?php// include_once("app/controller/controller.php");  ?>
 
-    
 <body id="page-top">
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
