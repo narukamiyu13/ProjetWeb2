@@ -28,10 +28,13 @@ class ControleurProfil extends Controleur {
     |   Gère l'affichage des profils
     |------------------------------------- */ 
     public function gererProfil(){
+       // var_dump($_SESSION["userID"]);
+        
         
         $tonUsager = $this->modele->profilUtilisateur($_GET['userID']);
-        $_SESSION['userID'] = 2;
-
+        
+//        $_SESSION['userID'] = 2;
+       
         //Gérer les différences de comportement entre notre profil, et le profil des autres.
         if($_SESSION['userID'] == $tonUsager->idUtilisateur){
              //Le code si c'est le profil de l'utilisateur connecté
@@ -43,19 +46,19 @@ class ControleurProfil extends Controleur {
             //Le code si c'est le profil d'un autre utilisateur
             $profilUserActuel = false;
             $title = "S'Abonner";
+            echo $_SESSION['userID'];
             $checkAbonnement = $tonUsager->checkAbonnement($_SESSION['userID']);
         }
-
-
         //Gérer l'affichage  
         if(!isset($_GET['modifier'])){
-
-        include_once("app/view/profil.php");
+            include_once("app/view/profil.php");
         } else {
             include_once("app/view/modifierProfil.php");
         }
         
     }
+    
+   
     
 }
 

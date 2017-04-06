@@ -1,8 +1,104 @@
+h1{
+   text-align: center;
+    margin: 0 auto;
+    font-size:24px;
+    text-transform: uppercase;
+}
+h3{ padding-left: 70px; 
+    font-size: 18px;
+     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
+    text-transform: uppercase;
+}
+.modifier {
+   font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
+    background-color: #fdc741;
+    color: #fff;
+    padding: 50px 0;
+}
 
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container * {
+  box-sizing: border-box;
+}
+
+.flex-outer,
+.flex-inner {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flex-outer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flex-outer li,
+.flex-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-inner {
+  padding: 0 8px;
+  justify-content: space-between;  
+}
+
+.flex-outer > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.flex-outer li label,
+.flex-outer li p {
+  padding: 8px;
+  font-weight: 300;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.flex-outer > li > label,
+.flex-outer li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.flex-outer > li > label + *,
+.flex-inner {
+  flex: 1 0 220px;
+}
+
+.flex-outer li p {
+  margin: 0;
+}
+
+.flex-outer li input:not([type='checkbox']),
+.flex-outer li textarea {
+  padding: 15px;
+  border: none;
+}
+
+.flex-outer li button {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  background: #333;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  border-radius: 2px;
+}
+
+.flex-inner li {
+  width: 100px;
+}
 .top 
 {
     margin:0 auto;
-    background-color: #fdc741;
     display:flex;
     flex-direction:row;
     justify-content: center;
@@ -11,6 +107,7 @@
     align-items: center;
     color:white;
     align-items: center;
+      background-color: #fdc741;
 }
 div{
     clear:both;
@@ -62,33 +159,75 @@ div{
     left: 0px;
     width:100%;
     background-color: rgba(0, 0, 0, 0.6);
-    height:1000px;
+    height:100%;
+    overflow:hidden;
 }
 .contenu{
     width:80%;
     background-color: white;
     margin:0 auto;
-    height:800px;
+    height:80%;
     margin-top:5%;
 }
+
 .hidden{
     display:none;
 }
+
+/*   LES STYLES DU POPUP DE RECETTE */
+
+.contenuRecette{
+    width:1200px;
+    height:600px;
+    margin:0 auto;
+    margin-top:150px;
+    background-color:#fdc741;
+}
+
+.contenuRecette #laRecette{
+    height:600px;
+    overflow-y:scroll;
+}
+
+.contenuRecette h2{
+    font-size:2em;
+    position:absolute;
+    bottom:10px;
+    left:50px;
+}
+
+.informations{
+    display:inline-block;
+    border-right:1px solid black;
+    width:700px;
+}
+
+.informations h3:nth-of-type(2){
+    margin-top:70px;
+    margin-bottom:20px;
+}
+
+.informations .etape{
+    margin-top:5px;
+}
+
+.commentaires{
+    display:inline-block;
+    width:400px;
+}
+
+.commentaires .commentaire span{
+    font-weight:bold;
+}
+
+/*LES STYLES GÉNÉRAUX */
+
 main
 {
     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
-main .top:nth-child(1) button{
-    font-family: font-family: 'Catamaran', sans-serif;
-    font-weight: 200;
-    background-color:transparent;
-    border:2px solid white;
-    color:white;
-    font-size:12px;
-    margin:10px;
-    border-radius:5px;
-    padding:5px;
-    align-self:center;
+main .top:nth-child(1){
+    padding-top:2%;
 }
 main .top:nth-child(2) img{
     padding: 10px;
@@ -105,8 +244,8 @@ main .top:nth-child(2) img{
 }
 .plusprofil{
     position:absolute;
-    top:25%;
-    padding-right: 10%;
+    top:20%;
+    padding-right: 6%;
 /*    z-index: 2;*/
     box-sizing:border-box;
     order:1;
@@ -122,14 +261,13 @@ main section:nth-child(2) div {
     align-self: center;
     cursor:pointer;
     flex-basis: 0;
-    padding-left: 3.5%;
-    padding-right:3.5%;
-    padding-bottom: 0.6%;
-/*    padding-top: 0.5%;*/
+    padding-left: 1.5%;
+    padding-right:1.5%;
+    padding-bottom: 1.5%;
+    padding-top: 1.5%;
     box-sizing:border-box;
     border-radius: 50% 50% 50% 50%;
     transition:border .2s ease;
-/*    max-width: 10;*/
 
 }
 main section:nth-child(2) div span{

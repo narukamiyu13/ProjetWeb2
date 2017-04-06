@@ -341,10 +341,10 @@ footer
 }
 .listeFooter
 {
-    width:15%;
+    width: 9%;
     margin: 0 auto;
-    padding-top:50px;
-    padding-left: 15px;
+    padding-top: 50px;
+    
 }
 .listeFooter li
 {
@@ -364,6 +364,12 @@ footer
     #oeuf{ width:150px;height: 150px;}
     .cercle{ width:90%;}
    .listeFooter{width:25%}
+   
+
+}
+   
+   
+   
    
 }
 
@@ -406,7 +412,7 @@ input[type=radio] {
 	position: relative;
   width: 100%;
   min-height: auto;
-  overflow-y: hidden;
+  
   background: url("../img/bg-pattern.png"), #7b4397;
   /* fallback for old browsers */
   background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #7b4397, #dc2430);
@@ -427,7 +433,7 @@ input[type=radio] {
   position: relative;
   width: 100%;
   min-height: auto;
-  overflow-y: hidden;
+  
   background: url("../img/bg-pattern.png"), #2b1955;
   /* fallback for old browsers */
   background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #2b1955, #6c45ea);
@@ -447,10 +453,10 @@ input[type=radio] {
 }
 
 .flexHead{
-  display: flex;
-  width: 100%;
-  height: calc(100vh - 50px);
-  margin-top: 50px;
+      display: flex;
+    width: 100%;
+    height: calc(91vh - 80px);
+    margin-top: 50px;
 }
 .center{
   justify-content: center;
@@ -465,7 +471,7 @@ input[type=radio] {
     font-size: 36pt;
     font-weight: 400;
     line-height: 150%;
-	font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
+	font-family: Muli;
 }
 
 #ipSignIn{
@@ -475,7 +481,7 @@ background-color: transparent;
 border-radius: 6px;
 border: 1px solid white;
 opacity: 0.8;
-font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
+font-family: Muli;
 }
 
 #ipJoin{
@@ -486,7 +492,7 @@ font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
  border-radius: 6px;
  border: 1px solid white;
  opacity: 0.8;
- font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
+ font-family: Muli;
 }
 
 #ipJoin:hover{
@@ -503,8 +509,28 @@ font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
   display: flex;
   flex-direction: column;
 }
+
+@media only screen and (max-width: 900px) {
+    .wrapperIn {
+      width: auto;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+	  
+	}
+	#navbar > div > ul > li:nth-child(3) > a, #navbar > div > ul > li:nth-child(2) > a
+	{
+		visibility:hidden;	
+	}
+}
+
+
+@media only screen and (max-width: 900px) {
+	
+	
+}	
 .wrapperInb {
-  width: 500px;
+  width: auto;
   margin: 30px auto;
   display: flex;
   flex-direction: row;
@@ -513,13 +539,15 @@ font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
 .wrapperInb p{
   margin: 0px 30px;
-  font-size: 11px;
+  font-size: 11pt;
+  font-family: Muli;
 }
 label {
   position: relative;
+  width:100%;
 }
 label > input {
-  position: relative;
+  
   background-color: transparent;
   border: none;
   border-bottom: 1px solid white;
@@ -527,16 +555,28 @@ label > input {
   outline: none;
   height: 45px;
   width: 100%;
-  font-size: 16px;
+  font-size: 15pt;
   margin: 0 0 30px 0;
   padding: 0;
   padding-left: 45px;
   box-shadow: none;
   box-sizing: content-box;
   transition: all .4s;
-  font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
+  font-family: Muli;
    
 }
+
+/** 
+margin-bottom: 20px;
+margin-top: 10px;
+width:100%;
+padding: 15px;
+border-radius:5px;
+border:1px solid #7ac9b7;
+
+
+
+**/
 label > input:valid + span {
   transform: translateY(-25px) scale(0.8);
   transform-origin: 0;
@@ -550,10 +590,10 @@ label > span {
   position: absolute;
   top: 0;
   left: 45px;
-  font-size: 16px;
+  font-size: 16pt;
   cursor: text;
   transition: .2s ease-out;
-  font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
+  font-family: Muli;
 }
 label > i {
   color: white;
@@ -572,4 +612,93 @@ label > input:focus + span {
 label > input:focus {
   border-bottom: 1px solid #fdcc52;
   box-shadow: 0 1px 0 0 #fdcc52;
+}
+
+
+/*  page recherche */
+.categorie{
+	width:100%;
+	position:absolute;
+}
+
+.categorie ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	    width: 100%;
+    background-color: #333;
+}
+
+.categorie li {
+    float: left;
+}
+
+.categorie li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 33px 37px;
+    text-decoration: none;
+    font-family: Muli;
+	font-size: 16pt;
+	opacity: 0.4;
+	background-color: #333;
+}
+
+.categorie li a:hover {
+    opacity: 1;
+}
+
+.patate{
+	
+	background-image: url("images/patate.jpg");
+}
+
+.tomate{
+	
+	background-image: url("images/tomate.jpg");
+}
+
+.piment{
+	
+	background-image: url("images/piment.jpg");
+}
+
+.carotte{
+	
+	background-image: url("images/carrotte.jpg");
+}
+
+
+.entete
+{
+   
+    width:100%;
+    height:auto;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('images/enteteRecherche.jpg');
+  background-attachment: fixed;
+  padding: 250px 0;
+ 
+}
+ 
+ 
+.contenu{
+	height:400px;
+	width:100px;
+}
+
+.entete h2{
+	    font-size: 54pt;
+    color: white;
+    /* margin-left: 55px; */
+    /* margin: -149px 0px 0 55px; */
+    text-align: center;
+    margin: -85px 0px 0 0;
+	font-family: Muli;
 }
