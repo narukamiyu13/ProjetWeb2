@@ -30,7 +30,7 @@
             <a href="javascript:void(0)" class="fermer" >&times;</a>
             <a href="profil.php?userID=<?= $_SESSION['userID']?>">Profil</a>
             <a href="#">Découverte</a>
-            <a href="#">Recherche</a>
+            <a href="recherche.php">Recherche</a>
             <a href="profil.php?userID=<?= $_SESSION['userID']?>&modifier">Modifier le profil</a>
             <a href="index.php?deconnexion">Déconnexion</a>
         </div>   
