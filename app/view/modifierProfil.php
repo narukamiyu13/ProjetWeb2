@@ -57,7 +57,8 @@ if(isset($_POST['enregistrer'])) {
  if(isset($_POST['modifier'])){
     $tonUsager->modifierProfilUser($profilUserActuel);
     $tonUsager = $this->modele->profilUtilisateur($_GET['userID']);
-     
+
+    header("location:profil.php?userID=".$_GET['userID']);
 }
 
 ?>
@@ -157,5 +158,6 @@ if(isset($_POST['enregistrer'])) {
                 </div>
             </div> 
     </header>        
+
     </body>
 </html>
