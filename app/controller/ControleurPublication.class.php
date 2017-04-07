@@ -1,6 +1,7 @@
 <?php
 
 require_once("app/model/Publication.class.php");
+
 require_once("app/model/Recette.class.php");
 require_once("Controleur.class.php");
 
@@ -53,7 +54,7 @@ public function gererVueAjoutPhoto(){
     
     
     
-    
+
 }
 
 ?>

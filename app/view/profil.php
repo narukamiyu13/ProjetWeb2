@@ -2,6 +2,7 @@
 //Mettre ?userID=2 ou 3 pour voir un demo controlleur pas encore fini d'inplementer
 //Demarre la session de lutilisateur
 error_reporting(0);
+
 //Si il y a une variable suivre dans l'url l'utilisateur connecté s'abonne d'un autre utilisateur
 if(isset($_GET['follow'])){
     $tonUsager->abonner($_SESSION['userID']);
@@ -53,7 +54,7 @@ if(isset($_POST["publier"])){
                 //Permet d'ajouter le titre sur la classe plus si on la survole
                 $(".plus").mouseover(function(){
                     $(this).html("<p><?= $title ?></p>");
-                    this.style.fontSize = "11px";
+                    this.style.fontSize = "14px";
                 })
                 //Remet un -si la variable checkAbonnement est vrai ou un + si elle est la variabl est fausse dans le rond d'abonnement lorsqu'on ne survol plus la division
                 $(".plus").mouseout(function(){
@@ -82,6 +83,33 @@ if(isset($_POST["publier"])){
                         fail    : function(){
                                         $(".contenuRecette").html("Oups! Cette recette n'existe pas!");
                                         $("#affichageRecette").removeClass("hidden")
+                                        }
+                    
+                    });
+                    
+                })
+                
+                $(".popup").click(function(event){
+                    if(event.target == $(this)[0]) {
+                        $(this)[0].classList.add("hidden");
+                    }
+                })
+                
+                $(".recette").click(function(){
+                    var recetteID = this.dataset.recetteid;
+                    
+                    $.ajax({
+                        url         : "traitementAjax.php",
+                        method      : "GET",
+                        data        : "selectPhoto&recetteID="+recetteID,
+                        contentType : "text/html;charset=utf-8;",   
+                        success     : function(data){
+                                        $(".contenuRecette").html(data);
+                                        $("#affichageRecette").removeClass("hidden");
+                                        },
+                        fail    : function(){
+                                        $(".contenuRecette").html("Oups! Cette recette n'existe pas!");
+                                        $("#affichageRecette").removeClass("hidden");
                                         }
                     
                     });
@@ -152,7 +180,9 @@ if(isset($_POST["publier"])){
                             }?>" width="150px" height="150px" alt="photoProfil">
                     <?php echo "</a>";?>
                 </figure>
-                    <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\">Modifier mon profil</span>";} ?>
+
+                    <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\"><p>Modifier mon profil</p></span>";} ?>
+
                 <div title="<?= $title; ?>" alt="plus" class="plus">
                     <span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>
                 </div>
@@ -166,6 +196,9 @@ if(isset($_POST["publier"])){
             </section>
             
             <!-- section membre depuis-->
+            <section class="top">
+                 <p style="font-style:italic;"><?= utf8_encode($tonUsager->description) ?></p>
+            </section>
             <section class="top">
                 <p> Membre depuis <?= date("Y",strtotime($tonUsager->dateJoint)); ?></p>
             </section>

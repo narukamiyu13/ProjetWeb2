@@ -4,10 +4,12 @@
 
     class Utilisateur extends Modele{
         
+
         public function __construct($idUtilisateur,$nomUtilisateur, $motDePasse, $nom, $prenom,  $sexe, $courriel, $description, $urlPhoto, $dateJoint, $nbAbonnes, $nbAbonnements, $nbPhotos, $photos){
+
             $this->idUtilisateur = $idUtilisateur;
             $this->nomUtilisateur = $nomUtilisateur;
-            $this->$motDePasse = $motDePasse;
+            $this->motDePasse = $motDePasse;
             $this->nom = $nom;
             $this->prenom = $prenom;            
             $this->sexe = $sexe;
@@ -128,21 +130,8 @@
                 echo "Erreur: ".$e->getMessage();
             }
         }
-        
-//        if(isset($_FILES['uploaded_file'])) {
-//    // Make sure the file was sent without errors
-//    if($_FILES['uploaded_file']['error'] == 0) {
-//        // Connect to the database
-//        $dbLink = new mysqli('127.0.0.1', 'user', 'pwd', 'myTable');
-//        if(mysqli_connect_errno()) {
-//            die("MySQL connection failed: ". mysqli_connect_error());
-//        }
-// 
-//        // Gather all required data
-//        $name = $dbLink->real_escape_string($_FILES['uploaded_file']['name']);
-//        $mime = $dbLink->real_escape_string($_FILES['uploaded_file']['type']);
-//        $data = $dbLink->real_escape_string(file_get_contents($_FILES  ['uploaded_file']['tmp_name']));
-//        $size = intval($_FILES['uploaded_file']['size']);
+
+
         
         
          /* -------------------------------------
@@ -184,10 +173,6 @@
             }
     
        }
-        
-         
-        
-        
     }
 
 ?>

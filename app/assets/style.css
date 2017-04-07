@@ -387,6 +387,66 @@ footer
     .cercle{padding-top:20px}
     .listeFooter{width:50%}
 }
+
+/****************PAGE MODIFIER PROFIL****************/
+#modfierProfil
+{
+    width:100%;
+    margin:0 auto;
+}
+.formulaireProfil
+{
+    width: 50%;
+    margin: 0 auto;
+    border:1px solid pink;
+}
+
+
+.formulaireProfil input
+{
+    border: 0;
+    outline: 0 ;
+    background:transparent;
+    border-bottom: 1px solid #b8b8b8;
+    width:440px;
+    padding-top:30px;
+    display:block;
+    margin:0 auto;
+    padding-top:30px;
+}
+
+.formulaireProfil p
+{
+    padding-left:120px;
+    letter-spacing: 2px;
+  
+}
+
+.formulaireProfil [type="submit"]
+{
+    border: 1px solid #b8b8b8;
+    width:100px;
+    border-radius: 5px;
+    text-align: center;
+    padding:20px 15px;
+    cursor:pointer;
+    margin-top: 20px;
+}
+/*
+#sexe
+{
+  margin-left: 120px;
+    margin-top:15px;
+    letter-spacing: 2px;
+    width:440px;
+    padding:5px;
+}
+*/
+.formulaireProfil h1
+{
+    text-align:center;
+}
+
 /* page connexion/inscription */
 
 
@@ -436,9 +496,10 @@ input[type=radio] {
   
   background: url("../img/bg-pattern.png"), #2b1955;
   /* fallback for old browsers */
-  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #2b1955, #6c45ea);
+  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #002950, #0E8BFF);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: url("../img/bg-pattern.png"), linear-gradient(to left, #2b1955, #6c45ea);
+  background: url("../img/bg-pattern.png"), linear-gradient(to left, #002950, #0E8BFF);
+
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 }
@@ -582,8 +643,10 @@ label > input:valid + span {
   transform-origin: 0;
 }
 label > input:valid {
-  border-bottom: 1px solid #fdcc52;
-  box-shadow: 0 1px 0 0 #fdcc52;
+
+  border-bottom: 1px solid #fff;
+  box-shadow: 0 1px 0 0 #fff;
+
 }
 label > span {
   color: white;
@@ -648,6 +711,12 @@ label > input:focus {
 
 .categorie li a:hover {
     opacity: 1;
+    padding: 22px 36px;
+    text-decoration: none;
+}
+
+.categorie li a:hover {
+    background-color: #111;
 }
 
 .patate{
@@ -701,4 +770,152 @@ label > input:focus {
     text-align: center;
     margin: -85px 0px 0 0;
 	font-family: Muli;
+
+	background-image: url("paper.gif");
+}
+/***********************modifierProfil********************/
+
+#wrapperModifierProfil
+{
+  height: 100%;
+    margin:0px;
+}
+
+
+#imagerond
+{
+    margin-bottom: 40px;
+}
+
+#utilisateur
+{
+    opacity: 0.8;
+    color: white;
+    text-align: center;
+    font-size: 32pt;
+    font-weight: 400;
+	font-family: Muli;
+    position:relative;
+    top:100px;
+    left:40px;
+}
+#F,#H
+{
+    box-shadow: none;
+    border-bottom: none;
+    width:20px;
+    display:block;
+    color:#fff;
+   border:2px solid white;
+    
+}
+#F
+{
+   position:relative;
+    top:-10px;
+}
+#H
+{
+    position:relative;
+    top:-35px;
+}
+#sexeF,#sexeH
+{
+    font-size:18pt;
+}
+#fileToUpload
+{
+    border-bottom: none;
+    box-shadow: none;
+}
+.btnModifier
+{
+ width: 200px;
+ padding: 10px 25px 10px 11px;
+ background-color: white;
+ color: #7b4397;
+ border-radius: 6px;
+ border: 1px solid white;
+ opacity: 0.8;
+font-size:14pt;
+ font-family: Muli;
+    position:relative;
+    top:-30px;
+    left:70px;
+}
+
+#wrapperModifierProfil > form > div > div > label:nth-child(2) > span
+{
+    width:200px;
+}
+#ModfierPhoto
+{
+    position:relative;
+    top:-50px;
+    
+}
+
+#ModfierPhoto p
+{
+    font-size:16pt;
+    padding-bottom:15px;
+}
+.btnImage
+{
+ width: 100px;
+padding: 10px 26px 10px 11px;
+background-color: transparent;
+border-radius: 6px;
+border: 2px solid white;
+opacity: 0.8;
+font-family: Muli;
+}
+#fileToUpload
+{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+#enregistrerImage
+{
+  width: 200px;
+ padding: 10px 25px 10px 11px;
+ background-color: white;
+ color: #7b4397;
+ border-radius: 6px;
+ border: 1px solid white;
+ opacity: 0.8;
+font-size:14pt;
+ font-family: Muli; 
+margin-left:20px;
+}
+
+@media all and (max-width: 768px )
+{
+    
+    #wrapperModifierProfil > form > div{margin: 100px}
+     label > input{  width: 80%}
+    #sexeF{top:65px;left:-450px;}
+    #nomUtilisateur,#prenom,#nom,#courriel,#description,#sexeF,#sexeH{box-shadow: none;}
+}
+@media all and (max-width:  480px )
+{
+    .center{flex-direction: none;}
+    #imagerond{width:100px;height:100px;}
+    #utilisateur{font-size: 22px;}
+    label > span,#ModfierPhoto > form > p {font-size:12pt;}
+
+    #nomUtilisateur,#prenom,#nom,#courriel,#description,#sexeF,#sexeH{font-size:9pt;box-shadow: none;}
+       #sexeF{top:0;left:45px;}
+    #sexeF,#sexeH{font-size:12pt;}
+    #ModfierPhoto > form > p{margin-bottom:15px;}
+    #btnImage {;margin:none;}
+   #enregistrerImage{margin-left:0px;margin-top:30px;width:185px;}
+    #utilisateur{font-size:12pt;top:50px}
+    #wrapperModifierProfil > form > div > div:nth-child(1) > label:nth-child(1) > button{width:130px;font-size:10pt}
+    
+
 }
