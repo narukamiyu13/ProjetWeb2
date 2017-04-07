@@ -1,8 +1,24 @@
-
-.top 
-{
-    margin:0 auto;
+h1{
+   text-align: center;
+    margin: 0 auto;
+    font-size:24px;
+    text-transform: uppercase;
+}
+h3{ padding-left: 70px; 
+    font-size: 18px;
+     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
+    text-transform: uppercase;
+}
+.modifier {
+   font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
     background-color: #fdc741;
+    color: #fff;
+    padding: 50px 0;
+}
+
+.haut 
+{
+  
     display:flex;
     flex-direction:row;
     justify-content: center;
@@ -11,6 +27,7 @@
     align-items: center;
     color:white;
     align-items: center;
+    background-color: #fdc741;
 }
 div{
     clear:both;
@@ -62,56 +79,106 @@ div{
     left: 0px;
     width:100%;
     background-color: rgba(0, 0, 0, 0.6);
-    height:1000px;
+    height:100%;
+    overflow:hidden;
 }
 .contenu{
     width:80%;
     background-color: white;
     margin:0 auto;
-    height:800px;
+    height:80%;
     margin-top:5%;
 }
+
 .hidden{
     display:none;
 }
+
+/*   LES STYLES DU POPUP DE RECETTE */
+
+.contenuRecette{
+    width:1200px;
+    height:600px;
+    margin:0 auto;
+    margin-top:150px;
+    background-color:#fdc741;
+}
+
+.contenuRecette #laRecette{
+    height:600px;
+    overflow-y:scroll;
+}
+
+.contenuRecette h2{
+    font-size:2em;
+    position:absolute;
+    bottom:10px;
+    left:50px;
+}
+
+.informations{
+    display:inline-block;
+    border-right:1px solid black;
+    width:700px;
+}
+
+.informations h3:nth-of-type(2){
+    margin-top:70px;
+    margin-bottom:20px;
+}
+
+.informations .etape{
+    margin-top:5px;
+}
+
+.commentaires{
+    display:inline-block;
+    width:400px;
+}
+
+.commentaires .commentaire span{
+    font-weight:bold;
+}
+
+/*LES STYLES GÉNÉRAUX */
+
 main
 {
     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
-main .top:nth-child(1) button{
-    font-family: font-family: 'Catamaran', sans-serif;
-    font-weight: 200;
-    background-color:transparent;
-    border:2px solid white;
-    color:white;
-    font-size:12px;
-    margin:10px;
-    border-radius:5px;
-    padding:5px;
-    align-self:center;
+main .haut:nth-child(1){
+    padding-top:2%;
 }
-main .top:nth-child(2) img{
+main .haut:nth-child(2) img{
     padding: 10px;
     cursor: pointer;
     position:relative;
 }
-.op .photoProfilHov .noPhoto{
+.photoProfilHov .noPhoto{
     opacity: 1;
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
 .op .photoProfilHov:hover img {
-    opacity: .5;
+    opacity: .4;
 }
 .plusprofil{
-    position:absolute;
-    top:25%;
-    padding-right: 10%;
-/*    z-index: 2;*/
-    box-sizing:border-box;
+
+    position: relative;
     order:1;
-    flex-basis: 0.5;
     visibility: hidden;
+}
+.plusprofil p{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 90px;
+    right: 90px;
+    bottom: 0;
+    font-size:22px;
 }
 .op .photoProfilHov:hover+.plusprofil{
 	visibility: visible;
@@ -122,14 +189,10 @@ main section:nth-child(2) div {
     align-self: center;
     cursor:pointer;
     flex-basis: 0;
-    padding-left: 3.5%;
-    padding-right:3.5%;
-    padding-bottom: 0.6%;
-/*    padding-top: 0.5%;*/
+    padding: 20px;
     box-sizing:border-box;
     border-radius: 50% 50% 50% 50%;
     transition:border .2s ease;
-/*    max-width: 10;*/
 
 }
 main section:nth-child(2) div span{
@@ -160,7 +223,7 @@ main section:nth-child(3) div span
 {
      font-weight: bold;
 }
-main section:nth-child(4) p{
+main section:nth-child(4) p,main section:nth-child(5) p{
     width: 75vh;
     padding:20px;
     align-self: flex-start;
@@ -170,6 +233,7 @@ main section:nth-child(4) p{
     border-radius:  50%;    
 }
 h2{
+    font-size: 22px;
     color:white;
     font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
     text-transform: uppercase;
@@ -180,6 +244,7 @@ h2{
     {
         flex-flow: column;
     }
+
     main section:nth-child(4) p
     {
         width: inherit;

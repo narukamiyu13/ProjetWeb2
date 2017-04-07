@@ -18,7 +18,7 @@ class Modele {
     |------------------------------------- */ 
     public function connectionBD() {
         try{
-            $PDO = new PDO("mysql:host=localhost;dbname=foodiegoodprep","root","");
+            $PDO = new PDO("mysql:host=localhost;dbname=foodie","root","");
             return $PDO;
         } catch(PDOException $erreur) {
             echo "Erreur: ".$erreur->getMessage()."<br/>";
@@ -70,7 +70,62 @@ class Modele {
         
     } // FIN DE FONCTION selectionnerNombre
     
+    /* -------------------------------------
+        | fonction gererConnexion
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+            function gererConnexion($nomUtilisateur,$password){
+            try{
+                $PDO = $this->connectionBD();
+                $password = sha1($password);
+                $requete = "SELECT idUtilisateur FROM utilisateur WHERE nomUtilisateur = '$nomUtilisateur' AND motDePasse= '$password'";
+                $PDOStatement = $PDO->prepare($requete);
+                //var_dump();
+                $PDOStatement->execute();
+                return $PDOStatement->fetch(PDO::FETCH_NUM)[0];
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION gererConnexion
     
+    /* -------------------------------------
+        | fonction gererInscription
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+    function gererInscription($nomUtilisateur,$password,$courriel){
+            try{
+                $PDO = $this->connectionBD();
+                $nomUtilisateur = htmlspecialchars($nomUtilisateur);
+                $courriel = htmlspecialchars($courriel);
+                 $password = sha1($password);
+                $requete = "INSERT INTO utilisateur (nomUtilisateur,motDePasse,courriel) VALUES ('$nomUtilisateur','$password','$courriel')";
+                $PDOStatement = $PDO->prepare($requete);
+                $PDOStatement->execute();
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION gererInscription
     
     
 } // FIN DE CLASSE

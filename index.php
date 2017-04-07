@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,7 +22,6 @@
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
       <!-- menu JavaScript -->
-    <script src="app/assets/js/menu.js"></script>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -30,7 +30,24 @@
 
     
 <body>
-<?php include_once'header.php'; ?>
+
+<?php
+
+    //session_start();
+   // $_SESSION['userID'] = 2;
+  
+    
+    if(isset($_GET['deconnexion'])){
+        $_SESSION = Array();
+        session_destroy();
+        
+    }
+    
+    ?>
+ 
+    <div id="container">
+        <!--  entete -->
+        <?php include_once"header.php";?>
         <section class="top">
             <div class="row">
                 <div id="texte">
@@ -64,7 +81,20 @@
         </div>
         <h2>Vive les Foodies</h2>
     </section>
-		<?php include_once'footer.php'; ?>
+    <footer>
+         <ul class="listeFooter">
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                <li>
+                    <a href="#">Termes</a>
+                </li>
+                <li>
+                    <a href="#">FAQ</a>
+                </li>
+            </ul>
     
+    </footer>
+    </div>
 </body>
 </html>    

@@ -4,11 +4,16 @@
 
     class Utilisateur extends Modele{
         
-        public function __construct($idUtilisateur, $nom, $prenom, $nomUtilisateur, $description, $urlPhoto, $dateJoint, $nbAbonnes, $nbAbonnements, $nbPhotos, $photos){
+
+        public function __construct($idUtilisateur,$nomUtilisateur, $motDePasse, $nom, $prenom,  $sexe, $courriel, $description, $urlPhoto, $dateJoint, $nbAbonnes, $nbAbonnements, $nbPhotos, $photos){
+
             $this->idUtilisateur = $idUtilisateur;
-            $this->nom = $nom;
-            $this->prenom = $prenom;
             $this->nomUtilisateur = $nomUtilisateur;
+            $this->motDePasse = $motDePasse;
+            $this->nom = $nom;
+            $this->prenom = $prenom;            
+            $this->sexe = $sexe;
+            $this->courriel = $courriel;
             $this->description = $description;
             $this->urlPhoto = $urlPhoto;
             $this->dateJoint = $dateJoint;
@@ -49,6 +54,8 @@
                 echo "Erreur: ".$e->getMessage();
             }
         }
+        
+        
         
          /* -------------------------------------
         | fonction abonner
@@ -106,6 +113,72 @@
         
         
         
+        
+        
+        
+        function modifierProfilUser($idUtilisateur){
+            try{
+     
+                $PDO = $this->connectionBD();
+                if(isset($_POST['modifier']) && !empty($_POST['nomUtilisateur']) || !empty($_POST['courriel']) || !empty($_POST['prenom']) || !empty($_POST['nom']) || !empty($_POST['description']) || !empty($_POST['sexe'])){
+                    $nomUtilisateur = $_POST['nomUtilisateur'];
+                    $courriel = htmlspecialchars($_POST['courriel']);
+                    $prenom =  ucfirst(strtolower(htmlspecialchars($_POST['prenom'])));
+                    $nom=  ucfirst(strtolower(htmlspecialchars($_POST['nom'])));
+                    $description =  htmlspecialchars($_POST['description']);
+                    $sexe =  htmlspecialchars($_POST['sexe']);
+                    $requete="UPDATE utilisateur SET nomUtilisateur='$nomUtilisateur',courriel='$courriel',prenom=\"$prenom\",nom=\"$nom\",description=\"$description\",sexe='$sexe' WHERE idUtilisateur='$idUtilisateur'";
+                    $PDOStatement = $PDO->prepare($requete);
+                    $PDOStatement->execute();
+                    
+                }
+            }catch(PDOException $e) {
+                echo "Erreur: ".$e->getMessage();
+            }
+        }
+
+
+        
+        
+         /* -------------------------------------
+        | fonction modifier le profil
+        | -------------------------
+        | PARAM
+        |   $idUtilisateur : (int) Le ID de l'utilisateur connecté 
+        | -------------------------
+        | RETURN
+        |   aucun    
+        | -------------------------
+        | DESCRIPTION
+        |   modifie la photo de profil de l'utilisateur
+        |------------------------------------- */
+        
+       function modifierPhotoProfil($idUtilisateur){
+           
+          try{
+     
+                $PDO = $this->connectionBD();
+              
+
+                  if(isset($_FILES['photo']))
+                  {
+                        $folder="app/photoProfil/";
+                        $photo = ( "$folder".$_FILES['photo']['name']);
+
+                        $requete="UPDATE utilisateur SET urlPhoto='$photo' WHERE idUtilisateur='$idUtilisateur'";
+
+                        $PDOStatement = $PDO->prepare($requete);
+                        $PDOStatement->execute();
+                  }
+
+                    
+                    
+            
+            }catch(PDOException $e) {
+                echo "Erreur: ".$e->getMessage();
+            }
+    
+       }
     }
 
 ?>
