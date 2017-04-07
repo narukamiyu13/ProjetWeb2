@@ -54,7 +54,7 @@ if(isset($_POST["publier"])){
                 //Permet d'ajouter le titre sur la classe plus si on la survole
                 $(".plus").mouseover(function(){
                     $(this).html("<p><?= $title ?></p>");
-                    this.style.fontSize = "11px";
+                    this.style.fontSize = "14px";
                 })
                 //Remet un -si la variable checkAbonnement est vrai ou un + si elle est la variabl est fausse dans le rond d'abonnement lorsqu'on ne survol plus la division
                 $(".plus").mouseout(function(){
@@ -153,7 +153,7 @@ if(isset($_POST["publier"])){
                             }?>" width="150px" height="150px" alt="photoProfil">
                     <?php echo "</a>";?>
                 </figure>
-                    <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\">Modifier mon profil</span>";} ?>
+                    <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\"><p>Modifier mon profil</p></span>";} ?>
                 <div title="<?= $title; ?>" alt="plus" class="plus">
                     <span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>
                 </div>
