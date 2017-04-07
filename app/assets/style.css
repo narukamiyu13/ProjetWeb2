@@ -585,9 +585,9 @@ font-family: Muli;
       flex-direction: column;
 	  
 	}
-	#navbar > div > ul > li:nth-child(3) > a, #navbar > div > ul > li:nth-child(2) > a
+	.droiteMenu
 	{
-		visibility:hidden;	
+		display:none;
 	}
 }
 
