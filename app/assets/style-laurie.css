@@ -234,27 +234,30 @@ main .top:nth-child(2) img{
     cursor: pointer;
     position:relative;
 }
-.op .photoProfilHov .noPhoto{
+.photoProfilHov .noPhoto{
     opacity: 1;
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
 .op .photoProfilHov:hover img {
-    opacity: .5;
+    opacity: .4;
 }
 .plusprofil{
-
-    position:absolute;
-    line-height: 1.5em;
-    height: 2em;   
-    white-space: nowrap;
-    overflow: hidden; 
-    padding-right:6.5%;
-    align-self: center;
-    box-sizing:border-box;
+    position: relative;
     order:1;
-    flex-basis: 0;
     visibility: hidden;
+}
+.plusprofil p{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 90px;
+    right: 90px;
+    bottom: 0;
+    font-size:22px;
 }
 .op .photoProfilHov:hover+.plusprofil{
 	visibility: visible;
@@ -319,9 +322,7 @@ h2{
     {
         flex-flow: column;
     }
-     .plusprofil{
-        padding-right:16%;
-    }
+
     main section:nth-child(4) p
     {
         width: inherit;
