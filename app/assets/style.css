@@ -697,6 +697,7 @@ label > input:focus {
     overflow: hidden;
 	    width: 100%;
     background-color: #333;
+	height: 86px;
 }
 
 .categorie li {
@@ -717,12 +718,6 @@ label > input:focus {
 
 .categorie li a:hover {
     opacity: 1;
-    padding: 22px 36px;
-    text-decoration: none;
-}
-
-.categorie li a:hover {
-    background-color: #111;
 }
 
 .patate{
@@ -776,8 +771,6 @@ label > input:focus {
     text-align: center;
     margin: -85px 0px 0 0;
 	font-family: Muli;
-
-	background-image: url("paper.gif");
 }
 /***********************modifierProfil********************/
 
