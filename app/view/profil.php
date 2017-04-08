@@ -180,7 +180,7 @@ if(isset($_POST["publier"])){
                     <?php echo "</a>";?>
                 </figure>
 
-                    <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\"><img height=\"50px\" width=\"5x0px\" src=\"app/assets/images/Modify.png\"></span>";} ?>
+                    <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\"><img height=\"50px\" width=\"50px\" src=\"app/assets/images/Modify.png\"></span>";} ?>
 
                 <div title="<?= $title; ?>" alt="plus" class="plus">
                     <span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>
