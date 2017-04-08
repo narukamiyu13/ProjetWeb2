@@ -18,7 +18,8 @@ class Modele {
     |------------------------------------- */ 
     public function connectionBD() {
         try{
-            $PDO = new PDO("mysql:host=localhost;dbname=foodie","root","");
+            $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
+            $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","sellyoursoul001",$options);
             return $PDO;
         } catch(PDOException $erreur) {
             echo "Erreur: ".$erreur->getMessage()."<br/>";

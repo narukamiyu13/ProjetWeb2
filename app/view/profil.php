@@ -28,9 +28,9 @@ if(isset($_POST["publier"])){
 ?>
 
 <!doctype html>
-<html>
+<html lang="fr">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <title>Page profil</title>
         <!-- Custom Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -180,7 +180,7 @@ if(isset($_POST["publier"])){
                     <?php echo "</a>";?>
                 </figure>
 
-                    <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\"><p>Modifier mon profil</p></span>";} ?>
+                    <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\"><img height=\"50px\" width=\"5x0px\" src=\"app/assets/images/Modify.png\"></span>";} ?>
 
                 <div title="<?= $title; ?>" alt="plus" class="plus">
                     <span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>

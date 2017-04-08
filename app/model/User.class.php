@@ -122,11 +122,11 @@
                 $PDO = $this->connectionBD();
                 if(isset($_POST['modifier']) && !empty($_POST['nomUtilisateur']) || !empty($_POST['courriel']) || !empty($_POST['prenom']) || !empty($_POST['nom']) || !empty($_POST['description']) || !empty($_POST['sexe'])){
                     $nomUtilisateur = $_POST['nomUtilisateur'];
-                    $courriel = htmlspecialchars($_POST['courriel']);
-                    $prenom =  ucfirst(strtolower(htmlspecialchars($_POST['prenom'])));
-                    $nom=  ucfirst(strtolower(htmlspecialchars($_POST['nom'])));
-                    $description =  htmlspecialchars($_POST['description']);
-                    $sexe =  htmlspecialchars($_POST['sexe']);
+                    $courriel = $_POST['courriel'];
+                    $prenom =  ucfirst(strtolower($_POST['prenom']));
+                    $nom=  ucfirst(strtolower($_POST['nom']));
+                    $description =  $_POST['description'];
+                    $sexe =  $_POST['sexe'];
                     $requete="UPDATE utilisateur SET nomUtilisateur='$nomUtilisateur',courriel='$courriel',prenom=\"$prenom\",nom=\"$nom\",description=\"$description\",sexe='$sexe' WHERE idUtilisateur='$idUtilisateur'";
                     $PDOStatement = $PDO->prepare($requete);
                     $PDOStatement->execute();
