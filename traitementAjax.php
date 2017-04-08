@@ -46,7 +46,7 @@ if(isset($_GET['selectPhoto'])){
             if ((preg_match("/\ml\b/i",$ingredient['quantite']))&&(preg_match("/^[^aeyiuo]/", $ingredient['nomIngredient']))){
                 $html .= "<p>".$ingredient['quantite']." de ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
                 }else{
-                if((preg_match("/\ml\b/i",$ingredient['quantite']))&& (preg_match("/^[aeyiuo]/", $ingredient['nomIngredient']))){
+                if((preg_match("/\ml\b/i",$ingredient['quantite']))&& (preg_match("/^[aeyiuoh]/", $ingredient['nomIngredient']))){
                        $html .= "<p>".$ingredient['quantite']."d' ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
                 }else{
                     $html .= "<p>".$ingredient['quantite']." ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
