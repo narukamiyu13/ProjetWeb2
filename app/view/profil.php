@@ -63,33 +63,7 @@ if(isset($_POST["publier"])){
                     $(this).html("<span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
                     this.style.fontSize ="70px";
                 })
-                //
-                $(".popup").click(function(event){
-                    if(event.target == $(this)[0]) {
-                        $(this)[0].classList.add("hidden");
-                    }
-                })
                 
-                $(".recette").click(function(){
-                    var recetteID = this.dataset.recetteid;
-                    
-                    $.ajax({
-                        url         : "traitementAjax.php",
-                        method      : "GET",
-                        data        : "selectPhoto&recetteID="+recetteID,
-                        contentType : "text/html;charset=utf-8;",   
-                        success     : function(data){
-                                        $(".contenuRecette").html(data);
-                                        $("#affichageRecette").removeClass("hidden")
-                                        },
-                        fail    : function(){
-                                        $(".contenuRecette").html("Oups! Cette recette n'existe pas!");
-                                        $("#affichageRecette").removeClass("hidden")
-                                        }
-                    
-                    });
-                    
-                })
                 
                 $(".popup").click(function(event){
                     if(event.target == $(this)[0]) {
