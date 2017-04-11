@@ -21,36 +21,73 @@ font-family: Muli;
     font-family: Lato;
     text-transform: uppercase;
     letter-spacing: 2px;
-    
-    height:80px;
+/*    height:80px;*/
     background-color: #f8f8f8;
 }
+
 
 .row
 {
     padding-top:10px;
     width:90%;
     margin: 0 auto;
-/*    border:1px solid black;*/
-    height:780px;
+/*    height:780px;*/
 }
 
+/*
+#navbar > div > ul > li:nth-child(4) > a
+{
+border:1px solid blue;
+color:#fdcc52;
+font-size:20pt;
+    display:block;
+    text-align:center;
+  position:relative;
+    top:-40px; 
+    height:55px;
+    width:100%
+   
+}
+*/
+
+#menucentre
+{
+    width:100%;
+    text-align:center;
+    position:relative;
+    color:#fdcc52;
+    font-size:20pt;
+    top:15px;
+}
+#menucentre h2 a
+{
+ color:#fdcc52;   
+}
 .row2
 {
     padding-top:10px;
     width:50%;
     margin: 0 auto;
-/*    border:1px solid black;*/
+    
    
 }
 
-#navbar ul li 
+/*
+#navbar > div > ul > li> a
 {
     float: right;  
+    display: inline;
 	list-style: none;
     padding:20px;
     color:#5e5e5e;
+    position:relative;
+    top:-80px;
     
+}
+*/
+.droiteMenu{
+    float: right;
+    padding-left:20px;
 }
 #navbar ul li :hover
 {
@@ -73,6 +110,8 @@ a
     width:55px;
     height: 55px;
     cursor:pointer;
+        position:relative;
+    top:-25px;
 }
 /*side menu*/
 .sideMenu
@@ -308,10 +347,10 @@ footer
 }
 .listeFooter
 {
-    width:15%;
+    width: 9%;
     margin: 0 auto;
-    padding-top:50px;
-    padding-left: 15px;
+    padding-top: 50px;
+    
 }
 .listeFooter li
 {
@@ -325,15 +364,24 @@ footer
 }
 @media all and (max-width: 768px )
 {
+    #menucentre{width:80%;}
     .banniereJaune h2, #burger,#texte {margin-top: 100px;}
     .banniereBlanche h2,.banniereJaune h2{font-size:30pt;}
     #oeuf{ width:150px;height: 150px;}
     .cercle{ width:90%;}
    .listeFooter{width:25%}
    
+
 }
+   
+   
+   
+   
+}
+
 @media all and (max-width:  480px )
 {
+     #menucentre{width:100%;}
     .banniereJaune h2, #burger {margin-top: 60px;}
     .banniereBlanche h2,.banniereJaune h2,#texte h1,.viveFoodie h2 {font-size:24pt;}
     .connectezVous h2{font-size:43pt;}
@@ -345,8 +393,6 @@ footer
     .cercle{padding-top:20px}
     .listeFooter{width:50%}
 }
-
-
 
 /****************PAGE MODIFIER PROFIL****************/
 #modfierProfil
@@ -405,4 +451,470 @@ footer
 .formulaireProfil h1
 {
     text-align:center;
+}
+
+/* page connexion/inscription */
+
+
+
+input {
+    line-height: normal;
+	 margin: 0;
+    font: inherit;
+    color: inherit
+}
+input[type=checkbox],
+input[type=radio] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0
+}
+
+
+
+
+.backgroundConnexion {
+	position: relative;
+  width: 100%;
+  min-height: auto;
+  
+  background: url("../img/bg-pattern.png"), #7b4397;
+  /* fallback for old browsers */
+  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #7b4397, #dc2430);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: url("../img/bg-pattern.png"), linear-gradient(to left, #7b4397, #dc2430);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+
+
+
+
+
+
+
+.backgroundInscription {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  
+  background: url("../img/bg-pattern.png"), #2b1955;
+  /* fallback for old browsers */
+  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #002950, #0E8BFF);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: url("../img/bg-pattern.png"), linear-gradient(to left, #002950, #0E8BFF);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+
+
+
+#heroSign{
+   
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+.flexHead{
+      display: flex;
+    width: 100%;
+    height: calc(91vh - 80px);
+/*    margin-top: 50px;*/
+}
+.center{
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#titreCI{
+    margin-bottom: 50px;
+    opacity: 0.8;
+    color: white;
+    text-align: center;
+    font-size: 36pt;
+    font-weight: 400;
+    line-height: 150%;
+	font-family: Muli;
+}
+
+#ipSignIn{
+width: 100px;
+padding: 10px 26px 10px 11px;
+background-color: transparent;
+border-radius: 6px;
+border: 1px solid white;
+opacity: 0.8;
+font-family: Muli;
+}
+
+#ipJoin{
+ width: 100px;
+ padding: 10px 25px 10px 11px;
+ background-color: white;
+ color: #7b4397;
+ border-radius: 6px;
+ border: 1px solid white;
+ opacity: 0.8;
+ font-family: Muli;
+}
+
+#ipJoin:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+#ipSignIn:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.wrapperIn {
+  width: 500px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 900px) {
+    .wrapperIn {
+      width: auto;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+	  
+	}
+	.droiteMenu
+	{
+		display:none;
+	}
+}
+
+
+@media only screen and (max-width: 900px) {
+	
+	
+}	
+.wrapperInb {
+  width: auto;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.wrapperInb p{
+  margin: 0px 30px;
+  font-size: 11pt;
+  font-family: Muli;
+}
+label {
+  position: relative;
+  width:100%;
+}
+label > input {
+  
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  border-radius: 0;
+  outline: none;
+  height: 45px;
+  width: 100%;
+  font-size: 15pt;
+  margin: 0 0 30px 0;
+  padding: 0;
+  padding-left: 45px;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: all .4s;
+  font-family: Muli;
+   
+}
+
+/** 
+margin-bottom: 20px;
+margin-top: 10px;
+width:100%;
+padding: 15px;
+border-radius:5px;
+border:1px solid #7ac9b7;
+
+
+
+**/
+label > input:valid + span {
+  transform: translateY(-25px) scale(0.8);
+  transform-origin: 0;
+}
+label > input:valid {
+
+  border-bottom: 1px solid #fff;
+  box-shadow: 0 1px 0 0 #fff;
+
+}
+label > span {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 45px;
+  font-size: 16pt;
+  cursor: text;
+  transition: .2s ease-out;
+  font-family: Muli;
+}
+label > i {
+  color: white;
+  position: absolute;
+  top: 3px;
+  left: 10px;
+  font-size: 15px !important;
+  cursor: text;
+  transition: .2s ease-out;
+}
+label > input:focus + span {
+  transform: translateY(-25px) scale(0.8);
+  transform-origin: 0;
+  color: #fdcc52;
+}
+label > input:focus {
+  border-bottom: 1px solid #fdcc52;
+  box-shadow: 0 1px 0 0 #fdcc52;
+}
+
+
+/*  page recherche */
+.categorie{
+	width:100%;
+	position:absolute;
+}
+
+.categorie ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	    width: 100%;
+    background-color: #333;
+	height: 86px;
+}
+
+.categorie li {
+    float: left;
+}
+
+.categorie li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 33px 37px;
+    text-decoration: none;
+    font-family: Muli;
+	font-size: 16pt;
+	opacity: 0.4;
+	background-color: #333;
+}
+
+.categorie li a:hover {
+    opacity: 1;
+}
+
+.patate{
+	
+	background-image: url("images/patate.jpg");
+}
+
+.tomate{
+	
+	background-image: url("images/tomate.jpg");
+}
+
+.piment{
+	
+	background-image: url("images/piment.jpg");
+}
+
+.carotte{
+	
+	background-image: url("images/carrotte.jpg");
+}
+
+
+.entete
+{
+   
+    width:100%;
+    height:auto;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('images/enteteRecherche.jpg');
+  background-attachment: fixed;
+  padding: 250px 0;
+ 
+}
+ 
+ 
+.contenu{
+	height:400px;
+	width:100px;
+}
+
+.entete h2{
+	    font-size: 54pt;
+    color: white;
+    /* margin-left: 55px; */
+    /* margin: -149px 0px 0 55px; */
+    text-align: center;
+    margin: -85px 0px 0 0;
+	font-family: Muli;
+}
+/***********************modifierProfil********************/
+
+#wrapperModifierProfil
+{
+  height: 100%;
+    margin:0px;
+}
+
+
+#imagerond
+{
+    margin-bottom: 40px;
+}
+
+#utilisateur
+{
+    opacity: 0.8;
+    color: white;
+    text-align: center;
+    font-size: 32pt;
+    font-weight: 400;
+	font-family: Muli;
+    position:relative;
+    top:100px;
+    left:40px;
+}
+#F,#H
+{
+    box-shadow: none;
+    border-bottom: none;
+    width:20px;
+    display:block;
+    color:#fff;
+   border:2px solid white;
+    
+}
+#F
+{
+   position:relative;
+    top:-10px;
+}
+#H
+{
+    position:relative;
+    top:-35px;
+}
+#sexeF,#sexeH
+{
+    font-size:18pt;
+}
+#fileToUpload
+{
+    border-bottom: none;
+    box-shadow: none;
+}
+.btnModifier
+{
+ width: 200px;
+ padding: 10px 25px 10px 11px;
+ background-color: white;
+ color: #7b4397;
+ border-radius: 6px;
+ border: 1px solid white;
+ opacity: 0.8;
+font-size:14pt;
+ font-family: Muli;
+    position:relative;
+    top:-30px;
+    left:70px;
+}
+
+#wrapperModifierProfil > form > div > div > label:nth-child(2) > span
+{
+    width:200px;
+}
+#ModfierPhoto
+{
+    position:relative;
+    top:-50px;
+    
+}
+
+#ModfierPhoto p
+{
+    font-size:16pt;
+    padding-bottom:15px;
+}
+.btnImage
+{
+ width: 100px;
+padding: 10px 26px 10px 11px;
+background-color: transparent;
+border-radius: 6px;
+border: 2px solid white;
+opacity: 0.8;
+font-family: Muli;
+}
+#fileToUpload
+{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+#enregistrerImage
+{
+  width: 200px;
+ padding: 10px 25px 10px 11px;
+ background-color: white;
+ color: #7b4397;
+ border-radius: 6px;
+ border: 1px solid white;
+ opacity: 0.8;
+font-size:14pt;
+ font-family: Muli; 
+margin-left:20px;
+}
+
+@media all and (max-width: 768px )
+{
+    
+    #wrapperModifierProfil > form > div{margin: 100px}
+     label > input{  width: 80%}
+    #sexeF{top:65px;left:-450px;}
+    #nomUtilisateur,#prenom,#nom,#courriel,#description,#sexeF,#sexeH{box-shadow: none;}
+}
+@media all and (max-width:  480px )
+{
+    .center{flex-direction: none;}
+    #imagerond{width:100px;height:100px;}
+    #utilisateur{font-size: 22px;}
+    label > span,#ModfierPhoto > form > p {font-size:12pt;}
+
+    #nomUtilisateur,#prenom,#nom,#courriel,#description,#sexeF,#sexeH{font-size:9pt;box-shadow: none;}
+       #sexeF{top:0;left:45px;}
+    #sexeF,#sexeH{font-size:12pt;}
+    #ModfierPhoto > form > p{margin-bottom:15px;}
+    #btnImage {;margin:none;}
+   #enregistrerImage{margin-left:0px;margin-top:30px;width:185px;}
+    #utilisateur{font-size:12pt;top:50px}
+    #wrapperModifierProfil > form > div > div:nth-child(1) > label:nth-child(1) > button{width:130px;font-size:10pt}
+    
+
 }

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,7 +22,6 @@
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
       <!-- menu JavaScript -->
-    <script src="app/assets/js/menu.js"></script>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -30,28 +30,24 @@
 
     
 <body>
-<!--    menu slider-->
-    <div id="menuSlider" class="sideMenu">
-          <a href="javascript:void(0)" class="fermer" >&times;</a>
-          <a href="#">Profil</a>
-          <a href="#">Découverte</a>
-            <a href="#">Ajouter une photo</a>
-          <a href="#">Recherche</a>
-          <a href="#">Modifier le profil</a>
-            <a href="#">Connexion</a>
-            <a href="#">Déconnexion</a>
-    </div>
+
+<?php
+
+    //session_start();
+   // $_SESSION['userID'] = 2;
+  
+    
+    if(isset($_GET['deconnexion'])){
+        $_SESSION = Array();
+        session_destroy();
+        
+    }
+    
+    ?>
+ 
     <div id="container">
-        <!--    entete-->
-        <nav id ="navbar">
-            <div class="row">
-                <ul>
-                    <img id="menu" src="app/assets/images/menu.png" alt="menu"/>
-                    <li><a href="">Découverte </a></li>
-                     <li><a href="connexion.php">Connexion </a></li>
-              </ul>
-            </div>
-        </nav>
+        <!--  entete -->
+        <?php include_once"header.php";?>
         <section class="top">
             <div class="row">
                 <div id="texte">

@@ -81,6 +81,8 @@ if(isset($_POST['enregistrer'])) {
         <link href="app/assets/reset.css" rel="stylesheet">
         <link href="app/assets/style.css" rel="stylesheet">
         <link href="app/assets/style-laurie.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
          <!-- police de google -->
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -91,33 +93,74 @@ if(isset($_POST['enregistrer'])) {
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
-    <body class="modifier">
-        <div class="container">
+
+    <body id="page-top">
+        <?php include_once'header.php'; ?>
+        <header class='backgroundInscription' id="heroSign"  >
+        <div class="flexHead center" id="wrapperModifierProfil">
             <form action="profil.php&#63;userID=<?php echo $profilUserActuel?>&modifier=" method="post">
-                <img class="rond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil">
-                <h3><?php echo $tonUsager->nomUtilisateur;?></h3>
-                <label for="nomUtilisateur">Nom d'utilisateur</label>
-                <input type="text" id="nomUtilisateur" name="nomUtilisateur" value="<?php echo $tonUsager->nomUtilisateur;?>">
-                <label for="prenom">Prenom</label>
-                <input type="text" id="prenom" name="prenom" value="<?php echo $tonUsager->prenom;?>">
-                <label for="nom">Nom</label>
-                <input type="text" id="nom" name="nom" value="<?php echo $tonUsager->nom;?>">
-                <label for="courriel">Courriel</label>
-                <input type="email" id="courriel" name="courriel" value="<?php echo $tonUsager->courriel;?>">
-                <label for="description">Description</label>
-                <textarea rows="6" id="description" name="description"><?php echo $tonUsager->description;?></textarea><p>Sexe</p>
-                <label for="F">F</label>
-                <input type="radio" id="F" name="sexe" value="F"<?php if($tonUsager->sexe=="F") {echo "checked";}?>>
-                <label for="H">H</label>
-                <input type="radio" id="H" name="sexe" value="H"<?php if($tonUsager->sexe=="H") {echo "checked";}?>><button type="submit" name="modifier">Modifier</button>
-            
-            </form>
-            <form action="profil.php&#63;userID=<?php echo $profilUserActuel?>&modifier=" method="post" enctype="multipart/form-data">
-                Select image to upload:
-                <input type="file" name="photo" id="fileToUpload">
-                <input type="submit" value="Upload Image" name="enregistrer">
-            </form>
-            
-        </div>
+                <div class="wrapperIn" >
+        
+                <div>
+                    <label>
+                        <h3 id="utilisateur"><?php echo $tonUsager->nomUtilisateur;?></h3>
+                        <img class="rond" id="imagerond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil">
+                        <button type="submit" class="btnModifier" name="modifier">Modifier Profil</button>
+                     </label> 
+                    
+                    <label>
+                        <input type="text" id="nomUtilisateur" name="nomUtilisateur" value="<?php echo $tonUsager->nomUtilisateur;?>">
+                        <span>Nom de l'utilisateur</span>
+                        <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
+                    </label>
+
+                    <label>
+                        <input type="text" id="prenom" name="prenom" value="<?php echo $tonUsager->prenom;?>">
+                        <span>Prenom</span>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </label>
+                    <label>
+                        <input type="text" id="nom" name="nom" value="<?php echo $tonUsager->nom;?>">
+                           <span>Nom</span>
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                    </label>
+                    <label>
+                        <input type="email" id="courriel" name="courriel" value="<?php echo $tonUsager->courriel;?>">
+                           <span>Courriel</span>
+                       <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </label>
+
+                    <label>
+                        <input  id="description" type="text" name="description" value="<?php echo $tonUsager->description;?>">
+                        <span>Description</span>
+                      <i class="fa fa-comment-o" aria-hidden="true"></i>
+                    </label>
+                    <label>
+                        <span id="sexeF">F</span>
+                        <input type="radio" id="F" name="sexe" value="F"<?php if($tonUsager->sexe=="F") {echo "checked";}?>>
+                        <span id="sexeH">H</span>
+                        <input type="radio" id="H" name="sexe" value="H"<?php if($tonUsager->sexe=="H") {echo "checked";}?>>
+                    </label>   
+                       
+
+                    </form>
+                    </div>
+                    <div id="ModfierPhoto">
+                        <form action="profil.php&#63;userID=<?php echo $profilUserActuel?>&modifier=" method="post" enctype="multipart/form-data">
+
+                            
+   
+                            
+                        <p> Selectionner une image</p>
+                            <label class="btnImage" for="fileToUpload"> Selectionner Image</label>
+                            <input   type="file" name="photo" id="fileToUpload" >
+                            <input type="submit" value="Enregistrer image" name="enregistrer" id="enregistrerImage" >
+                        </form>
+                      </div>  
+                </div>
+            </div> 
+    </header>        
+
+
     </body>
 </html>
