@@ -42,9 +42,8 @@ echo($trimmedvals->ml);
         <link href="app/assets/style.css" type="text/css" rel="stylesheet" />
          <link href="app/assets/style-laurie.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
-<!--        <script src="app/assets/lib/jquery.min.js" ></script>-->
+       
+        <script src="app/assets/lib/jquery.min.js" ></script>
         <script>
             //Si le document est pret execute le script
             $(document).ready(function(){
@@ -95,11 +94,7 @@ echo($trimmedvals->ml);
                     
                     });
                     
-                })
-                   $(".nomIngredient").autocomplete({
-                        source: "app/controller/ControleurRecette.class.php",
-                        minLength: 1
-                    });   
+                });  
                 console.log("Abonné? <?= $checkAbonnement ?>");
                 
                 var ajouter=document.querySelector(".plus");
@@ -175,18 +170,17 @@ echo($trimmedvals->ml);
                                                     '<option value="cl">centilitre</option>'+
                                                 '</select>'+
                                         '</div>'+
-                                        '<div id="ingredients" class="grandDiv">'+
+                                        '<div class="grandDiv">'+
                                             '<label class="grandL">Ingrédient</label>'+
                                             '<input type="text" name="nomIngredient" class="nomIngredient grandI">'+
-                                            '<div class="resultat"><p></p></div>'+
                                         '</div>'+
                                         '<div class="grandDiv">'+
                                             '<label class="grandL">Preparation ingredient</label>'+
-                                            '<input class="grandI" type="text" name="PreparationIngredient">'+
+                                            '<input class="grandI" type="text" name="preparationIngredient">'+
                                         '</div>'+
                                         '<div class="grandDiv">'+
                                             '<label class="grandL">Adjectif Ingredient</label>'+
-                                            '<input class="grandI" type="text" name="PreparationIngredient">'+
+                                            '<input class="grandI" type="text" name="adjectifIngredient">'+
                                         '</div>'+
                                         '<div class="petitDiv">'+
                                             '<input type="button" value="-" name="retirerIngredient" class="retirerIngredient petitB">'+
@@ -202,7 +196,7 @@ echo($trimmedvals->ml);
                                         '</div>'+
                                         '<div class="grandDiv">'+
                                             '<label class="grandL">Description etape</label>'+
-                                            '<textarea type="text" name="DescriptionEtape" class="grandI"></textarea>'+
+                                            '<textarea type="text" name="descriptionEtape" class="grandI"></textarea>'+
                                         '</div>'+
                                         '<div class="petitDiv petitpetit">'+
                                             '<input type="button" value="-" name="retirerEtape" class="retirerEtape petitB">'+
@@ -385,6 +379,7 @@ echo($trimmedvals->ml);
                         <input type="button" value="Precedent" name="precedentPhoto">
                         <input type="submit" value="Publier une creation" name="publier">
                     </form>
+                    
                     <form class="ajouterUneRecette" action="profil.php?userID=<?php echo $_GET['userID'];?>" method="post">
                         <div class="laRecette hidden">
                             <h1>La recette</h1>
@@ -407,17 +402,13 @@ echo($trimmedvals->ml);
                     
                 
                             <input type="button" value="Precedent" name="precedentRecette" class="precedentRecette">
-                            <input type="button" value="Suivant" name="suivantlaRecette" class="suivantRecette">
+                            <input type="button" value="suivant" name="suivantlaRecette" class="suivantRecette">
                         </div>
+                    
                         <div class="containsIngredients hidden">
                             <div class="lesIngredients">
                                 <h1>Les Ingredients</h1>
                                 <div>
-                                     <div id="ingredients" class="grandDiv">
-                                        <label class="grandL">Ingrédient</label>
-                                            <input type="text" name="nomIngredient" class="nomIngredient grandI">
-                                            <div class="resultat"><p></p></div>
-                                         </div>
                                     <label>Ajouter des ingrédients</label>
                                     <input class="ingreplus" type="button" value="+" name="ajouterPlus">
                                 </div>
@@ -429,6 +420,8 @@ echo($trimmedvals->ml);
                             <input type="button" value="Precedent" name="precedentIngredient" class="precedentIngredient">
                             <input type="button" value="Suivant" name="suivantIngredient" class="suivantIngredient">
                         </div>
+                 
+                        
                          <div class="containsEtapePrep hidden">
                         <div class="lesEtapesPrep">
                             <h1>Les Étapes de préparations</h1>
@@ -446,7 +439,7 @@ echo($trimmedvals->ml);
                         </div>
                         <div class="photoRecette hidden">
                             <h1>Publiez les photos de vos créations culiniaires préférés</h1>
-                            <label for="description">Description</label><input type="text" name="descriptionPR" id="description"><br>
+                            <label for="description">Description</label><input type="text" name="descriptionPr" id="description"><br>
                             <input type="file" name="photoCreationRecette" id="photoCreation"><br>
                             <input type="button" value="Precedent" name="precedentPrep" class="precedentPhotoRecette">
                             <input type="submit" value="Publier une creation" name="publierAvecRecette">
