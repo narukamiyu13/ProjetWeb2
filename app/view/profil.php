@@ -153,11 +153,11 @@ echo($trimmedvals->ml);
                            var html = '<div class="ajoutIng" data-id="'+ (index++) +'">'+
                                         '<div class="petitDiv">'+
                                             '<label class="petitL">Quantité</label>'+
-                                            '<input class="petitI" type="number" name="quantite">'+
+                                            '<input class="petitI" type="number" name="quantite[]">'+
                                         '</div>'+
                                         '<div class="grandDiv">'+
                                             '<label class="grandL">Unité de mesure</label>'+
-                                                '<select name="uniteDeMesure">'+
+                                                '<select name="uniteDeMesure[]">'+
                                                     '<option value="NULL">Aucune</option>'+
                                                     '<option value="ml">Ml</option>'+
                                                     '<option value="tasse">Tasse</option>'+
@@ -172,15 +172,15 @@ echo($trimmedvals->ml);
                                         '</div>'+
                                         '<div class="grandDiv">'+
                                             '<label class="grandL">Ingrédient</label>'+
-                                            '<input type="text" name="nomIngredient" class="nomIngredient grandI">'+
+                                            '<input type="text" name="nomIngredient[]" class="nomIngredient grandI">'+
                                         '</div>'+
                                         '<div class="grandDiv">'+
                                             '<label class="grandL">Preparation ingredient</label>'+
-                                            '<input class="grandI" type="text" name="preparationIngredient">'+
+                                            '<input class="grandI" type="text" name="preparationIngredient[]">'+
                                         '</div>'+
                                         '<div class="grandDiv">'+
                                             '<label class="grandL">Adjectif Ingredient</label>'+
-                                            '<input class="grandI" type="text" name="adjectifIngredient">'+
+                                            '<input class="grandI" type="text" name="adjectifIngredient[]">'+
                                         '</div>'+
                                         '<div class="petitDiv">'+
                                             '<input type="button" value="-" name="retirerIngredient" class="retirerIngredient petitB">'+
@@ -192,11 +192,11 @@ echo($trimmedvals->ml);
                            var html = '<div class="ajoutEtape" data-id="'+ (index++) +'">'+
                                         '<div class="petitDiv">'+
                                             '<label class="petitL">No Etape</label>'+
-                                            '<input class="petitI" type="number" name="numeroEtape">'+
+                                            '<input class="petitI" type="number" name="numeroEtape[]">'+
                                         '</div>'+
                                         '<div class="grandDiv">'+
                                             '<label class="grandL">Description etape</label>'+
-                                            '<textarea type="text" name="descriptionEtape" class="grandI"></textarea>'+
+                                            '<textarea type="text" name="descriptionEtape[]" class="grandI"></textarea>'+
                                         '</div>'+
                                         '<div class="petitDiv petitpetit">'+
                                             '<input type="button" value="-" name="retirerEtape" class="retirerEtape petitB">'+
