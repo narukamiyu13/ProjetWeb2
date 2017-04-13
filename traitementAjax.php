@@ -25,12 +25,16 @@ if(isset($_GET['selectPhoto'])){
         console.log(event.which);
     })
     
+    $('.fermerRecette').click(function(){
+    $('#affichageRecette').addClass('hidden');
+    })
+    
     })
   
     
 
     
-    </script>
+    </script><div class='fermerRecette'><p>Fermer la recette</p></div>
     <div class='recetteImg' style='background-image:url(".$maRecette['photo']['url'].");background-size:cover;height:450px;overflow:hidden;background-position:center;position:relative'>
         <h2>".$maRecette['photo']['description']."</h2>
         <p> Par <a href='profil.php?userID=".$maRecette['photo']['idUtilisateur']."' >".$maRecette['photo']['prenom']." ".$maRecette['photo']['nom']."</a></p>
@@ -71,8 +75,9 @@ if(isset($_GET['selectPhoto'])){
     ";
      $html.=" </div>
             <input type=\'text\' name=\'commentaire\' placeholder=\"Ajouter un commentaire...\" id=\"ajoutCommentaire\" />
-       
+    <div style='clear:both'></div>  
     </div>
+    
     ";
     
    

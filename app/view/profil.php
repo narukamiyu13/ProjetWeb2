@@ -216,8 +216,8 @@ if(isset($_POST["publier"])){
                  </div>
             </div>
 
-            <div id="affichageRecette" class="popup hidden">
-                <div class="contenuRecette" style="overflow:hidden;">
+            <div id="affichageRecette" class="hidden">
+                <div class="contenuRecette">
                 
                 
                 </div>
