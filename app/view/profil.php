@@ -158,7 +158,7 @@ echo($trimmedvals->ml);
                                         '<div class="grandDiv">'+
                                             '<label class="grandL">Unité de mesure</label>'+
                                                 '<select name="uniteDeMesure[]">'+
-                                                    '<option value="NULL">Aucune</option>'+
+                                                    '<option value="NULL">Unité</option>'+
                                                     '<option value="ml">Ml</option>'+
                                                     '<option value="tasse">Tasse</option>'+
                                                     '<option value="cuillere a the">cuillere à thé</option>'+
@@ -380,7 +380,7 @@ echo($trimmedvals->ml);
                         <input type="submit" value="Publier une creation" name="publier">
                     </form>
                     
-                    <form class="ajouterUneRecette" action="profil.php?userID=<?php echo $_GET['userID'];?>" method="post">
+                    <form class="ajouterUneRecette" action="profil.php?userID=<?php echo $_GET['userID'];?>" method="post" enctype="multipart/form-data">
                         <div class="laRecette hidden">
                             <h1>La recette</h1>
                             <label>Nom de la recette</label><input type="text" name="nomRecette"><br>
@@ -439,8 +439,8 @@ echo($trimmedvals->ml);
                         </div>
                         <div class="photoRecette hidden">
                             <h1>Publiez les photos de vos créations culiniaires préférés</h1>
-                            <label for="description">Description</label><input type="text" name="descriptionPr" id="description"><br>
-                            <input type="file" name="photoCreationRecette" id="photoCreation"><br>
+                            <label for="description">Description</label><input type="text" name="descriptionpr" id="descriptionpr"><br>
+                            <input type="file" name="photoCreationRecette" id="photoCreationRecette"><br>
                             <input type="button" value="Precedent" name="precedentPrep" class="precedentPhotoRecette">
                             <input type="submit" value="Publier une creation" name="publierAvecRecette">
                         </div>

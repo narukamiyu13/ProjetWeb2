@@ -13,8 +13,7 @@ class ControleurRecette extends Controleur {
         if(isset($_POST['publierAvecRecette'])){
 //            var_dump($_POST);
             $this->modele->queryInsererRecette();
-            var_dump($lastidRecette);
-            var_dump($lastidIngredient);
+          
             $target_dir = "app/assets/photo/";
             $target_file = $target_dir . basename($_FILES["photoCreationRecette"]["name"]);
             $uploadOk = 1;
