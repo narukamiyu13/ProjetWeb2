@@ -110,12 +110,17 @@ div{
     height:50px;
     text-align:center;
     font-size:1.4em;
+    cursor:pointer;
+}
+
+.fermerRecette p {
+    margin-top:20px;
 }
 
 .contenuRecette h2{
     font-size:2em;
     position:absolute;
-    bottom:15px;
+    bottom:20px;
     left:50px;
 }
 
@@ -133,7 +138,7 @@ div{
 .informations{
     float:left;
     border-right:1px solid black;
-    width:69%;
+    width:65%;
 }
 
 .informations h3:nth-of-type(2){
@@ -152,6 +157,10 @@ div{
     float:left;
     width:30%;
     margin-left:10px;
+}
+
+.commentaires img {
+    cursor:pointer;
 }
 
 .commentaires #miams{
@@ -281,4 +290,18 @@ h2{
         width: inherit;
         padding:10px;
     }
+    
+    /*  Styles du popup recettes  */
+    
+    .informations, .commentaires {
+        width:100%;
+    }
+    
+    .informations {
+        border-right:none;
+        border-bottom:1px solid black;
+        padding-bottom:15px;
+        margin-bottom:15px;
+    }
+    
 }

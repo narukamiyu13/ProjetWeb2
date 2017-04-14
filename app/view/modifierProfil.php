@@ -11,7 +11,7 @@ if(isset($_POST['enregistrer'])) {
     $target_dir = "app/photoProfil/";
     $target_file = $target_dir . basename($_FILES["photo"]["name"]);
     $uploadOk = 1;
-    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     // Check if image file is a actual image or fake image
     if(isset($_POST["enregistrert"])) {
         $check = getimagesize($_FILES["photo"]["tmp_name"]);
@@ -26,7 +26,8 @@ if(isset($_POST['enregistrer'])) {
     // Check if file already exists
     if (file_exists($target_file)) {
        // echo "Sorry, file already exists.";
-        $uploadOk = 0;
+        
+         $target_file = $target_dir ."copy(1)-".basename($_FILES["photo"]["name"]);
     }
     // Check file size
     if ($_FILES["photo"]["size"] > 5000000) {
