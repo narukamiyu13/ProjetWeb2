@@ -61,9 +61,9 @@ class Recette extends Modele{
               }
               $requeteIngreRecette=substr($requeteIngreRecette,0,-1);
               $sth3=$PDO->prepare($requeteIngreRecette);
-              var_dump($requeteIngreRecette);
+//              var_dump($requeteIngreRecette);
                 $sth3->execute();
-               var_dump($requeteIngreRecette);
+//               var_dump($requeteIngreRecette);
 
               $requeteEtapePrep="INSERT INTO etapepreparation (numeroEtape, descriptionEtape, idRecette) VALUES ";
 //              echo "<p>$requeteEtapePrep</p>";
@@ -76,7 +76,7 @@ class Recette extends Modele{
               }
                 $requeteEtapePrep=substr($requeteEtapePrep,0,-2);
                 $sth4=$PDO->prepare($requeteEtapePrep);
-   var_dump($requeteEtapePrep);
+              //   var_dump($requeteEtapePrep);
                 $sth4->execute();
                   
               
