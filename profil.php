@@ -7,13 +7,12 @@ require_once("app/controller/ControleurRecette.class.php");
 $controleur = new ControleurProfil();
 //Appel de la fonction pour gerer le profil
 $controleur->gererProfil();
-//Creer un nouveau controleur recette
-$controleurRecette =new ControleurRecette();
-$controleurRecette-> gererVueAjoutRecette();
 //$controleurRecette->rechercheIngredient();
 //Creer un nouveau controleur publication
 $controleurPublication =new ControleurPublication();
 //Appel de la fonction pour gerer l'ajout de photo
 $controleurPublication->gererVueAjoutPhoto();
-
+//Creer un nouveau controleur recette
+$controleurRecette =new ControleurRecette();
+$controleurRecette->gererVueAjoutRecette();
 ?>

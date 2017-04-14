@@ -24,7 +24,7 @@ class Recette extends Modele{
               $descriptionEtape=$_POST['descriptionEtape'];
             
              
-//            var_dump($_POST);
+//              var_dump($_POST);
               
               //Requete Recette
               $requeteRecette= "INSERT INTO `recettes`(`titreRecette`, `vchTemperatureCuisson`, `vchTempsPreparation`, `vchTempsCuisson`, `idCategorieRecette`, `idtypeRecette`) VALUES ('$nomRecette','$temperatureDeCuisson','$tempsPrep','$tempsDeCuisson','$categorieRecette','$typeRecette')";
@@ -45,9 +45,28 @@ class Recette extends Modele{
                 $ingredientios[]=$lastidIngredient;
 //                var_dump($ingredientios);
               }
+               //Requete Recette ingredient
+              
+              $indexu=0;
+              $requeteIngreRecette="INSERT INTO `recettes_has_ingredients`(`idRecette`, `idingredient`, `quantite`, `uniteDeMesure`, `typeDePrep`, `adjectifIngredient`) VALUES ";
+              foreach($quantite as $qt)
+              {
+                  $requeteIngreRecette.="(".$lastRecetteid['ux'].",".$ingredientios[$indexu].",".$qt.",";
+                      if($uniteDeMesure[$indexu]=="NULL"){ 
+                          $requeteIngreRecette.="".$uniteDeMesure[$indexu].",";
+                      }else{
+                          $requeteIngreRecette.= "'".$uniteDeMesure[$indexu]."',"; 
+                      } $requeteIngreRecette.="'".$preparationIngredient[$indexu]."','".$adjectifIngredient[$indexu]."'),";
+                  $indexu+=1;
+              }
+              $requeteIngreRecette=substr($requeteIngreRecette,0,-1);
+              $sth3=$PDO->prepare($requeteIngreRecette);
+              var_dump($requeteIngreRecette);
+                $sth3->execute();
+               var_dump($requeteIngreRecette);
 
               $requeteEtapePrep="INSERT INTO etapepreparation (numeroEtape, descriptionEtape, idRecette) VALUES ";
-              echo "<p>$requeteEtapePrep</p>";
+//              echo "<p>$requeteEtapePrep</p>";
               $index = 0;
               foreach($numeroEtape as $etape){
           
@@ -56,36 +75,30 @@ class Recette extends Modele{
                   $index+=1;
               }
                 $requeteEtapePrep=substr($requeteEtapePrep,0,-2);
-                $sth3=$PDO->prepare($requeteEtapePrep);
-//                var_dump($requeteEtapePrep);
-                $sth3->execute();
+                $sth4=$PDO->prepare($requeteEtapePrep);
+   var_dump($requeteEtapePrep);
+                $sth4->execute();
                   
               
                
-              //Requete Recette ingredient
-              
-              $indexu=0;
-              $requeteIngreRecette="INSERT INTO `recettes_has_ingredients`(`idRecette`, `idingredient`, `quantite`, `uniteDeMesure`, `typeDePrep`, `adjectifIngredient`) VALUES ";
-              foreach($quantite as $qt)
-              {
-                  $requeteIngreRecette.="(".$lastRecetteid['ux'].",".$ingredientios[$indexu].",".$qt.",'".$uniteDeMesure[$indexu]."','".$preparationIngredient[$indexu]."','".$adjectifIngredient[$indexu]."'),";
-                  $indexu+=1;
-              }
-              $requeteIngreRecette=substr($requeteIngreRecette,0,-1);
-              $sth4=$PDO->prepare($requeteIngreRecette);
-//              var_dump($requeteIngreRecette);
-                $sth4->execute();
-              
+             
                //Requete Photo
-              $folder="app/assets/photo/";
-              $idUtilisateur= $_GET['userID'];
-              $photoCreationRecette = ("$folder".$_FILES['photoCreationRecette']['name']);
-                $descriptionpr= $_POST['descriptionpr'];
-              $requetePhoto="INSERT INTO `photo`(`url`, `description`, `idUtilisateur`,`idRecette`) VALUES ('".$photoCreationRecette."','".$descriptionpr."',".$idUtilisateur.",".$lastRecetteid['ux'].")";
-              $sth5=$PDO->prepare($requetePhoto);
-              $sth5->execute();
-//              var_dump($requetePhoto);
-              
+               $folder="app/assets/photo/".$_SESSION['userID']."/";
+                        $target_file=basename($_FILES['photoCreationRecette']['name']);
+                        $descriptionpr= $_POST['descriptionpr'];
+                        $idUtilisateur= $_GET['userID'];
+                         if (file_exists($folder.$target_file)) {
+                             $increment=0;
+                            while(file_exists($folder.$target_file)){
+                                $increment++;
+                                $target_file = "($increment)-".basename($_FILES['photoCreationRecette']["name"]);
+                            }
+                             
+                         }
+                        $photoCreationRecette ='\"'.$folder.$target_file.'\"';
+                          $requetePhoto="INSERT INTO `photo`(`url`, `description`, `idUtilisateur`,`idRecette`) VALUES ('".$photoCreationRecette."','".$descriptionpr."',".$idUtilisateur.",".$lastRecetteid['ux'].")";
+                        $sth5=$PDO->prepare($requetePhoto);
+                        $sth5->execute();
           }
         }catch(PDOException $e) {
                 echo 'ERROR: ' . $e->getMessage();

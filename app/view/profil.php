@@ -25,8 +25,6 @@ if(isset($_POST["publier"])){
     header("location:profil.php?userID=".$curPage);
 
 }
-echo($trimmedvals->ml);
-
 ?>
 
 <!doctype html>
@@ -42,7 +40,6 @@ echo($trimmedvals->ml);
         <link href="app/assets/style.css" type="text/css" rel="stylesheet" />
          <link href="app/assets/style-laurie.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       
         <script src="app/assets/lib/jquery.min.js" ></script>
         <script>
             //Si le document est pret execute le script
@@ -66,7 +63,6 @@ echo($trimmedvals->ml);
                     $(this).html("<span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
                     this.style.fontSize ="70px";
                 })
-                //
                 
                 
                 $(".popup").click(function(event){
@@ -94,7 +90,8 @@ echo($trimmedvals->ml);
                     
                     });
                     
-                });  
+                })
+                
                 console.log("Abonné? <?= $checkAbonnement ?>");
                 
                 var ajouter=document.querySelector(".plus");
@@ -121,7 +118,7 @@ echo($trimmedvals->ml);
                         console.log(fermeture);
                         popup.classList.add('hidden');
                     });
-                    var photo = document.querySelector('input[name=photoinput]');
+                var photo = document.querySelector('input[name=photoinput]');
                     var divPhoto=document.querySelector(".ajouterUnePhoto");
                     var recette = document.querySelector('input[name=recetteinput]');
                     var decision=document.querySelector(".decision");
@@ -282,8 +279,7 @@ echo($trimmedvals->ml);
                         }
             
                     });
-                    
-              
+                
             })
             
         </script>
@@ -364,7 +360,7 @@ echo($trimmedvals->ml);
                 
                
             </section>
-            <div id="ajoutPhoto" class="popup hidden">
+          <div id="ajoutPhoto" class="popup hidden">
                 <div class="contenu">
                     <div class="fermeture">X</div>
                     <div class="decision">
@@ -448,8 +444,8 @@ echo($trimmedvals->ml);
                  </div>
             </div>
 
-            <div id="affichageRecette" class="popup hidden">
-                <div class="contenuRecette" style="overflow:hidden;">
+            <div id="affichageRecette" class="hidden">
+                <div class="contenuRecette">
                 
                 
                 </div>

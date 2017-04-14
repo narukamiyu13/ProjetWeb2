@@ -87,7 +87,7 @@ require_once("Model.class.php");
         |------------------------------------- */ 
         public function getCommentaires($photoID){
             $PDO = $this->connectionBD();
-            $query = "SELECT comment.idUtilisateur, prenom, nom, comment.description FROM comment INNER JOIN utilisateur ON comment.idUtilisateur = utilisateur.idUtilisateur WHERE comment.idPhoto=".$photoID;
+            $query = "SELECT comment.idUtilisateur, prenom, nom, commentaires FROM comment INNER JOIN utilisateur ON comment.idUtilisateur = utilisateur.idUtilisateur WHERE comment.idPhoto=".$photoID." ORDER BY timestamp ASC";
             $PDOStatement = $PDO->prepare($query);
             $PDOStatement->execute();
             $commentaires = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
@@ -104,10 +104,19 @@ require_once("Model.class.php");
 
                   if(isset($_FILES['photoCreation']) && isset($_POST['description']))
                   {
-                        $folder="app/assets/photo/";
+                        $folder="app/assets/photo/".$_SESSION['userID']."/";
+                        $target_file=basename($_FILES['photoCreation']['name']);
                         $description= $_POST['description'];
                         $idUtilisateur= $_GET['userID'];
-                        $photoCreation = ( "$folder".$_FILES['photoCreation']['name']);
+                         if (file_exists($folder.$target_file)) {
+                             $increment=0;
+                            while(file_exists($folder.$target_file)){
+                                $increment++;
+                                $target_file = "($increment)-".basename($_FILES["photoCreation"]["name"]);
+                            }
+                             
+                         }
+                        $photoCreation ='\"'.$folder.$target_file.'\"';
                         $requete="INSERT INTO `photo`(`url`, `description`, `idUtilisateur`) VALUES ('$photoCreation','$description','$idUtilisateur')";
                         $PDOStatement = $PDO->prepare($requete);
                         $PDOStatement->execute();
@@ -122,8 +131,12 @@ require_once("Model.class.php");
     
        }
         
-        public function checkMiam($photoID){
-            $check = $this->selectionnerNombre("idUtilisateur", "likes",false,  NULL, true, $photoID);
+        public function checkMiam($user,$photoID){
+            $PDO = $this->connectionBD();
+            $query = "SELECT COUNT(idUtilisateur) FROM likes WHERE idUtilisateur=$user AND idPhoto=$photoID";
+            $PDOStatement = $PDO->prepare($query);
+            $PDOStatement->execute();
+            $check = $PDOStatement->fetch(PDO::FETCH_NUM)[0];
             return $check;
             
         }
@@ -145,7 +158,17 @@ require_once("Model.class.php");
             return $exec;
             
         }
-      
+        
+        
+        public function ajoutCommentaire($idPersonne, $idPhoto, $commentaire){
+            $PDO = $this->connectionBD();
+            $requete = "INSERT INTO comment (idPhoto, idUtilisateur, commentaires, timestamp) VALUES ($idPhoto, $idPersonne, \"$commentaire\", NOW())";
+            
+            $PDOStatement = $PDO->prepare($requete);
+            $exec = $PDOStatement->execute();
+            return $exec;
+        }
+        
     } // FIN CLASSE
 
 ?>
