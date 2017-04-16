@@ -56,12 +56,12 @@ if(isset($_POST["publier"])){
                 //Permet d'ajouter le titre sur la classe plus si on la survole
                 $(".plus").mouseover(function(){
                     $(this).html("<p><?= $title ?></p>");
-                    this.style.fontSize = "14px";
+                    this.style.fontSize = "1em";
                 })
                 //Remet un -si la variable checkAbonnement est vrai ou un + si elle est la variabl est fausse dans le rond d'abonnement lorsqu'on ne survol plus la division
                 $(".plus").mouseout(function(){
-                    $(this).html("<span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
-                    this.style.fontSize ="70px";
+                    $(this).html("<span style='line-height:30px; padding-left:5px; padding-right:5px;'><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
+//                    this.style.fontSize ="0px";
                 })
                 
                 
@@ -147,7 +147,8 @@ if(isset($_POST["publier"])){
                     }
         
                       function ajouterIngredient(){
-                           var html = '<div class="ajoutIng" data-id="'+ (index++) +'">'+
+                          ajoutIgreedient.insertAdjacentHTML('beforeend', 
+                           '<div class="ajoutIng" data-id="'+ (index++) +'">'+
                                         '<div class="petitDiv">'+
                                             '<label class="petitL">Quantité</label>'+
                                             '<input class="petitI" type="number" name="quantite[]">'+
@@ -182,11 +183,11 @@ if(isset($_POST["publier"])){
                                         '<div class="petitDiv">'+
                                             '<input type="button" value="-" name="retirerIngredient" class="retirerIngredient petitB">'+
                                         '</div>'+
-                                    '</div>';
-                            ajoutIgreedient.innerHTML += html;
+                                    '</div>');
+                           
                         }
                         function ajouterEtape(){
-                           var html = '<div class="ajoutEtape" data-id="'+ (index++) +'">'+
+                           ajoutEtapePrep.insertAdjacentHTML('beforeend','<div class="ajoutEtape" data-id="'+ (index++) +'">'+
                                         '<div class="petitDiv">'+
                                             '<label class="petitL">No Etape</label>'+
                                             '<input class="petitI" type="number" name="numeroEtape[]">'+
@@ -198,7 +199,7 @@ if(isset($_POST["publier"])){
                                         '<div class="petitDiv petitpetit">'+
                                             '<input type="button" value="-" name="retirerEtape" class="retirerEtape petitB">'+
                                         '</div>'+
-                                    '</div>';
+                                    '</div>');
                             ajoutEtapePrep.innerHTML += html;
                         }
                         ingreplus.addEventListener('click',function(){
