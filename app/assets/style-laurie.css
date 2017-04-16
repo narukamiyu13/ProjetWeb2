@@ -240,7 +240,6 @@ font-size: 70px;
 }
 
 main section:nth-child(2) div:hover {
-   
     border:1px solid white;
     opacity: :0.8;
 }
