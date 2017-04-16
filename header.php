@@ -29,7 +29,7 @@
         <div id="menuSlider" class="sideMenu">
             <a href="javascript:void(0)" class="fermer" >&times;</a>
             <a href="profil.php?userID=<?= $_SESSION['userID']?>">Profil</a>
-            <a href="#">Découverte</a>
+            <a href="decouverte.php">Découverte</a>
             <a href="recherche.php">Recherche</a>
             <a href="profil.php?userID=<?= $_SESSION['userID']?>&modifier">Modifier le profil</a>
             <a href="index.php?deconnexion">Déconnexion</a>
@@ -47,7 +47,7 @@
                 </div>    
                 <ul>
                     <img id="menu" src="app/assets/images/menu.png" alt="menu"/>
-                    <li class="droiteMenu"><a href="">Découverte </a></li>
+                    <li class="droiteMenu"><a href="decouverte.php">Découverte </a></li>
                     <li class="droiteMenu"><?php echo !isset($_SESSION['userID'])? '<a href="connexion.php">Connexion</a>' : '<a href="index.php?deconnexion">Déconnexion</a>' ?></li>	 
                 </ul>
             </div>  

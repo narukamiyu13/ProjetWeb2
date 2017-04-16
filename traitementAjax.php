@@ -19,12 +19,10 @@ if(isset($_GET['selectPhoto'])){
             $('.commentaires').html(data);
         }
                 
-        })
+    })
     
-     
-    
-    $('.fermerRecette').click(function(){
-    $('#affichageRecette').addClass('hidden');
+        $('#ajoutCommentaire').keyup(function(event){
+        console.log(event.which);
     })
     
     })
@@ -32,7 +30,7 @@ if(isset($_GET['selectPhoto'])){
     
 
     
-    </script><div class='fermerRecette'><p>Fermer la recette</p></div>
+    </script>
     <div class='recetteImg' style='background-image:url(".$maRecette['photo']['url'].");background-size:cover;height:450px;overflow:hidden;background-position:center;position:relative'>
         <h2>".$maRecette['photo']['description']."</h2>
         <p> Par <a href='profil.php?userID=".$maRecette['photo']['idUtilisateur']."' >".$maRecette['photo']['prenom']." ".$maRecette['photo']['nom']."</a></p>
@@ -73,9 +71,8 @@ if(isset($_GET['selectPhoto'])){
     ";
      $html.=" </div>
             <input type=\'text\' name=\'commentaire\' placeholder=\"Ajouter un commentaire...\" id=\"ajoutCommentaire\" />
-    <div style='clear:both'></div>  
+       
     </div>
-    
     ";
     
    
@@ -89,7 +86,7 @@ if(isset($_GET['selectPhoto'])){
 if(isset($_GET['commentaires'])){
     $publication = new Publication;
     $maRecette = $publication->selectionnerPhotoRecette($_GET['recetteID']);
-    if($publication->checkMiam($_SESSION['userID'],$maRecette['photo']['idPhoto']) != 0){
+    if($publication->checkMiam($maRecette['photo']['idPhoto'])){
          $src="burger";
      } else {
          $src="burgerBW";
@@ -135,22 +132,7 @@ if(isset($_GET['commentaires'])){
              }
             });
             
-              $('#ajoutCommentaire').keyup(function(event){
-        //console.log(event.which);
-            if(event.which == 13) {
-                console.log($(this).val());
-                $.ajax({
-                type:   'GET',
-                url:    'traitementAjax.php',
-                data:   'ajoutCommentaires&recetteID=".$_GET['recetteID']."&comment='+$(this).val(),
-                success:function(data){
-                    $('.commentaires').append(data);
-                    $('#ajoutCommentaire').val('');
-                }
-
-                })
-            }
-    })
+           
             
             });
     
@@ -158,7 +140,7 @@ if(isset($_GET['commentaires'])){
             </script><p id='miams'><img src='app/assets/images/$src.png' width='30' height='30' alt='miam!' /><span>$nbMiams</span></p>";
     
      foreach($commentaires as $commentaire){
-        $html .= "<p class='commentaire'><span><a href='profil.php?userID=".$commentaire['idUtilisateur']."'>".$commentaire['prenom']." ".$commentaire['nom']."</a></span><br/>".$commentaire['commentaires']."</p>";
+        $html .= "<p class='commentaire'><span><a href='profil.php?userID=".$commentaire['idUtilisateur']."'>".$commentaire['prenom']." ".$commentaire['nom']."</a></span><br/>".$commentaire['description']."</p>";
     }
     
       
@@ -185,22 +167,5 @@ if(isset($_GET['demiam'])){
    var_dump($publication->demiam($idUtilisateur, $photo));
 } // FIN if(isset($_GET['demiam']))
 
-
-if(isset($_GET['ajoutCommentaires'])) {
-    
-    $commentaire = htmlspecialchars($_GET['comment']);
-    $publication = new Publication();
-    
-    $publication->ajoutCommentaire($_SESSION['userID'], $_GET['recetteID'], $commentaire);
-    $PDO = $publication->connectionBD();
-    $query="SELECT nom, prenom FROM utilisateur WHERE idUtilisateur=".$_SESSION['userID'];
-    $PDOStatement = $PDO->prepare($query);
-    $PDOStatement->execute();
-    $personne = $PDOStatement->fetch(PDO::FETCH_ASSOC);
-    
-    
-    
-    echo "<p class='commentaire'><span><a href='profil.php?userID=".$_SESSION['userID']."'>".$personne['prenom']." ".$personne['nom']."</a></span><br/>".$commentaire."</p>";
-} // FIN isset($_GET['ajoutCommentaires'])
 
 ?>

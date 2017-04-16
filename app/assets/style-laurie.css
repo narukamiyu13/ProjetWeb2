@@ -97,30 +97,22 @@ div{
 /*   LES STYLES DU POPUP DE RECETTE */
 
 .contenuRecette{
-    width:100%;
-    height:100%;
-    position:fixed;
-    top:0;
-    left:0;
+    width:1200px;
+    height:600px;
+    margin:0 auto;
+    margin-top:150px;
     background-color:#fdc741;
+}
+
+.contenuRecette #laRecette{
+    height:600px;
     overflow-y:scroll;
-}
-
-.fermerRecette{
-    height:50px;
-    text-align:center;
-    font-size:1.4em;
-    cursor:pointer;
-}
-
-.fermerRecette p {
-    margin-top:20px;
 }
 
 .contenuRecette h2{
     font-size:2em;
     position:absolute;
-    bottom:20px;
+    bottom:15px;
     left:50px;
 }
 
@@ -136,9 +128,9 @@ div{
 }
 
 .informations{
-    float:left;
+    display:inline-block;
     border-right:1px solid black;
-    width:65%;
+    width:700px;
 }
 
 .informations h3:nth-of-type(2){
@@ -152,15 +144,11 @@ div{
 
 .commentaires{
     position:relative;
+    min-height:400px;
     overflow-y:scroll;
-    clear:none;
-    float:left;
-    width:30%;
+    display:inline-block;
+    width:400px;
     margin-left:10px;
-}
-
-.commentaires img {
-    cursor:pointer;
 }
 
 .commentaires #miams{
@@ -175,8 +163,12 @@ div{
     font-weight:bold;
 }
 
-
-
+#ajoutCommentaire {
+    width:400px;
+    position:relative;
+    left:700px;
+    margin-top:10px;
+}
 
 /*LES STYLES GÉNÉRAUX */
 
@@ -290,18 +282,4 @@ h2{
         width: inherit;
         padding:10px;
     }
-    
-    /*  Styles du popup recettes  */
-    
-    .informations, .commentaires {
-        width:100%;
-    }
-    
-    .informations {
-        border-right:none;
-        border-bottom:1px solid black;
-        padding-bottom:15px;
-        margin-bottom:15px;
-    }
-    
 }
