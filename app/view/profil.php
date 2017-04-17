@@ -60,7 +60,7 @@ if(isset($_POST["publier"])){
                 })
                 //Remet un -si la variable checkAbonnement est vrai ou un + si elle est la variabl est fausse dans le rond d'abonnement lorsqu'on ne survol plus la division
                 $(".plus").mouseout(function(){
-                    $(this).html("<span style='line-height:30px; padding-left:5px; padding-right:5px;'><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
+                    $(this).html("<span style='line-height:15px; padding-left:5px; padding-right:5px;'><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
 //                    this.style.fontSize ="0px";
                 })
                 
@@ -132,6 +132,7 @@ if(isset($_POST["publier"])){
                     var suivantIngredient= document.querySelector(".suivantIngredient");
                     var prepplus=document.querySelector(".prepplus");
                     var index=1;
+                    var ind=1;
                     var ajoutIgreedient=document.querySelector(".secingred");
                     var etapePrep=document.querySelector(".containsEtapePrep");
                     var ajoutEtapePrep=document.querySelector(".secEtapes");
@@ -148,13 +149,14 @@ if(isset($_POST["publier"])){
         
                       function ajouterIngredient(){
                           ajoutIgreedient.insertAdjacentHTML('beforeend', 
-                           '<div class="ajoutIng" data-id="'+ (index++) +'">'+
+                           '<div class="ajoutIng" data-id="'+ (index) +'">'+
+                                    '<div class="reti">'+
+                                    '<input type="button" value="-" name="retirerIngredient" class="retirerIngredient petitB">'+
+                                    '</div>' +
+                                        '<h2>Ingredient '+ (index) +'</h2>'+                   
                                         '<div class="petitDiv">'+
-                                            '<label class="petitL">Quantité</label>'+
+                                            '<label class="petitL">Quantité</label><br>'+
                                             '<input class="petitI" type="number" name="quantite[]">'+
-                                        '</div>'+
-                                        '<div class="grandDiv">'+
-                                            '<label class="grandL">Unité de mesure</label>'+
                                                 '<select name="uniteDeMesure[]">'+
                                                     '<option value="NULL">Unité</option>'+
                                                     '<option value="ml">Ml</option>'+
@@ -169,7 +171,7 @@ if(isset($_POST["publier"])){
                                                 '</select>'+
                                         '</div>'+
                                         '<div class="grandDiv">'+
-                                            '<label class="grandL">Ingrédient</label>'+
+                                            '<label class="grandL">Ingrédient</label><br>'+
                                             '<input type="text" name="nomIngredient[]" class="nomIngredient grandI">'+
                                         '</div>'+
                                         '<div class="grandDiv">'+
@@ -179,29 +181,34 @@ if(isset($_POST["publier"])){
                                         '<div class="grandDiv">'+
                                             '<label class="grandL">Adjectif Ingredient</label>'+
                                             '<input class="grandI" type="text" name="adjectifIngredient[]">'+
-                                        '</div>'+
-                                        '<div class="petitDiv">'+
-                                            '<input type="button" value="-" name="retirerIngredient" class="retirerIngredient petitB">'+
+                                            '<input type="hidden" value="'+ (index++) +'">'+
+                                            
                                         '</div>'+
                                     '</div>');
                            
                         }
+                ajouterIngredient();
                         function ajouterEtape(){
-                           ajoutEtapePrep.insertAdjacentHTML('beforeend','<div class="ajoutEtape" data-id="'+ (index++) +'">'+
+                           ajoutEtapePrep.insertAdjacentHTML('beforeend','<div class="ajoutEtape" data-id="'+ (ind) +'">'+
+                                        '<div class="reti">'+
+                                        '<input type="button" value="-" name="retirerEtape" class="retirerEtape petitB">'+
+                                        '</div>' +
+                                        '<h2>Etape'+ (ind) +'</h2>'+
                                         '<div class="petitDiv">'+
-                                            '<label class="petitL">No Etape</label>'+
-                                            '<input class="petitI" type="number" name="numeroEtape[]">'+
+                                                             
+                                            '<label class="petitL">Numero Etape</label><br>'+
+                                            '<input class="petitI" type="number" value="'+ (ind) +'"name="numeroEtape[]">'+
                                         '</div>'+
                                         '<div class="grandDiv">'+
                                             '<label class="grandL">Description etape</label>'+
                                             '<textarea type="text" name="descriptionEtape[]" class="grandI"></textarea>'+
                                         '</div>'+
-                                        '<div class="petitDiv petitpetit">'+
-                                            '<input type="button" value="-" name="retirerEtape" class="retirerEtape petitB">'+
-                                        '</div>'+
+                                            '<input type="hidden" value="'+ (ind++) +'">'+
+                                        
                                     '</div>');
-                            ajoutEtapePrep.innerHTML += html;
+                            
                         }
+                ajouterEtape();
                         ingreplus.addEventListener('click',function(){
                             ajouterIngredient();
                         });
@@ -264,6 +271,7 @@ if(isset($_POST["publier"])){
                             var id = itemIngredient.dataset.id;
                             console.log(id);
                             supprimer(id);
+                            index--;
                         }
             
                     });
@@ -277,6 +285,7 @@ if(isset($_POST["publier"])){
                             var id = itemEtape.dataset.id;
                             console.log(id);
                             supprimer(id);
+                            ind--;
                         }
             
                     });
@@ -363,83 +372,120 @@ if(isset($_POST["publier"])){
             </section>
           <div id="ajoutPhoto" class="popup hidden">
                 <div class="contenu">
+                    <div class="background">
+                            <div class="imageback"></div>
+                        </div>
                     <div class="fermeture">X</div>
+                    
                     <div class="decision">
-                        <h1>Publiez vos créations culiniaires préférés</h1>
-                        <input type="checkbox" name="recetteinput"><label>Publiez une photo avec recette</label><br>
-                        <input type="checkbox" name="photoinput"><label>Publiez une photo sans recette</label>
-                    </div>
+                        <div class="titre">
+                            <h1>Publiez vos créations culiniaires préférés</h1>
+                        </div>
+                        <div class="encart">
+                           <span class="pad"><label>Publiez une photo avec recette</label><input type="checkbox" name="recetteinput"></span>
+                           <span class="pad"><label>Publiez une photo sans recette</label> <input type="checkbox" name="photoinput"></span>
+                        </div>
+                     </div>
                     <form class="ajouterUnePhoto hidden" action="profil.php?userID=<?php echo $_GET['userID'];?>" method="post" enctype="multipart/form-data">
-                        <h1>Publiez les photos de vos créations culiniaires préférés</h1>
-                        <label for="description">Description</label><input type="text" name="description" id="description"><br>
-                        <input type="file" name="photoCreation" id="photoCreation"><br>
-                        <input type="button" value="Precedent" name="precedentPhoto">
-                        <input type="submit" value="Publier une creation" name="publier">
+                        <div class="titre">
+                            <h1>Publiez les photos de vos créations culiniaires préférés</h1>
+                        </div>
+                        <div class="encartpho">
+                            <label for="description">Description</label><input type="text" name="description" id="description"><br>
+                            <input type="file" name="photoCreation" id="photoCreation">
+                            <label for="photoCreation">Telecharger une photo</label>
+                        </div>
+                        <div class="controle">
+                            <input type="button" value="Precedent" name="precedentPhoto">
+                            <input type="submit" value="Publier une creation" name="publier">
+                        </div>
                     </form>
                     
                     <form class="ajouterUneRecette" action="profil.php?userID=<?php echo $_GET['userID'];?>" method="post" enctype="multipart/form-data">
+                      
                         <div class="laRecette hidden">
-                            <h1>La recette</h1>
-                            <label>Nom de la recette</label><input type="text" name="nomRecette"><br>
+                            <div class="titre">
+                                <h1>La recette</h1>
+                            </div>
+                            <div class="encartRe">
+                            <label>Nom de la recette</label><input type="text" name="nomRecette">
                              <label>Type de recette</label>
                             <select name="typeRecette">
                                 <option value="1">Traditionel</option>
                                 <option value="2">Santé</option>
                                 <option value="3">Creatif</option>
-                            </select><br>
+                            </select>
                             <label>Categorie Recette</label>
                             <select name="categorieRecette">
                                 <option value="1">Plat</option>
                                 <option value="2">Entrée</option>
                                 <option value="3">Desert</option>
-                            </select><br>
-                            <label>Temperature de cuisson</label><input type="text" name="temperatureDeCuisson"><br>
-                            <label>Temps de cuisson</label><input type="text" name="tempsDeCuisson"><br>
-                            <label>Temps de preparation</label><input type="text" name="tempsPrep"><br>
-                    
-                
+                            </select>
+                            <label>Temperature de cuisson</label><input type="text" name="temperatureDeCuisson">
+                            <label>Temps de cuisson</label><input type="text" name="tempsDeCuisson">
+                            <label>Temps de preparation</label><input type="text" name="tempsPrep">
+                            </div>
+                            <div class="controle">
                             <input type="button" value="Precedent" name="precedentRecette" class="precedentRecette">
                             <input type="button" value="suivant" name="suivantlaRecette" class="suivantRecette">
+                            </div>
                         </div>
                     
                         <div class="containsIngredients hidden">
+                            <div class="titre">
+                             <h1>Les Ingredients</h1>
+                            </div>
                             <div class="lesIngredients">
-                                <h1>Les Ingredients</h1>
-                                <div>
+                                <div class="ajouterDesIn">
                                     <label>Ajouter des ingrédients</label>
                                     <input class="ingreplus" type="button" value="+" name="ajouterPlus">
                                 </div>
                                 <div class="secingred">
+                                    
                                 </div>
 
                             </div>
                             <br>
-                            <input type="button" value="Precedent" name="precedentIngredient" class="precedentIngredient">
-                            <input type="button" value="Suivant" name="suivantIngredient" class="suivantIngredient">
+                             <div class="controle">
+                                <input type="button" value="Precedent" name="precedentIngredient" class="precedentIngredient">
+                                <input type="button" value="Suivant" name="suivantIngredient" class="suivantIngredient">
+                            </div>
                         </div>
                  
                         
                          <div class="containsEtapePrep hidden">
-                        <div class="lesEtapesPrep">
-                            <h1>Les Étapes de préparations</h1>
-                            <div>
-                                <label>Ajouter des Etapes</label>
-                                <input class="prepplus" type="button" value="+" name="ajouterPlus">
+                             <div class="titre">
+                                <h1>Les Étapes de préparations</h1>
+                             </div>
+                            <div class="lesEtapesPrep">
+                                <div class="ajouterDesIn">
+                                    <label>Ajouter des Etapes</label>
+                                    <input class="prepplus" type="button" value="+" name="ajouterPlus">
+                                </div>
+                                <div class="secEtapes">
+                                </div>
+
                             </div>
-                            <div class="secEtapes">
-                            </div>
-                            
-                        </div>
                             <br>
-                            <input type="button" value="Precedent" name="precedentPrep" class="precedentPrep">
-                            <input type="button" value="Suivant" name="suivantPrep" class="suivantPrep">
+                            <div class="controle">
+                                <input type="button" value="Precedent" name="precedentPrep" class="precedentPrep">
+                                <input type="button" value="Suivant" name="suivantPrep" class="suivantPrep">
+                             </div>
                         </div>
                         <div class="photoRecette hidden">
+                            <div class="titre">
                             <h1>Publiez les photos de vos créations culiniaires préférés</h1>
-                            <label for="description">Description</label><input type="text" name="descriptionpr" id="descriptionpr"><br>
-                            <input type="file" name="photoCreationRecette" id="photoCreationRecette"><br>
-                            <input type="button" value="Precedent" name="precedentPrep" class="precedentPhotoRecette">
-                            <input type="submit" value="Publier une creation" name="publierAvecRecette">
+                            </div>
+                            <div class="encartphotor">
+                                <label for="description">Description</label><input type="text" name="descriptionpr" id="descriptionpr"><br>
+                                <input type="file" name="photoCreationRecette" id="photoCreationRecette">
+                                <label for="photoCreationRecette">Telecharger une photo</label>
+                                <br>
+                            </div>
+                            <div class="controle">
+                                <input type="button" value="Precedent" name="precedentPrep" class="precedentPhotoRecette">
+                                <input type="submit" value="Publier une creation" name="publierAvecRecette">
+                            </div>
                         </div>
                     </form>
                  </div>
