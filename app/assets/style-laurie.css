@@ -379,7 +379,7 @@ h2{
     display:flex;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 30px;
     overflow-y:scroll;
     overflow: scroll;
@@ -388,7 +388,7 @@ h2{
     margin: 0 auto;
     padding:0px 0px 10px 40px;
     background-color: #fdc741;
-    margin-bottom: 10px;
+    margin-bottom: 18px;
     align-self: center;
     max-width: 45vh;
 }
@@ -418,7 +418,7 @@ h2{
     display:flex;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 30px;
     overflow-y:scroll;
     overflow: scroll;
@@ -427,7 +427,7 @@ h2{
     margin: 0 auto;
     padding:10px 0px 20px 40px;
     background-color: #fdc741;
-    margin-bottom: 10px;
+    margin-bottom: 18px;
     align-self: center;
     max-width: 45vh;
 }

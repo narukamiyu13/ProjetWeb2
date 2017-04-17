@@ -151,61 +151,59 @@ if(isset($_POST["publier"])){
                           ajoutIgreedient.insertAdjacentHTML('beforeend', 
                            '<div class="ajoutIng" data-id="'+ (index) +'">'+
                                     '<div class="reti">'+
-                                    '<input type="button" value="-" name="retirerIngredient" class="retirerIngredient petitB">'+
+                                        '<input type="button" value="-" name="retirerIngredient" class="retirerIngredient petitB">'+
                                     '</div>' +
-                                        '<h2>Ingredient '+ (index) +'</h2>'+                   
-                                        '<div class="petitDiv">'+
-                                            '<label class="petitL">Quantité</label><br>'+
-                                            '<input class="petitI" type="number" name="quantite[]">'+
-                                                '<select name="uniteDeMesure[]">'+
-                                                    '<option value="NULL">Unité</option>'+
-                                                    '<option value="ml">Ml</option>'+
-                                                    '<option value="tasse">Tasse</option>'+
-                                                    '<option value="cuillere a the">cuillere à thé</option>'+
-                                                    '<option value="cuillere a table">cuillere à table</option>'+
-                                                    '<option value="g">Gramme</option>'+
-                                                    '<option value="kg">kilogrammme</option>'+
-                                                    '<option value="lbs">livre</option>'+
-                                                    '<option value="l">litre</option>'+
-                                                    '<option value="cl">centilitre</option>'+
-                                                '</select>'+
-                                        '</div>'+
-                                        '<div class="grandDiv">'+
-                                            '<label class="grandL">Ingrédient</label><br>'+
-                                            '<input type="text" name="nomIngredient[]" class="nomIngredient grandI">'+
-                                        '</div>'+
-                                        '<div class="grandDiv">'+
-                                            '<label class="grandL">Preparation ingredient</label>'+
-                                            '<input class="grandI" type="text" name="preparationIngredient[]">'+
-                                        '</div>'+
-                                        '<div class="grandDiv">'+
-                                            '<label class="grandL">Adjectif Ingredient</label>'+
-                                            '<input class="grandI" type="text" name="adjectifIngredient[]">'+
-                                            '<input type="hidden" value="'+ (index++) +'">'+
-                                            
-                                        '</div>'+
-                                    '</div>');
+                                    '<h2>Ingredient '+ (index) +'</h2>'+                   
+                                    '<div class="petitDiv">'+
+                                        '<label class="petitL">Quantité</label><br>'+
+                                        '<input class="petitI" type="number" name="quantite[]">'+
+                                        '<select name="uniteDeMesure[]">'+
+                                            '<option value="NULL">Unité</option>'+
+                                            '<option value="ml">Ml</option>'+
+                                            '<option value="tasse">Tasse</option>'+
+                                            '<option value="cuillere a the">cuillere à thé</option>'+
+                                            '<option value="cuillere a table">cuillere à table</option>'+
+                                            '<option value="g">Gramme</option>'+
+                                            '<option value="kg">kilogrammme</option>'+
+                                            '<option value="lbs">livre</option>'+
+                                            '<option value="l">litre</option>'+
+                                            '<option value="cl">centilitre</option>'+
+                                        '</select>'+
+                                    '</div>'+
+                                    '<div class="grandDiv">'+
+                                        '<label class="grandL">Ingrédient</label><br>'+
+                                        '<input type="text" name="nomIngredient[]" class="nomIngredient grandI">'+
+                                    '</div>'+
+                                    '<div class="grandDiv">'+
+                                        '<label class="grandL">Preparation ingredient</label>'+
+                                        '<input class="grandI" type="text" name="preparationIngredient[]">'+
+                                    '</div>'+
+                                    '<div class="grandDiv">'+
+                                        '<label class="grandL">Adjectif Ingredient</label>'+
+                                        '<input class="grandI" type="text" name="adjectifIngredient[]">'+
+                                        '<input type="hidden" value="'+ (index++) +'">'+
+                                    '</div>'+
+                                '</div>');
                            
                         }
                 ajouterIngredient();
                         function ajouterEtape(){
-                           ajoutEtapePrep.insertAdjacentHTML('beforeend','<div class="ajoutEtape" data-id="'+ (ind) +'">'+
-                                        '<div class="reti">'+
-                                        '<input type="button" value="-" name="retirerEtape" class="retirerEtape petitB">'+
-                                        '</div>' +
-                                        '<h2>Etape'+ (ind) +'</h2>'+
-                                        '<div class="petitDiv">'+
-                                                             
-                                            '<label class="petitL">Numero Etape</label><br>'+
-                                            '<input class="petitI" type="number" value="'+ (ind) +'"name="numeroEtape[]">'+
-                                        '</div>'+
-                                        '<div class="grandDiv">'+
-                                            '<label class="grandL">Description etape</label>'+
-                                            '<textarea type="text" name="descriptionEtape[]" class="grandI"></textarea>'+
-                                        '</div>'+
-                                            '<input type="hidden" value="'+ (ind++) +'">'+
-                                        
-                                    '</div>');
+                           ajoutEtapePrep.insertAdjacentHTML('beforeend',
+                                        '<div class="ajoutEtape" data-id="'+ (ind) +'">'+
+                                            '<div class="reti">'+
+                                                '<input type="button" value="-" name="retirerEtape" class="retirerEtape petitB">'+
+                                            '</div>' +
+                                            '<h2>Etape'+ (ind) +'</h2>'+
+                                            '<div class="petitDiv">'+
+                                                '<label class="petitL">Numero Etape</label><br>'+
+                                                '<input class="petitI" type="number" value="'+ (ind) +'"name="numeroEtape[]">'+
+                                            '</div>'+
+                                            '<div class="grandDiv">'+
+                                                '<label class="grandL">Description etape</label>'+
+                                                '<textarea type="text" name="descriptionEtape[]" class="grandI"></textarea>'+
+                                                '<input type="hidden" value="'+(ind++)+'">'+
+                                            '</div>'+
+                                        '</div>');
                             
                         }
                 ajouterEtape();
@@ -383,7 +381,7 @@ if(isset($_POST["publier"])){
                         </div>
                         <div class="encart">
                            <span class="pad"><label>Publiez une photo avec recette</label><input type="checkbox" name="recetteinput"></span>
-                           <span class="pad"><label>Publiez une photo sans recette</label> <input type="checkbox" name="photoinput"></span>
+                           <span class="pad"><label>Publiez une photo sans recette</label><input type="checkbox" name="photoinput"></span>
                         </div>
                      </div>
                     <form class="ajouterUnePhoto hidden" action="profil.php?userID=<?php echo $_GET['userID'];?>" method="post" enctype="multipart/form-data">
