@@ -58,7 +58,7 @@ if(isset($_GET['selectPhoto'])){
         
         $html.= "<h3>Étapes de préparation</h3>";
         foreach($maRecette['etapes'] as $etape) {
-            $html .= "<p class='etape'>".$etape['numeroEtape'].") ".$etape['DescriptionEtape']."</p>";
+            $html .= "<p class='etape'>".$etape['numeroEtape'].") ".$etape['descriptionEtape']."</p>";
         }
         
     }else {
