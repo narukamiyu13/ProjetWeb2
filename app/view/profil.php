@@ -102,53 +102,51 @@ if(isset($_POST["publier"])){
                         if($profilUserActuel == true) {
                     ?>
                         popup.classList.remove('hidden');
-                  
-                
                     <?php
-                     } else {
-                    $currentPage=$_GET['userID'];
-                    
-                      echo ($checkAbonnement == false) ? ' window.location="profil.php?follow&userID='.$currentPage.'";' : 'window.location="profil.php?unfollow&userID='.$currentPage.'"';
-                    
-                    }
+                        } else {
+                            $currentPage=$_GET['userID'];
+                            echo ($checkAbonnement == false) ? ' window.location="profil.php?follow&userID='.$currentPage.'";' : 'window.location="profil.php?unfollow&userID='.$currentPage.'"';
+                        }
                     ?>
-                  })
-                    var fermeture=document.querySelector('.fermeture');
-                    fermeture.addEventListener('click',function(evt){
-                        console.log(fermeture);
-                        popup.classList.add('hidden');
-                    });
+                })
+                var fermeture=document.querySelector('.fermeture');
+                fermeture.addEventListener('click',function(evt){
+                    console.log(fermeture);
+                    popup.classList.add('hidden');
+                });
+                //selectionne les divers elements permettant de creer de l'interactivté avec l'utilisateur
                 var photo = document.querySelector('input[name=photoinput]');
-                    var divPhoto=document.querySelector(".ajouterUnePhoto");
-                    var recette = document.querySelector('input[name=recetteinput]');
-                    var decision=document.querySelector(".decision");
-                    var ajouterUneRecette= document.querySelector(".laRecette");
-                    var precedentPhoto=document.querySelector('input[name=precedentPhoto]');
-                    var precedentRecette=document.querySelector('input[name=precedentRecette]');
-                    var lesIngredients=document.querySelector(".containsIngredients");
-                    var suivantRecette=document.querySelector(".suivantRecette");
-                    var ingreplus= document.querySelector(".ingreplus");
-                    var precedentIngredient= document.querySelector(".precedentIngredient");
-                    var suivantIngredient= document.querySelector(".suivantIngredient");
-                    var prepplus=document.querySelector(".prepplus");
-                    var index=1;
-                    var ind=1;
-                    var ajoutIgreedient=document.querySelector(".secingred");
-                    var etapePrep=document.querySelector(".containsEtapePrep");
-                    var ajoutEtapePrep=document.querySelector(".secEtapes");
-                    var precedentPrep=document.querySelector(".precedentPrep");
-                    var suivantPrep=document.querySelector(".suivantPrep");
-                    var photoRecette=document.querySelector(".photoRecette");
-                    var precedentPhotoRecette=document.querySelector(".precedentPhotoRecette");
+                var divPhoto=document.querySelector(".ajouterUnePhoto");
+                var recette = document.querySelector('input[name=recetteinput]');
+                var decision=document.querySelector(".decision");
+                var ajouterUneRecette= document.querySelector(".laRecette");
+                var precedentPhoto=document.querySelector('input[name=precedentPhoto]');
+                var precedentRecette=document.querySelector('input[name=precedentRecette]');
+                var lesIngredients=document.querySelector(".containsIngredients");
+                var suivantRecette=document.querySelector(".suivantRecette");
+                var ingreplus= document.querySelector(".ingreplus");
+                var precedentIngredient= document.querySelector(".precedentIngredient");
+                var suivantIngredient= document.querySelector(".suivantIngredient");
+                var prepplus=document.querySelector(".prepplus");
+                var index=1;
+                var ind=1;
+                var ajoutIgreedient=document.querySelector(".secingred");
+                var etapePrep=document.querySelector(".containsEtapePrep");
+                var ajoutEtapePrep=document.querySelector(".secEtapes");
+                var precedentPrep=document.querySelector(".precedentPrep");
+                var suivantPrep=document.querySelector(".suivantPrep");
+                var photoRecette=document.querySelector(".photoRecette");
+                var precedentPhotoRecette=document.querySelector(".precedentPhotoRecette");
                 
-                    function supprimer(id){
-                        var select= '[data-id="'+ id +'"]';
-                        var element = document.querySelector(select);
-                        element.outerHTML = "";
-                    }
-        
-                      function ajouterIngredient(){
-                          ajoutIgreedient.insertAdjacentHTML('beforeend', 
+                //Supprime un encart ingredient ou etape 
+                function supprimer(id){
+                    var select= '[data-id="'+ id +'"]';
+                    var element = document.querySelector(select);
+                    element.outerHTML = "";
+                }
+                //Ajoute un encart ingredient
+                function ajouterIngredient(){
+                    ajoutIgreedient.insertAdjacentHTML('beforeend', 
                            '<div class="ajoutIng" data-id="'+ (index) +'">'+
                                     '<div class="reti">'+
                                         '<input type="button" value="-" name="retirerIngredient" class="retirerIngredient petitB">'+
@@ -184,11 +182,11 @@ if(isset($_POST["publier"])){
                                         '<input type="hidden" value="'+ (index++) +'">'+
                                     '</div>'+
                                 '</div>');
-                           
-                        }
+                }
                 ajouterIngredient();
-                        function ajouterEtape(){
-                           ajoutEtapePrep.insertAdjacentHTML('beforeend',
+                //Ajoute un encart etape
+                function ajouterEtape(){
+                    ajoutEtapePrep.insertAdjacentHTML('beforeend',
                                         '<div class="ajoutEtape" data-id="'+ (ind) +'">'+
                                             '<div class="reti">'+
                                                 '<input type="button" value="-" name="retirerEtape" class="retirerEtape petitB">'+
@@ -204,98 +202,100 @@ if(isset($_POST["publier"])){
                                                 '<input type="hidden" value="'+(ind++)+'">'+
                                             '</div>'+
                                         '</div>');
-                            
-                        }
+                }
                 ajouterEtape();
-                        ingreplus.addEventListener('click',function(){
-                            ajouterIngredient();
-                        });
-                        prepplus.addEventListener('click',function(){
-                            ajouterEtape();
-                        });
-                        recette.addEventListener('change', function (event) {
-                            if (recette.checked) {
-                                ajouterUneRecette.classList.remove("hidden");
-                                decision.classList.add("hidden");
-                            } 
-                        });
-                        photo.addEventListener('change', function (event) {
-                            if (photo.checked) {
-                                divPhoto.classList.remove("hidden");
-                                decision.classList.add("hidden");
-                            }
-                        });
-                        precedentPhoto.addEventListener('click',function(event){
-                            divPhoto.classList.add("hidden");
-                            decision.classList.remove("hidden");
-                            photo.checked = false;
-                        });
-                        precedentRecette.addEventListener('click',function(event){
-                            ajouterUneRecette.classList.add("hidden");
-                            decision.classList.remove("hidden");
-                            recette.checked=false;
-                        });
-                        suivantRecette.addEventListener('click',function(event){
-                            ajouterUneRecette.classList.add("hidden");
-                            lesIngredients.classList.remove("hidden");
-                        });
-                        precedentIngredient.addEventListener('click',function(event){
-                            ajouterUneRecette.classList.remove("hidden");
-                            lesIngredients.classList.add("hidden");
-                        });
-                        suivantIngredient.addEventListener('click',function(event){
-                            lesIngredients.classList.add("hidden");
-                             etapePrep.classList.remove("hidden");
-                        });
-                        precedentPrep.addEventListener('click',function(event){
-                            lesIngredients.classList.remove("hidden");
-                             etapePrep.classList.add("hidden");
-                        });
-                        suivantPrep.addEventListener('click',function(event){
-                            photoRecette.classList.remove("hidden");
-                             etapePrep.classList.add("hidden");
-                        });
-                        precedentPhotoRecette.addEventListener('click',function(event){
-                            photoRecette.classList.add("hidden");
-                            etapePrep.classList.remove("hidden");
-                        });
+                //Ajoute un ingredient si on clique sur plus
+                ingreplus.addEventListener('click',function(){
+                    ajouterIngredient();
+                });
+                //ajoute une etape si on clique sur plus
+                prepplus.addEventListener('click',function(){
+                    ajouterEtape();
+                });
+                //Permet de supprimer un ingredient 
+                ajoutIgreedient.addEventListener("click", function(evt){
+                    //console.log(evt.target);
+                    if(evt.target.classList.contains("retirerIngredient"))
+                    {
+                        var itemIngredient = evt.target.parentElement.parentElement;
+                        console.log(itemIngredient);
+                        var id = itemIngredient.dataset.id;
+                        console.log(id);
+                        supprimer(id);
+                        index--;
+                    }
+                });
+                //permet de supprimer une étape de preparation
+                ajoutEtapePrep.addEventListener("click", function(evt){
+                    //console.log(evt.target);
+                    if(evt.target.classList.contains("retirerEtape"))
+                    {
+                        console.log(evt.target);
+                        var itemEtape = evt.target.parentElement.parentElement;
+                        console.log(itemEtape);
+                        var id = itemEtape.dataset.id;
+                        console.log(id);
+                        supprimer(id);
+                        ind--;
+                    }
+                });
+                //Permet de passer a l'étape suivante si l'input check box recette est coché
+                recette.addEventListener('change', function (event) {
+                    if (recette.checked) {
+                        ajouterUneRecette.classList.remove("hidden");
+                        decision.classList.add("hidden");
+                    } 
+                });
+                 //Permet de passer a l'étape suivante si l'input check box photo est coché
+                photo.addEventListener('change', function (event) {
+                    if (photo.checked) {
+                        divPhoto.classList.remove("hidden");
+                        decision.classList.add("hidden");
+                    }
+                });
+                //Permet la navigation entre les différentes étapes d'ajout de recette
+                precedentPhoto.addEventListener('click',function(event){
+                    divPhoto.classList.add("hidden");
+                    decision.classList.remove("hidden");
+                    photo.checked = false;
+                });
+                precedentRecette.addEventListener('click',function(event){
+                    ajouterUneRecette.classList.add("hidden");
+                    decision.classList.remove("hidden");
+                    recette.checked=false;
+                });
+                suivantRecette.addEventListener('click',function(event){
+                    ajouterUneRecette.classList.add("hidden");
+                    lesIngredients.classList.remove("hidden");
+                });
+                precedentIngredient.addEventListener('click',function(event){
+                    ajouterUneRecette.classList.remove("hidden");
+                    lesIngredients.classList.add("hidden");
+                });
+                suivantIngredient.addEventListener('click',function(event){
+                    lesIngredients.classList.add("hidden");
+                    etapePrep.classList.remove("hidden");
+                });
+                precedentPrep.addEventListener('click',function(event){
+                    lesIngredients.classList.remove("hidden");
+                    etapePrep.classList.add("hidden");
+                });
+                suivantPrep.addEventListener('click',function(event){
+                    photoRecette.classList.remove("hidden");
+                    etapePrep.classList.add("hidden");
+                });
+                precedentPhotoRecette.addEventListener('click',function(event){
+                    photoRecette.classList.add("hidden");
+                    etapePrep.classList.remove("hidden");
+                });
                 
-                        ajoutIgreedient.addEventListener("click", function(evt){
-                        //console.log(evt.target);
-                        if(evt.target.classList.contains("retirerIngredient"))
-                        {
-                            var itemIngredient = evt.target.parentElement.parentElement;
-                            console.log(itemIngredient);
-                            var id = itemIngredient.dataset.id;
-                            console.log(id);
-                            supprimer(id);
-                            index--;
-                        }
-            
-                    });
-                        ajoutEtapePrep.addEventListener("click", function(evt){
-                        //console.log(evt.target);
-                        if(evt.target.classList.contains("retirerEtape"))
-                        {
-                            console.log(evt.target)
-                            var itemEtape = evt.target.parentElement.parentElement;
-                            console.log(itemEtape);
-                            var id = itemEtape.dataset.id;
-                            console.log(id);
-                            supprimer(id);
-                            ind--;
-                        }
-            
-                    });
-                
+          
             })
             
         </script>
-           <script src="app/assets/js/menu.js"></script>
+        <script src="app/assets/js/menu.js"></script>
     </head>
-    
-
-<body>
+    <body>
        <?php include_once'header.php'; ?>
         <main>
            
@@ -365,16 +365,15 @@ if(isset($_POST["publier"])){
                 }
                 
                 ?>
-                
-               
             </section>
-          <div id="ajoutPhoto" class="popup hidden">
+            <!-- pop up ajout de photo ou recette-->
+            <div id="ajoutPhoto" class="popup hidden">
                 <div class="contenu">
                     <div class="background">
-                            <div class="imageback"></div>
-                        </div>
+                        <div class="imageback"></div>
+                    </div>
                     <div class="fermeture">X</div>
-                    
+                     <!-- Decision -->
                     <div class="decision">
                         <div class="titre">
                             <h1>Publiez vos créations culiniaires préférés</h1>
@@ -384,6 +383,7 @@ if(isset($_POST["publier"])){
                            <span class="pad"><label>Publiez une photo sans recette</label><input type="checkbox" name="photoinput"></span>
                         </div>
                      </div>
+                    <!-- Formulaire d'ajout de photo -->
                     <form class="ajouterUnePhoto hidden" action="profil.php?userID=<?php echo $_GET['userID'];?>" method="post" enctype="multipart/form-data">
                         <div class="titre">
                             <h1>Publiez les photos de vos créations culiniaires préférés</h1>
@@ -398,40 +398,37 @@ if(isset($_POST["publier"])){
                             <input type="submit" value="Publier une creation" name="publier">
                         </div>
                     </form>
-                    
+                    <!-- Formulaire d'ajout de recette-->
                     <form class="ajouterUneRecette" action="profil.php?userID=<?php echo $_GET['userID'];?>" method="post" enctype="multipart/form-data">
-                      
-                        <div class="laRecette hidden">
-                            <div class="titre">
+                      <div class="laRecette hidden">
+                          <div class="titre">
                                 <h1>La recette</h1>
-                            </div>
-                            <div class="encartRe">
-                            <label>Nom de la recette</label><input type="text" name="nomRecette">
-                             <label>Type de recette</label>
-                            <select name="typeRecette">
-                                <option value="1">Traditionel</option>
-                                <option value="2">Santé</option>
-                                <option value="3">Creatif</option>
-                            </select>
-                            <label>Categorie Recette</label>
-                            <select name="categorieRecette">
-                                <option value="1">Plat</option>
-                                <option value="2">Entrée</option>
-                                <option value="3">Desert</option>
-                            </select>
-                            <label>Temperature de cuisson</label><input type="text" name="temperatureDeCuisson">
-                            <label>Temps de cuisson</label><input type="text" name="tempsDeCuisson">
-                            <label>Temps de preparation</label><input type="text" name="tempsPrep">
-                            </div>
-                            <div class="controle">
-                            <input type="button" value="Precedent" name="precedentRecette" class="precedentRecette">
-                            <input type="button" value="suivant" name="suivantlaRecette" class="suivantRecette">
-                            </div>
+                          </div>
+                          <div class="encartRe">
+                              <label>Nom de la recette</label><input type="text" name="nomRecette">
+                              <label>Type de recette</label>
+                              <select name="typeRecette">
+                                  <option value="1">Traditionel</option>
+                                  <option value="2">Santé</option>
+                                  <option value="3">Creatif</option>
+                              </select>
+                              <label>Categorie Recette</label>
+                              <select name="categorieRecette">
+                                  <option value="1">Plat</option>
+                                  <option value="2">Entrée</option>
+                                  <option value="3">Desert</option>
+                              </select>
+                              <label>Temperature de cuisson</label><input type="text" name="temperatureDeCuisson">
+                              <label>Temps de cuisson</label><input type="text" name="tempsDeCuisson"><label>Temps de preparation</label><input type="text" name="tempsPrep">
+                          </div>
+                          <div class="controle">
+                              <input type="button" value="Precedent" name="precedentRecette" class="precedentRecette">
+                              <input type="button" value="suivant" name="suivantlaRecette" class="suivantRecette">
+                          </div>
                         </div>
-                    
                         <div class="containsIngredients hidden">
                             <div class="titre">
-                             <h1>Les Ingredients</h1>
+                                <h1>Les Ingredients</h1>
                             </div>
                             <div class="lesIngredients">
                                 <div class="ajouterDesIn">
@@ -441,10 +438,8 @@ if(isset($_POST["publier"])){
                                 <div class="secingred">
                                     
                                 </div>
-
-                            </div>
-                            <br>
-                             <div class="controle">
+                            </div><br>
+                            <div class="controle">
                                 <input type="button" value="Precedent" name="precedentIngredient" class="precedentIngredient">
                                 <input type="button" value="Suivant" name="suivantIngredient" class="suivantIngredient">
                             </div>
@@ -472,7 +467,7 @@ if(isset($_POST["publier"])){
                         </div>
                         <div class="photoRecette hidden">
                             <div class="titre">
-                            <h1>Publiez les photos de vos créations culiniaires préférés</h1>
+                                <h1>Publiez les photos de vos créations culiniaires préférés</h1>
                             </div>
                             <div class="encartphotor">
                                 <label for="description">Description</label><input type="text" name="descriptionpr" id="descriptionpr"><br>

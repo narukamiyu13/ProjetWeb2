@@ -24,7 +24,14 @@ font-family: Muli;
 /*    height:80px;*/
     background-color: #f8f8f8;
 }
-
+/*
+.erreur{
+    position: absolute;
+    margin:0 auto;
+    top:300px
+        
+}
+*/
 
 .row
 {

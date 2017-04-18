@@ -3,7 +3,18 @@
 require_once("Model.class.php");
 
 class Recette extends Modele{
-    
+     /* -------------------------------------
+     | fonction queryInsererRecette
+     | -------------------------
+     | PARAM
+     |   aucun
+     | -------------------------
+     | RETURN
+     |   aucun
+     | -------------------------
+     | DESCRIPTION
+     |   Inserer une photo et une recette dans la base de donnée
+     |------------------------------------- */ 
     public function queryInsererRecette(){
       try{
           if(isset($_POST['publierAvecRecette'])){
@@ -100,8 +111,8 @@ class Recette extends Modele{
                         $sth5=$PDO->prepare($requetePhoto);
                         $sth5->execute();
           }
-        }catch(PDOException $e) {
-                echo 'ERROR: ' . $e->getMessage();
-        }
+      }catch(PDOException $e) {
+          echo 'ERROR: ' . $e->getMessage();
+      }
     }
 }

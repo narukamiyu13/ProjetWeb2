@@ -32,6 +32,12 @@ h3{
 div{
     clear:both;
 }
+.erreur{
+    position: absolute;
+    margin:0 auto;
+    top:300px
+        
+}
  .bottom
 {
     margin:0 auto;
