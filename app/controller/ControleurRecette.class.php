@@ -72,7 +72,19 @@ class ControleurRecette extends Controleur {
             }
         }
     }
-
+    public function ajaxIngredient(){
+        try{
+            if(!empty($_POST["keyword"])) {
+                $ingredientaaa= $this->modele->ajaxIngredient();
+                foreach($ingredientaaa as $searchin) {
+                    echo "<li>".$searchin['nomIngredient']."</li>";
+                }
+//            var_dump($searchin);
+            }
+        }catch(PDOException $e) {
+          echo 'ERROR: ' . $e->getMessage();
+      }
+    }
 }
 
 ?>

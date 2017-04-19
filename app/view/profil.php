@@ -23,6 +23,10 @@ if($checkAbonnement){
 if(isset($_POST["publier"])){
     $curPage= $_GET['userID'];
     header("location:profil.php?userID=".$curPage);
+}
+if(isset($_POST["publierAvecRecette"])){
+    $curPage= $_GET['userID'];
+    header("location:profil.php?userID=".$curPage);
 
 }
 ?>
@@ -171,6 +175,7 @@ if(isset($_POST["publier"])){
                                     '<div class="grandDiv">'+
                                         '<label class="grandL">Ingrédient</label><br>'+
                                         '<input type="text" name="nomIngredient[]" class="nomIngredient grandI">'+
+                                        '<div id="suggesstion-box"></div>'+
                                     '</div>'+
                                     '<div class="grandDiv">'+
                                         '<label class="grandL">Preparation ingredient</label>'+
@@ -477,9 +482,11 @@ if(isset($_POST["publier"])){
                             </div>
                             <div class="controle">
                                 <input type="button" value="Precedent" name="precedentPrep" class="precedentPhotoRecette">
-                                <input type="submit" value="Publier une creation" name="publierAvecRecette">
+                                 <input type="submit" value="Publier une creation" name="publierAvecRecette">
                             </div>
+                        
                         </div>
+                        
                     </form>
                  </div>
             </div>

@@ -322,14 +322,13 @@ h2{
 .titre h1{
     position: relative;
 }
+
 .controle{
-    height: 60px;
-    padding-top:15px;
-    padding-bottom: 15px;
     background-color: #2b1955;
     text-align: center;
 
 }
+
 /**Decsion**/
 .encart{
     font-size: 24px;
@@ -479,7 +478,7 @@ h2{
     opacity: 0.6;
 }
 #photoCreationRecette + label {
-	cursor: pointer; /* "hand" cursor */
+	cursor: pointer;  "hand" cursor 
 }
 #photoCreationRecette:focus + label {
 	outline: 1px dotted #000;
@@ -523,7 +522,7 @@ h2{
     opacity: 0.6;
 }
 #photoCreation + label {
-	cursor: pointer; /* "hand" cursor */
+	cursor: pointer;  "hand" cursor 
 }
 #photoCreationfocus + label {
 	outline: 1px dotted #000;

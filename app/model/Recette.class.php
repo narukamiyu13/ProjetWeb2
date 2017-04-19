@@ -115,4 +115,20 @@ class Recette extends Modele{
           echo 'ERROR: ' . $e->getMessage();
       }
     }
+    public function ajaxIngredient(){
+        try{
+            $PDO = $this->connectionBD();
+                if(isset($_POST["keyword"])){
+                $requete="SELECT*FROM ingredients WHERE nomIngredient LIKE '" . $_POST["keyword"] . "%'";
+                $sth1=$PDO->prepare($requete);
+                $sth1->execute();
+                var_dump($requete);
+                $ingredientaaa = $sth1->fetchAll(PDO::FETCH_ASSOC);
+//               var_dump($ingredientaaa);
+                 return $ingredientaaa; 
+                }
+        }catch(PDOException $e) {
+          echo 'ERROR: ' . $e->getMessage();
+      }
+    }
 }
