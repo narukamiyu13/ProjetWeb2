@@ -391,22 +391,24 @@ h2{
 }
 .ajoutIng{
     margin: 0 auto;
-    padding:0px 0px 10px 40px;
+    padding:10px 0px 20px 40px;
     background-color: #fdc741;
     margin-bottom: 18px;
     align-self: center;
-    max-width: 45vh;
+    max-width: 33vh;
 }
 .reti{
     text-align: right;
 }
+/*
 .ajoutIng input{
     height:35px;
 }
+*/
 .ajoutIng select{
     margin-left:5px;
     height:25px;
-    width:120px; 
+    width:125px; 
 }
 .ajoutIng div{
       padding:4px;
