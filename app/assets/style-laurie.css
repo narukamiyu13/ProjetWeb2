@@ -347,6 +347,7 @@ h2{
 }
 /**Recette**/
 .encartRe{
+    color:#232323;
     line-height: 20px;
     padding: 140px 5% 5% 5%;
     max-width: 70vh;
@@ -359,6 +360,9 @@ h2{
 .laRecette{
     margin: 0 auto;
    width: 100%;
+}
+.laRecelle label{
+    color:#232323 
 }
 /**ingredients**/
 .lesIngredients {
@@ -400,15 +404,14 @@ h2{
 .reti{
     text-align: right;
 }
-/*
-.ajoutIng input{
-    height:35px;
-}
-*/
+
 .ajoutIng select{
     margin-left:5px;
     height:25px;
     width:125px; 
+}
+.ajoutIng label{
+   color:#232323 
 }
 .ajoutIng div{
       padding:4px;
@@ -419,6 +422,9 @@ h2{
 }
 .ajoutEtape div{
       padding:4px;
+}
+.ajoutEtape label{
+    color:#232323 
 }
 .secEtapes{
     height:40%;
@@ -466,9 +472,9 @@ h2{
     font-weight: 700;
     height:50px;
     padding: 5px;
-    border: 2px solid black;
+    border: 2px solid #232323 ;
     border-radius:1em;
-    color: black;
+    color:#232323;
     background-color: transparent;
     display: inline-block;
 }
