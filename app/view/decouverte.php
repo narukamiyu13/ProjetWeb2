@@ -20,12 +20,13 @@
     <title>decouverte</title>
     <link href="app/assets/reset.css" rel="stylesheet">
     <link href="app/assets/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
     
     
 <?php  include_once'header.php' ?>
-<main>
+<section class="decouverte">
     
     
         <?php
@@ -53,9 +54,9 @@
                         </div>
                         <div class="recetteAllo">
                             <h3>'.$decouverte['description'].'</h3>
-                         
-                                <img src='.$decouverte['url'].' height="250px" width="250px">
-                          
+                                <div class="cercleDecouverte">
+                                    <img   src='.$decouverte['url'].' height="250px" width="250px">
+                                </div>
                             <div class="burgerDecouverte">
                                 <img src="app/assets/images/burger.png" width="35px" height="35px">
                                  <h5>'.$miam.'</h5>
@@ -77,6 +78,6 @@
 //}
         ?>
    
-   </main>     
+   </section>     
         <?php include_once'footer.php'?>
  

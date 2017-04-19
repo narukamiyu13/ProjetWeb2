@@ -209,7 +209,7 @@ if(isset($_POST["publier"])){
                 
                 foreach($tonUsager->photos as $photo){
                     $str =  "<div class='recette' data-recetteID=".$photo['idPhoto'].">
-                        <div class='rond' style='background-image:url(".$photo['url'].");width:200px;height:200px;background-size:cover;'></div>";
+                        <div class='rond' style='background-image:url(".$photo['url'].");width:300px;height:300px;background-size:cover;'></div>";
                         if($photo['idRecette'] != NULL) {
                             $str .="<div class='corner'></div>
                                 <img src='app/assets/images/fourchette.svg' width='30' height='30' />  
