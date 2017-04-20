@@ -10,14 +10,27 @@ if(isset($_GET['2584'])){
     $errMsg .="Les identifiants entrés sont incorrects";
 }
 ?>
+<html>
+<head>
+    <link rel="stylesheet" href="css/style.css">
+</head>    
+<body>
+    <div class="wrapperConnexion">
+        <p><?= $errMsg; ?></p>
 
+        <form method="post" action="index.php">
+            <label>
+            <input class="inputForm" type="text" name="username" placeholder="Nom d'utilisateur" >
+            </label>
+            <label>
+            <input class="inputForm" type="password" name="password" placeholder="Mot de passe" >
+            </label>  
+            <label><br>
+            <input class='btConnexion' type="submit" name="connexion" value="Connexion" >
+            </label>    
 
-<p><?= $errMsg; ?></p>
-<form method="post" action="index.php">
-
-    <input type="text" name="username" placeholder="Nom d'utilisateur" >
-    <input type="password" name="password" placeholder="Mot de passe" >
-    <input type="submit" name="connexion" value="Connexion" >
-
-
-</form>
+        </form>
+    </div>    
+</body>
+    </html>
+  
