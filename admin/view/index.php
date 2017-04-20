@@ -12,7 +12,7 @@ if(isset($_GET['2584'])){
 ?>
 <html>
 <head>
-    <link rel="stylesheet" href="css/style.css">
+   <link href="css/style.css" rel="stylesheet">
 </head>    
 <body>
     <div class="wrapperConnexion">
