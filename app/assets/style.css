@@ -297,7 +297,7 @@ font-weight: bold;
 }
 .row3 h2
 {
-    font-size:74pt;
+    font-size:7vw;
     color:white;
     padding-bottom:30px;
     
@@ -513,7 +513,7 @@ input[type=radio] {
   /* fallback for old browsers */
   background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #002950, #0E8BFF);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: url("../img/bg-pattern.png"), linear-gradient(to left, #002950, #0E8BFF);
+  background: url("../img/bg-pattern.png"), linear-gradient(to left, #2b1955, #7b4397);
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
