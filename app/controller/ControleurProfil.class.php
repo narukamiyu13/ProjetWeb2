@@ -31,10 +31,6 @@ class ControleurProfil extends Controleur {
        // var_dump($_SESSION["userID"]);
 
         
-        //Si aucun utilisateur n'est connecté, retourner a l'index.
-        if(!isset($_SESSION['userID'])){
-            header("location:index.php");
-        }
         
 
         $tonUsager = $this->modele->profilUtilisateur($_GET['userID']);

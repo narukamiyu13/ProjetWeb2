@@ -69,7 +69,33 @@ if(isset($_POST["publierAvecRecette"])){
                     $(this).html("<span style='line-height:15px; padding-left:5px; padding-right:5px;'><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
 //                    this.style.fontSize ="0px";
                 })
+                //
+                $(".popup").click(function(event){
+                    if(event.target == $(this)[0]) {
+                        $(this)[0].classList.add("hidden");
+                    }
+                })
                 
+                $(".recette").click(function(){
+                    var recetteID = this.dataset.recetteid;
+                    
+                    $.ajax({
+                        url         : "traitementAjax.php",
+                        method      : "GET",
+                        data        : "selectPhoto&recetteID="+recetteID,
+                        contentType : "text/html;charset=utf-8;",   
+                        success     : function(data){
+                                        $(".contenuRecette").html(data);
+                                        $("#affichageRecette").removeClass("hidden")
+                                        },
+                        fail    : function(){
+                                        $(".contenuRecette").html("Oups! Cette recette n'existe pas!");
+                                        $("#affichageRecette").removeClass("hidden")
+                                        }
+                    
+                    });
+                    
+                })
                 
                 $(".popup").click(function(event){
                     if(event.target == $(this)[0]) {
@@ -373,7 +399,7 @@ if(isset($_POST["publierAvecRecette"])){
                 
                 foreach($tonUsager->photos as $photo){
                     $str =  "<div class='recette' data-recetteID=".$photo['idPhoto'].">
-                        <div class='rond' style='background-image:url(".$photo['url'].");width:200px;height:200px;background-size:cover;'></div>";
+                        <div class='rond' style='background-image:url(".$photo['url'].");width:300px;height:300px;background-size:cover;'></div>";
                         if($photo['idRecette'] != NULL) {
                             $str .="<div class='corner'></div>
                                 <img src='app/assets/images/fourchette.svg' width='30' height='30' />  
@@ -507,9 +533,9 @@ if(isset($_POST["publierAvecRecette"])){
                  </div>
             </div>
 
-
-            <div id="affichageRecette" class="hidden">
+ <div id="affichageRecette" class="hidden">
                 <div class="contenuRecette">
+
 
 
                 
