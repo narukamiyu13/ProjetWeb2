@@ -127,6 +127,197 @@ class Modele {
                 echo "Erreur: ".$e->getMessage();
             }
         } // FIN DE FONCTION gererInscription
+          /* -------------------------------------
+        | fonction checkToken
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+    function checkToken($uid, $token){
+            try{
+               $PDO = $this->connectionBD();
+                $query = "SELECT COUNT(resetID) FROM passwordResets WHERE userID=$uid AND confirmationCode=$token";
+                $PDOStatement = $PDO->prepare($query);
+                $PDOStatement->execute();
+                $resultat = $PDOStatement->fetch(PDO::FETCH_NUM)[0];
+                
+                if($resultat == 1) {
+                    return true;
+                } else {
+                    return false;
+                }
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION checkToken
+    
+    
+     /* -------------------------------------
+        | fonction checkToken
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+    function checkExpiration($uid, $token){
+            try{
+               $PDO = $this->connectionBD();
+                $query = "SELECT expired FROM passwordResets WHERE userID=$uid AND confirmationCode=$token";
+                $PDOStatement = $PDO->prepare($query);
+                $PDOStatement->execute();
+                $resultat = $PDOStatement->fetch(PDO::FETCH_NUM)[0];
+                
+                return $resultat;
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION checkToken
+    
+    
+    
+     /* -------------------------------------
+        | fonction checkToken
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+    function expireToken($uid, $token){
+            try{
+               $PDO = $this->connectionBD();
+                $query = "UPDATE passwordResets SET expired=1 WHERE userID=$uid AND confirmationCode=$token";
+                $PDOStatement = $PDO->prepare($query);
+                $PDOStatement->execute();
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION checkToken
+    
+    
+     /* -------------------------------------
+        | fonction checkToken
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+    function updatePassword($pass){
+            try{
+                $pass = sha1($pass);
+                $PDO = $this->connectionBD();
+                $query = "UPDATE utilisateur SET motDePasse='$pass' WHERE idUtilisateur=".$_GET['uid'];
+                $PDOStatement = $PDO->prepare($query);
+                $PDOStatement->execute();
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION checkToken
+        /* -------------------------------------
+        | fonction gererRechercheRecette
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+     function gererRechercheRecette($idCategorie){
+            try{
+                $PDO = $this->connectionBD();
+                $requete = "SELECT *
+                            FROM photo 
+                            INNER JOIN utilisateur ON photo.idUtilisateur = utilisateur.idUtilisateur 
+                            INNER JOIN recettes on photo.idRecette = recettes.idRecette
+                            WHERE recettes.idCategorieRecette = '$idCategorie'";
+                $PDOStatement = $PDO->prepare($requete);
+                $PDOStatement->execute();
+                $recettes = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+                return $recettes;
+                //echo '<pre>';
+                //var_dump($recettes);
+                //echo '</pre>';
+    
+                
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION gererRechercheRecette
+    
+    function gererRechercheRecetteIngredients($idCategorie,$idRecette){
+            try{
+               
+                $PDO = $this->connectionBD();
+                $requete = "SELECT recettes.idRecette,ingredients.nomIngredient, recettes_has_ingredients.quantite,             recettes_has_ingredients.uniteDeMesure  FROM recettes
+                            INNER JOIN recettes_has_ingredients ON recettes_has_ingredients.idRecette=recettes.idRecette
+                            INNER JOIN ingredients ON recettes_has_ingredients.idingredient=ingredients.idingredient
+                            WHERE recettes.idrecette = '$idRecette'  AND recettes.idCategorieRecette = '$idCategorie'";
+                $PDOStatement = $PDO->prepare($requete);
+                $PDOStatement->execute();
+                $ingredients = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+                //return $ingredients;
+                //echo '<pre>';
+                //var_dump($ingredients);
+                //echo '</pre>';
+                
+                $PDO = $this->connectionBD();
+                $requete = "SELECT * 
+                            FROM recettes
+                            INNER JOIN etapepreparation on recettes.idRecette = etapepreparation.idRecette
+                            WHERE idCategorieRecette = '$idCategorie' AND recettes.idRecette = '$idRecette'";
+                $PDOStatement = $PDO->prepare($requete);
+                $PDOStatement->execute();
+                $etapes = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+                //return $etapes;
+                
+                return Array("ingredients"=>$ingredients, "etapes"=>$etapes);
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        }
+    
+    
+    
     
     
 } // FIN DE CLASSE

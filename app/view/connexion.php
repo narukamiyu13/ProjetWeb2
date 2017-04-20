@@ -46,7 +46,7 @@
 						<i class="fa fa-lock"></i>
 					</label>
 				</div>
-			
+                <p><a href="connexion.php?forgot">Mot de passe oublié?</a></p>
 	
         <div class="wrapperInb">
             <input name="bt_connexion" type="submit" id="ipSignIn" value="Connexion">

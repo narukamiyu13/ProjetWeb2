@@ -168,7 +168,34 @@ require_once("Model.class.php");
             $exec = $PDOStatement->execute();
             return $exec;
         }
-        
+        public function selectionnerPostDecouverte()
+        {
+            try{  
+                $PDO = $this->connectionBD(); 
+                $requete = "SELECT idPhoto,url,photo.idUtilisateur,nomUtilisateur,urlPhoto,photo.description FROM `photo` INNER JOIN utilisateur ON photo.`idUtilisateur`= utilisateur.`idUtilisateur` ";
+                $PDOStatement = $PDO->prepare($requete);
+                $PDOStatement->execute();
+                $decouvertes = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+            
+//            var_dump($decouvertes);
+                return $decouvertes ;
+           }catch(PDOException $e) {
+             return "Erreur: ".$e->getMessage();
+        }
+        }
+        public function selectionnerCommentaires($idPhoto)
+        {
+            try{    
+                $PDO = $this->connectionBD(); 
+                $requete = "SELECT commentaires from comment WHERE idPhoto = $idPhoto ";
+                $PDOStatement = $PDO->prepare($requete);
+                $PDOStatement->execute();
+                $commentaires = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+                return  $commentaires;
+            }catch(PDOException $e) {
+                return "Erreur: ".$e->getMessage();
+            }
+        }
     } // FIN CLASSE
 
 ?>

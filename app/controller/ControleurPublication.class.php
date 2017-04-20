@@ -62,7 +62,27 @@ public function gererVueAjoutPhoto(){
         }
     }
 }
-
+ public function gererDecouverte()
+ {
+     
+      $decouvertes=$this->modele->selectionnerPostDecouverte(); 
+    include_once('app/view/decouverte.php');
+     
+        //$miam = $this->modele->selectionnerNombre('idUtilisateur','likes',false,NULL,true,);
+     
+    // ($colone, $table, $personneUnique = false, $idPersonne = NULL, $photo = false, $photoID = NULL)
+      //$idRecette = 1;
+     // pour chaque photo tu appel la fonction dans ta vue qui lafficghe
+     // ex: fonction vueDecouvert
+//      foreach($decouvertes as $decouverte)
+//        {
+//          $vueDecouverte->gererPublicationDecouverte($decouverte['idPhoto']);
+//        }
+        
+ 
+        
+        
+ }
     
     
     

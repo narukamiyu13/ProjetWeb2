@@ -306,7 +306,7 @@ if(isset($_POST["publierAvecRecette"])){
            
             <!-- Section nom-->
             <section class="haut">
-                <h2 class="nom"><?= "$tonUsager->prenom"?> <?= $tonUsager->nom ?></h2>
+                <h2 class="nom"><?= $tonUsager->nomUtilisateur ?></h2>
             </section>
             
             <!-- Section photo-->
