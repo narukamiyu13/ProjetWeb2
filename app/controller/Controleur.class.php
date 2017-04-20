@@ -25,6 +25,7 @@ public function __construct(){
         |   modifie la photo de profil de l'utilisateur
         |------------------------------------- */
      public function gererConnexion(){
+
         if(!isset($_GET['forgot'])){
             if(!isset($_POST['bt_connexion'])){
                 include_once ("app/view/connexion.php");
@@ -77,8 +78,7 @@ public function __construct(){
         }
     
     }
-    
-    
+
      /* -------------------------------------
         | fonction modifier le profil
         | -------------------------
@@ -120,5 +120,6 @@ public function __construct(){
     
     
     
+
 }
 ?>

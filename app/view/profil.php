@@ -37,8 +37,10 @@ if(isset($_POST["publier"])){
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"> 
         <link href="app/assets/reset.css" type="text/css" rel="stylesheet" />
+
         <link href="app/assets/style.css" type="text/css" rel="stylesheet" />
          <link href="app/assets/style-laurie.css" rel="stylesheet">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="app/assets/lib/jquery.min.js" ></script>
         <script>
@@ -62,6 +64,60 @@ if(isset($_POST["publier"])){
                 $(".plus").mouseout(function(){
                     $(this).html("<span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>");
                     this.style.fontSize ="70px";
+                })
+                //
+                $(".popup").click(function(event){
+                    if(event.target == $(this)[0]) {
+                        $(this)[0].classList.add("hidden");
+                    }
+                })
+                
+                $(".recette").click(function(){
+                    var recetteID = this.dataset.recetteid;
+                    
+                    $.ajax({
+                        url         : "traitementAjax.php",
+                        method      : "GET",
+                        data        : "selectPhoto&recetteID="+recetteID,
+                        contentType : "text/html;charset=utf-8;",   
+                        success     : function(data){
+                                        $(".contenuRecette").html(data);
+                                        $("#affichageRecette").removeClass("hidden")
+                                        },
+                        fail    : function(){
+                                        $(".contenuRecette").html("Oups! Cette recette n'existe pas!");
+                                        $("#affichageRecette").removeClass("hidden")
+                                        }
+                    
+                    });
+                    
+                })
+                
+                $(".popup").click(function(event){
+                    if(event.target == $(this)[0]) {
+                        $(this)[0].classList.add("hidden");
+                    }
+                })
+                
+                $(".recette").click(function(){
+                    var recetteID = this.dataset.recetteid;
+                    
+                    $.ajax({
+                        url         : "traitementAjax.php",
+                        method      : "GET",
+                        data        : "selectPhoto&recetteID="+recetteID,
+                        contentType : "text/html;charset=utf-8;",   
+                        success     : function(data){
+                                        $(".contenuRecette").html(data);
+                                        $("#affichageRecette").removeClass("hidden");
+                                        },
+                        fail    : function(){
+                                        $(".contenuRecette").html("Oups! Cette recette n'existe pas!");
+                                        $("#affichageRecette").removeClass("hidden");
+                                        }
+                    
+                    });
+                    
                 })
                 
                 
@@ -131,12 +187,14 @@ if(isset($_POST["publier"])){
         <main>
            
             <!-- Section nom-->
+
             <section class="haut">
                 <h2 class="nom"><?= "$tonUsager->prenom"?> <?= $tonUsager->nom ?></h2>
             </section>
             
             <!-- Section photo-->
             <section class="haut op">
+
                 <figure class="photoProfilHov">
                     <!--Si la personne est connecter si sa photo est cliqué, revoye sur la page modifier profil sinon le lien refere a l'id de l'utilisateur non connecter-->
                     <?php if($profilUserActuel == true){
@@ -154,7 +212,9 @@ if(isset($_POST["publier"])){
                     <?php echo "</a>";?>
                 </figure>
 
+
                     <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\"><img height=\"50px\" width=\"50px\" src=\"app/assets/images/Modify.png\"></span>";} ?>
+
 
                 <div title="<?= $title; ?>" alt="plus" class="plus">
                     <span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>
@@ -169,10 +229,12 @@ if(isset($_POST["publier"])){
             </section>
             
             <!-- section membre depuis-->
+
             <section class="haut">
                  <p style="font-style:italic;"><?= utf8_encode($tonUsager->description) ?></p>
             </section>
             <section class="haut">
+
                 <p> Membre depuis <?= date("Y",strtotime($tonUsager->dateJoint)); ?></p>
             </section>
               
@@ -216,8 +278,10 @@ if(isset($_POST["publier"])){
                  </div>
             </div>
 
+
             <div id="affichageRecette" class="hidden">
                 <div class="contenuRecette">
+
                 
                 
                 </div>

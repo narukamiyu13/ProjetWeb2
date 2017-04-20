@@ -110,13 +110,44 @@
                 echo "Erreur: ".$e->getMessage();
             }
         }
-        
-        
-        
-        
-        
-        
         function modifierProfilUser($idUtilisateur){
+            try{
+     
+                $PDO = $this->connectionBD();
+                if(isset($_POST['modifier']) && !empty($_POST['nomUtilisateur']) || !empty($_POST['courriel']) || !empty($_POST['prenom']) || !empty($_POST['nom']) || !empty($_POST['description']) || !empty($_POST['sexe'])){
+                    $nomUtilisateur = $_POST['nomUtilisateur'];
+                    $courriel = $_POST['courriel'];
+                    $prenom = $_POST['prenom'];
+                    $nom= $_POST['nom'];
+                    $description = $_POST['description'];
+                    $sexe = $_POST['sexe'];
+                    $requete="UPDATE utilisateur SET nomUtilisateur='$nomUtilisateur',courriel='$courriel',prenom='$prenom',nom='$nom',description='$description',sexe='$sexe' WHERE idUtilisateur='$idUtilisateur'";
+                    $PDOStatement = $PDO->prepare($requete);
+                    $PDOStatement->execute();
+                    
+                }
+            }catch(PDOException $e) {
+                echo "Erreur: ".$e->getMessage();
+            }
+        }
+
+
+        
+        
+         /* -------------------------------------
+        | fonction modifier le profil
+        | -------------------------
+        | PARAM
+        |   $idUtilisateur : (int) Le ID de l'utilisateur connecté 
+        | -------------------------
+        | RETURN
+        |   aucun    
+        | -------------------------
+        | DESCRIPTION
+        |   modifie la photo de profil de l'utilisateur
+        |------------------------------------- */
+        
+function modifierProfilUser($idUtilisateur){
             try{
      
                 $PDO = $this->connectionBD();
@@ -153,6 +184,7 @@
         |   modifie la photo de profil de l'utilisateur
         |------------------------------------- */
         
+
        function modifierPhotoProfil($idUtilisateur){
            
           try{

@@ -1,10 +1,12 @@
 <?php
 include('app/model/Publication.class.php');
+
 session_start();
 
 
 if(isset($_GET['selectPhoto'])){
     $publication = new Publication;
+
     $recetteID=$_GET['recetteID'];
     $maRecette = $publication->selectionnerPhotoRecette($recetteID);
    
@@ -54,10 +56,12 @@ if(isset($_GET['selectPhoto'])){
                     $html .= "<p>".$ingredient['quantite']." ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
                 }
             }
+
         }
         
         $html.= "<h3>Étapes de préparation</h3>";
         foreach($maRecette['etapes'] as $etape) {
+
             $html .= "<p class='etape'>".$etape['numeroEtape'].") ".$etape['descriptionEtape']."</p>";
         }
         
@@ -202,5 +206,6 @@ if(isset($_GET['ajoutCommentaires'])) {
     
     echo "<p class='commentaire'><span><a href='profil.php?userID=".$_SESSION['userID']."'>".$personne['prenom']." ".$personne['nom']."</a></span><br/>".$commentaire."</p>";
 } // FIN isset($_GET['ajoutCommentaires'])
+
 
 ?>

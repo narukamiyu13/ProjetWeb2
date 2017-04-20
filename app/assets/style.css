@@ -31,7 +31,39 @@ font-family: Muli;
     padding-top:10px;
     width:90%;
     margin: 0 auto;
+
 /*    height:780px;*/
+}
+
+/*
+#navbar > div > ul > li:nth-child(4) > a
+{
+border:1px solid blue;
+color:#fdcc52;
+font-size:20pt;
+    display:block;
+    text-align:center;
+  position:relative;
+    top:-40px; 
+    height:55px;
+    width:100%
+   
+}
+*/
+
+#menucentre
+{
+    width:100%;
+    text-align:center;
+    position:relative;
+    color:#fdcc52;
+    font-size:20pt;
+    top:15px;
+}
+#menucentre h2 a
+{
+ color:#fdcc52;   
+
 }
 
 /*
@@ -72,8 +104,10 @@ font-size:20pt;
    
 }
 
+
 /*
 #navbar > div > ul > li> a
+
 {
     float: right;  
     display: inline;
@@ -560,10 +594,12 @@ font-family: Muli;
  border: 1px solid white;
  opacity: 0.8;
  font-family: Muli;
+
 }
 
 #recover {
     width:145px;
+
 }
 
 #ipJoin:hover, #recover:hover{
@@ -589,9 +625,11 @@ font-family: Muli;
       flex-direction: column;
 	  
 	}
+
 	.droiteMenu
 	{
 		display:none;
+
 	}
 }
 
@@ -701,7 +739,9 @@ label > input:focus {
     overflow: hidden;
 	    width: 100%;
     background-color: #333;
+
 	height: 86px;
+
 }
 
 .categorie li {
@@ -775,6 +815,8 @@ label > input:focus {
     text-align: center;
     margin: -85px 0px 0 0;
 	font-family: Muli;
+background-image: url("paper.gif");
+
 }
 /***********************modifierProfil********************/
 

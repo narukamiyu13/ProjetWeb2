@@ -26,8 +26,9 @@ if(isset($_POST['enregistrer'])) {
     // Check if file already exists
     if (file_exists($target_file)) {
        // echo "Sorry, file already exists.";
-        
+
          $target_file = $target_dir ."copy(1)-".basename($_FILES["photo"]["name"]);
+
     }
     // Check file size
     if ($_FILES["photo"]["size"] > 5000000) {
@@ -96,6 +97,7 @@ if(isset($_POST['enregistrer'])) {
     </head>
 
     <body id="page-top">
+
         <?php include_once'header.php'; ?>
         <header class='backgroundInscription' id="heroSign"  >
         <div class="flexHead center" id="wrapperModifierProfil">
@@ -104,8 +106,10 @@ if(isset($_POST['enregistrer'])) {
         
                 <div>
                     <label>
+
                         <h3 id="utilisateur"><?php echo $tonUsager->nomUtilisateur;?></h3>
                         <img class="rond" id="imagerond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil">
+
                         <button type="submit" class="btnModifier" name="modifier">Modifier Profil</button>
                      </label> 
                     

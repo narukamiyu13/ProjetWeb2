@@ -12,6 +12,7 @@ public function __construct(){
     
 }
 public function gererVueAjoutPhoto(){
+
     if(isset($_POST['publier'])){    
          if (!file_exists("app/assets/photo/".$_SESSION['userID'])) {
                 mkdir("app/assets/photo/".$_SESSION['userID'], 0777, true);
@@ -24,6 +25,7 @@ public function gererVueAjoutPhoto(){
         $target_file = basename($_FILES["photoCreation"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
         // Check if image file is a actual image or fake image
         
         if(isset($_POST["publier"])) {
@@ -34,13 +36,14 @@ public function gererVueAjoutPhoto(){
                 $uploadOk = 0;
             }
         }
+
         if (file_exists($target_dir.$target_file)) {
             $increment=0;
             while(file_exists($target_dir.$target_file)) {
                 $increment++;
                 $target_file = "($increment)-".basename($_FILES["photoCreation"]["name"]);
             }
-            
+
         }
         if ($_FILES["photoCreation"]["size"] > 5000000) {
             $uploadOk = 0;
@@ -53,9 +56,11 @@ public function gererVueAjoutPhoto(){
         if ($uploadOk == 0) {
             // if everything is ok, try to upload file
         } else {
+
             if (move_uploaded_file($_FILES["photoCreation"]["tmp_name"], $target_dir . $target_file)) {
                 //echo "The file ". basename( $_FILES["photoCreation"]["name"]). " has been uploaded.";
                 
+
             } else {
                 //echo "Sorry, there was an error uploading your file.";
             }

@@ -18,8 +18,10 @@ class Modele {
     |------------------------------------- */ 
     public function connectionBD() {
         try{
+
             $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
             $PDO = new PDO("mysql:host=localhost;dbname=foodie","root","",$options);
+
             return $PDO;
         } catch(PDOException $erreur) {
             echo "Erreur: ".$erreur->getMessage()."<br/>";
@@ -98,7 +100,7 @@ class Modele {
                 echo "Erreur: ".$e->getMessage();
             }
         } // FIN DE FONCTION gererConnexion
-    
+
     /* -------------------------------------
         | fonction gererInscription
         | -------------------------
@@ -219,7 +221,33 @@ class Modele {
                 echo "Erreur: ".$e->getMessage();
             }
         } // FIN DE FONCTION checkToken
+
     
+    /* -------------------------------------
+        | fonction gererInscription
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+    function gererInscription($nomUtilisateur,$password,$courriel){
+            try{
+                $PDO = $this->connectionBD();
+                $requete = "INSERT INTO utilisateur (nomUtilisateur,motDePasse,courriel) VALUES ('$nomUtilisateur','$password','$courriel')";
+                $PDOStatement = $PDO->prepare($requete);
+                $PDOStatement->execute();
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION gererInscription
     
      /* -------------------------------------
         | fonction checkToken
