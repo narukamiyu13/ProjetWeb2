@@ -95,7 +95,6 @@ if(isset($_POST['enregistrer'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
-
   
     
        <body class="modifierProfil">
@@ -150,7 +149,6 @@ if(isset($_POST['enregistrer'])) {
                         </form>
                
                        <div id="ModfierPhoto">
-
                         <form action="profil.php&#63;userID=<?php echo $profilUserActuel?>&modifier=" method="post" enctype="multipart/form-data">
 
                             

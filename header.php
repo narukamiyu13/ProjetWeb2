@@ -16,7 +16,7 @@
     <div id="menuSlider" class="sideMenu">
         <a href="javascript:void(0)" class="fermer" >&times;</a>
         <a href="inscription.php">Profil</a>
-        <a href="decouverte.php">Découverte</a>
+        <a href="inscription.php">Découverte</a>
         <a href="inscription.php">Recherche</a>
         <a href="inscription.php">Modifier le profil</a>
         <a href="inscription.php">Inscription</a>
