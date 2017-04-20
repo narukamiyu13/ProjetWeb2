@@ -19,7 +19,7 @@
 <head>
     <meta charset="utf-8">
     <title>decouverte</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <link href="app/assets/reset.css" rel="stylesheet">
     <link href="app/assets/style.css" rel="stylesheet">
 </head>
@@ -38,8 +38,9 @@
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
        <script src="app/assets/js/menu.js"></script>
-         <link href="app/assets/style-laurie.css" rel="stylesheet">
+       <link href="app/assets/style-laurie.css" rel="stylesheet">
        <link href="app/assets/style.css" rel="stylesheet">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    </head>
     <script>
     
