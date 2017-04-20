@@ -384,8 +384,8 @@ if(isset($_POST["publierAvecRecette"])){
                             <h1>Publiez vos créations culiniaires préférés</h1>
                         </div>
                         <div class="encart">
-                           <span class="pad"><label>Publiez une photo avec recette</label><input type="checkbox" name="recetteinput"></span>
-                           <span class="pad"><label>Publiez une photo sans recette</label><input type="checkbox" name="photoinput"></span>
+                           <span class="pad"><label for="recetteinput">Publiez une photo avec recette</label><input type="checkbox" name="recetteinput"></span>
+                           <span class="pad"><label for="photoinput" style="padding:10px;">Publiez une photo sans recette</label><input type="checkbox" name="photoinput"></span>
                         </div>
                      </div>
                     <!-- Formulaire d'ajout de photo -->
