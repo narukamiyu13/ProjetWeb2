@@ -26,7 +26,10 @@ if(isset($_POST['enregistrer'])) {
     // Check if file already exists
     if (file_exists($target_file)) {
        // echo "Sorry, file already exists.";
-        $uploadOk = 0;
+
+$target_file = $target_dir ."copy(1)-".basename($_FILES["photo"]["name"]);
+
+
     }
     // Check file size
     if ($_FILES["photo"]["size"] > 5000000) {
@@ -94,6 +97,7 @@ if(isset($_POST['enregistrer'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
+
   
     
        <body class="modifierProfil">
@@ -148,6 +152,7 @@ if(isset($_POST['enregistrer'])) {
                         </form>
                
                        <div id="ModfierPhoto">
+
                         <form action="profil.php&#63;userID=<?php echo $profilUserActuel?>&modifier=" method="post" enctype="multipart/form-data">
 
                             

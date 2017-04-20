@@ -21,7 +21,10 @@ require_once("Model.class.php");
         public function selectionnerPhotoRecette($photoID){
             try{
                 $PDO = $this->connectionBD();
+
                 $query = "SELECT nom, prenom, idPhoto, url, photo.description, idRecette, photo.idUtilisateur FROM photo INNER JOIN utilisateur ON photo.idUtilisateur = utilisateur.idUtilisateur WHERE idPhoto=".$photoID;
+
+
                 $PDOStatement = $PDO->prepare($query);
                 $PDOStatement->execute();
                 $photoRecette = $PDOStatement->fetch(PDO::FETCH_ASSOC);
@@ -88,7 +91,9 @@ require_once("Model.class.php");
         |------------------------------------- */ 
         public function getCommentaires($photoID){
             $PDO = $this->connectionBD();
-            $query = "SELECT comment.idUtilisateur, prenom, nom, comment.description FROM comment INNER JOIN utilisateur ON comment.idUtilisateur = utilisateur.idUtilisateur WHERE comment.idPhoto=".$photoID;
+
+            $query = "SELECT comment.idUtilisateur, prenom, nom, commentaires FROM comment INNER JOIN utilisateur ON comment.idUtilisateur = utilisateur.idUtilisateur WHERE comment.idPhoto=".$photoID." ORDER BY timestamp ASC";
+
             $PDOStatement = $PDO->prepare($query);
             $PDOStatement->execute();
             $commentaires = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
@@ -105,7 +110,10 @@ require_once("Model.class.php");
 
                   if(isset($_FILES['photoCreation']) && isset($_POST['description']))
                   {
-                        $folder="app/assets/photo/";
+
+                        $folder="app/assets/photo/".$_SESSION['userID']."/";
+                        $target_file=basename($_FILES['photoCreation']['name']);
+
                         $description= $_POST['description'];
                         $idUtilisateur= $_GET['userID'];
                         $photoCreation = ( "$folder".$_FILES['photoCreation']['name']);
@@ -122,6 +130,7 @@ require_once("Model.class.php");
             }
     
        }
+
         
         public function checkMiam($photoID){
             $check = $this->selectionnerNombre("idUtilisateur", "likes",false,  NULL, true, $photoID);
@@ -189,5 +198,6 @@ require_once("Model.class.php");
         
         
     } // FIN CLASSE
+
 
 ?>

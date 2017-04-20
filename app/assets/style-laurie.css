@@ -4,9 +4,10 @@ h1{
     font-size:24px;
     text-transform: uppercase;
 }
-h3{ padding-left: 70px; 
+h3{ 
+    padding-left: 70px; 
     font-size: 18px;
-     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
+    font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
     text-transform: uppercase;
 }
 .modifier {
@@ -19,6 +20,7 @@ h3{ padding-left: 70px;
 .haut 
 {
   
+
     display:flex;
     flex-direction:row;
     justify-content: center;
@@ -26,11 +28,18 @@ h3{ padding-left: 70px;
     flex-wrap: wrap;
     align-items: center;
     color:white;
-    align-items: center;
+
     background-color: #fdc741;
+
 }
 div{
     clear:both;
+}
+.erreur{
+    position: absolute;
+    margin:0 auto;
+    top:300px
+        
 }
  .bottom
 {
@@ -78,16 +87,18 @@ div{
     top: 0px;
     left: 0px;
     width:100%;
-    background-color: rgba(0, 0, 0, 0.6);
+/*    background-color: rgba(0, 0, 0, 0.6);*/
     height:100%;
-    overflow:hidden;
+/*    overflow-y: auto;*/
+
 }
 .contenu{
-    width:80%;
+    width:90%;
+    position:fixed;
+    overflow-y: auto;
     background-color: white;
-    margin:0 auto;
-    height:80%;
-    margin-top:5%;
+    margin-left: 5%;
+    height:100%;
 }
 
 .hidden{
@@ -97,16 +108,26 @@ div{
 /*   LES STYLES DU POPUP DE RECETTE */
 
 .contenuRecette{
-    width:1200px;
-    height:600px;
-    margin:0 auto;
-    margin-top:150px;
+width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+
     background-color:#fdc741;
 }
 
-.contenuRecette #laRecette{
-    height:600px;
-    overflow-y:scroll;
+
+.fermerRecette{
+    height:50px;
+    text-align:center;
+    font-size:1.4em;
+    cursor:pointer;
+}
+
+.fermerRecette p {
+    margin-top:20px;
+
 }
 
 .contenuRecette h2{
@@ -130,7 +151,9 @@ div{
 .informations{
     display:inline-block;
     border-right:1px solid black;
-    width:700px;
+    width:65%;
+
+
 }
 
 .informations h3:nth-of-type(2){
@@ -143,6 +166,7 @@ div{
 }
 
 .commentaires{
+
     position:relative;
     min-height:400px;
     overflow-y:scroll;
@@ -157,18 +181,14 @@ div{
 
 .commentaires .commentaire {
     margin-bottom:20px;
+
 }
 
 .commentaires .commentaire span{
     font-weight:bold;
 }
 
-#ajoutCommentaire {
-    width:400px;
-    position:relative;
-    left:700px;
-    margin-top:10px;
-}
+
 
 /*LES STYLES GÉNÉRAUX */
 
@@ -176,19 +196,24 @@ main
 {
     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
+
 main .haut:nth-child(1){
+
     padding-top:2%;
 }
 main .haut:nth-child(2) img{
     padding: 10px;
 }
+
 .photoProfilHov{
+
     opacity: 1;
 }
 .op .photoProfilHov:hover img {
     opacity: .4;
 }
 .plusprofil{
+
     position: relative;
     order:1;
     display: none;
@@ -202,6 +227,7 @@ main .haut:nth-child(2) img{
     align-items: center;
     display: flex;
     position: absolute;
+
     top: -90px;
     left:0;
     right:0;
@@ -214,6 +240,7 @@ main .haut:nth-child(2) img{
     -webkit-transition: .10s ease-in-out;
 	transition: .10s ease-in-out;
 	display: inherit;
+
 }
 main section:nth-child(2) div {
     order:3;
@@ -221,18 +248,19 @@ main section:nth-child(2) div {
     align-self: center;
     cursor:pointer;
     flex-basis: 0;
-    padding: 20px;
+    padding: 18px;
     box-sizing:border-box;
     border-radius: 50% 50% 50% 50%;
     transition:border .2s ease;
+    clear: both;
 
 }
 main section:nth-child(2) div span{
-font-size: 70px;
+    padding: 0px;
+    font-size: 70px;
 }
 
 main section:nth-child(2) div:hover {
-   
     border:1px solid white;
     opacity: :0.8;
 }
@@ -271,6 +299,256 @@ h2{
     text-transform: uppercase;
     letter-spacing: 4px;
 }
+/******Ajout recette*******/
+/**Background**/
+.imageback{
+    opacity:0.8;
+    background-image: url("../assets/images/wooden%20spoons.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 90%;
+    height:100%;
+    margin: 0 auto;
+}
+.background{
+    position: absolute;
+    opacity:0.8;
+    background-color: #fdc741;
+    width:100%;
+    margin:0;
+    height:180px;
+}
+
+.fermeture{
+    position: relative;
+    float:right;
+    padding:2%;
+    color:white;
+}
+.titre{
+    position: relative;
+    margin: 0 auto;
+    color:white;
+}
+.titre h1{
+    position: relative;
+}
+
+.controle{
+    background-color: #2b1955;
+    text-align: center;
+
+}
+
+/**Decsion**/
+.encart{
+    font-size: 24px;
+    padding-top:120px;
+    display:flex;
+    align-content: center;
+    justify-content: center;
+    flex-flow: row;
+    margin: auto;
+}
+.encart .pad{
+    padding: 10px;
+}
+.pad label{
+    padding-right: 10px;
+}
+/**Recette**/
+.encartRe{
+    color:#232323;
+    line-height: 20px;
+    padding: 140px 5% 5% 5%;
+    max-width: 70vh;
+    display:flex;
+    align-content: center;
+    justify-content: center;
+    flex-flow: column;
+    margin: auto;
+}
+.laRecette{
+    margin: 0 auto;
+   width: 100%;
+}
+.laRecelle label{
+    color:#232323 
+}
+/**ingredients**/
+.lesIngredients {
+    padding-top: 140px;
+}
+
+.ajouterDesIn{
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    font-size:18px;
+}
+*
+{
+    box-sizing: border-box;
+}
+.petitI{
+    width:65px;
+}
+
+.secingred{
+    height:40%;
+    display:flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    padding: 30px;
+    overflow-y:scroll;
+    overflow: scroll;
+}
+.ajoutIng{
+    margin: 0 auto;
+    padding:10px 0px 20px 40px;
+    background-color: #fdc741;
+    margin-bottom: 18px;
+    align-self: center;
+    max-width: 33vh;
+}
+.reti{
+    text-align: right;
+}
+
+.ajoutIng select{
+    margin-left:5px;
+    height:25px;
+    width:125px; 
+}
+.ajoutIng label{
+   color:#232323 
+}
+.ajoutIng div{
+      padding:4px;
+}
+/*Les etapes prep*/
+.lesEtapesPrep{
+    padding-top: 130px;
+}
+.ajoutEtape div{
+      padding:4px;
+}
+.ajoutEtape label{
+    color:#232323 
+}
+.secEtapes{
+    height:40%;
+    display:flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    padding: 30px;
+    overflow-y:scroll;
+    overflow: scroll;
+}
+.ajoutEtape{
+    margin: 0 auto;
+    padding:10px 0px 20px 40px;
+    background-color: #fdc741;
+    margin-bottom: 18px;
+    align-self: center;
+    max-width: 45vh;
+}
+.ajoutEtape textarea{
+    height:100px;
+    width:85%;    
+}
+/**photo recette*/
+.encartphotor{
+    font-size:18px;
+    padding-top: 120px;
+    margin: 0 auto;
+    text-align: center;
+   display: flex;
+    flex-flow: column;
+    width:50%;
+    height:300px;
+}
+#photoCreationRecette{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+#photoCreationRecette + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    height:50px;
+    padding: 5px;
+    border: 2px solid #232323 ;
+    border-radius:1em;
+    color:#232323;
+    background-color: transparent;
+    display: inline-block;
+}
+
+#photoCreationRecette:focus + label,
+#photoCreationRecette + label:hover {
+    color:white;
+    background-color: #2b1955;
+    opacity: 0.6;
+}
+#photoCreationRecette + label {
+	cursor: pointer;  "hand" cursor 
+}
+#photoCreationRecette:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+/**photo**/
+.encartpho{
+    padding-top: 120px;
+    margin: 0 auto;
+    text-align: center;
+   display: flex;
+    flex-flow: column;
+    width:50%;
+    height:300px;
+}
+#photoCreation{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+#photoCreation+ label {
+    font-size: 1.25em;
+    font-weight: 700;
+    height:50px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius:1em;
+    color: black;
+    background-color: transparent;
+    display: inline-block;
+}
+
+#photoCreation:focus + label,
+#photoCreation + label:hover {
+    color:white;
+    background-color: #2b1955;
+    opacity: 0.6;
+}
+#photoCreation + label {
+	cursor: pointer;  "hand" cursor 
+}
+#photoCreationfocus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+
 @media screen and (max-width: 590px) {
     main section:nth-child(3)
     {
@@ -282,4 +560,22 @@ h2{
         width: inherit;
         padding:10px;
     }
+
+    /*  Styles du popup recettes  */
+    
+    .informations, .commentaires {
+        width:100%;
+    }
+    
+    .informations {
+        border-right:none;
+        border-bottom:1px solid black;
+        padding-bottom:15px;
+        margin-bottom:15px;
+    }
+    .encart{
+         flex-direction:column;
+    }
+
+
 }

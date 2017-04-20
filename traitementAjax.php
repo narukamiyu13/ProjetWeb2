@@ -1,10 +1,12 @@
 <?php
 include('app/model/Publication.class.php');
+
 session_start();
 
 
 if(isset($_GET['selectPhoto'])){
     $publication = new Publication;
+
     $recetteID=$_GET['recetteID'];
     $maRecette = $publication->selectionnerPhotoRecette($recetteID);
    
@@ -42,21 +44,23 @@ if(isset($_GET['selectPhoto'])){
         $html .= "<h3>Ingredients</h3>
         <br>
         ";
-        foreach($maRecette['ingredients'] as $ingredient) {
-            if ((preg_match("/\ml\b/i",$ingredient['quantite']))&&(preg_match("/^[^aeyiuo]/", $ingredient['nomIngredient']))){
-                $html .= "<p>".$ingredient['quantite']." de ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
+
+          foreach($maRecette['ingredients'] as $ingredient) {
+            if ((preg_match("/\ml|tasse|cuillereasoupe|cuillereatable|l|lbs|cl|cuillereathe|g|kg\b/i",$ingredient['uniteDeMesure']))&&(preg_match("/^[^aeyiuoh]/", $ingredient['nomIngredient']))){
+                $html .= "<p>".$ingredient['quantite']." ".$ingredient['uniteDeMesure']." de ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
                 }else{
-                if((preg_match("/\ml\b/i",$ingredient['quantite']))&& (preg_match("/^[aeyiuoh]/", $ingredient['nomIngredient']))){
-                       $html .= "<p>".$ingredient['quantite']."d' ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
-                }else{
-                    $html .= "<p>".$ingredient['quantite']." ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
-                }
+                    if((preg_match("/\ml|tasse|cuillereasoupe|cuillereatable|l|lbs|cl|cuillereathe|g|kg\b/i",$ingredient['uniteDeMesure']))&& (preg_match("/^[aeyiuoh]/", $ingredient['nomIngredient']))){
+                           $html .= "<p>".$ingredient['quantite']." ".$ingredient['uniteDeMesure']." d' ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
+                    }else{
+                        $html .= "<p>".$ingredient['quantite']." ".$ingredient['uniteDeMesure']." ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
+                    }
+                }   
             }
-        }
         
         $html.= "<h3>Étapes de préparation</h3>";
         foreach($maRecette['etapes'] as $etape) {
-            $html .= "<p class='etape'>".$etape['numeroEtape'].") ".$etape['DescriptionEtape']."</p>";
+
+            $html .= "<p class='etape'>".$etape['numeroEtape'].") ".$etape['descriptionEtape']."</p>";
         }
         
     }else {
@@ -166,6 +170,26 @@ if(isset($_GET['demiam'])){
     echo "banane";
    var_dump($publication->demiam($idUtilisateur, $photo));
 } // FIN if(isset($_GET['demiam']))
+
+
+
+if(isset($_GET['ajoutCommentaires'])) {
+    
+    $commentaire = htmlspecialchars($_GET['comment']);
+    $publication = new Publication();
+    
+    $publication->ajoutCommentaire($_SESSION['userID'], $_GET['recetteID'], $commentaire);
+    $PDO = $publication->connectionBD();
+    $query="SELECT nom, prenom FROM utilisateur WHERE idUtilisateur=".$_SESSION['userID'];
+    $PDOStatement = $PDO->prepare($query);
+    $PDOStatement->execute();
+    $personne = $PDOStatement->fetch(PDO::FETCH_ASSOC);
+    
+    
+    
+    echo "<p class='commentaire'><span><a href='profil.php?userID=".$_SESSION['userID']."'>".$personne['prenom']." ".$personne['nom']."</a></span><br/>".$commentaire."</p>";
+} // FIN isset($_GET['ajoutCommentaires'])
+
 
 
 ?>

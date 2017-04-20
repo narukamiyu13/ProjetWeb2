@@ -24,6 +24,14 @@ font-family: Muli;
 /*    height:80px;*/
     background-color: #f8f8f8;
 }
+/*
+.erreur{
+    position: absolute;
+    margin:0 auto;
+    top:300px
+        
+}
+*/
 
 
 .row
@@ -31,6 +39,7 @@ font-family: Muli;
     padding-top:10px;
     width:90%;
     margin: 0 auto;
+
 }
 
 
@@ -50,6 +59,7 @@ font-family: Muli;
  color:#fdcc52; 
     font-size:20pt;
     letter-spacing: 2px;
+
 }
 .row2
 {
@@ -60,8 +70,12 @@ font-family: Muli;
    
 }
 
+
+
 /*
 #navbar > div > ul > li> a
+
+
 {
     float: right;  
     display: inline;
@@ -75,7 +89,9 @@ font-family: Muli;
 */
 .droiteMenu{
     float: right;
-    padding-left:20px;
+    padding:15px;
+    line-height: 0px;
+
 }
 #navbar ul li :hover
 {
@@ -483,7 +499,9 @@ opacity: 0.8;
 font-family: Muli;
 }
 
-#ipJoin{
+
+#ipJoin, #recover{
+
  width: 100px;
  padding: 10px 25px 10px 11px;
  background-color: white;
@@ -492,9 +510,17 @@ font-family: Muli;
  border: 1px solid white;
  opacity: 0.8;
  font-family: Muli;
+
+
 }
 
-#ipJoin:hover{
+#recover {
+    width:145px;
+
+}
+
+#ipJoin:hover, #recover:hover{
+
   opacity: 1;
   cursor: pointer;
 }
@@ -517,9 +543,13 @@ font-family: Muli;
       flex-direction: column;
 	  
 	}
+
+
 	.droiteMenu
 	{
 		display:none;
+
+
 	}
 }
 
@@ -692,6 +722,7 @@ label > input:focus {
     text-align: center;
     margin: -85px 0px 0 0;
 	font-family: Muli;
+background-image: url("paper.gif");
 }
 /***********************modifierProfil********************/
 
