@@ -33,14 +33,11 @@ font-family: Muli;
 }
 */
 
-
 .row
 {
     padding-top:10px;
     width:90%;
     margin: 0 auto;
-
-
 /*    height:780px;*/
 }
 
@@ -72,39 +69,6 @@ font-size:20pt;
 #menucentre h2 a
 {
  color:#fdcc52;   
-
-}
-
-/*
-#navbar > div > ul > li:nth-child(4) > a
-{
-border:1px solid blue;
-color:#fdcc52;
-font-size:20pt;
-    display:block;
-    text-align:center;
-  position:relative;
-    top:-40px; 
-    height:55px;
-    width:100%
-   
-
-}
-*/
-
-
-#menucentre
-{
-    width:100%;
-    text-align:center;
-    position:relative;
-    color:#fdcc52;
-    font-size:20pt;
-    top:15px;
-}
-#menucentre h2 a
-{
- color:#fdcc52;   
 }
 .row2
 {
@@ -115,12 +79,8 @@ font-size:20pt;
    
 }
 
-
-
 /*
 #navbar > div > ul > li> a
-
-
 {
     float: right;  
     display: inline;
@@ -136,7 +96,6 @@ font-size:20pt;
     float: right;
     padding:15px;
     line-height: 0px;
-
 }
 #navbar ul li :hover
 {
@@ -600,9 +559,7 @@ opacity: 0.8;
 font-family: Muli;
 }
 
-
-#ipJoin, #recover{
-
+#ipJoin{
  width: 100px;
  padding: 10px 25px 10px 11px;
  background-color: white;
@@ -611,17 +568,9 @@ font-family: Muli;
  border: 1px solid white;
  opacity: 0.8;
  font-family: Muli;
-
-
 }
 
-#recover {
-    width:145px;
-
-}
-
-#ipJoin:hover, #recover:hover{
-
+#ipJoin:hover{
   opacity: 1;
   cursor: pointer;
 }
@@ -644,13 +593,9 @@ font-family: Muli;
       flex-direction: column;
 	  
 	}
-
-
 	.droiteMenu
 	{
 		display:none;
-
-
 	}
 }
 
@@ -834,7 +779,6 @@ label > input:focus {
     text-align: center;
     margin: -85px 0px 0 0;
 	font-family: Muli;
-background-image: url("paper.gif");
 }
 /***********************modifierProfil********************/
 

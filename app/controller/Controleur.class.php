@@ -10,14 +10,12 @@ class Controleur {
         $this->modele = new Modele();
     }
     
-
     
         /* -------------------------------------
         | fonction gerer connexion
         | -------------------------
         | PARAM
         |   aucun
-
         | -------------------------
         | RETURN
         |   aucun    
@@ -84,51 +82,5 @@ class Controleur {
         }
     
     }
-
-
-
-     /* -------------------------------------
-        | fonction modifier le profil
-        | -------------------------
-        | PARAM
-        |   $idUtilisateur : (int) Le ID de l'utilisateur connecté 
-        | -------------------------
-        | RETURN
-        |   aucun    
-        | -------------------------
-        | DESCRIPTION
-        |   modifie la photo de profil de l'utilisateur
-        |------------------------------------- */
-    public function gererReset(){
-        
-        if(isset($_POST['reset'])) {
-             $this->modele->expireToken($_GET['uid'],$_GET['token']);
-            //var_dump($_POST);
-            if($_POST['password1'] == $_POST['password2']) {
-                $this->modele->updatePassword($_POST['password1']);
-                header("location:connexion.php");
-               
-            }
-        }
-        
-        //var_dump($this->modele->checkToken($_GET['uid'],$_GET['token']));
-       if($this->modele->checkToken($_GET['uid'],$_GET['token'])){
-           if($this->modele->checkExpiration($_GET['uid'],$_GET['token']) == 0){
-               require_once("app/view/resetvalid.php");
-               
-           } else {
-               require_once("app/view/resetexpired.php");
-           }
-       } else {
-           require_once("app/view/resetinvalid.php");
-       }
-            
-            
-    }
-    
-    
-    
-
-
 }
 ?>

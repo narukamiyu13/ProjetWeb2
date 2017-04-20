@@ -37,7 +37,6 @@
    // $_SESSION['userID'] = 2;
   
     
-
     if(isset($_GET['deconnexion'])){
         $_SESSION = Array();
         session_destroy();
@@ -49,7 +48,6 @@
     <div id="container">
         <!--  entete -->
         <?php include_once"header.php";?>
-
         <section class="top">
             <div class="row">
                 <div id="texte">

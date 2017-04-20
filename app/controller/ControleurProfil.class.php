@@ -29,14 +29,12 @@ class ControleurProfil extends Controleur {
     |------------------------------------- */ 
     public function gererProfil(){
        // var_dump($_SESSION["userID"]);
-
         
         //Si aucun utilisateur n'est connecté, retourner a l'index.
         if(!isset($_SESSION['userID'])){
             header("location:index.php");
         }
         
-
         $tonUsager = $this->modele->profilUtilisateur($_GET['userID']);
         
 //        $_SESSION['userID'] = 2;
@@ -52,7 +50,7 @@ class ControleurProfil extends Controleur {
             //Le code si c'est le profil d'un autre utilisateur
             $profilUserActuel = false;
             $title = "S'Abonner";
-
+            //echo $_SESSION['userID'];
             $checkAbonnement = $tonUsager->checkAbonnement($_SESSION['userID']);
         }
         //Gérer l'affichage  

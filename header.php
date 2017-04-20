@@ -1,6 +1,4 @@
-<script src="app/assets/js/menu.js"></script>
-
-
+ <script src="app/assets/js/menu.js"></script>
 
 
 <?php// include_once("app/controller/controller.php");  ?>
@@ -45,7 +43,6 @@
            <div class="row">  
                 
                 <div id="menucentre">
-
                     <h2><a href="index.php">Foodie</a></h2>
                 </div>    
                 <ul>
@@ -53,7 +50,6 @@
                     <li class="droiteMenu"><a href="">Découverte </a></li>
                     <li class="droiteMenu"><?php echo !isset($_SESSION['userID'])? '<a href="connexion.php">Connexion</a>' : '<a href="index.php?deconnexion">Déconnexion</a>' ?></li>	 
                 </ul>
-
             </div>  
         </nav>
 </header>

@@ -20,7 +20,6 @@ h3{
 .haut 
 {
   
-
     display:flex;
     flex-direction:row;
     justify-content: center;
@@ -28,9 +27,7 @@ h3{
     flex-wrap: wrap;
     align-items: center;
     color:white;
-
     background-color: #fdc741;
-
 }
 div{
     clear:both;
@@ -108,7 +105,6 @@ div{
 /*   LES STYLES DU POPUP DE RECETTE */
 
 .contenuRecette{
-
     width:100%;
     height:100%;
     position:fixed;
@@ -127,7 +123,6 @@ div{
 
 .fermerRecette p {
     margin-top:20px;
-
 }
 
 .contenuRecette h2{
@@ -152,7 +147,6 @@ div{
     float:left;
     border-right:1px solid black;
     width:65%;
-
 }
 
 .informations h3:nth-of-type(2){
@@ -165,7 +159,6 @@ div{
 }
 
 .commentaires{
-
     position:relative;
     overflow-y:scroll;
     clear:none;
@@ -184,12 +177,12 @@ div{
 
 .commentaires .commentaire {
     margin-bottom:20px;
-
 }
 
 .commentaires .commentaire span{
     font-weight:bold;
 }
+
 
 
 
@@ -199,24 +192,19 @@ main
 {
     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
-
 main .haut:nth-child(1){
-
     padding-top:2%;
 }
 main .haut:nth-child(2) img{
     padding: 10px;
 }
-
 .photoProfilHov{
-
     opacity: 1;
 }
 .op .photoProfilHov:hover img {
     opacity: .4;
 }
 .plusprofil{
-
     position: relative;
     order:1;
     display: none;
@@ -224,13 +212,12 @@ main .haut:nth-child(2) img{
     
 }
 .plusprofil img{
-     cursor: pointer;
+    cursor: pointer;
     text-align: center;
     justify-content: center;
     align-items: center;
     display: flex;
     position: absolute;
-
     top: -90px;
     left:0;
     right:0;
@@ -243,7 +230,6 @@ main .haut:nth-child(2) img{
     -webkit-transition: .10s ease-in-out;
 	transition: .10s ease-in-out;
 	display: inherit;
-
 }
 main section:nth-child(2) div {
     order:3;
@@ -579,5 +565,4 @@ h2{
     .encart{
          flex-direction:column;
     }
-
 }
