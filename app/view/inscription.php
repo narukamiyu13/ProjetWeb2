@@ -16,10 +16,14 @@
 	<script src="app/assets/js/menu.js"></script>
 </head>
 
+
  <?php // include_once("app/controller/controller.php");  ?> 
-   
+
+    
 <body id="page-top">
 	<?php include_once'header.php'; ?>
+    
+
    <header class='backgroundInscription' id="heroSign">
         <div class="flexHead center">
         <h1 id="titreCI">Inscription</h1>
@@ -51,6 +55,7 @@
             <input onClick="window.location.href='connexion.php'" type="submit" id="ipSignIn" value="Connexion">
         </div>
         <?php
+//       var_dump($erreur);
         if($erreur==true){
             echo "<p class=\"erreur\">Veuillez entrer une adresse courriel valide</p>";
         }
@@ -60,6 +65,20 @@
     </header>
 	
 	<?php include_once'footer.php'; ?>
+	
+	
+ 
+    <!-- jQuery -->
+    <script src="app/assets/lib/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="app/assets/lib/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="app/assets/lib/script.js"></script>
 
 </body>
 
