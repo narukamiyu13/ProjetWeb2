@@ -21,19 +21,22 @@ class Controleur {
     | DESCRIPTION
     |   Permet a un utilisateur inscrit de se connecter
     |------------------------------------- */
-    public function gererConnexion(){
+  public function gererConnexion(){
         if(!isset($_GET['forgot'])){
             if(!isset($_POST['bt_connexion'])){
+                $erreur=false;
                 include_once ("app/view/connexion.php");
             }else{
+                $erreur=false;
                 $utilisateur = $this->modele->gererConnexion($_POST['nomUtilisateur'],$_POST['motDePasse']);
                 if($utilisateur != NULL ){
                     $_SESSION['userID'] = intval($utilisateur);
                     var_dump($_SESSION["userID"]);
                     header("location:  profil.php?userID=$utilisateur");
                 } else {
+                    $erreur=true;
                     include_once ("app/view/connexion.php");
-                    include_once ("app/view/erreur.php");
+                    
                 }
             }
         } else {
@@ -52,16 +55,20 @@ class Controleur {
     | DESCRIPTION
     |   permet a un utilisatweur de s'inscrire
     |------------------------------------- */
-    public function gererInscription(){
+   public function gererInscription(){
         if(!isset($_POST['bt_inscription'])){
+            $erreur=false;
             include_once ("app/view/inscription.php");
+            
         }else{
             if (isset($_POST["courriel"])){
                 $email = $_POST["courriel"];
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $erreur=true;
                     include_once ("app/view/inscription.php");
-                    include_once ("app/view/erreuremail.php");
+                    
                 }else{
+                    $erreur=false;
                     $inscription = $this->modele->gererInscription($_POST['nomUtilisateur'],$_POST['motDePasse'],$_POST['courriel']);
                     $utilisateur = $this->modele->gererConnexion($_POST['nomUtilisateur'],$_POST['motDePasse']);
                     if($utilisateur != NULL ){
@@ -69,6 +76,7 @@ class Controleur {
                         var_dump($_SESSION["userID"]);
                         header("location:  index.php");
                     } else {
+                        $erreur=true;
                         include_once ("app/view/inscription.php");
                     } 
                 }

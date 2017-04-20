@@ -1,10 +1,6 @@
+
 <!DOCTYPE html>
-<?php
 
-
-
-
-?>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
@@ -54,6 +50,12 @@
             <p>ou</p>
             <input onClick="window.location.href='inscription.php'" type="button" id="ipJoin" value="Inscription">
         </div>
+        <?php
+//            var_dump($erreur);
+        if($erreur==true){
+            echo "<p class=\"erreur\">Mauvais courriel ou mot de passe</p>";
+        }
+       ?>
         </div>
     </header>
 	

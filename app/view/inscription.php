@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<?php
-?>
+
 <html lang="fr">
 <head>
     <meta charset="utf-8">
@@ -55,7 +54,14 @@
             <p>ou</p>
             <input onClick="window.location.href='connexion.php'" type="submit" id="ipSignIn" value="Connexion">
         </div>
+        <?php
+//       var_dump($erreur);
+        if($erreur==true){
+            echo "<p class=\"erreur\">Veuillez entrer une adresse courriel valide</p>";
+        }
+       ?>
         </div>
+     
     </header>
 	
 	<?php include_once'footer.php'; ?>
