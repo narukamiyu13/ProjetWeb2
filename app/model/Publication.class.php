@@ -24,6 +24,7 @@ require_once("Model.class.php");
 
                 $query = "SELECT nom, prenom, idPhoto, url, photo.description, idRecette, photo.idUtilisateur FROM photo INNER JOIN utilisateur ON photo.idUtilisateur = utilisateur.idUtilisateur WHERE idPhoto=".$photoID;
 
+
                 $PDOStatement = $PDO->prepare($query);
                 $PDOStatement->execute();
                 $photoRecette = $PDOStatement->fetch(PDO::FETCH_ASSOC);

@@ -12,7 +12,6 @@ public function __construct(){
     
 }
 public function gererVueAjoutPhoto(){
-
     if(isset($_POST['publier'])){    
          if (!file_exists("app/assets/photo/".$_SESSION['userID'])) {
                 mkdir("app/assets/photo/".$_SESSION['userID'], 0777, true);
@@ -25,7 +24,6 @@ public function gererVueAjoutPhoto(){
         $target_file = basename($_FILES["photoCreation"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
         // Check if image file is a actual image or fake image
         
         if(isset($_POST["publier"])) {

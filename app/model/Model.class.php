@@ -18,10 +18,8 @@ class Modele {
     |------------------------------------- */ 
     public function connectionBD() {
         try{
-
             $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
-            $PDO = new PDO("mysql:host=localhost;dbname=foodie","root","",$options);
-
+            $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","",$options);
             return $PDO;
         } catch(PDOException $erreur) {
             echo "Erreur: ".$erreur->getMessage()."<br/>";
@@ -100,6 +98,7 @@ class Modele {
                 echo "Erreur: ".$e->getMessage();
             }
         } // FIN DE FONCTION gererConnexion
+
 
     /* -------------------------------------
         | fonction gererInscription
@@ -198,6 +197,7 @@ class Modele {
     
      /* -------------------------------------
         | fonction checkToken
+
         | -------------------------
         | PARAM
         |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
@@ -209,18 +209,21 @@ class Modele {
         |   Verifie si la personne qui navigue est abonnée a un utilisateur.
         |------------------------------------- */ 
     
+
     function expireToken($uid, $token){
             try{
                $PDO = $this->connectionBD();
                 $query = "UPDATE passwordResets SET expired=1 WHERE userID=$uid AND confirmationCode=$token";
                 $PDOStatement = $PDO->prepare($query);
+
                 $PDOStatement->execute();
                         
                
             } catch(PDOException $e){
                 echo "Erreur: ".$e->getMessage();
             }
-        } // FIN DE FONCTION checkToken
+
+        } // FIN DE FONCTION gererInscription
 
     
     /* -------------------------------------

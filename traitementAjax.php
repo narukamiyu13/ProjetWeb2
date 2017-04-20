@@ -46,18 +46,18 @@ if(isset($_GET['selectPhoto'])){
         $html .= "<h3>Ingredients</h3>
         <br>
         ";
-        foreach($maRecette['ingredients'] as $ingredient) {
-            if ((preg_match("/\ml\b/i",$ingredient['quantite']))&&(preg_match("/^[^aeyiuo]/", $ingredient['nomIngredient']))){
-                $html .= "<p>".$ingredient['quantite']." de ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
-                }else{
-                if((preg_match("/\ml\b/i",$ingredient['quantite']))&& (preg_match("/^[aeyiuoh]/", $ingredient['nomIngredient']))){
-                       $html .= "<p>".$ingredient['quantite']."d' ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
-                }else{
-                    $html .= "<p>".$ingredient['quantite']." ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
-                }
-            }
 
-        }
+          foreach($maRecette['ingredients'] as $ingredient) {
+            if ((preg_match("/\ml|tasse|cuillereasoupe|cuillereatable|l|lbs|cl|cuillereathe|g|kg\b/i",$ingredient['uniteDeMesure']))&&(preg_match("/^[^aeyiuoh]/", $ingredient['nomIngredient']))){
+                $html .= "<p>".$ingredient['quantite']." ".$ingredient['uniteDeMesure']." de ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
+                }else{
+                    if((preg_match("/\ml|tasse|cuillereasoupe|cuillereatable|l|lbs|cl|cuillereathe|g|kg\b/i",$ingredient['uniteDeMesure']))&& (preg_match("/^[aeyiuoh]/", $ingredient['nomIngredient']))){
+                           $html .= "<p>".$ingredient['quantite']." ".$ingredient['uniteDeMesure']." d' ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
+                    }else{
+                        $html .= "<p>".$ingredient['quantite']." ".$ingredient['uniteDeMesure']." ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
+                    }
+                }   
+            }
         
         $html.= "<h3>Étapes de préparation</h3>";
         foreach($maRecette['etapes'] as $etape) {

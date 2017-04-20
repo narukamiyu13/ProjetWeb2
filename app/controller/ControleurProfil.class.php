@@ -29,14 +29,14 @@ class ControleurProfil extends Controleur {
     |------------------------------------- */ 
     public function gererProfil(){
        // var_dump($_SESSION["userID"]);
-        
 
+        
         //Si aucun utilisateur n'est connecté, retourner a l'index.
         if(!isset($_SESSION['userID'])){
             header("location:index.php");
         }
-
         
+
         $tonUsager = $this->modele->profilUtilisateur($_GET['userID']);
         
 //        $_SESSION['userID'] = 2;

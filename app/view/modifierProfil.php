@@ -26,8 +26,7 @@ if(isset($_POST['enregistrer'])) {
     // Check if file already exists
     if (file_exists($target_file)) {
        // echo "Sorry, file already exists.";
-
-         $target_file = $target_dir ."copy(1)-".basename($_FILES["photo"]["name"]);
+$target_file = $target_dir ."copy(1)-".basename($_FILES["photo"]["name"]);
 
     }
     // Check file size
