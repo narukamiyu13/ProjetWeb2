@@ -676,61 +676,171 @@ label > input:focus {
 }
 
 
+
 /*  page recherche */
-.categorie{
-	width:100%;
-	position:absolute;
+.wrapperRecherche{
+    width: 600px;
+    height: auto;
+    margin: 0 auto;
+    
+    
+    
+	
 }
 
-.categorie ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-	    width: 100%;
-    background-color: #333;
-	height: 86px;
+.headerBoiteRecette{
+    margin-bottom: 15px;
 }
 
-.categorie li {
-    float: left;
+.headerBoiteRecette h2{
+    margin-bottom: 5px;
+    color: #232323
 }
 
-.categorie li a {
-    display: block;
-    color: white;
+.temps{
+    margin-top: 5px;
     text-align: center;
-    padding: 33px 37px;
-    text-decoration: none;
+}
+.icon{
+    margin:15px 0 0 290px;
+}
+.boiteRecette{
+    width: 100%;
+    background-color: #fdcc52;
+    margin-bottom: 100px;
+    border-radius: 20px
+
+}
+
+.boiteRecette p{
+   
     font-family: Muli;
-	font-size: 16pt;
-	opacity: 0.4;
-	background-color: #333;
+    margin: 0px 30px 0px 30px;
+    color: #232323
 }
 
-.categorie li a:hover {
-    opacity: 1;
+.imageRecette{
+        height: 300px;
+    width: 100%;
+    background: aliceblue;
+}
+.boiteRecette h2{
+    text-align: center;
+    font-size: 25pt;
+    font-family: Muli;
 }
 
-.patate{
-	
-	background-image: url("images/patate.jpg");
+
+.listeIngredientTitre{
+    font-size: 16pt;
+    font-family: Muli;
+    margin-top: 20px;
+        margin: 25px 0px 10px 0px;
+    color: #232323
 }
 
-.tomate{
-	
-	background-image: url("images/tomate.jpg");
+.listeIngredient{
+    text-align: center;
+    height: auto;
+    
 }
 
-.piment{
-	
-	background-image: url("images/piment.jpg");
+.listeEtape{
+    text-align: center;
+    width: auto;
+    
+    
 }
 
-.carotte{
-	
-	background-image: url("images/carrotte.jpg");
+
+.listeEtapeTitre{
+        font-size: 16pt;
+    font-family: Muli;
+        margin: 25px 0px 10px 0px;
+    color: #232323
 }
+/* checkbox */
+
+.categorie input[type="radio"]:hover {
+	cursor: pointer;
+}
+
+.categorie input[type="radio"] {
+	position: relative;
+	margin: 2.4rem;
+}
+
+
+
+.categorie input[type="radio"]:before {
+	content: ' ';
+	background: white;
+	border: .15rem solid #fdcc52;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	    width: 1.5rem;
+    height: 1.5rem;
+	transition: background .3s ease-in-out;
+}
+
+.categorie input[type="radio"]:checked:before {
+	background: #fdcc52;
+}
+
+.categorie input[type="radio"]:checked:after {
+	content: ' ';
+	background: transparent;
+	border-left: .2rem solid white;
+	border-bottom: .2rem solid white;
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	width: 60%;
+	height: 30%;
+	z-index: 2;
+	transform: rotate(-45deg);
+}
+.categorie h3{
+    font-size: 40pt;
+    text-align: center;
+    margin: 0 0 45px 0;
+    font-family: Muli;
+    color: #232323
+}
+
+
+.categorie{
+    display: -webkit-box;
+	display: -moz-box;
+	display: box;
+    
+    margin-top:  40px;
+
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	box-pack: center;
+
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	box-direction: normal;
+
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	box-align: center;
+}
+
+.box1 {
+	margin: 50px;
+    text-align:center
+}
+
 
 
 .entete

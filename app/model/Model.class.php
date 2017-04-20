@@ -129,6 +129,85 @@ class Modele {
         } // FIN DE FONCTION gererInscription
     
     
+    
+    
+     /* -------------------------------------
+        | fonction gererRechercheRecette
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+     function gererRechercheRecette($idCategorie){
+            try{
+                $PDO = $this->connectionBD();
+                $requete = "SELECT *
+                            FROM photo 
+                            INNER JOIN utilisateur ON photo.idUtilisateur = utilisateur.idUtilisateur 
+                            INNER JOIN recettes on photo.idRecette = recettes.idRecette
+                            WHERE recettes.idCategorieRecette = '$idCategorie'";
+                $PDOStatement = $PDO->prepare($requete);
+                $PDOStatement->execute();
+                $recettes = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+                return $recettes;
+                //echo '<pre>';
+                //var_dump($recettes);
+                //echo '</pre>';
+    
+                
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION gererRechercheRecette
+    
+    function gererRechercheRecetteIngredients($idCategorie,$idRecette){
+            try{
+               
+                $PDO = $this->connectionBD();
+                $requete = "SELECT recettes.idRecette,ingredients.nomIngredient, recettes_has_ingredients.quantite,             recettes_has_ingredients.uniteDeMesure  FROM recettes
+                            INNER JOIN recettes_has_ingredients ON recettes_has_ingredients.idRecette=recettes.idRecette
+                            INNER JOIN ingredients ON recettes_has_ingredients.idingredient=ingredients.idingredient
+                            WHERE recettes.idrecette = '$idRecette'  AND recettes.idCategorieRecette = '$idCategorie'";
+                $PDOStatement = $PDO->prepare($requete);
+                $PDOStatement->execute();
+                $ingredients = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+                //return $ingredients;
+                //echo '<pre>';
+                //var_dump($ingredients);
+                //echo '</pre>';
+                
+                $PDO = $this->connectionBD();
+                $requete = "SELECT * 
+                            FROM recettes
+                            INNER JOIN etapepreparation on recettes.idRecette = etapepreparation.idRecette
+                            WHERE idCategorieRecette = '$idCategorie' AND recettes.idRecette = '$idRecette'";
+                $PDOStatement = $PDO->prepare($requete);
+                $PDOStatement->execute();
+                $etapes = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+                //return $etapes;
+                
+                return Array("ingredients"=>$ingredients, "etapes"=>$etapes);
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        }
+    
+    
+    
+    
+   
+    
+    
 } // FIN DE CLASSE
 
 

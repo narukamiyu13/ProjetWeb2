@@ -76,5 +76,11 @@ public function __construct(){
         }
     
     }
+     
+     public function gererRecherche(){
+   
+            include_once ("app/view/recherche.php");
+
+    }
 }
 ?>
