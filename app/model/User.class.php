@@ -113,7 +113,18 @@
         
         
         
-        
+          /* -------------------------------------
+        | fonction modifier le profil
+        | -------------------------
+        | PARAM
+        |   $idUtilisateur : (int) Le ID de l'utilisateur connecté 
+        | -------------------------
+        | RETURN
+        |   aucun    
+        | -------------------------
+        | DESCRIPTION
+        |   modifie la photo de profil de l'utilisateur
+        |------------------------------------- */
         
         
         function modifierProfilUser($idUtilisateur){
@@ -138,6 +149,7 @@
         }
 
 
+
         
         
          /* -------------------------------------
@@ -153,6 +165,7 @@
         |   modifie la photo de profil de l'utilisateur
         |------------------------------------- */
         
+
        function modifierPhotoProfil($idUtilisateur){
            
           try{

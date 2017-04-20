@@ -1,10 +1,12 @@
 <?php
 include('app/model/Publication.class.php');
+
 session_start();
 
 
 if(isset($_GET['selectPhoto'])){
     $publication = new Publication;
+
     $recetteID=$_GET['recetteID'];
     $maRecette = $publication->selectionnerPhotoRecette($recetteID);
    
@@ -44,6 +46,7 @@ if(isset($_GET['selectPhoto'])){
         $html .= "<h3>Ingredients</h3>
         <br>
         ";
+
           foreach($maRecette['ingredients'] as $ingredient) {
             if ((preg_match("/\ml|tasse|cuillereasoupe|cuillereatable|l|lbs|cl|cuillereathe|g|kg\b/i",$ingredient['uniteDeMesure']))&&(preg_match("/^[^aeyiuoh]/", $ingredient['nomIngredient']))){
                 $html .= "<p>".$ingredient['quantite']." ".$ingredient['uniteDeMesure']." de ".$ingredient['nomIngredient']." ".$ingredient['typeDePrep']." ".$ingredient['adjectifIngredient']."</p>";
@@ -58,6 +61,7 @@ if(isset($_GET['selectPhoto'])){
         
         $html.= "<h3>Étapes de préparation</h3>";
         foreach($maRecette['etapes'] as $etape) {
+
             $html .= "<p class='etape'>".$etape['numeroEtape'].") ".$etape['descriptionEtape']."</p>";
         }
         
@@ -202,5 +206,6 @@ if(isset($_GET['ajoutCommentaires'])) {
     
     echo "<p class='commentaire'><span><a href='profil.php?userID=".$_SESSION['userID']."'>".$personne['prenom']." ".$personne['nom']."</a></span><br/>".$commentaire."</p>";
 } // FIN isset($_GET['ajoutCommentaires'])
+
 
 ?>

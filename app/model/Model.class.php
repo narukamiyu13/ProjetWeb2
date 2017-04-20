@@ -98,7 +98,8 @@ class Modele {
                 echo "Erreur: ".$e->getMessage();
             }
         } // FIN DE FONCTION gererConnexion
-    
+
+
     /* -------------------------------------
         | fonction gererInscription
         | -------------------------
@@ -128,6 +129,155 @@ class Modele {
             }
         } // FIN DE FONCTION gererInscription
     
+    
+        /* -------------------------------------
+        | fonction checkToken
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+    function checkToken($uid, $token){
+            try{
+               $PDO = $this->connectionBD();
+                $query = "SELECT COUNT(resetID) FROM passwordResets WHERE userID=$uid AND confirmationCode=$token";
+                $PDOStatement = $PDO->prepare($query);
+                $PDOStatement->execute();
+                $resultat = $PDOStatement->fetch(PDO::FETCH_NUM)[0];
+                
+                if($resultat == 1) {
+                    return true;
+                } else {
+                    return false;
+                }
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION checkToken
+    
+    
+     /* -------------------------------------
+        | fonction checkToken
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+    function checkExpiration($uid, $token){
+            try{
+               $PDO = $this->connectionBD();
+                $query = "SELECT expired FROM passwordResets WHERE userID=$uid AND confirmationCode=$token";
+                $PDOStatement = $PDO->prepare($query);
+                $PDOStatement->execute();
+                $resultat = $PDOStatement->fetch(PDO::FETCH_NUM)[0];
+                
+                return $resultat;
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION checkToken
+    
+    
+    
+     /* -------------------------------------
+        | fonction checkToken
+
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+
+    function expireToken($uid, $token){
+            try{
+               $PDO = $this->connectionBD();
+                $query = "UPDATE passwordResets SET expired=1 WHERE userID=$uid AND confirmationCode=$token";
+                $PDOStatement = $PDO->prepare($query);
+
+                $PDOStatement->execute();
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+
+        } // FIN DE FONCTION gererInscription
+
+    
+    /* -------------------------------------
+        | fonction gererInscription
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+    function gererInscription($nomUtilisateur,$password,$courriel){
+            try{
+                $PDO = $this->connectionBD();
+                $requete = "INSERT INTO utilisateur (nomUtilisateur,motDePasse,courriel) VALUES ('$nomUtilisateur','$password','$courriel')";
+                $PDOStatement = $PDO->prepare($requete);
+                $PDOStatement->execute();
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION gererInscription
+    
+     /* -------------------------------------
+        | fonction checkToken
+        | -------------------------
+        | PARAM
+        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+        | -------------------------
+        | RETURN
+        |   bool    
+        | -------------------------
+        | DESCRIPTION
+        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+        |------------------------------------- */ 
+    
+    function updatePassword($pass){
+            try{
+                $pass = sha1($pass);
+                $PDO = $this->connectionBD();
+                $query = "UPDATE utilisateur SET motDePasse='$pass' WHERE idUtilisateur=".$_GET['uid'];
+                $PDOStatement = $PDO->prepare($query);
+                $PDOStatement->execute();
+                        
+               
+            } catch(PDOException $e){
+                echo "Erreur: ".$e->getMessage();
+            }
+        } // FIN DE FONCTION checkToken
     
 } // FIN DE CLASSE
 
