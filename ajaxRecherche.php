@@ -2,7 +2,7 @@
  //load_data.php  
 session_start();
 
-include('app/model/model.class.php');
+include('app/model/Model.class.php');
  if(isset($_POST['idCategorie'])){
            $model = new Modele();
            $idCategorie = $_POST["idCategorie"];
@@ -18,7 +18,7 @@ include('app/model/model.class.php');
                     <div class="boiteRecette">
                         <div class="headerBoiteRecette" >
                             <i class="fa fa-cutlery icon" aria-hidden="true"></i>
-                            <h2 class="nomRecette" >'. $recette['idRecette'].''. $recette['titreRecette'].'</h2>
+                            <h2 class="nomRecette" >'. $recette['titreRecette'].'</h2>
                             <p class="temps">(Préparation : '.$recette['vchTempsPreparation'].' )  </p>
                             <p class="temps">(Cuisson : '.$recette['vchTempsCuisson'].' )  </p>
                         </div>    

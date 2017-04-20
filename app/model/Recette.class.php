@@ -48,7 +48,7 @@ class Recette extends Modele{
               $ingredientios=[];
               
               foreach($nomIngredient as $ingredient){
-                $requeteIngredient="INSERT INTO `ingredients`(`nomIngredient`) VALUES ('$ingredient')";
+                $requeteIngredient="INSERT INTO `ingredients`(`nomIngredient`) VALUES (\"$ingredient\")";
                 $sth2=$PDO->prepare($requeteIngredient);
                 $sth2->execute();
                 
@@ -80,8 +80,7 @@ class Recette extends Modele{
 //              echo "<p>$requeteEtapePrep</p>";
               $index = 0;
               foreach($numeroEtape as $etape){
-          
-                  $requeteEtapePrep.="($etape,'".$descriptionEtape[$index]."', ".$lastRecetteid['ux']."), ";
+                  $requeteEtapePrep.="($etape,\"".$descriptionEtape[$index]."\", ".$lastRecetteid['ux']."), ";
            
                   $index+=1;
               }
