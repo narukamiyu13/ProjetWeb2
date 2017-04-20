@@ -21,7 +21,9 @@ require_once("Model.class.php");
         public function selectionnerPhotoRecette($photoID){
             try{
                 $PDO = $this->connectionBD();
-                $query = "SELECT * FROM photo WHERE idPhoto=".$photoID;
+
+                $query = "SELECT nom, prenom, idPhoto, url, photo.description, idRecette, photo.idUtilisateur FROM photo INNER JOIN utilisateur ON photo.idUtilisateur = utilisateur.idUtilisateur WHERE idPhoto=".$photoID;
+
                 $PDOStatement = $PDO->prepare($query);
                 $PDOStatement->execute();
                 $photoRecette = $PDOStatement->fetch(PDO::FETCH_ASSOC);
@@ -87,7 +89,9 @@ require_once("Model.class.php");
         |------------------------------------- */ 
         public function getCommentaires($photoID){
             $PDO = $this->connectionBD();
-            $query = "SELECT prenom, nom, comment.description FROM comment INNER JOIN utilisateur ON comment.idUtilisateur = utilisateur.idUtilisateur WHERE comment.idPhoto=".$photoID;
+
+            $query = "SELECT comment.idUtilisateur, prenom, nom, commentaires FROM comment INNER JOIN utilisateur ON comment.idUtilisateur = utilisateur.idUtilisateur WHERE comment.idPhoto=".$photoID." ORDER BY timestamp ASC";
+
             $PDOStatement = $PDO->prepare($query);
             $PDOStatement->execute();
             $commentaires = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
@@ -104,10 +108,20 @@ require_once("Model.class.php");
 
                   if(isset($_FILES['photoCreation']) && isset($_POST['description']))
                   {
-                        $folder="app/assets/photo/";
+
+                        $folder="app/assets/photo/".$_SESSION['userID']."/";
+                        $target_file=basename($_FILES['photoCreation']['name']);
                         $description= $_POST['description'];
                         $idUtilisateur= $_GET['userID'];
-                        $photoCreation = ( "$folder".$_FILES['photoCreation']['name']);
+                         if (file_exists($folder.$target_file)) {
+                             $increment=0;
+                            while(file_exists($folder.$target_file)){
+                                $increment++;
+                                $target_file = "($increment)-".basename($_FILES["photoCreation"]["name"]);
+                            }
+                             
+                         }
+                        $photoCreation ='\"'.$folder.$target_file.'\"';
                         $requete="INSERT INTO `photo`(`url`, `description`, `idUtilisateur`) VALUES ('$photoCreation','$description','$idUtilisateur')";
                         $PDOStatement = $PDO->prepare($requete);
                         $PDOStatement->execute();
@@ -121,6 +135,47 @@ require_once("Model.class.php");
             }
     
        }
-    }
+
+        
+        public function checkMiam($user,$photoID){
+            $PDO = $this->connectionBD();
+            $query = "SELECT COUNT(idUtilisateur) FROM likes WHERE idUtilisateur=$user AND idPhoto=$photoID";
+            $PDOStatement = $PDO->prepare($query);
+            $PDOStatement->execute();
+            $check = $PDOStatement->fetch(PDO::FETCH_NUM)[0];
+            return $check;
+            
+        }
+        
+        
+        public function miam($idPersonne, $idPhoto){
+            $PDO = $this->connectionBD();
+            $requete = "INSERT INTO likes (idUtilisateur,idPhoto, timestamp) VALUES ($idPersonne, $idPhoto, NOW())";
+            $PDOStatement = $PDO->prepare($requete);
+            $exec = $PDOStatement->execute();
+            return $exec;
+        }
+        
+        public function demiam($idPersonne, $idPhoto){
+            $PDO = $this->connectionBD();
+            $requete = "DELETE FROM likes WHERE idUtilisateur=$idPersonne AND idPhoto=$idPhoto";
+            $PDOStatement = $PDO->prepare($requete);
+            $exec = $PDOStatement->execute();
+            return $exec;
+            
+        }
+        
+        
+        public function ajoutCommentaire($idPersonne, $idPhoto, $commentaire){
+            $PDO = $this->connectionBD();
+            $requete = "INSERT INTO comment (idPhoto, idUtilisateur, commentaires, timestamp) VALUES ($idPhoto, $idPersonne, \"$commentaire\", NOW())";
+            
+            $PDOStatement = $PDO->prepare($requete);
+            $exec = $PDOStatement->execute();
+            return $exec;
+        }
+        
+    } // FIN CLASSE
+
 
 ?>

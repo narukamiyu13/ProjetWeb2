@@ -5,9 +5,7 @@
 
 
 ?>
-
 <html lang="fr">
-
 <head>
     <meta charset="utf-8">
     <title>connexion</title>
@@ -33,30 +31,9 @@
 
    <header class='backgroundConnexion' id="heroSign">
         <div class="flexHead center">
-        <h1 id="titreCI">Connexion</h1>
+        <h1 id="titreCI">Oups!</h1>
        
-			<form method = "POST" action = "connexion.php">
-				<div class="wrapperIn">
-					<label>
-						<input name='nomUtilisateur' type="text" required="required"/>
-						<span>Nom utilisateur</span>
-						<i class="fa fa-user"></i>
-					</label>
-					<label>
-						<input name='motDePasse' type="password" required="required"/>
-						<span>Mot de passe</span>
-						<i class="fa fa-lock"></i>
-					</label>
-				</div>
-
-			<p><a href="connexion.php?forgot">Mot de passe oublié?</a></p>
-	
-        <div class="wrapperInb">
-            <input name="bt_connexion" type="submit" id="ipSignIn" value="Connexion">
-			</form>
-            <p>ou</p>
-            <input onClick="window.location.href='inscription.php'" type="button" id="ipJoin" value="Inscription">
-        </div>
+			<p>Il semblerait que votre lien est expiré! <a href='connexion.php?forgot'>Essayez de nouveau!</a></p>
         </div>
     </header>
 	

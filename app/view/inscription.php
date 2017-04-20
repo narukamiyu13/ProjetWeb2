@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 ?>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <title>Home</title>

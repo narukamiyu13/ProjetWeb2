@@ -21,8 +21,7 @@ font-family: Muli;
     font-family: Lato;
     text-transform: uppercase;
     letter-spacing: 2px;
-    
-    height:80px;
+/*    height:80px;*/
     background-color: #f8f8f8;
 }
 
@@ -32,7 +31,39 @@ font-family: Muli;
     padding-top:10px;
     width:90%;
     margin: 0 auto;
-    height:780px;
+
+/*    height:780px;*/
+}
+
+/*
+#navbar > div > ul > li:nth-child(4) > a
+{
+border:1px solid blue;
+color:#fdcc52;
+font-size:20pt;
+    display:block;
+    text-align:center;
+  position:relative;
+    top:-40px; 
+    height:55px;
+    width:100%
+   
+}
+*/
+
+#menucentre
+{
+    width:100%;
+    text-align:center;
+    position:relative;
+    color:#fdcc52;
+    font-size:20pt;
+    top:15px;
+}
+#menucentre h2 a
+{
+ color:#fdcc52;   
+
 }
 
 /*
@@ -73,15 +104,24 @@ font-size:20pt;
    
 }
 
-#navbar > div > ul > li:nth-child(3) > a, #navbar > div > ul > li:nth-child(2) > a
+
+/*
+#navbar > div > ul > li> a
+
 {
     float: right;  
+    display: inline;
 	list-style: none;
     padding:20px;
     color:#5e5e5e;
     position:relative;
     top:-80px;
     
+}
+*/
+.droiteMenu{
+    float: right;
+    padding-left:20px;
 }
 #navbar ul li :hover
 {
@@ -517,7 +557,7 @@ input[type=radio] {
       display: flex;
     width: 100%;
     height: calc(91vh - 80px);
-    margin-top: 50px;
+/*    margin-top: 50px;*/
 }
 .center{
   justify-content: center;
@@ -545,7 +585,7 @@ opacity: 0.8;
 font-family: Muli;
 }
 
-#ipJoin{
+#ipJoin, #recover{
  width: 100px;
  padding: 10px 25px 10px 11px;
  background-color: white;
@@ -554,9 +594,15 @@ font-family: Muli;
  border: 1px solid white;
  opacity: 0.8;
  font-family: Muli;
+
 }
 
-#ipJoin:hover{
+#recover {
+    width:145px;
+
+}
+
+#ipJoin:hover, #recover:hover{
   opacity: 1;
   cursor: pointer;
 }
@@ -579,9 +625,11 @@ font-family: Muli;
       flex-direction: column;
 	  
 	}
-	#navbar > div > ul > li:nth-child(3) > a, #navbar > div > ul > li:nth-child(2) > a
+
+	.droiteMenu
 	{
-		visibility:hidden;	
+		display:none;
+
 	}
 }
 
@@ -691,6 +739,9 @@ label > input:focus {
     overflow: hidden;
 	    width: 100%;
     background-color: #333;
+
+	height: 86px;
+
 }
 
 .categorie li {
@@ -711,12 +762,6 @@ label > input:focus {
 
 .categorie li a:hover {
     opacity: 1;
-    padding: 22px 36px;
-    text-decoration: none;
-}
-
-.categorie li a:hover {
-    background-color: #111;
 }
 
 .patate{
@@ -770,8 +815,8 @@ label > input:focus {
     text-align: center;
     margin: -85px 0px 0 0;
 	font-family: Muli;
+background-image: url("paper.gif");
 
-	background-image: url("paper.gif");
 }
 /***********************modifierProfil********************/
 
