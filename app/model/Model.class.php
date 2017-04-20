@@ -226,31 +226,7 @@ class Modele {
         } // FIN DE FONCTION gererInscription
 
     
-    /* -------------------------------------
-        | fonction gererInscription
-        | -------------------------
-        | PARAM
-        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
-        | -------------------------
-        | RETURN
-        |   bool    
-        | -------------------------
-        | DESCRIPTION
-        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
-        |------------------------------------- */ 
     
-    function gererInscription($nomUtilisateur,$password,$courriel){
-            try{
-                $PDO = $this->connectionBD();
-                $requete = "INSERT INTO utilisateur (nomUtilisateur,motDePasse,courriel) VALUES ('$nomUtilisateur','$password','$courriel')";
-                $PDOStatement = $PDO->prepare($requete);
-                $PDOStatement->execute();
-                        
-               
-            } catch(PDOException $e){
-                echo "Erreur: ".$e->getMessage();
-            }
-        } // FIN DE FONCTION gererInscription
     
      /* -------------------------------------
         | fonction checkToken
