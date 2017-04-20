@@ -4,7 +4,6 @@ class Controller {
     
     
     public function __construct(){
-        
         $this->model = new Model();
     }
     
@@ -22,7 +21,6 @@ class Controller {
         if(isset($_SESSION['username'])){
             require_once('view/dashboard.php');
         } else {
-        
             if(!isset($_POST['connexion'])){
                 require_once("view/index.php");
             } else {
@@ -44,7 +42,6 @@ class Controller {
             require_once("view/resetRequests.php");
         }
     }
-    
     
 }
 

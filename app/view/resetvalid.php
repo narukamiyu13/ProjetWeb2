@@ -31,28 +31,24 @@
 
    <header class='backgroundConnexion' id="heroSign">
         <div class="flexHead center">
-        <h1 id="titreCI">Connexion</h1>
+        <h1 id="titreCI">Réinitialisation du mot de passe</h1>
        
-			<form method = "POST" action = "connexion.php">
+			<form method = "POST" action = "resetPassword.php?uid=<?=$_GET['uid'] ?>&token=<?=$_GET['token'] ?>">
 				<div class="wrapperIn">
 					<label>
-						<input name='nomUtilisateur' type="text" required="required"/>
-						<span>Nom utilisateur</span>
+						<input name='password1' type="password" required="required"/>
+						<span>Nouveau mot de passe</span>
 						<i class="fa fa-user"></i>
 					</label>
 					<label>
-						<input name='motDePasse' type="password" required="required"/>
-						<span>Mot de passe</span>
+						<input name='password2' type="password" required="required"/>
+						<span>Re-taper le mot de passe</span>
 						<i class="fa fa-lock"></i>
 					</label>
 				</div>
-			<p><a href="connexion.php?forgot">Mot de passe oublié?</a></p>
 	
         <div class="wrapperInb">
-            <input name="bt_connexion" type="submit" id="ipSignIn" value="Connexion">
-			</form>
-            <p>ou</p>
-            <input onClick="window.location.href='inscription.php'" type="button" id="ipJoin" value="Inscription">
+            <input name="reset" type="submit" id="ipSignIn" value="Mettre à jour">
         </div>
         </div>
     </header>

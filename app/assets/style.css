@@ -551,7 +551,7 @@ opacity: 0.8;
 font-family: Muli;
 }
 
-#ipJoin{
+#ipJoin, #recover{
  width: 100px;
  padding: 10px 25px 10px 11px;
  background-color: white;
@@ -562,7 +562,11 @@ font-family: Muli;
  font-family: Muli;
 }
 
-#ipJoin:hover{
+#recover {
+    width:145px;
+}
+
+#ipJoin:hover, #recover:hover{
   opacity: 1;
   cursor: pointer;
 }
