@@ -4,11 +4,20 @@ class Model {
     
     
     public function checkConnect($username, $password){
+        $password = sha1($password);
+        $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
+        $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","",$options);
+        $query = "SELECT idRole FROM utilisateur WHERE nomUtilisateur='$username' AND motDePasse='$password'";
+        $PDOStatement = $PDO->prepare($query);
+        $PDOStatement->execute();
+        $resultat = $PDOStatement->fetch(PDO::FETCH_NUM);
+       
         
-        if($username=="admin" && $password=="banane"){
+        if($resultat[0]!= NULL && $resultat[0]==2){
             $_SESSION['username'] = $username;
             return true;
         } else {
+             
            return false; 
         }
         

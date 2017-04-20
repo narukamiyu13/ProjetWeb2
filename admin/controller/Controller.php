@@ -27,6 +27,7 @@ class Controller {
                 if($this->model->checkConnect($_POST['username'],$_POST['password'])) {
                     require_once('view/dashboard.php');
                 } else {
+                    var_dump($this->model->checkConnect($_POST['username'],$_POST['password']));
                     header("location:index.php?err".$this->model->getErrCode($_POST['username'],$_POST['password']));
                     require_once("view/index.php");
                 }
@@ -38,8 +39,8 @@ class Controller {
     public function gererDashboard(){
         if(!isset($_GET['page']) || $_GET['page'] == "liste" ){
             require_once("view/listeMembres.php");
-        } else if($_GET['page'] == "resetRequests"){
-            require_once("view/resetRequests.php");
+        } else if($_GET['page'] == "signalements"){
+            require_once("view/signalementsMembres.php");
         }
     }
     

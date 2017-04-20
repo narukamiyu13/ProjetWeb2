@@ -26,7 +26,10 @@ $(document).ready(function(){
             $('#liste').html(data);
         }
     }); // fin AJAX
+        
     })
+    
+    
     
 })
 </script>
