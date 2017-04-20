@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Foodie - Administration</title>
 </head>
-<body>
+<body class="dashboard" >
 
     <?php
     require_once("controller/Controller.php");

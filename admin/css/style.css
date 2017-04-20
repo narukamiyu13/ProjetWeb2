@@ -1,0 +1,42 @@
+
+/***************dashboard****************/
+.menu {
+    width:100%;
+    height:30px;
+   
+    
+}
+    
+.menu a {
+    line-height:30px;
+    text-align:center;
+    display:inline-block;
+    width:28%;
+    height:30px;
+     background-color:#33363d;
+    color:white;
+    text-decoration: none;
+    border-radius:5px;
+    margin-left:20px;
+    letter-spacing: 2px;
+   
+}
+
+
+.dashboard
+{
+    font-family: Muli;
+    width:80%;
+    margin:0 auto;
+       
+}
+.dashboard h2
+{
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+select
+{
+    border-radius:8px;
+}
