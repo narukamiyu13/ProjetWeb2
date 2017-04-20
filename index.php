@@ -75,9 +75,9 @@
         </section>
     <section class="viveFoodie">
         <div class="cercle">
-            <img id="oeuf" src="app/assets/images/oeuf1.png" alt="oeuf"/>
-            <img id="oeuf" src="app/assets/images/oeuf1.png" alt="oeuf"/>
-            <img id="oeuf" src="app/assets/images/oeuf1.png" alt="oeuf"/>
+            <img id="oeuf" src="app/assets/images/oeuf1.png" alt="orange"/>
+            <img id="oeuf" src="app/assets/images/main.png" alt="burger"/>
+            <img id="oeuf" src="app/assets/images/orange.png" alt="oeuf"/>
         </div>
         <h2>Vive les Foodies</h2>
     </section>
