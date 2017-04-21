@@ -1056,7 +1056,9 @@ body > section > div > form > p
 
 
 /***********************page decouverte*************************/
-
+.imagecursor{
+    cursor: pointer;
+}
 .allo
 {
     font-family: Muli;
@@ -1102,7 +1104,6 @@ body > section > div > form > p
     float:right;
     margin-top:45px;
     width:285px;
-   
    
 }
 
@@ -1192,15 +1193,40 @@ body > section > div > form > p
 }
 @media all and (max-width:768px)
 {
-  .blockAllo {width: 60%;} 
-    .alloNom{width:230px;}
+  .blockAllo {width: 60%;}  
 }
 
 @media all and (max-width:  480px )
 {
-    .blockAllo {width: 96%;} 
+    .blockAllo {width: 70%;} 
     .alloNom{width:140px;}
     .allo{width:100%}
     
 }
 
+@media all and (max-width: 768px )
+{
+    
+    #wrapperModifierProfil > form > div{margin: 100px}
+     label > input{  width: 80%}
+    #sexeF{top:65px;left:-450px;}
+    #nomUtilisateur,#prenom,#nom,#courriel,#description,#sexeF,#sexeH{box-shadow: none;}
+}
+@media all and (max-width:  480px )
+{
+    .center{flex-direction: none;}
+    #imagerond{width:100px;height:100px;}
+    #utilisateur{font-size: 22px;}
+    label > span,#ModfierPhoto > form > p {font-size:12pt;}
+
+    #nomUtilisateur,#prenom,#nom,#courriel,#description,#sexeF,#sexeH{font-size:9pt;box-shadow: none;}
+       #sexeF{top:0;left:45px;}
+    #sexeF,#sexeH{font-size:12pt;}
+    #ModfierPhoto > form > p{margin-bottom:15px;}
+    #btnImage {;margin:none;}
+   #enregistrerImage{margin-left:0px;margin-top:30px;width:185px;}
+    #utilisateur{font-size:12pt;top:50px}
+    #wrapperModifierProfil > form > div > div:nth-child(1) > label:nth-child(1) > button{width:130px;font-size:10pt}
+    
+
+}
