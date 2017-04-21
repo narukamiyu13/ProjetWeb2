@@ -57,11 +57,13 @@ DESCRIPTION : page inscription
 				        </div>
                 </div>
                     <div class="wrapperInb">
-                        <input name="bt_inscription" type="submit" id="ipJoin" value="Inscription">
-                    </form>
-                        <p>ou</p>
                         <input onClick="window.location.href='connexion.php'" type="submit" id="ipSignIn" value="Connexion">
+                    
+                        <p>ou</p>
+                        <input name="bt_inscription" type="submit" id="ipJoin" value="Inscription">
+                        
                     </div>
+                </form>    
                 <?php
                 if($erreur==true){
                     echo "<p class=\"erreur\">Veuillez entrer une adresse courriel valide</p>";

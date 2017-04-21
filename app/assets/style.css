@@ -653,7 +653,7 @@ label > input:focus
 .boiteRecette
 {
     font-family: Muli;
-    margin: 0px 30px 0px 30px;
+    margin: 0px 0px 150px 0px;
     color: #232323
 }
 
@@ -750,7 +750,7 @@ label > input:focus
 }
 .categorie h3
 {
-    font-size: 40pt;
+    font-size: 3vw;
     text-align: center;
     margin: 0 0 45px 0;
     font-family: Muli;
@@ -813,11 +813,146 @@ label > input:focus
 
 .entete h2
 {
-    font-size: 54pt;
+    font-size: 5vw;
     color: white;
     text-align: center;
     margin: -85px 0px 0 0;
 	font-family: Muli;
+}
+
+
+.boiteRecette p {
+    margin: 0px 20px 0px 20px;
+}
+/*  responsive */
+@media all and (max-width: 1365px)
+{
+    
+    .box1{
+        margin: 30px;
+    text-align: center
+    }  
+}
+
+@media all and (max-width: 1290px)
+{
+    
+    .imgEntre{
+        width: 200px;
+        height: 200px;
+    }
+    .imgPlat{
+        width: 350px;
+        height: 200px;
+    }
+    .imgDessert{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media all and (max-width: 900px)
+{
+  .imgEntre{
+        width: 150px;
+        height: 150px;
+    }
+    .imgPlat{
+        width: 300px;
+        height: 150px;
+    }
+    .imgDessert{
+        width: 150px;
+        height: 150px;
+    }
+}
+
+
+
+@media all and (max-width: 820px)
+{
+    .categorie{
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        box-orient: vertical;
+
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        box-pack: center;
+
+        -webkit-box-direction: normal;
+        -moz-box-direction: normal;
+        box-direction: normal;
+
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        box-align: center;
+    }
+        
+        .imgEntre{
+        width: 300px;
+        height: 300px;
+    }
+    .imgPlat{
+        width: 350px;
+        height: 200px;
+    }
+    .imgDessert{
+        width: 300px;
+        height: 300px;
+    }
+    
+}
+
+
+@media all and (max-width: 640px)
+{
+    .wrapperRecherche{
+        width: 500px;
+    height: auto;
+    margin: 0 auto;
+    }
+    
+    .imageRecette {
+    height: 300px;
+    width: auto;
+    background: aliceblue;
+    }
+    
+    .imgRecherche{
+        width: 500px;
+    }
+    
+    .icon {
+    margin: 15px 0 0 240px;
+    }
+    
+}
+
+
+@media all and (max-width: 525px)
+{
+    .wrapperRecherche{
+        width: 400px;
+    height: auto;
+    margin: 0 auto;
+    }
+    
+    .imageRecette {
+    height: 250px;
+    width: auto;
+    background: aliceblue;
+    }
+    
+    .imgRecherche{
+        width: 400px;
+        height: 250px;
+    }
+    
+    
+    .icon {
+    margin: 15px 0 0 195px;
+    }
 }
 /***********************modifierProfil********************/
 
