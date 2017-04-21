@@ -405,7 +405,7 @@ h2
 /**Decsion**/
 .encart
 {
-    font-size: 5vw;
+    font-size: 24px;
     padding-top:120px;
     display:flex;
     align-content: center;
@@ -683,6 +683,16 @@ h2
 
 
 @media screen and (max-width: 590px) {
+    .encart
+{
+    font-size: 5vw;
+    padding-top:120px;
+    display:flex;
+    align-content: center;
+    justify-content: center;
+    flex-flow: row;
+    margin: auto;
+}
     main section:nth-child(3)
     {
         flex-flow: column;
