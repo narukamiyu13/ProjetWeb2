@@ -1,3 +1,20 @@
+<?php
+/* -------------------------------------
+| fichier listeMembres.php
+| -------------------------
+| CONTRIBUTEURS
+|   Auteur: Cédrick Collin
+|   Modifications: Cédrick Collin 
+| -------------------------
+| DATES
+|   Création: 19 avril 2017
+|   Dernière Modification: 20 avril 2017
+| -------------------------
+| DESCRIPTION
+|   Vue - Affichage de la liste de tous les membres du site, avec l'option
+|   de changer leur niveau de permissions ou de les supprimer
+|------------------------------------- */
+?>
 <style type="text/css">
     p span{
         display:inline-block;
@@ -6,6 +23,19 @@
 </style>
 <script src="../app/assets/lib/jquery.min.js"></script>
 <script>
+    /* -------------------------------------
+    | fonction anonyme
+    | -------------------------
+    | PARAM
+    |   aucun
+    | -------------------------
+    | RETURN
+    |   aucun  
+    | -------------------------
+    | DESCRIPTION
+    |   au chargement de la page, charge la liste de tous
+    |   les membres du site.
+    |------------------------------------- */
 $(document).ready(function(){
     console.log("document ready");
     $.ajax({
@@ -17,6 +47,19 @@ $(document).ready(function(){
         }
     }); // fin AJAX
     
+    /* -------------------------------------
+    | fonction anonyme
+    | -------------------------
+    | PARAM
+    |   aucun
+    | -------------------------
+    | RETURN
+    |   aucun    
+    | -------------------------
+    | DESCRIPTION
+    |   quand on tape dans le champ de recherche, filtre
+    |   la liste des membres selon le contenu du champ
+    |------------------------------------- */
     $('#search').keyup(function(){
         $.ajax({
         type: "GET",

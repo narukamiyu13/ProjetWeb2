@@ -10,9 +10,9 @@ DESCRIPTION : page appelant le controleur qui appelle la fonction gerant e fil d
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 <?php 
-
 session_start();
 require_once("app/controller/ControleurPublication.class.php");
 $controleurPublication = new ControleurPublication();
 
 $controleurPublication -> gererDecouverte();
+?>
