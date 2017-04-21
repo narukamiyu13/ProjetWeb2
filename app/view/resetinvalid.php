@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <?php
-
+/* -------------------------------------
+| fichier resetinvalid.php
+| -------------------------
+| CONTRIBUTEURS
+|   Auteur: Cédrick Collin
+|   Modifications: Cédrick Collin
+| -------------------------
+| DATES
+|   Création: 19 avril 2017
+|   Dernière Modification: 20 avril 2017
+| -------------------------
+| DESCRIPTION
+|   VUE - La page à afficher dans le cas où le lien de
+|   réinitialisation du mot de passe est invalide
+|------------------------------------- */
 
 
 

@@ -86,7 +86,6 @@ class Recette extends Modele{
               }
                 $requeteEtapePrep=substr($requeteEtapePrep,0,-2);
                 $sth4=$PDO->prepare($requeteEtapePrep);
-              //   var_dump($requeteEtapePrep);
                 $sth4->execute();
                   
               

@@ -1,4 +1,22 @@
 <?php
+/* -------------------------------------
+| fichier index.php
+| -------------------------
+| CONTRIBUTEURS
+|   Auteur: Cédrick Collin
+|   Modifications: Cédrick Collin 
+| -------------------------
+| DATES
+|   Création: 19 avril 2017
+|   Dernière Modification: 19 avril 2017
+| -------------------------
+| DESCRIPTION
+|   Vue - Affichage du formulaire de connexion au panneau 
+|   d'administration et des messages d'erreurs en cas de
+|   tentative échouée
+|------------------------------------- */
+
+
 $errMsg = "&nbsp;";
 if(isset($_GET['1478'])){
     $errMsg .="Vous devez entrer un nom d'utilisateur<br/>&nbsp;";
