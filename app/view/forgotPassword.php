@@ -1,35 +1,6 @@
 <!DOCTYPE html>
 <?php
-/* -------------------------------------
-| fichier forgotPassword.php
-| -------------------------
-| CONTRIBUTEURS
-|   Auteur: Cédrick Collin
-|   Modifications: Cédrick Collin
-| -------------------------
-| DATES
-|   Création: 19 avril 2017
-|   Dernière Modification: 20 avril 2017
-| -------------------------
-| DESCRIPTION
-|   VUE - La page à afficher lorsque l'utilisateur veut
-|   demander une réinitialisation de son mot de passe.
-|------------------------------------- */
 
-
-/* -------------------------------------
-| SI l'utilisateur a rempli le champ de formulaire et envoyé une demande
-| -------------------------
-| PARAM
-|   $_POST['email']: (STRING) - Le courriel à vérifier
-| -------------------------
-| RETURN
-|   aucun   
-| -------------------------
-| DESCRIPTION
-|   Vérifie si le courriel entré existe dans la BDD, puis envoie un courriel
-|   à l'utilisateur afin de lui permettre de réinitialiser son mot de passe si oui
-|------------------------------------- */
 if(isset($_POST['recover'])){
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
     $PDO = new PDO("mysql:host=localhost;dbname=id1299011_foodie","id1299011_cedrick","pa14t336!0L",$options);
@@ -104,8 +75,7 @@ if(isset($_POST['recover'])){
        <header class='backgroundConnexion' id="heroSign">
             <div class="flexHead center">
             <h1 id="titreCI">Mot de passe oublié</h1>
-                <?php
-                    // Si l'utilisateur n'a pas rempli le formulaire, afficher celui-ci
+                 <?php
                     if(!isset($_POST['recover'])){
                 ?>
                 <form method = "POST" action = "connexion.php?forgot">
@@ -124,9 +94,8 @@ if(isset($_POST['recover'])){
                 </form>
             </div>
             </div>
-            <?php
-                // Sinon, afficher le message de remerciement
-                } else {
+       <?php
+            } else {
                 ?>
            <p>Merci. Si un compte existant est associé à l'adresse fournie, un courriel de réinitialisation sera envoyé.</p>
            <?php
