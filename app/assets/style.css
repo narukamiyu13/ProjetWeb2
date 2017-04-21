@@ -1,10 +1,19 @@
-/*nav*/
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+NOM : 
+PROJET : Foodie
+ORGANISDATION : College Maisonneuve
+PAGE : style.css
+DATE DE CREATION : 27-03-17
+DESCRIPTION : css de tout le site
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+
 body
 {
     width:100%;
- 
-  font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';
-   
+    font-family: 'Lato','Muli', 'Helvetica', 'Arial', 'sans-serif';   
 }
 h1
 {
@@ -13,7 +22,7 @@ h1
 
 #container
 {
-font-family: Muli;
+    font-family: Muli;
 }
 
 #navbar
@@ -21,41 +30,15 @@ font-family: Muli;
     font-family: Lato;
     text-transform: uppercase;
     letter-spacing: 2px;
-/*    height:80px;*/
     background-color: #f8f8f8;
 }
-/*
-.erreur{
-    position: absolute;
-    margin:0 auto;
-    top:300px
-        
-}
-*/
 
 .row
 {
     padding-top:10px;
     width:90%;
     margin: 0 auto;
-/*    height:780px;*/
 }
-
-/*
-#navbar > div > ul > li:nth-child(4) > a
-{
-border:1px solid blue;
-color:#fdcc52;
-font-size:20pt;
-    display:block;
-    text-align:center;
-  position:relative;
-    top:-40px; 
-    height:55px;
-    width:100%
-   
-}
-*/
 
 #menucentre
 {
@@ -65,49 +48,40 @@ font-size:20pt;
     color:#fdcc52;
     top:15px;
 }
+
 #menucentre h2 a
 {
     color:#fdcc52;
     font-size:20pt;
     letter-spacing: 2px;
 }
+
 .row2
 {
     padding-top:10px;
     width:50%;
     margin: 0 auto;
-    
-   
 }
 
-/*
-#navbar > div > ul > li> a
+.droiteMenu
 {
-    float: right;  
-    display: inline;
-	list-style: none;
-    padding:20px;
-    color:#5e5e5e;
-    position:relative;
-    top:-80px;
-    
-}
-*/
-.droiteMenu{
     float: right;
     padding:15px;
     line-height: 0px;
 }
+
 #navbar ul li :hover
 {
     color:#fdcc52;
 }
+
 #navbar ul a
 {   
     text-decoration:none;
-     color:#5e5e5e;
+    color:#5e5e5e;
   
 }
+
 a 
 {
    text-decoration:none;
@@ -119,9 +93,10 @@ a
     width:55px;
     height: 55px;
     cursor:pointer;
-        position:relative;
+    position:relative;
     top:-25px;
 }
+
 /*side menu*/
 .sideMenu
 {
@@ -137,6 +112,7 @@ a
     padding-top: 60px;
     background-color: #f8f8f8;
 }
+
 .sideMenu a 
 {
     padding: 8px 8px 8px 32px;
@@ -157,14 +133,10 @@ a
     margin-left:50px;
 }
 
-
-
 /*block fruit*/
 .top
 {
-     background-image: url('images/hero.jpg');
-/*    background-position: center;*/
-/*    background-attachment: fixed;*/
+    background-image: url('images/hero.jpg');
     width:100%;
     height:780px;
     -webkit-background-size: cover;
@@ -175,12 +147,6 @@ a
     background-attachment: fixed;
 }
 
-/*
-@media all and (min-width: 768px )
-{
-    .top {background-position: center;}  
-}
-*/
 #texte
 {
     width:100%;
@@ -197,6 +163,7 @@ a
     line-height: 150%;
     
 }
+
 #inscription
 {
     width:300px;
@@ -210,6 +177,7 @@ a
     margin: 0 auto;
     margin-top:45px;
 }
+
 #inscription:hover
 {
     background-color:#fdcc52;
@@ -223,6 +191,8 @@ a
     font-weight: 200;
     font-size:16pt;
 }
+
+
 /*banniere Jaune*/
 .banniereJaune
 {
@@ -230,11 +200,13 @@ a
     height:450px;
     background:#fdcc52; 
 }
+
 .banniereJaune h2
 {
   margin-top:120px;
 font-weight: bold;
 }
+
 .banniereJaune p
 {
     
@@ -243,28 +215,31 @@ font-weight: bold;
     cursor: pointer;
     padding-top:10px;
 }
+
 .banniereJaune a
 {
     color:white;
 }
+
 /*banniere blanche*/
 .banniereBlanche
 {
   width: 100%;
   height:430px; 
-   
-   
 }
+
 .banniereBlanche h2
 {
     color:black;
 }
+
 .banniereBlanche p 
 {
     text-align:center;
     font-size: 18pt;
-        padding:10px;
+    padding:10px;
 }
+
 #burger
 {
     width: 150px;
@@ -272,36 +247,36 @@ font-weight: bold;
     display:block;
     margin: 0 auto;
     margin-top:120px;
-    
 }
 
 /*connecter vous*/
 .connectezVous
 {
-   
     width:100%;
     height:580px;
     -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  background-position: center;
-  background-image: url('images/foodback.png');
-  background-attachment: fixed;
-  padding: 250px 0;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+    background-image: url('images/foodback.png');
+    background-attachment: fixed;
+    padding: 250px 0;
 }
+
 .row3
 {
     width:80%;
     margin:0 auto;
 }
+
 .row3 h2
 {
     font-size:7vw;
     color:white;
     padding-bottom:30px;
-    
 }
+
 .row3 a 
 {
     text-transform: uppercase;
@@ -310,6 +285,7 @@ font-weight: bold;
     font-size:14pt;
     letter-spacing: 2px;
 }
+
 .row3 a:hover 
 {
     background-color:#fdcc52;
@@ -317,19 +293,23 @@ font-weight: bold;
     border-radius:5px;
    
 }
+
 /*vive les foodie*/
 .viveFoodie 
 {
     background:#fdcc52;
 }
+
 .viveFoodie 
 {
     text-align: center;
 }
+
 .viveFoodie h2
 {
     padding-bottom:80px;
 }
+
 #oeuf
 {
 
@@ -339,27 +319,28 @@ font-weight: bold;
     padding:20px;
      display:inline-block;
 }
+
 .cercle
-{
-    
+{ 
     width:60%;
     margin: 0 auto;
     padding-top:80px;
     border:1px solid #fdcc52;
 }
+
 /*footer*/
 footer
 {
-  background:#222222;
+    background:#222222;
     height:100px;
-     margin:0 auto;
+    margin:0 auto;
 }
+
 .listeFooter
 {
     width: 12%;
     margin: 0 auto;
-    padding-top: 50px;
-    
+    padding-top: 50px;   
 }
 .listeFooter li
 {
@@ -379,14 +360,7 @@ footer
     #oeuf{ width:150px;height: 150px;}
     .cercle{ width:90%;}
    .listeFooter{width:25%}
-    
-   
 
-}
-   
-   
-   
-   
 }
 
 @media all and (max-width:  480px )
@@ -404,77 +378,21 @@ footer
     .listeFooter{width:50%}
 }
 
-/****************PAGE MODIFIER PROFIL****************/
-/*
-#modfierProfil
-{
-    width:100%;
-    margin:0 auto;
-}
-.formulaireProfil
-{
-    width: 50%;
-    margin: 0 auto;
-    border:1px solid pink;
-}
-
-
-.formulaireProfil input
-{
-    border: 0;
-    outline: 0 ;
-    background:transparent;
-    border-bottom: 1px solid #b8b8b8;
-    width:440px;
-    padding-top:30px;
-    display:block;
-    margin:0 auto;
-    padding-top:30px;
-}
-
-.formulaireProfil p
-{
-    padding-left:120px;
-    letter-spacing: 2px;
-  
-}
-
-.formulaireProfil [type="submit"]
-{
-    border: 1px solid #b8b8b8;
-    width:100px;
-    border-radius: 5px;
-    text-align: center;
-    padding:20px 15px;
-    cursor:pointer;
-    margin-top: 20px;
-}
-#sexe
-{
-  margin-left: 120px;
-    margin-top:15px;
-    letter-spacing: 2px;
-    width:440px;
-    padding:5px;
-}
-.formulaireProfil h1
-{
-    text-align:center;
-}
-*/
 
 /* page connexion/inscription */
 
 
 
-input {
+input 
+{
     line-height: normal;
-	 margin: 0;
+    margin: 0;
     font: inherit;
     color: inherit
 }
 input[type=checkbox],
-input[type=radio] {
+input[type=radio] 
+{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -482,65 +400,56 @@ input[type=radio] {
 }
 
 
-
-
-.backgroundConnexion {
-	position: relative;
-  width: 100%;
-  min-height: auto;
+.backgroundConnexion 
+{
+    position: relative;
+    width: 100%;
+    min-height: auto;
   
-  background: url("../img/bg-pattern.png"), #7b4397;
-  /* fallback for old browsers */
-  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #7b4397, #dc2430);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: url("../img/bg-pattern.png"), linear-gradient(to left, #7b4397, #dc2430);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: white;
+    background: url("../img/bg-pattern.png"), #7b4397;
+    /* fallback for old browsers */
+    background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #7b4397, #dc2430);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: url("../img/bg-pattern.png"), linear-gradient(to left, #7b4397, #dc2430);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
 }
 
-
-
-
-
-
-
-
-.backgroundInscription {
+.backgroundInscription 
+{
   position: relative;
   width: 100%;
   min-height: auto;
-  
   background: url("../img/bg-pattern.png"), #2b1955;
   /* fallback for old browsers */
   background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #002950, #0E8BFF);
   /* Chrome 10-25, Safari 5.1-6 */
   background: url("../img/bg-pattern.png"), linear-gradient(to left, #2b1955, #7b4397);
-
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 }
 
-
-
-
-#heroSign{
-   
+#heroSign
+{
    background-size: cover;
    background-attachment: fixed;
 }
 
-.flexHead{
-      display: flex;
+.flexHead
+{
+    display: flex;
     width: 100%;
     height: calc(91vh - 80px);
-/*    margin-top: 50px;*/
+
 }
-.center{
+.center
+{
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-#titreCI{
+#titreCI
+{
     margin-bottom: 50px;
     opacity: 0.8;
     color: white;
@@ -551,52 +460,62 @@ input[type=radio] {
 	font-family: Muli;
 }
 
-#ipSignIn{
-width: 100px;
-padding: 10px 26px 10px 11px;
-background-color: transparent;
-border-radius: 6px;
-border: 1px solid white;
-opacity: 0.8;
-font-family: Muli;
+#ipSignIn
+{
+    width: 100px;
+    padding: 10px 26px 10px 11px;
+    background-color: transparent;
+    border-radius: 6px;
+    border: 1px solid white;
+    opacity: 0.8;
+    font-family: Muli;
 }
-#ipJoin, #recover{
- width: 100px;
- padding: 10px 25px 10px 11px;
- background-color: white;
- color: #7b4397;
- border-radius: 6px;
- border: 1px solid white;
- opacity: 0.8;
- font-family: Muli;
+#ipJoin, #recover
+{
+     width: 100px;
+     padding: 10px 25px 10px 11px;
+     background-color: white;
+     color: #7b4397;
+     border-radius: 6px;
+     border: 1px solid white;
+     opacity: 0.8;
+     font-family: Muli;
 }
 
-#recover {
+#recover 
+{
     width:145px;
 }
 
-#ipJoin:hover, #recover:hover{
+#ipJoin:hover, #recover:hover
+{
   opacity: 1;
   cursor: pointer;
 }
 
-#ipJoin:hover{
+#ipJoin:hover
+{
   opacity: 1;
   cursor: pointer;
 }
-#ipSignIn:hover{
+#ipSignIn:hover
+{
   opacity: 1;
   cursor: pointer;
 }
-.wrapperIn {
+
+.wrapperIn 
+{
   width: 500px;
   margin: 30px auto;
   display: flex;
   flex-direction: column;
 }
 
-@media only screen and (max-width: 900px) {
-    .wrapperIn {
+@media only screen and (max-width: 900px)
+{
+    .wrapperIn 
+    {
       width: auto;
       margin: 30px auto;
       display: flex;
@@ -608,13 +527,9 @@ font-family: Muli;
 		display:none;
 	}
 }
-
-
-@media only screen and (max-width: 900px) {
 	
-	
-}	
-.wrapperInb {
+.wrapperInb 
+{
   width: auto;
   margin: 30px auto;
   display: flex;
@@ -622,17 +537,19 @@ font-family: Muli;
   justify-content: center;
   align-items: center;
 }
-.wrapperInb p{
+.wrapperInb p
+{
   margin: 0px 30px;
   font-size: 11pt;
   font-family: Muli;
 }
-label {
+label 
+{
   position: relative;
   width:100%;
 }
-label > input {
-  
+label > input 
+{
   background-color: transparent;
   border: none;
   border-bottom: 1px solid white;
@@ -648,31 +565,21 @@ label > input {
   box-sizing: content-box;
   transition: all .4s;
   font-family: Muli;
-   
 }
 
-/** 
-margin-bottom: 20px;
-margin-top: 10px;
-width:100%;
-padding: 15px;
-border-radius:5px;
-border:1px solid #7ac9b7;
-
-
-
-**/
-label > input:valid + span {
+label > input:valid + span 
+{
   transform: translateY(-25px) scale(0.8);
   transform-origin: 0;
 }
-label > input:valid {
-
+label > input:valid 
+{
   border-bottom: 1px solid #fff;
   box-shadow: 0 1px 0 0 #fff;
 
 }
-label > span {
+label > span 
+{
   color: white;
   position: absolute;
   top: 0;
@@ -682,7 +589,9 @@ label > span {
   transition: .2s ease-out;
   font-family: Muli;
 }
-label > i {
+
+label > i 
+{
   color: white;
   position: absolute;
   top: 3px;
@@ -691,113 +600,122 @@ label > i {
   cursor: text;
   transition: .2s ease-out;
 }
-label > input:focus + span {
+
+label > input:focus + span 
+{
   transform: translateY(-25px) scale(0.8);
   transform-origin: 0;
   color: #fdcc52;
 }
-label > input:focus {
+label > input:focus 
+{
   border-bottom: 1px solid #fdcc52;
   box-shadow: 0 1px 0 0 #fdcc52;
 }
 
 
 /*  page recherche */
-.wrapperRecherche{
+.wrapperRecherche
+{
     width: 600px;
     height: auto;
     margin: 0 auto;
-    
-    
-    
-	
 }
 
-.headerBoiteRecette{
+.headerBoiteRecette
+{
     margin-bottom: 15px;
 }
 
-.headerBoiteRecette h2{
+.headerBoiteRecette h2
+{
     margin-bottom: 5px;
     color: #232323
 }
 
-.temps{
+.temps
+{
     margin-top: 5px;
     text-align: center;
 }
-.icon{
+.icon
+{
     margin:15px 0 0 290px;
 }
-.boiteRecette{
+.boiteRecette
+{
     width: 100%;
     background-color: #fdcc52;
     margin-bottom: 100px;
-    border-radius: 20px
-
+    border-radius: 20px;
 }
 
-.boiteRecette p{
-   
+.boiteRecette
+{
     font-family: Muli;
     margin: 0px 30px 0px 30px;
     color: #232323
 }
 
-.imageRecette{
-        height: 300px;
+.imageRecette
+{
+    height: 300px;
     width: 100%;
     background: aliceblue;
 }
-.boiteRecette h2{
+.boiteRecette h2
+{
     text-align: center;
     font-size: 25pt;
     font-family: Muli;
 }
 
-
-.listeIngredientTitre{
+.listeIngredientTitre
+{
     font-size: 16pt;
     font-family: Muli;
     margin-top: 20px;
-        margin: 25px 0px 10px 0px;
+    margin: 25px 0px 10px 0px;
     color: #232323
 }
 
-.listeIngredient{
+.listeIngredient
+{
     text-align: center;
     height: auto;
-    
 }
 
-.listeEtape{
+.listeEtape
+{
     text-align: center;
-    width: auto;
-    
-    
+    width: auto;  
 }
 
 
-.listeEtapeTitre{
-        font-size: 16pt;
+.listeEtapeTitre
+{
+    font-size: 16pt;
     font-family: Muli;
-        margin: 25px 0px 10px 0px;
+    margin: 25px 0px 10px 0px;
     color: #232323
 }
 /* checkbox */
 
-.categorie input[type="radio"]:hover {
+.categorie input[type="radio"]:hover 
+{
 	cursor: pointer;
 }
 
-.categorie input[type="radio"] {
+.categorie input[type="radio"] 
+{
 	position: relative;
 	margin: 2.4rem;
 }
 
 
 
-.categorie input[type="radio"]:before {
+.categorie input[type="radio"]:before 
+{
 	content: ' ';
 	background: white;
 	border: .15rem solid #fdcc52;
@@ -806,16 +724,18 @@ label > input:focus {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 1;
-	    width: 1.5rem;
+    width: 1.5rem;
     height: 1.5rem;
 	transition: background .3s ease-in-out;
 }
 
-.categorie input[type="radio"]:checked:before {
+.categorie input[type="radio"]:checked:before 
+{
 	background: #fdcc52;
 }
 
-.categorie input[type="radio"]:checked:after {
+.categorie input[type="radio"]:checked:after 
+{
 	content: ' ';
 	background: transparent;
 	border-left: .2rem solid white;
@@ -828,7 +748,8 @@ label > input:focus {
 	z-index: 2;
 	transform: rotate(-45deg);
 }
-.categorie h3{
+.categorie h3
+{
     font-size: 40pt;
     text-align: center;
     margin: 0 0 45px 0;
@@ -837,11 +758,11 @@ label > input:focus {
 }
 
 
-.categorie{
+.categorie
+{
     display: -webkit-box;
 	display: -moz-box;
 	display: box;
-    
     margin-top:  40px;
 
 	-webkit-box-orient: horizontal;
@@ -861,7 +782,8 @@ label > input:focus {
 	box-align: center;
 }
 
-.box1 {
+.box1 
+{
 	margin: 50px;
     text-align:center
 }
@@ -870,31 +792,29 @@ label > input:focus {
 
 .entete
 {
-   
     width:100%;
     height:auto;
     -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  background-position: center;
-  background-image: url('images/enteteRecherche.jpg');
-  background-attachment: fixed;
-  padding: 250px 0;
- 
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+    background-image: url('images/enteteRecherche.jpg');
+    background-attachment: fixed;
+    padding: 250px 0;
 }
  
  
-.contenu{
+.contenu
+{
 	height:400px;
 	width:100px;
 }
 
-.entete h2{
-	    font-size: 54pt;
+.entete h2
+{
+    font-size: 54pt;
     color: white;
-    /* margin-left: 55px; */
-    /* margin: -149px 0px 0 55px; */
     text-align: center;
     margin: -85px 0px 0 0;
 	font-family: Muli;
@@ -903,17 +823,15 @@ label > input:focus {
 
 .modifierProfil
 {
- width: 100%;
-  min-height: auto;
-  
-  background: url("../img/bg-pattern.png"), #2b1955;
-  /* fallback for old browsers */
-  background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #002950, #0E8BFF);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: url("../img/bg-pattern.png"), linear-gradient(to left, #002950, #0E8BFF);
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: white;
+    width: 100%;
+    min-height: auto;
+    background: url("../img/bg-pattern.png"), #2b1955;
+    /* fallback for old browsers */
+    background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #002950, #0E8BFF);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: url("../img/bg-pattern.png"), linear-gradient(to left, #002950, #0E8BFF);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
 }
 
 .contenuModifierProf
@@ -945,12 +863,6 @@ label > input:focus {
     padding-bottom: 3px;
 }
 
-/*
-.row5 input:hover
-{
-    color:#fdcc52;
-}
-*/
 .row5 i 
 {
     position:relative;
@@ -970,7 +882,7 @@ body > section > div > form > p
     width:20px;
     display:block;
     color:#fff;
-   border:2px solid white;
+    border:2px solid white;
     
 }
 
@@ -986,13 +898,15 @@ body > section > div > form > p
     margin-top:20px;
     width:140px;
     float:left;
-     opacity: 0.9;
+    opacity: 0.9;
 
 }
+
 .ImageModifierProfil img
 {
     float: left;
 }
+
 .ImageModifierProfil
 {
     width:100%;
@@ -1013,14 +927,13 @@ body > section > div > form > p
     margin-top: 30px;
     margin-left:40px;
     cursor: pointer;
-
 }
+
 #ModfierPhoto p
 {
     font-size:16pt;
     padding-bottom:15px;
 }
-
 
 .btnImage
 {
@@ -1032,7 +945,7 @@ body > section > div > form > p
     opacity: 0.8;
     font-family: Muli;
     cursor: pointer;
-*/
+
 }
 #fileToUpload
 {
@@ -1043,6 +956,7 @@ body > section > div > form > p
 	position: absolute;
 	z-index: -1;
 }
+
 #enregistrerImage
 {
     width: 200px;
@@ -1057,6 +971,7 @@ body > section > div > form > p
     margin-left:20px;
     cursor: pointer;
 }
+
 @media all and (max-width:768px)
 {
     .row5{width:65%;}
@@ -1073,11 +988,8 @@ body > section > div > form > p
 }
 
 
-
 /***********************page decouverte*************************/
-.imagecursor{
-    cursor: pointer;
-}
+
 .allo
 {
     font-family: Muli;
@@ -1086,11 +998,10 @@ body > section > div > form > p
     border-radius: 10px;
     margin:0 auto;
     background: #fdcc52;
-    
 }
 .decouverte
 {
-     background-image: url('images/hero.jpg');
+    background-image: url('images/hero.jpg');
     width:100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1123,7 +1034,6 @@ body > section > div > form > p
     float:right;
     margin-top:45px;
     width:285px;
-   
 }
 
 .blockAllo
@@ -1133,12 +1043,10 @@ body > section > div > form > p
     font-family: Muli;
     color:#5e5e5e;
     background: #f8f8f8;
-   margin-bottom:20px;
+    margin-bottom:20px;
     padding: 20px 40px;
     z-index:2;
     border-radius: 20px;
-    
- 
 }
 .blockAllo:last-child
 {
@@ -1155,7 +1063,6 @@ body > section > div > form > p
 {
     font-size:9pt;
     margin-left:25px;
-    
 }
 .recetteAllo h3
 {
@@ -1171,11 +1078,8 @@ body > section > div > form > p
     margin: 0 auto;
  
 }
-
-
 .recetteAllo p
 {
-
     font-size:16pt;
     font-style:italic;
     text-align: center;
@@ -1186,11 +1090,9 @@ body > section > div > form > p
 {
     width:100%;
     height:40px;
-   
 }
 .burgerDecouverte h5
 {
-    
     width:100px;
     font-size:11pt;
     margin-top:10px;
@@ -1199,8 +1101,7 @@ body > section > div > form > p
 }
 .burgerDecouverte img
 {
-   
-        float:left;
+    float:left;
     margin-left:15px;
 }
 #commentaireDecouverte
@@ -1212,40 +1113,15 @@ body > section > div > form > p
 }
 @media all and (max-width:768px)
 {
-  .blockAllo {width: 60%;}  
+  .blockAllo {width: 60%;} 
+    .alloNom{width:230px;}
 }
 
 @media all and (max-width:  480px )
 {
-    .blockAllo {width: 70%;} 
+    .blockAllo {width: 96%;} 
     .alloNom{width:140px;}
     .allo{width:100%}
     
 }
 
-@media all and (max-width: 768px )
-{
-    
-    #wrapperModifierProfil > form > div{margin: 100px}
-     label > input{  width: 80%}
-    #sexeF{top:65px;left:-450px;}
-    #nomUtilisateur,#prenom,#nom,#courriel,#description,#sexeF,#sexeH{box-shadow: none;}
-}
-@media all and (max-width:  480px )
-{
-    .center{flex-direction: none;}
-    #imagerond{width:100px;height:100px;}
-    #utilisateur{font-size: 22px;}
-    label > span,#ModfierPhoto > form > p {font-size:12pt;}
-
-    #nomUtilisateur,#prenom,#nom,#courriel,#description,#sexeF,#sexeH{font-size:9pt;box-shadow: none;}
-       #sexeF{top:0;left:45px;}
-    #sexeF,#sexeH{font-size:12pt;}
-    #ModfierPhoto > form > p{margin-bottom:15px;}
-    #btnImage {;margin:none;}
-   #enregistrerImage{margin-left:0px;margin-top:30px;width:185px;}
-    #utilisateur{font-size:12pt;top:50px}
-    #wrapperModifierProfil > form > div > div:nth-child(1) > label:nth-child(1) > button{width:130px;font-size:10pt}
-    
-
-}

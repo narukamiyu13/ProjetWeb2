@@ -1,5 +1,15 @@
 <?php
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+NOM : 
+PROJET : Foodie
+ORGANISDATION : College Maisonneuve
+PAGE : Model.class.php
+DATE DE CREATION : 27-03-17
+DESCRIPTION : modele qui gere les fonctionnalites de base
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
 class Modele {
     
     
@@ -19,7 +29,7 @@ class Modele {
     public function connectionBD() {
         try{
             $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
-            $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","",$options);
+            $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","sellyoursoul001",$options);
             return $PDO;
         } catch(PDOException $erreur) {
             echo "Erreur: ".$erreur->getMessage()."<br/>";
@@ -28,7 +38,7 @@ class Modele {
     }
     
     
-     /* -------------------------------------
+    /* -------------------------------------
     | fonction selectionnerNombre
     | -------------------------
     | PARAM
@@ -70,256 +80,235 @@ class Modele {
         }
         
     } // FIN DE FONCTION selectionnerNombre
+    /* -------------------------------------
+    | fonction gererConnexion
+    | -------------------------
+    | PARAM
+    |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+    | -------------------------
+    | RETURN
+    |   bool    
+    | -------------------------
+    | DESCRIPTION
+    |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+    |------------------------------------- */ 
+    
+    function gererConnexion($nomUtilisateur,$password){
+        try{
+            $PDO = $this->connectionBD();
+            $password = sha1($password);
+            $requete = "SELECT idUtilisateur FROM utilisateur WHERE nomUtilisateur = '$nomUtilisateur' AND motDePasse= '$password'";
+            $PDOStatement = $PDO->prepare($requete);
+            $PDOStatement->execute();
+            return $PDOStatement->fetch(PDO::FETCH_NUM)[0];
+        } catch(PDOException $e){
+            echo "Erreur: ".$e->getMessage();
+        }
+    } // FIN DE FONCTION gererConnexion
     
     /* -------------------------------------
-        | fonction gererConnexion
-        | -------------------------
-        | PARAM
-        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
-        | -------------------------
-        | RETURN
-        |   bool    
-        | -------------------------
-        | DESCRIPTION
-        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
-        |------------------------------------- */ 
-            function gererConnexion($nomUtilisateur,$password){
-            try{
-                $PDO = $this->connectionBD();
-                $password = sha1($password);
-                $requete = "SELECT idUtilisateur FROM utilisateur WHERE nomUtilisateur = '$nomUtilisateur' AND motDePasse= '$password'";
-                $PDOStatement = $PDO->prepare($requete);
-                //var_dump();
-                $PDOStatement->execute();
-                return $PDOStatement->fetch(PDO::FETCH_NUM)[0];
-                        
-               
-            } catch(PDOException $e){
-                echo "Erreur: ".$e->getMessage();
-            }
-        } // FIN DE FONCTION gererConnexion
-    
-    /* -------------------------------------
-        | fonction gererInscription
-        | -------------------------
-        | PARAM
-        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
-        | -------------------------
-        | RETURN
-        |   bool    
-        | -------------------------
-        | DESCRIPTION
-        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
-        |------------------------------------- */ 
+    | fonction gererInscription
+    | -------------------------
+    | PARAM
+    |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
+    | -------------------------
+    | RETURN
+    |   bool    
+    | -------------------------
+    | DESCRIPTION
+    |   Verifie si la personne qui navigue est abonnée a un utilisateur.
+    |------------------------------------- */ 
     
     function gererInscription($nomUtilisateur,$password,$courriel){
-            try{
-                $PDO = $this->connectionBD();
-                $nomUtilisateur = htmlspecialchars($nomUtilisateur);
-                $courriel = htmlspecialchars($courriel);
-                 $password = sha1($password);
-                $requete = "INSERT INTO utilisateur (nomUtilisateur,motDePasse,courriel) VALUES ('$nomUtilisateur','$password','$courriel')";
-                $PDOStatement = $PDO->prepare($requete);
-                $PDOStatement->execute();
-                        
-               
-            } catch(PDOException $e){
-                echo "Erreur: ".$e->getMessage();
-            }
-        } // FIN DE FONCTION gererInscription
-          /* -------------------------------------
-        | fonction checkToken
-        | -------------------------
-        | PARAM
-        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
-        | -------------------------
-        | RETURN
-        |   bool    
-        | -------------------------
-        | DESCRIPTION
-        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
-        |------------------------------------- */ 
+        try{
+            $PDO = $this->connectionBD();
+            $nomUtilisateur = htmlspecialchars($nomUtilisateur);
+            $courriel = htmlspecialchars($courriel);
+            $password = sha1($password);
+            $requete = "INSERT INTO utilisateur (nomUtilisateur,motDePasse,courriel) VALUES ('$nomUtilisateur','$password','$courriel')";
+            $PDOStatement = $PDO->prepare($requete);
+            $PDOStatement->execute();
+        } catch(PDOException $e){
+            echo "Erreur: ".$e->getMessage();
+        }
+    } // FIN DE FONCTION gererInscription
+    
+    /* -------------------------------------
+    | fonction checkToken
+    | -------------------------
+    | PARAM
+    |   $uid(int)
+    |   $token(int)
+    | -------------------------
+    | RETURN
+    |   bool    
+    | -------------------------
+    | DESCRIPTION
+    |   Verifie la validaté du jeton qui permet a l'utilisateur de retrouver un mot de passe oublier
+    |------------------------------------- */ 
     
     function checkToken($uid, $token){
-            try{
-               $PDO = $this->connectionBD();
-                $query = "SELECT COUNT(resetID) FROM passwordResets WHERE userID=$uid AND confirmationCode=$token";
-                $PDOStatement = $PDO->prepare($query);
-                $PDOStatement->execute();
-                $resultat = $PDOStatement->fetch(PDO::FETCH_NUM)[0];
-                
-                if($resultat == 1) {
-                    return true;
-                } else {
-                    return false;
-                }
-                        
-               
-            } catch(PDOException $e){
-                echo "Erreur: ".$e->getMessage();
+        try{
+            $PDO = $this->connectionBD();
+            $query = "SELECT COUNT(resetID) FROM passwordResets WHERE userID=$uid AND confirmationCode=$token";
+            $PDOStatement = $PDO->prepare($query);
+            $PDOStatement->execute();
+            $resultat = $PDOStatement->fetch(PDO::FETCH_NUM)[0];
+            
+            if($resultat == 1) {
+                return true;
+            } else {
+                return false;
             }
-        } // FIN DE FONCTION checkToken
+        } catch(PDOException $e){
+            echo "Erreur: ".$e->getMessage();
+        }
+    } // FIN DE FONCTION checkToken
     
-    
-     /* -------------------------------------
-        | fonction checkToken
-        | -------------------------
-        | PARAM
-        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
-        | -------------------------
-        | RETURN
-        |   bool    
-        | -------------------------
-        | DESCRIPTION
-        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
-        |------------------------------------- */ 
+    /* -------------------------------------
+    | fonction checkExpiration
+    | -------------------------
+    | PARAM
+    |   $uid(int)
+    |   $token(int) 
+    | -------------------------
+    | RETURN
+    |   bool    
+    | -------------------------
+    | DESCRIPTION
+    |   Verfie si le jeton est expiré et si oui le renvoi a une page qui dit que le jeton est expiré
+    |------------------------------------- */ 
     
     function checkExpiration($uid, $token){
-            try{
-               $PDO = $this->connectionBD();
-                $query = "SELECT expired FROM passwordResets WHERE userID=$uid AND confirmationCode=$token";
-                $PDOStatement = $PDO->prepare($query);
-                $PDOStatement->execute();
-                $resultat = $PDOStatement->fetch(PDO::FETCH_NUM)[0];
-                
-                return $resultat;
-                        
-               
-            } catch(PDOException $e){
-                echo "Erreur: ".$e->getMessage();
-            }
-        } // FIN DE FONCTION checkToken
+        try{
+            $PDO = $this->connectionBD();
+            $query = "SELECT expired FROM passwordResets WHERE userID=$uid AND confirmationCode=$token";
+            $PDOStatement = $PDO->prepare($query);
+            $PDOStatement->execute();
+            $resultat = $PDOStatement->fetch(PDO::FETCH_NUM)[0];
+            return $resultat;
+        } catch(PDOException $e){
+            echo "Erreur: ".$e->getMessage();
+        }
+    } // FIN DE FONCTION checkToken
     
-    
-    
-     /* -------------------------------------
-        | fonction checkToken
-        | -------------------------
-        | PARAM
-        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
-        | -------------------------
-        | RETURN
-        |   bool    
-        | -------------------------
-        | DESCRIPTION
-        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
-        |------------------------------------- */ 
+    /* -------------------------------------
+    | fonction expireToken
+    | -------------------------
+    | PARAM
+    |   $uid(int)
+    |   $token(int) 
+    | -------------------------
+    | RETURN
+    |   bool 
+    | -------------------------
+    | DESCRIPTION
+    |   Fait expirer le jeton pour la recuperation de mot de passe
+    |------------------------------------- */ 
     
     function expireToken($uid, $token){
-            try{
-               $PDO = $this->connectionBD();
-                $query = "UPDATE passwordResets SET expired=1 WHERE userID=$uid AND confirmationCode=$token";
-                $PDOStatement = $PDO->prepare($query);
-                $PDOStatement->execute();
-                        
-               
-            } catch(PDOException $e){
-                echo "Erreur: ".$e->getMessage();
-            }
-        } // FIN DE FONCTION checkToken
+        try{
+            $PDO = $this->connectionBD();
+            $query = "UPDATE passwordResets SET expired=1 WHERE userID=$uid AND confirmationCode=$token";
+            $PDOStatement = $PDO->prepare($query);
+            $PDOStatement->execute();
+        } catch(PDOException $e){
+            echo "Erreur: ".$e->getMessage();
+        }
+    } // FIN DE FONCTION checkToken
     
     
      /* -------------------------------------
-        | fonction checkToken
-        | -------------------------
-        | PARAM
-        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
-        | -------------------------
-        | RETURN
-        |   bool    
-        | -------------------------
-        | DESCRIPTION
-        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
-        |------------------------------------- */ 
+     | fonction updatePassword
+     | -------------------------
+     | PARAM
+     |   $pass (string)
+     | -------------------------
+     | RETURN
+     |   aucun  
+     | -------------------------
+     | DESCRIPTION
+     |   Met a jour le mot de passe d'un utilisateur
+     |------------------------------------- */ 
     
     function updatePassword($pass){
-            try{
-                $pass = sha1($pass);
-                $PDO = $this->connectionBD();
-                $query = "UPDATE utilisateur SET motDePasse='$pass' WHERE idUtilisateur=".$_GET['uid'];
-                $PDOStatement = $PDO->prepare($query);
-                $PDOStatement->execute();
-                        
-               
-            } catch(PDOException $e){
-                echo "Erreur: ".$e->getMessage();
-            }
-        } // FIN DE FONCTION checkToken
-        /* -------------------------------------
-        | fonction gererRechercheRecette
-        | -------------------------
-        | PARAM
-        |   $idUtilisateurConnecte : (int) Le ID de l'utilisateur connecté qui navigue
-        | -------------------------
-        | RETURN
-        |   bool    
-        | -------------------------
-        | DESCRIPTION
-        |   Verifie si la personne qui navigue est abonnée a un utilisateur.
-        |------------------------------------- */ 
+        try{
+            $pass = sha1($pass);
+            $PDO = $this->connectionBD();
+            $query = "UPDATE utilisateur SET motDePasse='$pass' WHERE idUtilisateur=".$_GET['uid'];
+            $PDOStatement = $PDO->prepare($query);
+            $PDOStatement->execute();
+        } catch(PDOException $e){
+            echo "Erreur: ".$e->getMessage();
+        }
+    } // FIN DE FONCTION checkToken
     
-     function gererRechercheRecette($idCategorie){
-            try{
-                $PDO = $this->connectionBD();
-                $requete = "SELECT *
-                            FROM photo 
-                            INNER JOIN utilisateur ON photo.idUtilisateur = utilisateur.idUtilisateur 
-                            INNER JOIN recettes on photo.idRecette = recettes.idRecette
-                            WHERE recettes.idCategorieRecette = '$idCategorie'";
-                $PDOStatement = $PDO->prepare($requete);
-                $PDOStatement->execute();
-                $recettes = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
-                return $recettes;
-                //echo '<pre>';
-                //var_dump($recettes);
-                //echo '</pre>';
+    /* -------------------------------------
+    | fonction gererRechercheRecette
+    | -------------------------
+    | PARAM
+    |   $idCategorie(int)
+    | -------------------------
+    | RETURN
+    |  $recette (int)   
+    | -------------------------
+    | DESCRIPTION
+    |   Sectionne les recette relié a une cateorie de recette (plat, entré, dessert)
+    |------------------------------------- */ 
+    function gererRechercheRecette($idCategorie){
+        try{
+            $PDO = $this->connectionBD();
+            $requete = "SELECT * FROM photo 
+                        INNER JOIN utilisateur ON photo.idUtilisateur = utilisateur.idUtilisateur 
+                        INNER JOIN recettes on photo.idRecette = recettes.idRecette
+                        WHERE recettes.idCategorieRecette = '$idCategorie'";
+            $PDOStatement = $PDO->prepare($requete);
+            $PDOStatement->execute();
+            $recettes = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+            return $recettes; 
+        } catch(PDOException $e){
+            echo "Erreur: ".$e->getMessage();
+        }
+    } // FIN DE FONCTION gererRechercheRecette
     
-                
-                        
-               
-            } catch(PDOException $e){
-                echo "Erreur: ".$e->getMessage();
-            }
-        } // FIN DE FONCTION gererRechercheRecette
+     /* -------------------------------------
+    | fonction ggererRechercheRecetteIngredients
+    | -------------------------
+    | PARAM
+    |   $idCategorie(int)
+    |   $idRecette(int)
+    | -------------------------
+    | RETURN
+    |  $recette (int)   
+    | -------------------------
+    | DESCRIPTION
+    |  Selectionne les ingredients relatif a une categorie et a une recette 
+    |------------------------------------- */ 
     
     function gererRechercheRecetteIngredients($idCategorie,$idRecette){
-            try{
-               
-                $PDO = $this->connectionBD();
-                $requete = "SELECT recettes.idRecette,ingredients.nomIngredient, recettes_has_ingredients.quantite,             recettes_has_ingredients.uniteDeMesure  FROM recettes
-                            INNER JOIN recettes_has_ingredients ON recettes_has_ingredients.idRecette=recettes.idRecette
-                            INNER JOIN ingredients ON recettes_has_ingredients.idingredient=ingredients.idingredient
-                            WHERE recettes.idrecette = '$idRecette'  AND recettes.idCategorieRecette = '$idCategorie'";
-                $PDOStatement = $PDO->prepare($requete);
-                $PDOStatement->execute();
-                $ingredients = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
-                //return $ingredients;
-                //echo '<pre>';
-                //var_dump($ingredients);
-                //echo '</pre>';
-                
-                $PDO = $this->connectionBD();
-                $requete = "SELECT * 
-                            FROM recettes
-                            INNER JOIN etapepreparation on recettes.idRecette = etapepreparation.idRecette
-                            WHERE idCategorieRecette = '$idCategorie' AND recettes.idRecette = '$idRecette'";
-                $PDOStatement = $PDO->prepare($requete);
-                $PDOStatement->execute();
-                $etapes = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
-                //return $etapes;
-                
-                return Array("ingredients"=>$ingredients, "etapes"=>$etapes);
-                        
-               
-            } catch(PDOException $e){
-                echo "Erreur: ".$e->getMessage();
-            }
+        try{
+            $PDO = $this->connectionBD();
+            $requete = "SELECT recettes.idRecette,ingredients.nomIngredient, recettes_has_ingredients.quantite,             recettes_has_ingredients.uniteDeMesure FROM recettes
+            INNER JOIN recettes_has_ingredients ON recettes_has_ingredients.idRecette=recettes.idRecette
+            INNER JOIN ingredients ON recettes_has_ingredients.idingredient=ingredients.idingredient
+            WHERE recettes.idrecette = '$idRecette'  AND recettes.idCategorieRecette = '$idCategorie'";
+            
+            $PDOStatement = $PDO->prepare($requete);
+            $PDOStatement->execute();
+            $ingredients = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+            
+            $requete = "SELECT * FROM recettes
+                        INNER JOIN etapepreparation on recettes.idRecette = etapepreparation.idRecette
+                        WHERE idCategorieRecette = '$idCategorie' AND recettes.idRecette = '$idRecette'";
+            $PDOStatement = $PDO->prepare($requete);
+            $PDOStatement->execute();
+            $etapes = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+            //return $etapes;
+            return Array("ingredients"=>$ingredients, "etapes"=>$etapes);
+        } catch(PDOException $e){
+            echo "Erreur: ".$e->getMessage();
         }
-    
-    
-    
-    
-    
+    }
 } // FIN DE CLASSE
 
 

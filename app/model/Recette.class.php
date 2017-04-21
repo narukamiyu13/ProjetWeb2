@@ -1,5 +1,15 @@
 <?php
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+NOM : 
+PROJET : Foodie
+ORGANISDATION : College Maisonneuve
+PAGE : Recette.class.php
+DATE DE CREATION : 27-03-17
+DESCRIPTION : modele qui insere une recette
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
 require_once("Model.class.php");
 
 class Recette extends Modele{
@@ -15,6 +25,7 @@ class Recette extends Modele{
      | DESCRIPTION
      |   Inserer une photo et une recette dans la base de donnée
      |------------------------------------- */ 
+    
     public function queryInsererRecette(){
       try{
           if(isset($_POST['publierAvecRecette'])){
@@ -33,9 +44,7 @@ class Recette extends Modele{
               $adjectifIngredient=$_POST['adjectifIngredient'];
               $numeroEtape=$_POST['numeroEtape'];
               $descriptionEtape=$_POST['descriptionEtape'];
-            
-             
-//              var_dump($_POST);
+   
               
               //Requete Recette
               $requeteRecette= "INSERT INTO `recettes`(`titreRecette`, `vchTemperatureCuisson`, `vchTempsPreparation`, `vchTempsCuisson`, `idCategorieRecette`, `idtypeRecette`) VALUES ('$nomRecette','$temperatureDeCuisson','$tempsPrep','$tempsDeCuisson','$categorieRecette','$typeRecette')";
@@ -54,12 +63,14 @@ class Recette extends Modele{
                 
                 $lastidIngredient = $PDO->lastInsertId();
                 $ingredientios[]=$lastidIngredient;
-//                var_dump($ingredientios);
+
               }
-               //Requete Recette ingredient
+              
+              //Requete Recette ingredient
               
               $indexu=0;
               $requeteIngreRecette="INSERT INTO `recettes_has_ingredients`(`idRecette`, `idingredient`, `quantite`, `uniteDeMesure`, `typeDePrep`, `adjectifIngredient`) VALUES ";
+              
               foreach($quantite as $qt)
               {
                   $requeteIngreRecette.="(".$lastRecetteid['ux'].",".$ingredientios[$indexu].",".$qt.",";
@@ -70,64 +81,46 @@ class Recette extends Modele{
                       } $requeteIngreRecette.="'".$preparationIngredient[$indexu]."','".$adjectifIngredient[$indexu]."'),";
                   $indexu+=1;
               }
+              
               $requeteIngreRecette=substr($requeteIngreRecette,0,-1);
               $sth3=$PDO->prepare($requeteIngreRecette);
-//              var_dump($requeteIngreRecette);
-                $sth3->execute();
-//               var_dump($requeteIngreRecette);
+              
+              $sth3->execute();
 
               $requeteEtapePrep="INSERT INTO etapepreparation (numeroEtape, descriptionEtape, idRecette) VALUES ";
-//              echo "<p>$requeteEtapePrep</p>";
+
               $index = 0;
+              
               foreach($numeroEtape as $etape){
                   $requeteEtapePrep.="($etape,\"".$descriptionEtape[$index]."\", ".$lastRecetteid['ux']."), ";
            
                   $index+=1;
               }
-                $requeteEtapePrep=substr($requeteEtapePrep,0,-2);
-                $sth4=$PDO->prepare($requeteEtapePrep);
-              //   var_dump($requeteEtapePrep);
-                $sth4->execute();
-                  
+              $requeteEtapePrep=substr($requeteEtapePrep,0,-2);
+              $sth4=$PDO->prepare($requeteEtapePrep);
+              $sth4->execute();
               
-               
-             
-               //Requete Photo
-               $folder="app/assets/photo/".$_SESSION['userID']."/";
-                        $target_file=basename($_FILES['photoCreationRecette']['name']);
-                        $descriptionpr= $_POST['descriptionpr'];
-                        $idUtilisateur= $_GET['userID'];
-                         if (file_exists($folder.$target_file)) {
-                             $increment=0;
-                            while(file_exists($folder.$target_file)){
-                                $increment++;
-                                $target_file = "($increment)-".basename($_FILES['photoCreationRecette']["name"]);
-                            }
-                             
-                         }
-                        $photoCreationRecette ='\"'.$folder.$target_file.'\"';
-                          $requetePhoto="INSERT INTO `photo`(`url`, `description`, `idUtilisateur`,`idRecette`) VALUES ('".$photoCreationRecette."','".$descriptionpr."',".$idUtilisateur.",".$lastRecetteid['ux'].")";
-                        $sth5=$PDO->prepare($requetePhoto);
-                        $sth5->execute();
+              //Requete Photo
+              $folder="app/assets/photo/".$_SESSION['userID']."/";
+              $target_file=basename($_FILES['photoCreationRecette']['name']);
+              $descriptionpr= $_POST['descriptionpr'];
+              $idUtilisateur= $_GET['userID'];
+              
+              if (file_exists($folder.$target_file)) {
+                  $increment=0;
+                  while(file_exists($folder.$target_file)){
+                      $increment++;
+                      $target_file = "($increment)-".basename($_FILES['photoCreationRecette']["name"]);
+                  }
+              }
+              $photoCreationRecette ='\"'.$folder.$target_file.'\"';
+              $requetePhoto="INSERT INTO `photo`(`url`, `description`, `idUtilisateur`,`idRecette`) VALUES ('".$photoCreationRecette."','".$descriptionpr."',".$idUtilisateur.",".$lastRecetteid['ux'].")";
+              
+              $sth5=$PDO->prepare($requetePhoto);
+              $sth5->execute();
           }
       }catch(PDOException $e) {
           echo 'ERROR: ' . $e->getMessage();
       }
     }
-    public function ajaxIngredient(){
-        try{
-            $PDO = $this->connectionBD();
-                if(isset($_POST["keyword"])){
-                $requete="SELECT*FROM ingredients WHERE nomIngredient LIKE '" . $_POST["keyword"] . "%'";
-                $sth1=$PDO->prepare($requete);
-                $sth1->execute();
-                var_dump($requete);
-                $ingredientaaa = $sth1->fetchAll(PDO::FETCH_ASSOC);
-//               var_dump($ingredientaaa);
-                 return $ingredientaaa; 
-                }
-        }catch(PDOException $e) {
-          echo 'ERROR: ' . $e->getMessage();
-      }
-    }
-}
+}// FIN CLASSE

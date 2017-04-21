@@ -1,4 +1,19 @@
-
+<?php
+/* -------------------------------------
+| fichier dashboard.php
+| -------------------------
+| CONTRIBUTEURS
+|   Auteur: Cédrick Collin
+|   Modifications: Cédrick Collin 
+| -------------------------
+| DATES
+|   Création: 19 avril 2017
+|   Dernière Modification: 20 avril 2017
+| -------------------------
+| DESCRIPTION
+|   Vue - Affichage de l'interface de base du panneau d'administration
+|------------------------------------- */
+?>
 
 <head>
     <link href="css/style.css" rel="stylesheet">
