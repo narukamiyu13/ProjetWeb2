@@ -94,14 +94,19 @@ if(isset($_POST['enregistrer'])) {
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
+
+  
+    
        <body class="modifierProfil">
           <?php include_once'header.php'; ?>   
            <section class="row5">
                <div class="contenuModifierProf">
                 <form action="profil.php&#63;userID=<?php echo $profilUserActuel?>&modifier=" method="post">
+
                        <section class="ImageModifierProfil">
+                            
                             <img class="rond" id="imagerond" src="<?php if($tonUsager->urlPhoto!=NULL){echo"$tonUsager->urlPhoto";}else{echo"app/assets/images/images.png";}?>" width="150px" height="150px" alt="photoProfil">
-                            <h3 id="utilisateur"><?php echo '@'.$tonUsager->nomUtilisateur;?></h3>
+                           <h3 id="utilisateur"><?php echo '@'.$tonUsager->nomUtilisateur;?></h3>
                             <button type="submit" class="btnModifier" name="modifier">Modifier Profil</button>
                        </section>
 
@@ -139,18 +144,24 @@ if(isset($_POST['enregistrer'])) {
                             <p id="sexeH">H</p>
                             <input type="radio" id="H" name="sexe" value="H"<?php if($tonUsager->sexe=="H") {echo "checked";}?>>
                         </p>   
-                    </form>
-               
-                    <div id="ModfierPhoto">
-                        <form action="profil.php&#63;userID=<?php echo $profilUserActuel?>&modifier=" method="post" enctype="multipart/form-data">
-                            <p> Selectionner une image</p>
-                                <label class="btnImage" for="fileToUpload"> Selectionner Image</label>
-                                <input   type="file" name="photo" id="fileToUpload" >
-                                <input type="submit" value="Enregistrer image" name="enregistrer" id="enregistrerImage" >
+
+
                         </form>
-                    </div>
-                 </div>
-            </section>
+               
+                       <div id="ModfierPhoto">
+                        <form action="profil.php&#63;userID=<?php echo $profilUserActuel?>&modifier=" method="post" enctype="multipart/form-data">
+
+                            
+   
+                            
+                        <p> Selectionner une image</p>
+                            <label class="btnImage" for="fileToUpload"> Selectionner Image</label>
+                            <input   type="file" name="photo" id="fileToUpload" >
+                            <input type="submit" value="Enregistrer image" name="enregistrer" id="enregistrerImage" >
+                        </form>
+                      </div>
+                    </section>
+</div>
 <?php include'footer.php'?>
     </body>
 </html>
