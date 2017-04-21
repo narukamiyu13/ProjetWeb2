@@ -34,7 +34,7 @@ if(isset($_POST['idCategorie'])){
                         <p class="temps">(Cuisson : '.$recette['vchTempsCuisson'].' )  </p>
                     </div>    
                     <div class="imageRecette">
-                        <img src='.$recette["url"].' height="300px" width="600px">
+                        <img class="imgRecherche" src='.$recette["url"].' height="300px" width="600px">
                     </div>
                     <div  class="listeIngredient" >
                         <h3 class="listeIngredientTitre" > Ingredient  </h3>';

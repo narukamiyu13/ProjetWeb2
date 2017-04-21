@@ -43,19 +43,19 @@ DESCRIPTION : page connexion
             
             <div class="box1">  
                 <h3>Entrées</h3>
-                <img src="app/assets/images/entre.jpg" height="300" width="300"><br>
+                <img class='imgEntre' src="app/assets/images/entre.jpg" height="300" width="300"><br>
                 <input name='optionCategorie' id="optionEntre"  type="radio" value='2'>
              </div>
             
              <div class="box1"> 
                  <h3>Repas Principal</h3>
-                 <img src="app/assets/images/plat.jpg" height="300" width="500" ><br>
+                 <img class='imgPlat' src="app/assets/images/plat.jpg" height="300" width="500" ><br>
                  <input name='optionCategorie' id="optionPlat" type="radio" value='1'><br>
             </div>
             
              <div class="box1"> 
                 <h3>Dessert</h3>
-                <img src="app/assets/images/dessert.jpg" height="300" width="300"><br>
+                <img class='imgDessert' src="app/assets/images/dessert.jpg" height="300" width="300"><br>
                 <input name='optionCategorie' id="optionDessert" type="radio" value='3'>
              </div>     
           </div>
