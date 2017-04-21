@@ -19,7 +19,7 @@
 <style type="text/css">
     p span{
         display:inline-block;
-        width:400px;
+        width:28%;
     }
 </style>
 
