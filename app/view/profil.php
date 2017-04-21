@@ -64,6 +64,27 @@ DESCRIPTION : page connexion
                 $(".recette").mouseover(function(){
                     $("div:first-of-type", this).removeClass("rond");
                 })
+                
+                //traitement du formulaire de signalement
+                $('#signaler').click(function(){
+                    console.log("Jje signale");
+                    console.log($('#raison').val());
+                    $.ajax({
+                        url         : "traitementAjax.php",
+                        method      : "GET",
+                        data        : "signaler&message="+$("#raison").val()+"&utilisateur=<?= $_GET['userID']?>",
+                        contentType : "text/html;charset=utf-8;",   
+                        success     : function(data){
+                                        $('#signalMessage').html("Merci, vous nous avons enregistré votre signalement");
+                                        }
+                    })
+                    
+                })
+                
+                $('#btSignaler').click(function(){
+                    $("#popupSignaler").removeClass("hidden");
+                })
+                
                  //Permet d'ajouter la classe rond sur la classe recette si notre curseur ne survol plus la classe recette
                 $(".recette").mouseout(function(){
                      $("div:first-of-type", this).addClass("rond");
@@ -357,6 +378,9 @@ DESCRIPTION : page connexion
                 <div title="<?= $title; ?>" alt="plus" class="plus">
                     <span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>
                 </div>
+                <div id="btSignaler" class="rond">
+                    <p>Signaler</p>
+                </div>
             </section>
            
             <!-- section nb publications-->
@@ -523,6 +547,14 @@ DESCRIPTION : page connexion
                 
                 </div>
             
+            </div>
+            
+            <div id="popupSignaler" class="popup hidden" style="background-color:rgba(0,0,0,0.5);">
+                <div style="width:400px; height:500px;background-color:white;margin:0 auto; margin-top:150px;padding-top:50px;">
+                    <p id="signalMessage">&nbsp;</p>
+                    <input type="text" name="raison" id="raison" style="display:block;width:350px;margin:50px auto;" placeholder="Pourquoi signalez-vous cette personne?" />
+                    <button name="signaler" id="signaler" style="display:block;margin:0 auto;">Signaler</button>
+                </div>
             </div>
         
         </main>

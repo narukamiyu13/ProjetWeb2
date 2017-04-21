@@ -248,4 +248,33 @@ if(isset($_GET['ajoutCommentaires'])) {
     echo "<p class='commentaire'><span><a href='profil.php?userID=".$_SESSION['userID']."'>".$personne['prenom']." ".$personne['nom']."</a></span><br/>".$commentaire."</p>";
 } // FIN isset($_GET['ajoutCommentaires'])
 
+
+/* -------------------------------------
+| SI on cherche à signaler un membre
+| -------------------------
+| PARAM
+|   $_GET['message']    : (STR) - La raison du signalement
+|   $_GET['utilisateur']    : (int) - Le ID de l'utilisateur à signaler
+|   $_SESSION['userID']    : (int) - Le ID de l'utilisateur qui signale
+| -------------------------
+| RETURN
+|   aucun   
+| -------------------------
+| DESCRIPTION
+|   Ajoute un signalement de membre dans la BDD
+|------------------------------------- */
+if(isset($_GET['signaler'])) {
+    $signaleur = $_SESSION['userID'];
+    $user = $_GET['utilisateur'];
+    $message = htmlspecialchars($_GET['message']);
+    $publication = new Publication();
+    $PDO = $publication->connectionBD();
+    $query="INSERT INTO signalements (membreSignaleID, membreSignaleurID, raisonSignalement) VALUES ($user, $signaleur, \"$message\")";
+    $PDOStatement = $PDO->prepare($query);
+    $PDOStatement->execute();
+    $personne = $PDOStatement->fetch(PDO::FETCH_ASSOC);
+    
+} // FIN isset($_GET['ajoutCommentaires'])
+
+
 ?>
