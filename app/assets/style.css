@@ -1110,15 +1110,18 @@ body > section > div > form > p
 @media all and (max-width:768px)
 {
     .row5{width:65%;}
+    .btnModifier{margin-top: 33px;margin-left: 11px;}
+    #enregistrerImage{position:relative; top:20px;margin-left:0px;}
        
 }
 
  @media all and (max-width: 480px)
 {
     .contenuModifierProf{width:100% ;}
-    .ImageModifierProfil h3{font-size: 18pt;position:relative; top:-165px;left:80px; }
-    .btnModifier{position:relative; width:100px; top:-180px;left:130px;}
+    .ImageModifierProfil h3{font-size: 18pt;position:relative; top:-165px;left:142px; }
+    .btnModifier{position:relative; width:100px; top:0px;left:74px;}
     #enregistrerImage{position:relative; top:20px;margin-left:0px;}
+    .row5 p {width:64%;}
    
 }
 
