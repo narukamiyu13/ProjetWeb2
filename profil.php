@@ -26,5 +26,5 @@ $controleurPublication->gererVueAjoutPhoto();
 //Creer un nouveau controleur recette
 $controleurRecette =new ControleurRecette();
 $controleurRecette->gererVueAjoutRecette();
-$controleurRecette->ajaxIngredient();
+
 ?>
