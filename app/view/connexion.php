@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
 	<script src="app/assets/js/menu.js"></script>
 </head>
 
@@ -23,12 +22,9 @@
     
 <body id="page-top">
   <?php include_once'header.php'; ?>
-    
-
    <header class='backgroundConnexion' id="heroSign">
         <div class="flexHead center">
         <h1 id="titreCI">Connexion</h1>
-       
 			<form method = "POST" action = "connexion.php">
 				<div class="wrapperIn">
 					<label>
@@ -43,22 +39,20 @@
 					</label>
 				</div>
                 <p><a href="connexion.php?forgot">Mot de passe oublié?</a></p>
-	
         <div class="wrapperInb">
             <input name="bt_connexion" type="submit" id="ipSignIn" value="Connexion">
 			</form>
             <p>ou</p>
             <input onClick="window.location.href='inscription.php'" type="button" id="ipJoin" value="Inscription">
         </div>
+            
         <?php
-//            var_dump($erreur);
         if($erreur==true){
             echo "<p class=\"erreur\">Mauvais courriel ou mot de passe</p>";
         }
        ?>
         </div>
-    </header>
-	
+    </header>	
 	<?php include_once'footer.php'; ?>
 
  
