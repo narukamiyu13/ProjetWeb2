@@ -66,6 +66,19 @@
 	
 	<?php include_once'footer.php'; ?>
 	
+	
+ 
+    <!-- jQuery -->
+    <script src="app/assets/lib/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="app/assets/lib/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="app/assets/lib/script.js"></script>
 
 </body>
 
