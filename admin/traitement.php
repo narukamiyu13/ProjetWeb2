@@ -32,7 +32,7 @@
     |------------------------------------- */
 if(isset($_GET['getListeMembres'])){
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
-    $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","",$options);
+    $PDO = new PDO("mysql:host=localhost;dbname=id1299011_foodie","id1299011_cedrick","pa14t336!0L",$options);
     $query = "SELECT idUtilisateur, nom, prenom, nomUtilisateur, courriel, utilisateur.idRole, typeRole FROM utilisateur INNER JOIN role ON utilisateur.idRole = role.idRole";
     $PDOStatement = $PDO->prepare($query);
     $PDOStatement->execute();
@@ -76,7 +76,7 @@ if(isset($_GET['getListeMembres'])){
 if(isset($_GET['search'])){
     $filter = $_GET['filter'];
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
-    $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","",$options);
+   $PDO = new PDO("mysql:host=localhost;dbname=id1299011_foodie","id1299011_cedrick","pa14t336!0L",$options);
     $query = "SELECT idUtilisateur, nom, prenom, nomUtilisateur, courriel, utilisateur.idRole, typeRole  FROM utilisateur INNER JOIN role ON utilisateur.idRole = role.idRole WHERE nom LIKE '%$filter%' OR prenom LIKE '%$filter%' OR nomUtilisateur LIKE '%$filter%' OR courriel LIKE '%$filter%'";
     $PDOStatement = $PDO->prepare($query);
     $PDOStatement->execute();
@@ -102,7 +102,7 @@ if(isset($_GET['search'])){
 if(isset($_GET['supprimer'])){
     $id= $_GET['id'];
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
-    $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","",$options);
+    $PDO = new PDO("mysql:host=localhost;dbname=id1299011_foodie","id1299011_cedrick","pa14t336!0L",$options);
     $query = "DELETE FROM utilisateur WHERE idUtilisateur=$id";
     $PDOStatement = $PDO->prepare($query);
     $PDOStatement->execute();
@@ -127,7 +127,7 @@ if(isset($_GET['updateRole'])) {
     $role = $_GET['role'];
     $id= $_GET['uid'];
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
-    $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","",$options);
+    $PDO = new PDO("mysql:host=localhost;dbname=id1299011_foodie","id1299011_cedrick","pa14t336!0L",$options);
     $query = "UPDATE utilisateur SET idRole=$role WHERE idUtilisateur=$id";
     $PDOStatement = $PDO->prepare($query);
     $PDOStatement->execute();
@@ -153,7 +153,7 @@ if(isset($_GET['updateRole'])) {
     |------------------------------------- */
 if(isset($_GET['getMembresSignales'])){
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
-    $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","",$options);
+    $PDO = new PDO("mysql:host=localhost;dbname=id1299011_foodie","id1299011_cedrick","pa14t336!0L",$options);
     $query = "SELECT 
     signale.idUtilisateur AS idSignale,
     signale.prenom AS prenomSignale,

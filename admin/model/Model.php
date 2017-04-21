@@ -32,7 +32,7 @@ class Model {
     public function checkConnect($username, $password){
         $password = sha1($password);
         $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
-        $PDO = new PDO("mysql:host=localhost;dbname=Foodie","root","",$options);
+        $PDO = new PDO("mysql:host=localhost;dbname=id1299011_foodie","id1299011_cedrick","pa14t336!0L",$options);
         $query = "SELECT idRole FROM utilisateur WHERE nomUtilisateur='$username' AND motDePasse='$password'";
         $PDOStatement = $PDO->prepare($query);
         $PDOStatement->execute();
