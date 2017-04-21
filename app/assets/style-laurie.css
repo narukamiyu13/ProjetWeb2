@@ -381,6 +381,7 @@ h2
     float:right;
     padding:2%;
     color:white;
+    cursor: pointer;
 }
 
 .titre
