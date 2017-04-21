@@ -1,21 +1,11 @@
 <?php
-/*
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-NOM : 
-PROJET : Foodie
-ORGANISDATION : College Maisonneuve
-PAGE : ControleurProfil.php
-DATE DE CREATION : 27-03-17
-DESCRIPTION : page d'accueil
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-*/
 //Importation du contrôleur parent
-require_once("Controleur.class.php");
+    require_once("Controleur.class.php");
+
 
 //Importation des modeles
-require_once('app/model/User.class.php');
-require_once('app/model/Profil.class.php');
+    require_once('app/model/User.class.php');
+    require_once('app/model/Profil.class.php');
 
 class ControleurProfil extends Controleur {
     
@@ -23,7 +13,9 @@ class ControleurProfil extends Controleur {
         $this->modele = new ModeleProfil();
     }
     
-    /* -------------------------------------
+    
+    
+     /* -------------------------------------
     | fonction afficher
     | -------------------------
     | PARAM
@@ -36,12 +28,16 @@ class ControleurProfil extends Controleur {
     |   Gère l'affichage des profils
     |------------------------------------- */ 
     public function gererProfil(){
+       // var_dump($_SESSION["userID"]);
+        
         //Si aucun utilisateur n'est connecté, retourner a l'index.
         if(!isset($_SESSION['userID'])){
             header("location:index.php");
         }
         
         $tonUsager = $this->modele->profilUtilisateur($_GET['userID']);
+        
+//        $_SESSION['userID'] = 2;
        
         //Gérer les différences de comportement entre notre profil, et le profil des autres.
         if($_SESSION['userID'] == $tonUsager->idUtilisateur){
@@ -65,7 +61,13 @@ class ControleurProfil extends Controleur {
         }
         
     }
-      
+    
+   
+    
 }
+
+  
+
+
 
 ?>

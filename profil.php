@@ -1,14 +1,3 @@
-<!--
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-NOM : 
-PROJET : Foodie
-ORGANISDATION : College Maisonneuve
-PAGE : profil.php
-DATE DE CREATION : 27-03-17
-DESCRIPTION : page appelant le controleur pour gerer le profil dun utilisateur
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
--->
 <?php
 session_start();
 require_once("app/controller/ControleurProfil.class.php");

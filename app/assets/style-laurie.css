@@ -1,32 +1,17 @@
-/*
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-NOM : 
-PROJET : Foodie
-ORGANISDATION : College Maisonneuve
-PAGE : style-laurie.css
-DATE DE CREATION : 27-03-17
-DESCRIPTION : css de profil 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-*/
-h1
-{
+h1{
    text-align: center;
     margin: 0 auto;
     font-size:24px;
     text-transform: uppercase;
 }
-
-h3
-{ 
+h3{ 
     padding-left: 70px; 
     font-size: 18px;
     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
     text-transform: uppercase;
 }
-.modifier
-{
-    font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
+.modifier {
+   font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
     background-color: #fdc741;
     color: #fff;
     padding: 50px 0;
@@ -34,6 +19,7 @@ h3
 
 .haut 
 {
+  
     display:flex;
     flex-direction:row;
     justify-content: center;
@@ -43,21 +29,16 @@ h3
     color:white;
     background-color: #fdc741;
 }
-
-div
-{
+div{
     clear:both;
 }
-
-.erreur
-{
+.erreur{
     position: absolute;
     margin:0 auto;
     top:300px
         
 }
-
-.bottom
+ .bottom
 {
     margin:0 auto;
     display:flex;
@@ -67,20 +48,18 @@ div
     flex-wrap: wrap;
     align-items: center;
 }
-.bottom .recette
-{
+.bottom .recette{
     margin:2vh;
     position:relative;
 }
 
-.bottom .recette div
-{
+.bottom .recette div{
     transition:border-radius .3s ease;
     cursor:pointer;
 }
 
-.corner
-{
+
+.corner{
     position:absolute;
     right:-39px;
     bottom:-39px;
@@ -93,27 +72,24 @@ div
     border-bottom-color:transparent;
 }
 
-.bottom .recette img
-{
+.bottom .recette img{
     position:absolute;
     bottom:5px;
     right:2px;
     
 }
-
-.popup
-{
+.popup{
     position:absolute;
     margin:0px;
     top: 0px;
     left: 0px;
     width:100%;
+/*    background-color: rgba(0, 0, 0, 0.6);*/
     height:100%;
+/*    overflow-y: auto;*/
 
 }
-
-.contenu
-{
+.contenu{
     width:90%;
     position:fixed;
     overflow-y: auto;
@@ -122,15 +98,13 @@ div
     height:100%;
 }
 
-.hidden
-{
+.hidden{
     display:none;
 }
 
 /*   LES STYLES DU POPUP DE RECETTE */
 
-.contenuRecette
-{
+.contenuRecette{
     width:100%;
     height:100%;
     position:fixed;
@@ -140,60 +114,51 @@ div
     overflow-y:scroll;
 }
 
-.fermerRecette
-{
+.fermerRecette{
     height:50px;
     text-align:center;
     font-size:1.4em;
     cursor:pointer;
 }
 
-.fermerRecette p
-{
+.fermerRecette p {
     margin-top:20px;
 }
 
-.contenuRecette h2
-{
+.contenuRecette h2{
     font-size:2em;
     position:absolute;
     bottom:20px;
     left:50px;
 }
 
-.contenuRecette .recetteImg p 
-{
+.contenuRecette .recetteImg p {
     position:absolute;
     bottom:5px;
     left:50px;
     color:white;
 }
 
-.contenuRecette a
-{
+.contenuRecette a{
     color:inherit;
 }
 
-.informations
-{
+.informations{
     float:left;
     border-right:1px solid black;
     width:65%;
 }
 
-.informations h3:nth-of-type(2)
-{
+.informations h3:nth-of-type(2){
     margin-top:70px;
     margin-bottom:20px;
 }
 
-.informations .etape
-{
+.informations .etape{
     margin-top:5px;
 }
 
-.commentaires
-{
+.commentaires{
     position:relative;
     overflow-y:scroll;
     clear:none;
@@ -202,25 +167,24 @@ div
     margin-left:10px;
 }
 
-.commentaires img 
-{
+.commentaires img {
     cursor:pointer;
 }
 
-.commentaires #miams
-{
+.commentaires #miams{
     margin-bottom:40px;
 }
 
-.commentaires .commentaire
-{
+.commentaires .commentaire {
     margin-bottom:20px;
 }
 
-.commentaires .commentaire span
-{
+.commentaires .commentaire span{
     font-weight:bold;
 }
+
+
+
 
 /*LES STYLES GÉNÉRAUX */
 
@@ -228,38 +192,26 @@ main
 {
     font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
 }
-
-main .haut:nth-child(1)
-{
+main .haut:nth-child(1){
     padding-top:2%;
 }
-
-main .haut:nth-child(2) img
-{
+main .haut:nth-child(2) img{
     padding: 10px;
 }
-
-.photoProfilHov
-{
+.photoProfilHov{
     opacity: 1;
 }
-
-.op .photoProfilHov:hover img 
-{
+.op .photoProfilHov:hover img {
     opacity: .4;
 }
-
-.plusprofil
-{
+.plusprofil{
     position: relative;
     order:1;
     display: none;
     z-index: 2;
     
 }
-
-.plusprofil img
-{
+.plusprofil img{
     cursor: pointer;
     text-align: center;
     justify-content: center;
@@ -273,17 +225,13 @@ main .haut:nth-child(2) img
     bottom: 0;
     font-size:22px;
 }
-
-.photoProfilHov:hover+.plusprofil
-{
+.photoProfilHov:hover+.plusprofil{
      z-index: 2;
     -webkit-transition: .10s ease-in-out;
 	transition: .10s ease-in-out;
 	display: inherit;
 }
-
-main section:nth-child(2) div 
-{
+main section:nth-child(2) div {
     order:3;
     text-align: center;
     align-self: center;
@@ -294,26 +242,21 @@ main section:nth-child(2) div
     border-radius: 50% 50% 50% 50%;
     transition:border .2s ease;
     clear: both;
-}
 
-main section:nth-child(2) div span
-{
+}
+main section:nth-child(2) div span{
     padding: 0px;
     font-size: 70px;
 }
 
-main section:nth-child(2) div:hover
-{
+main section:nth-child(2) div:hover {
     border:1px solid white;
     opacity: :0.8;
 }
-
-figure
-{
+figure{
     order:2;
     margin: 0;
 }
-
 main section:nth-child(3) div
 {
     padding:10px;
@@ -325,37 +268,29 @@ main section:nth-child(3) div
     flex-basis: auto;
     min-width: 20vh;
 }
-
 main section:nth-child(3) div span
 {
      font-weight: bold;
 }
-main section:nth-child(4) p,main section:nth-child(5) p
-{
+main section:nth-child(4) p,main section:nth-child(5) p{
     width: 75vh;
     padding:20px;
     align-self: flex-start;
 }
-
 .rond
 {
     border-radius:  50%;    
 }
-
-h2
-{
+h2{
     font-size: 22px;
     color:white;
     font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
     text-transform: uppercase;
     letter-spacing: 4px;
 }
-
 /******Ajout recette*******/
-
 /**Background**/
-.imageback
-{
+.imageback{
     opacity:0.8;
     background-image: url("../assets/images/wooden%20spoons.jpg");
     background-repeat: no-repeat;
@@ -364,9 +299,7 @@ h2
     height:100%;
     margin: 0 auto;
 }
-
-.background
-{
+.background{
     position: absolute;
     opacity:0.8;
     background-color: #fdc741;
@@ -375,36 +308,29 @@ h2
     height:180px;
 }
 
-.fermeture
-{
+.fermeture{
     position: relative;
     float:right;
     padding:2%;
     color:white;
 }
-
-.titre
-{
+.titre{
     position: relative;
     margin: 0 auto;
     color:white;
 }
-
-.titre h1
-{
+.titre h1{
     position: relative;
 }
 
-.controle
-{
+.controle{
     background-color: #2b1955;
     text-align: center;
 
 }
 
 /**Decsion**/
-.encart
-{
+.encart{
     font-size: 24px;
     padding-top:120px;
     display:flex;
@@ -413,19 +339,13 @@ h2
     flex-flow: row;
     margin: auto;
 }
-
-.encart .pad
-{
+.encart .pad{
     padding: 15px;
 }
-
-.pad label
-{
+.pad label{
     padding-right: 15px;
 }
-
-.encart input[type=checkbox]
-{
+.encart input[type=checkbox]{
   -ms-transform: scale(2.2); 
   -moz-transform: scale(2.2); 
   -webkit-transform: scale(2.2); 
@@ -434,8 +354,7 @@ h2
 }
 
 /**Recette**/
-.encartRe
-{
+.encartRe{
     color:#232323;
     line-height: 20px;
     padding: 140px 5% 5% 5%;
@@ -446,44 +365,33 @@ h2
     flex-flow: column;
     margin: auto;
 }
-
-.laRecette
-{
+.laRecette{
     margin: 0 auto;
-    width: 100%;
+   width: 100%;
 }
-
-.laRecelle label
-{
+.laRecelle label{
     color:#232323 
 }
-
 /**ingredients**/
-.lesIngredients 
-{
+.lesIngredients {
     padding-top: 140px;
 }
 
-.ajouterDesIn
-{
+.ajouterDesIn{
     margin: 0 auto;
     text-align: center;
     width: 100%;
     font-size:18px;
 }
-
 *
 {
     box-sizing: border-box;
 }
-
-.petitI
-{
+.petitI{
     width:65px;
 }
 
-.secingred
-{
+.secingred{
     height:40%;
     display:flex;
     flex-wrap: wrap;
@@ -493,9 +401,7 @@ h2
     overflow-y:scroll;
     overflow: scroll;
 }
-
-.ajoutIng
-{
+.ajoutIng{
     margin: 0 auto;
     padding:10px 0px 20px 40px;
     background-color: #fdc741;
@@ -503,45 +409,32 @@ h2
     align-self: center;
     max-width: 33vh;
 }
-
-.reti
-{
+.reti{
     text-align: right;
 }
 
-.ajoutIng select
-{
+.ajoutIng select{
     margin-left:5px;
     height:25px;
     width:125px; 
 }
-
-.ajoutIng label
-{
+.ajoutIng label{
    color:#232323 
 }
-
-.ajoutIng div
-{
+.ajoutIng div{
       padding:4px;
 }
-
 /*Les etapes prep*/
-.lesEtapesPrep
-{
+.lesEtapesPrep{
     padding-top: 130px;
 }
-.ajoutEtape div
-{
+.ajoutEtape div{
       padding:4px;
 }
-.ajoutEtape label
-{
+.ajoutEtape label{
     color:#232323 
 }
-
-.secEtapes
-{
+.secEtapes{
     height:40%;
     display:flex;
     flex-wrap: wrap;
@@ -551,9 +444,7 @@ h2
     overflow-y:scroll;
     overflow: scroll;
 }
-
-.ajoutEtape
-{
+.ajoutEtape{
     margin: 0 auto;
     padding:10px 0px 20px 40px;
     background-color: #fdc741;
@@ -561,16 +452,12 @@ h2
     align-self: center;
     max-width: 45vh;
 }
-
-.ajoutEtape textarea
-{
+.ajoutEtape textarea{
     height:100px;
     width:85%;    
 }
-
 /**photo recette*/
-.encartphotor
-{
+.encartphotor{
     font-size:18px;
     padding-top: 120px;
     margin: 0 auto;
@@ -580,9 +467,7 @@ h2
     width:50%;
     height:300px;
 }
-
-#photoCreationRecette
-{
+#photoCreationRecette{
     width: 0.1px;
 	height: 0.1px;
 	opacity: 0;
@@ -590,9 +475,7 @@ h2
 	position: absolute;
 	z-index: -1;
 }
-
-#photoCreationRecette + label
-{
+#photoCreationRecette + label {
     font-size: 1.25em;
     font-weight: 700;
     height:50px;
@@ -605,38 +488,30 @@ h2
 }
 
 #photoCreationRecette:focus + label,
-#photoCreationRecette + label:hover 
-{
+#photoCreationRecette + label:hover {
     color:white;
     background-color: #2b1955;
     opacity: 0.6;
 }
-
-#photoCreationRecette + label 
-{
+#photoCreationRecette + label {
 	cursor: pointer;  "hand" cursor 
 }
-
-#photoCreationRecette:focus + label 
-{
+#photoCreationRecette:focus + label {
 	outline: 1px dotted #000;
 	outline: -webkit-focus-ring-color auto 5px;
 }
 
 /**photo**/
-.encartpho
-{
+.encartpho{
     padding-top: 120px;
     margin: 0 auto;
     text-align: center;
-    display: flex;
+   display: flex;
     flex-flow: column;
     width:50%;
     height:300px;
 }
-
-#photoCreation
-{
+#photoCreation{
     width: 0.1px;
 	height: 0.1px;
 	opacity: 0;
@@ -644,9 +519,7 @@ h2
 	position: absolute;
 	z-index: -1;
 }
-
-#photoCreation+ label
-{
+#photoCreation+ label {
     font-size: 1.25em;
     font-weight: 700;
     height:50px;
@@ -659,20 +532,15 @@ h2
 }
 
 #photoCreation:focus + label,
-#photoCreation + label:hover 
-{
+#photoCreation + label:hover {
     color:white;
     background-color: #2b1955;
     opacity: 0.6;
 }
-
-#photoCreation + label 
-{
+#photoCreation + label {
 	cursor: pointer;  "hand" cursor 
 }
-
-#photoCreationfocus + label
-{
+#photoCreationfocus + label {
 	outline: 1px dotted #000;
 	outline: -webkit-focus-ring-color auto 5px;
 }

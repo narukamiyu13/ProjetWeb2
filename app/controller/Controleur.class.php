@@ -1,24 +1,14 @@
 <?php
-/*
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-NOM : 
-PROJET : Foodie
-ORGANISDATION : College Maisonneuve
-PAGE : Controleur.class.php
-DATE DE CREATION : 27-03-17
-DESCRIPTION : controleur qui gere les fonctionnalites de base
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-*/
 
 require_once("app/model/Model.class.php");
+
+
 
 class Controleur {
     public function __construct()
     {
         $this->modele = new Modele();
     }
-    
     /* -------------------------------------
     | fonction gerer connexion
     | -------------------------
@@ -31,7 +21,7 @@ class Controleur {
     | DESCRIPTION
     |   Permet a un utilisateur inscrit de se connecter
     |------------------------------------- */
-    public function gererConnexion(){
+  public function gererConnexion(){
         if(!isset($_GET['forgot'])){
             if(!isset($_POST['bt_connexion'])){
                 $erreur=false;
@@ -46,13 +36,13 @@ class Controleur {
                 } else {
                     $erreur=true;
                     include_once ("app/view/connexion.php");
-                    }
+                    
+                }
             }
         } else {
             include_once("app/view/forgotPassword.php");
         }
     }
-    
     /* ------------------------------------
     | fonction incription
     | -------------------------
@@ -65,7 +55,7 @@ class Controleur {
     | DESCRIPTION
     |   permet a un utilisatweur de s'inscrire
     |------------------------------------- */
-    public function gererInscription(){
+   public function gererInscription(){
         if(!isset($_POST['bt_inscription'])){
             $erreur=false;
             include_once ("app/view/inscription.php");
@@ -126,21 +116,10 @@ class Controleur {
             require_once("app/view/resetinvalid.php");
         }
     }
-    
-    /* -------------------------------------
-    | fonction gerer recherche
-    | -------------------------
-    | PARAM
-    |   aucun
-    | -------------------------
-    | RETURN
-    |   aucun    
-    | -------------------------
-    | DESCRIPTION
-    |   appelle la vue recherche
-    |------------------------------------- */
-    public function gererRecherche(){
-        include_once ("app/view/recherche.php");
+         public function gererRecherche(){
+   
+            include_once ("app/view/recherche.php");
+
     }
 }
 ?>

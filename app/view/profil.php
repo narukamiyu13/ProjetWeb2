@@ -1,45 +1,34 @@
-<!--
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-NOM : 
-PROJET : Foodie
-ORGANISDATION : College Maisonneuve
-PAGE : connexion.php
-DATE DE CREATION : 27-03-17
-DESCRIPTION : page connexion
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
--->
 <?php
-    //Mettre ?userID=2 ou 3 pour voir un demo controlleur pas encore fini d'inplementer
-    //Demarre la session de lutilisateur
-    error_reporting(0);
+//Mettre ?userID=2 ou 3 pour voir un demo controlleur pas encore fini d'inplementer
+//Demarre la session de lutilisateur
+error_reporting(0);
 
-    //Si il y a une variable suivre dans l'url l'utilisateur connecté s'abonne d'un autre utilisateur
-    if(isset($_GET['follow'])){
-        $tonUsager->abonner($_SESSION['userID']);
-        $curPage= $_GET['userID'];
-        header("location:profil.php?userID=".$curPage);
-    }
-    //Si il y a une variable ne plus suivre dans l'url l'utilisateur connecté se desabonne d'un autre utilisateur
-    if(isset($_GET['unfollow'])){
-        $tonUsager->desabonner($_SESSION['userID']);
-        $curPage= $_GET['userID'];
-        header("location:profil.php?userID=".$curPage);
-    }
+//Si il y a une variable suivre dans l'url l'utilisateur connecté s'abonne d'un autre utilisateur
+if(isset($_GET['follow'])){
+    $tonUsager->abonner($_SESSION['userID']);
+    $curPage= $_GET['userID'];
+    header("location:profil.php?userID=".$curPage);
+}
+//Si il y a une variable ne plus suivre dans l'url l'utilisateur connecté se desabonne d'un autre utilisateur
+if(isset($_GET['unfollow'])){
+    $tonUsager->desabonner($_SESSION['userID']);
+    $curPage= $_GET['userID'];
+    header("location:profil.php?userID=".$curPage);
+}
 
-    //Si $checkAbonnement est vrai le html affiche se desabonner
-    if($checkAbonnement){
-        $title ="Se désabonner";
-    }
-    if(isset($_POST["publier"])){
-        $curPage= $_GET['userID'];
-        header("location:profil.php?userID=".$curPage);
-    }
-    if(isset($_POST["publierAvecRecette"])){
-        $curPage= $_GET['userID'];
-        header("location:profil.php?userID=".$curPage);
+//Si $checkAbonnement est vrai le html affiche se desabonner
+if($checkAbonnement){
+    $title ="Se désabonner";
+}
+if(isset($_POST["publier"])){
+    $curPage= $_GET['userID'];
+    header("location:profil.php?userID=".$curPage);
+}
+if(isset($_POST["publierAvecRecette"])){
+    $curPage= $_GET['userID'];
+    header("location:profil.php?userID=".$curPage);
 
-    }
+}
 ?>
 
 <!doctype html>
@@ -53,7 +42,7 @@ DESCRIPTION : page connexion
         <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"> 
         <link href="app/assets/reset.css" type="text/css" rel="stylesheet" />
         <link href="app/assets/style.css" type="text/css" rel="stylesheet" />
-        <link href="app/assets/style-laurie.css" rel="stylesheet">
+         <link href="app/assets/style-laurie.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="app/assets/lib/jquery.min.js" ></script>
         <script>
@@ -159,7 +148,6 @@ DESCRIPTION : page connexion
                     var element = document.querySelector(select);
                     element.outerHTML = "";
                 }
-                
                 //Ajoute un encart ingredient
                 function ajouterIngredient(){
                     ajoutIgreedient.insertAdjacentHTML('beforeend', 
@@ -200,7 +188,6 @@ DESCRIPTION : page connexion
                                     '</div>'+
                                 '</div>');
                 }
-                
                 ajouterIngredient();
                 //Ajoute un encart etape
                 function ajouterEtape(){
@@ -221,18 +208,15 @@ DESCRIPTION : page connexion
                                             '</div>'+
                                         '</div>');
                 }
-                
                 ajouterEtape();
                 //Ajoute un ingredient si on clique sur plus
                 ingreplus.addEventListener('click',function(){
                     ajouterIngredient();
                 });
-                
                 //ajoute une etape si on clique sur plus
                 prepplus.addEventListener('click',function(){
                     ajouterEtape();
                 });
-                
                 //Permet de supprimer un ingredient 
                 ajoutIgreedient.addEventListener("click", function(evt){
                     //console.log(evt.target);
@@ -246,7 +230,6 @@ DESCRIPTION : page connexion
                         index--;
                     }
                 });
-                
                 //permet de supprimer une étape de preparation
                 ajoutEtapePrep.addEventListener("click", function(evt){
                     //console.log(evt.target);
@@ -261,7 +244,6 @@ DESCRIPTION : page connexion
                         ind--;
                     }
                 });
-                
                 //Permet de passer a l'étape suivante si l'input check box recette est coché
                 recette.addEventListener('change', function (event) {
                     if (recette.checked) {
@@ -269,7 +251,6 @@ DESCRIPTION : page connexion
                         decision.classList.add("hidden");
                     } 
                 });
-                
                  //Permet de passer a l'étape suivante si l'input check box photo est coché
                 photo.addEventListener('change', function (event) {
                     if (photo.checked) {
@@ -277,25 +258,21 @@ DESCRIPTION : page connexion
                         decision.classList.add("hidden");
                     }
                 });
-                
                 //Permet la navigation entre les différentes étapes d'ajout de recette
                 precedentPhoto.addEventListener('click',function(event){
                     divPhoto.classList.add("hidden");
                     decision.classList.remove("hidden");
                     photo.checked = false;
                 });
-                
                 precedentRecette.addEventListener('click',function(event){
                     ajouterUneRecette.classList.add("hidden");
                     decision.classList.remove("hidden");
                     recette.checked=false;
                 });
-                
                 suivantRecette.addEventListener('click',function(event){
                     ajouterUneRecette.classList.add("hidden");
                     lesIngredients.classList.remove("hidden");
                 });
-                
                 precedentIngredient.addEventListener('click',function(event){
                     ajouterUneRecette.classList.remove("hidden");
                     lesIngredients.classList.add("hidden");
@@ -304,17 +281,14 @@ DESCRIPTION : page connexion
                     lesIngredients.classList.add("hidden");
                     etapePrep.classList.remove("hidden");
                 });
-                
                 precedentPrep.addEventListener('click',function(event){
                     lesIngredients.classList.remove("hidden");
                     etapePrep.classList.add("hidden");
                 });
-                
                 suivantPrep.addEventListener('click',function(event){
                     photoRecette.classList.remove("hidden");
                     etapePrep.classList.add("hidden");
                 });
-                
                 precedentPhotoRecette.addEventListener('click',function(event){
                     photoRecette.classList.add("hidden");
                     etapePrep.classList.remove("hidden");
@@ -322,12 +296,14 @@ DESCRIPTION : page connexion
                 
           
             })
+            
         </script>
         <script src="app/assets/js/menu.js"></script>
     </head>
     <body>
-        <?php include_once'header.php'; ?>
+       <?php include_once'header.php'; ?>
         <main>
+           
             <!-- Section nom-->
             <section class="haut">
                 <h2 class="nom"><?= $tonUsager->nomUtilisateur ?></h2>
@@ -351,8 +327,8 @@ DESCRIPTION : page connexion
                             }?>" width="150px" height="150px" alt="photoProfil">
                     <?php echo "</a>";?>
                 </figure>
-                
-                <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\"><img height=\"70px\" width=\"70px\" src=\"app/assets/images/Modify.png\"></span>";} ?>
+
+                    <?php if($profilUserActuel == true) { echo "<span class=\"plusprofil\"><img height=\"70px\" width=\"70px\" src=\"app/assets/images/Modify.png\"></span>";} ?>
 
                 <div title="<?= $title; ?>" alt="plus" class="plus">
                     <span><?= ($checkAbonnement == true) ?  "-" :  "+";?></span>
@@ -370,7 +346,6 @@ DESCRIPTION : page connexion
             <section class="haut">
                  <p style="font-style:italic;"><?= utf8_encode($tonUsager->description) ?></p>
             </section>
-            
             <section class="haut">
                 <p> Membre depuis <?= date("Y",strtotime($tonUsager->dateJoint)); ?></p>
             </section>
@@ -378,24 +353,23 @@ DESCRIPTION : page connexion
             <!-- section galerie photo -->
             <section class="bottom">
                 
-            <?php
-
-            foreach($tonUsager->photos as $photo){
-                $str =  "<div class='recette' data-recetteID=".$photo['idPhoto'].">
-                    <div class='rond' style='background-image:url(".$photo['url'].");width:200px;height:200px;background-size:cover;'></div>";
-                    if($photo['idRecette'] != NULL) {
-                        $str .="<div class='corner'></div>
-                            <img src='app/assets/images/fourchette.svg' width='30' height='30' />  
-
-                        ";
-                    }
-
-                $str .="</div>";
-                echo $str;
-            }
-
-            ?>
+                <?php
                 
+                foreach($tonUsager->photos as $photo){
+                    $str =  "<div class='recette' data-recetteID=".$photo['idPhoto'].">
+                        <div class='rond' style='background-image:url(".$photo['url'].");width:200px;height:200px;background-size:cover;'></div>";
+                        if($photo['idRecette'] != NULL) {
+                            $str .="<div class='corner'></div>
+                                <img src='app/assets/images/fourchette.svg' width='30' height='30' />  
+                                    
+                            ";
+                        }
+                        
+                    $str .="</div>";
+                    echo $str;
+                }
+                
+                ?>
             </section>
             <!-- pop up ajout de photo ou recette-->
             <div id="ajoutPhoto" class="popup hidden">
@@ -411,7 +385,7 @@ DESCRIPTION : page connexion
                         </div>
                         <div class="encart">
                            <span class="pad"><label for="recetteinput">Publiez une photo avec recette</label><input type="checkbox" name="recetteinput"></span>
-                           <span class="pad"><label for="photoinput">Publiez une photo sans recette</label><input type="checkbox" name="photoinput"></span>
+                           <span class="pad"><label for="photoinput" style="padding:10px;">Publiez une photo sans recette</label><input type="checkbox" name="photoinput"></span>
                         </div>
                      </div>
                     <!-- Formulaire d'ajout de photo -->
