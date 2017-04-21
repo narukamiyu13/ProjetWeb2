@@ -185,16 +185,16 @@ DESCRIPTION : page connexion
                                         '</select>'+
                                     '</div>'+
                                     '<div class="grandDiv">'+
-                                        '<label class="grandL">Ingrédient</label>'+
+                                        '<label class="grandL">Ingrédient</label><br>'+
                                         '<input type="text" name="nomIngredient[]" class="nomIngredient grandI">'+
                                         '<div id="suggesstion-box"></div>'+
                                     '</div>'+
                                     '<div class="grandDiv">'+
-                                        '<label class="grandL">Preparation ingredient</label>'+
+                                        '<label class="grandL">Preparation ingredient</label><br>'+
                                         '<input class="grandI" type="text" name="preparationIngredient[]">'+
                                     '</div>'+
                                     '<div class="grandDiv">'+
-                                        '<label class="grandL">Adjectif Ingredient</label>'+
+                                        '<label class="grandL">Adjectif Ingredient</label><br>'+
                                         '<input class="grandI" type="text" name="adjectifIngredient[]">'+
                                         '<input type="hidden" value="'+ (index++) +'">'+
                                     '</div>'+
