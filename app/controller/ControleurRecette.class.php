@@ -1,5 +1,15 @@
 <?php
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+NOM : 
+PROJET : Foodie
+ORGANISDATION : College Maisonneuve
+PAGE : ControleurRecette.php
+DATE DE CREATION : 27-03-17
+DESCRIPTION : controleur qui gere les requetes concernant lajout de recette 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
 require_once("app/model/Recette.class.php");
 require_once("Controleur.class.php");
 
@@ -71,19 +81,6 @@ class ControleurRecette extends Controleur {
                 }
             }
         }
-    }
-    public function ajaxIngredient(){
-        try{
-            if(!empty($_POST["keyword"])) {
-                $ingredientaaa= $this->modele->ajaxIngredient();
-                foreach($ingredientaaa as $searchin) {
-                    echo "<li>".$searchin['nomIngredient']."</li>";
-                }
-//            var_dump($searchin);
-            }
-        }catch(PDOException $e) {
-          echo 'ERROR: ' . $e->getMessage();
-      }
     }
 }
 
