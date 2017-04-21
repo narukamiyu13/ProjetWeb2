@@ -57,10 +57,10 @@ DESCRIPTION : page inscription
 				        </div>
                 </div>
                     <div class="wrapperInb">
-                        <input name="bt_inscription" type="submit" id="ipJoin" value="Inscription">
+                        <input name="bt_inscription" type="submit" id="ipSignIn" value="Inscription">
                     </form>
                         <p>ou</p>
-                        <input onClick="window.location.href='connexion.php'" type="submit" id="ipSignIn" value="Connexion">
+                        <input onClick="window.location.href='connexion.php'" type="submit" id="ipJoin" value="Connexion">
                     </div>
                 <?php
                 if($erreur==true){

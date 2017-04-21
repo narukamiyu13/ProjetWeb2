@@ -49,10 +49,11 @@ DESCRIPTION : page connexion
                     <p><a href="connexion.php?forgot">Mot de passe oublié?</a></p>
                     <div class="wrapperInb">
                         
-                        <input name="bt_connexion" type="submit" id="ipSignIn" value="Connexion">
+                        <input onClick="window.location.href='inscription.php'" type="button" id="ipSignIn" value="Inscription">
                 </form>
                     <p>ou</p>
-                    <input onClick="window.location.href='inscription.php'" type="button" id="ipJoin" value="Inscription">
+                    <input name="bt_connexion" type="submit" id="ipJoin" value="Connexion">
+                    
                     </div>
                 <?php
                 if($erreur==true){
